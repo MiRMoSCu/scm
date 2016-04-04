@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Insert title here</title>
+		<title>Formulario Registro</title>
 		<script type="text/javascript">
 			var urlInicio = "${urlInicio}";
 		</script>
@@ -26,6 +26,118 @@
 	<body>
 		<form name="form_registro">
 			FORMULARIO REGISTRO JSP
+			<br/>
+			<br/>
+			<table>
+				<tr>
+					<td>Nombre:</td>
+					<td>
+						<input type="text"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Ap Paterno:</td>
+					<td>
+						<input type="text"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Ap Materno:</td>
+					<td>
+						<input type="text"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Grado:</td>
+					<td>
+						<select></select>
+					</td>
+				</tr>
+				<tr>
+					<td>Cuerpo procedencia:</td>
+					<td>
+						<input type="text"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Ciudad:</td>
+					<td>
+						<input type="text"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Estado:</td>
+					<td>
+						<select></select>
+					</td>
+				</tr>
+				<tr>
+					<td>Delegaci&oacute;n:</td>
+					<td>
+						<input type="text"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Tel&eacute;fono:</td>
+					<td>
+						<input type="text"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Tel M&oacute;vil:</td>
+					<td>
+						<input type="text"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Email:</td>
+					<td>
+						<input type="text"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Fecha dep&oacute;sito:</td>
+					<td>
+						<input type="text"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Banco:</td>
+					<td>
+						<input type="text"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Comprobante pago:</td>
+					<td>
+						<input type="text"/>
+					</td>
+				</tr>
+				<tr>
+					<td>¿Hospedaje?:</td>
+					<td>
+						<input type="checkbox"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Hotel:</td>
+					<td>
+						<input type="text"/>
+					</td>
+				</tr>
+				<tr>
+					<td>¿Acompa&ntilde;ante?:</td>
+					<td>
+						<input type="checkbox"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Mesa trabajo:</td>
+					<td>
+						<input type="text"/>
+					</td>
+				</tr>
+			</table>
 			<br/>
 			<br/>
 			<input type="button" value="Regresar" onclick="menu('inicio')"/>

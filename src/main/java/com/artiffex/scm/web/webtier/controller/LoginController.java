@@ -25,6 +25,10 @@ public class LoginController {
 	@RequestMapping(value = "/registro")
 	public String formularioRegistro(Model model) {
 		log.info("/registro");
+		
+		
+		//model.addAttribute("",null);
+		
 		return "formulario_registro";
 	}
 	
