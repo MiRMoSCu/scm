@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+               http://www.springframework.org/schema/security
+               http://www.springframework.org/schema/security/spring-security-3.1.xsd
+               http://www.springframework.org/schema/jdbc
+    		   http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd">
+    		   
+	<security:http auto-config="true" use-expressions="true">
+		<security:intercept-url pattern="/resources/**" access="permitAll" />
+		<security:intercept-url pattern="/public/**" access="permitAll" />
+		<security:intercept-url pattern="/login.jsp*" access="permitAll" />
+		<security:intercept-url pattern="/admin/**" access="isAuthenticated()" />
+		<security:form-login login-page="/login.jsp"
+			username-parameter="usuario" 
+			password-parameter="contrasenia"
+			authentication-failure-url="/login.jsp?error" />
+		<security:session-management>
+			<security:concurrency-control max-sessions="1"/>
+		</security:session-management>
+	</security:http>
+	
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:jdbc-user-service 
+				data-source-ref="dataSource"
+				authorities-by-username-query=
+					"SELECT 
+					    u.usuario username, p.nombre authority
+					FROM
+					    perfil_x_usuario pxu,
+					    usuario u,
+					    perfil p
+					WHERE
+					    pxu.id_usuario = u.id_usuario
+					        AND pxu.id_perfil = p.id_perfil
+					        AND pxu.activo = TRUE
+					        and u.usuario = ?" 
+				users-by-username-query=
+					"SELECT 
+					    u.usuario username, u.contrasenia password, u.activo enabled
+					FROM
+					    perfil_x_usuario pxu,
+					    usuario u,
+					    perfil p
+					WHERE
+					    pxu.id_usuario = u.id_usuario
+					        AND pxu.id_perfil = p.id_perfil
+					        AND pxu.activo = TRUE
+					        AND u.usuario = ?" />
+		</security:authentication-provider>
+	</security:authentication-manager>
+	
+	<security:global-method-security secured-annotations="enabled"/>
+	
+</beans>
