@@ -24,7 +24,7 @@
 		<property name="hibernate.transaction.auto_close_session">true</property>
 		<property name="use_outer_join">true</property>
 		<property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
-		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.show_sql">false</property>
 		<property name="current_session_context_class">thread</property>
 		<property name="hibernate.enable_lazy_load_no_trans">true</property>
 		<property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
@@ -43,13 +43,19 @@
 		<!-- <mapping resource="hibernate/hn_acabado.hbm.xml"/> -->
 		
 		<!-- con @Annotations -->
-		<mapping class="com.artiffex.scm.web.businesstier.entity.Usuario"/>
+		<mapping class="com.artiffex.scm.web.businesstier.entity.Acompañante"/>
+		<mapping class="com.artiffex.scm.web.businesstier.entity.ColacionGrado"/>
+		<mapping class="com.artiffex.scm.web.businesstier.entity.Estado"/>
+		<mapping class="com.artiffex.scm.web.businesstier.entity.Grado"/>
+		<mapping class="com.artiffex.scm.web.businesstier.entity.Hospedaje"/>
+		<mapping class="com.artiffex.scm.web.businesstier.entity.Hotel"/>
+		<mapping class="com.artiffex.scm.web.businesstier.entity.Pago"/>
+		<mapping class="com.artiffex.scm.web.businesstier.entity.Participante"/>
 		<mapping class="com.artiffex.scm.web.businesstier.entity.Perfil"/>
 		<mapping class="com.artiffex.scm.web.businesstier.entity.PerfilXUsuario"/>
-		
-		<mapping class="com.artiffex.scm.web.businesstier.entity.Estado"/>
-		<mapping class="com.artiffex.scm.web.businesstier.entity.Participante"/>
-		<mapping class="com.artiffex.scm.web.businesstier.entity.Acompañante"/>
-		
+		<mapping class="com.artiffex.scm.web.businesstier.entity.Registro"/>
+		<mapping class="com.artiffex.scm.web.businesstier.entity.TipoParticipacion"/>
+		<mapping class="com.artiffex.scm.web.businesstier.entity.TipoPonencia"/>
+		<mapping class="com.artiffex.scm.web.businesstier.entity.Usuario"/>
 	</session-factory>
 </hibernate-configuration>

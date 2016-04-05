@@ -21,7 +21,7 @@ public class Usuario implements Serializable {
 	private String apMaterno;
 	private String usuario;
 	private String contrasenia;
-	private boolean activo;
+	private Boolean activo;
 	//private Set<PerfilXUsuario> perfilXUsuario = new HashSet<PerfilXUsuario>();
 	
 	// constructor
@@ -29,7 +29,7 @@ public class Usuario implements Serializable {
 	
 	public Usuario(
 			Integer idUsuario, String nombre, String apPaterno,
-			String apMaterno, String usuario, String contrasenia, boolean activo) {
+			String apMaterno, String usuario, String contrasenia, Boolean activo) {
 		super();
 		this.idUsuario = idUsuario;
 		this.nombre = nombre;
@@ -67,7 +67,7 @@ public class Usuario implements Serializable {
 	public void setContrasenia(String contrasenia) { this.contrasenia = contrasenia; }
 
 	@Column(name="activo")
-	public boolean isActivo() { return activo; }
-	public void setActivo(boolean activo) { this.activo = activo; }
+	public Boolean isActivo() { return activo; }
+	public void setActivo(Boolean activo) { this.activo = activo; }
 
 }

@@ -21,13 +21,15 @@ public class Acompañante implements Serializable {
 	private Integer idAcompañante;
 	private Participante participante;
 	private String nombre;
-	private boolean activo;
+	private String apPaterno;
+	private String apMaterno;
+	private Boolean activo;
 	
 	// constructor
 	public Acompañante() { }
 	
 	public Acompañante(Integer idAcompañante, Participante participante,
-			String nombre, boolean activo) {
+			String nombre, Boolean activo) {
 		super();
 		this.idAcompañante = idAcompañante;
 		this.participante = participante;
@@ -49,9 +51,17 @@ public class Acompañante implements Serializable {
 	@Column(name="nombre", length=80)
 	public String getNombre() { return nombre; }
 	public void setNombre(String nombre) { this.nombre = nombre; }
+	
+	@Column(name="ap_paterno", length=45)
+	public String getApPaterno() { return apPaterno; }
+	public void setApPaterno(String apPaterno) { this.apPaterno = apPaterno; }
+
+	@Column(name="ap_materno", length=45)
+	public String getApMaterno() { return apMaterno; }
+	public void setApMaterno(String apMaterno) { this.apMaterno = apMaterno; }
 
 	@Column(name="activo")
-	public boolean isActivo() { return activo; }
-	public void setActivo(boolean activo) { this.activo = activo; }
+	public Boolean isActivo() { return activo; }
+	public void setActivo(Boolean activo) { this.activo = activo; }
 
 }

@@ -3,30 +3,26 @@ package com.artiffex.scm.web.businesstier.entity;
 import java.io.Serializable;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity
-@Table(name="perfil")
-public class Perfil implements Serializable {
+public class TipoParticipacion implements Serializable {
 
-	private static final long serialVersionUID = 5902223935623986924L;
+	private static final long serialVersionUID = -5873106122527949760L;
 	
-	private Integer idPerfil;
+	private Integer idTipoParticipacion;
 	private String nombre;
 	private String descripcion;
 	private Boolean activo;
 	
 	// constructor
-	public Perfil() { }
-	
-	public Perfil(Integer idPerfil, String nombre, String descripcion,
-			Boolean activo) {
+	public TipoParticipacion() { }
+
+	public TipoParticipacion(Integer idTipoParticipacion, String nombre,
+			String descripcion, Boolean activo) {
 		super();
-		this.idPerfil = idPerfil;
+		this.idTipoParticipacion = idTipoParticipacion;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.activo = activo;
@@ -34,18 +30,18 @@ public class Perfil implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_perfil", unique=true, nullable=false)
-	public Integer getIdPerfil() { return idPerfil; }
-	public void setIdPerfil(Integer idPerfil) { this.idPerfil = idPerfil; }
-	
+	@Column(name="id_tipo_participacion", unique=true, nullable=false)
+	public Integer getIdTipoParticipacion() { return idTipoParticipacion; }
+	public void setIdTipoParticipacion(Integer idTipoParticipacion) { this.idTipoParticipacion = idTipoParticipacion; }
+
 	@Column(name="nombre", length=45)
 	public String getNombre() { return nombre; }
 	public void setNombre(String nombre) { this.nombre = nombre; }
-	
-	@Column(name="descripcion", length=80)
+
+	@Column(name="descripcion", length=45)
 	public String getDescripcion() { return descripcion; }
 	public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
-	
+
 	@Column(name="activo")
 	public Boolean isActivo() { return activo; }
 	public void setActivo(Boolean activo) { this.activo = activo; }
