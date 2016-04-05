@@ -16,6 +16,7 @@ public class Main {
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
+		
 		System.out.println("Hola Mundo!");
 		
 		SessionFactory sf = HibernateUtil.getInstance();
@@ -42,6 +43,8 @@ public class Main {
 		
 		List<PerfilXUsuario> listaPerfilXUsuario = session.createQuery("from PerfilXUsuario pxu where pxu.activo = true").list();
 		System.out.println(listaPerfilXUsuario.size());
+		
+		System.out.println("termino");
 		
 		session.close();
 	}

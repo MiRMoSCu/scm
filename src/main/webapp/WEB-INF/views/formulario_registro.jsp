@@ -30,7 +30,7 @@
 			<br/>
 			<table>
 				<tr>
-					<td>Nombre:</td>
+					<td>Nombre(s):</td>
 					<td>
 						<input type="text"/>
 					</td>
@@ -135,6 +135,11 @@
 					<td>Mesa trabajo:</td>
 					<td>
 						<input type="text"/>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" style="text-align: right;">
+						<input type="button" value="Enviar" onclick="menu('envia_formulario')">
 					</td>
 				</tr>
 			</table>
