@@ -27,7 +27,10 @@
 		<property name="hibernate.show_sql">false</property>
 		<property name="current_session_context_class">thread</property>
 		<property name="hibernate.enable_lazy_load_no_trans">true</property>
-		<property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
+		<!-- HIBERNATE 4: tiene la clase hql.internal.classic -->
+		<!-- <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>-->
+		<!-- HIBERNATE 3: NO tiene la clase hql.classic -->
+		<property name="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</property>
 		<property name="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
 <!--************** JDBC connection pool C3PO *****************-->
 		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>

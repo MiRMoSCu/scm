@@ -48,31 +48,17 @@
 					</td>
 				</tr>
 				<tr>
-					<td>Grado:</td>
-					<td>
-						<select></select>
-					</td>
-				</tr>
-				<tr>
-					<td>Cuerpo procedencia:</td>
-					<td>
-						<input type="text"/>
-					</td>
-				</tr>
-				<tr>
-					<td>Ciudad:</td>
-					<td>
-						<input type="text"/>
-					</td>
-				</tr>
-				<tr>
 					<td>Estado:</td>
 					<td>
-						<select></select>
+						<select name="id_estado" id="id_estado">
+							<c:forEach var="e" items="${listaEstados}">
+								<option value="${e.value}">${e.text}</option>
+							</c:forEach>
+						</select>
 					</td>
 				</tr>
 				<tr>
-					<td>Delegaci&oacute;n:</td>
+					<td>Delegaci&oacute;n/Municipio:</td>
 					<td>
 						<input type="text"/>
 					</td>
@@ -96,45 +82,15 @@
 					</td>
 				</tr>
 				<tr>
-					<td>Fecha dep&oacute;sito:</td>
-					<td>
-						<input type="text"/>
-					</td>
-				</tr>
-				<tr>
-					<td>Banco:</td>
-					<td>
-						<input type="text"/>
-					</td>
-				</tr>
-				<tr>
-					<td>Comprobante pago:</td>
-					<td>
-						<input type="text"/>
-					</td>
-				</tr>
-				<tr>
 					<td>¿Hospedaje?:</td>
 					<td>
 						<input type="checkbox"/>
 					</td>
 				</tr>
 				<tr>
-					<td>Hotel:</td>
-					<td>
-						<input type="text"/>
-					</td>
-				</tr>
-				<tr>
 					<td>¿Acompa&ntilde;ante?:</td>
 					<td>
 						<input type="checkbox"/>
-					</td>
-				</tr>
-				<tr>
-					<td>Mesa trabajo:</td>
-					<td>
-						<input type="text"/>
 					</td>
 				</tr>
 				<tr>

@@ -21,12 +21,15 @@ public class Participante implements Serializable {
 	private String nombre;
 	private String apPaterno;
 	private String apMaterno;
+	private String calle;
+	private String numExterior;
+	private String numInterior;
+	private String colonia;
 	private String delegacionMunicipio;
-	private String ciudad;
 	private Estado estado;
 	private String codigoPostal;
 	private String telefonoParticular;
-	private String telefonoelular;
+	private String telefonoCelular;
 	private String telefonoOficina;
 	private String email;
 	private Boolean aplicaAcompañante;
@@ -37,9 +40,10 @@ public class Participante implements Serializable {
 	public Participante() { }
 
 	public Participante(Integer idParticipante, String nombre,
-			String apPaterno, String apMaterno, String delegacionMunicipio,
-			String ciudad, Estado estado, String codigoPostal,
-			String telefonoParticular, String telefonoelular,
+			String apPaterno, String apMaterno, String calle,
+			String numExterior, String numInterior, String colonia,
+			String delegacionMunicipio, Estado estado, String codigoPostal,
+			String telefonoParticular, String telefonoCelular,
 			String telefonoOficina, String email, Boolean aplicaAcompañante,
 			Boolean aplicaHospedaje, Boolean activo) {
 		super();
@@ -47,18 +51,22 @@ public class Participante implements Serializable {
 		this.nombre = nombre;
 		this.apPaterno = apPaterno;
 		this.apMaterno = apMaterno;
+		this.calle = calle;
+		this.numExterior = numExterior;
+		this.numInterior = numInterior;
+		this.colonia = colonia;
 		this.delegacionMunicipio = delegacionMunicipio;
-		this.ciudad = ciudad;
 		this.estado = estado;
 		this.codigoPostal = codigoPostal;
 		this.telefonoParticular = telefonoParticular;
-		this.telefonoelular = telefonoelular;
+		this.telefonoCelular = telefonoCelular;
 		this.telefonoOficina = telefonoOficina;
 		this.email = email;
 		this.aplicaAcompañante = aplicaAcompañante;
 		this.aplicaHospedaje = aplicaHospedaje;
 		this.activo = activo;
 	}
+
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -77,14 +85,26 @@ public class Participante implements Serializable {
 	@Column(name="ap_materno", length=45)
 	public String getApMaterno() { return apMaterno; }
 	public void setApMaterno(String apMaterno) { this.apMaterno = apMaterno; }
+	
+	@Column(name="calle")
+	public String getCalle() { return calle; }
+	public void setCalle(String calle) { this.calle = calle; }
+
+	@Column(name="num_exterior")
+	public String getNumExterior() { return numExterior; }
+	public void setNumExterior(String numExterior) { this.numExterior = numExterior; }
+
+	@Column(name="num_interior")
+	public String getNumInterior() { return numInterior; }
+	public void setNumInterior(String numInterior) { this.numInterior = numInterior; }
+
+	@Column(name="colonia")
+	public String getColonia() { return colonia; }
+	public void setColonia(String colonia) { this.colonia = colonia; }
 
 	@Column(name="delegacion_municipio", length=80)
 	public String getDelegacionMunicipio() { return delegacionMunicipio; }
 	public void setDelegacionMunicipio(String delegacionMunicipio) { this.delegacionMunicipio = delegacionMunicipio; }
-
-	@Column(name="ciudad", length=80)
-	public String getCiudad() { return ciudad; }
-	public void setCiudad(String ciudad) { this.ciudad = ciudad; }
 
 	@OneToOne
 	@JoinColumn(name="id_estado")
@@ -100,8 +120,8 @@ public class Participante implements Serializable {
 	public void setTelefonoParticular(String telefonoParticular) { this.telefonoParticular = telefonoParticular; }
 
 	@Column(name="telefono_celular", length=15)
-	public String getTelefonoelular() { return telefonoelular; }
-	public void setTelefonoelular(String telefonoelular) { this.telefonoelular = telefonoelular; }
+	public String getTelefonoCelular() { return telefonoCelular; }
+	public void setTelefonoCelular(String telefonoCelular) { this.telefonoCelular = telefonoCelular; }
 
 	@Column(name="telefono_oficina", length=45)
 	public String getTelefonoOficina() { return telefonoOficina; }
@@ -122,5 +142,5 @@ public class Participante implements Serializable {
 	@Column(name="activo", nullable=true)
 	public Boolean isActivo() { return activo; }
 	public void setActivo(Boolean activo) { this.activo = activo; }
-	
+
 }

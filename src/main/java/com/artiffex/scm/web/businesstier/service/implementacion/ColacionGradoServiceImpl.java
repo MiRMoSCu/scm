@@ -14,9 +14,10 @@ public class ColacionGradoServiceImpl implements ColacionGradoService {
 	@Resource
 	private ColacionGradoDao colacionGradoDao;
 	
-	// setters and getters para standaloneApplicationContext.xml
-	public ColacionGradoDao getColacionGradoDao() { return colacionGradoDao; }
-	public void setColacionGradoDao(ColacionGradoDao colacionGradoDao) { this.colacionGradoDao = colacionGradoDao; }
+	/* NO BORRAR */
+	// setters and getters NECESARIO cuando se utilice standaloneApplicationContext.xml
+	//public ColacionGradoDao getColacionGradoDao() { return colacionGradoDao; }
+	//public void setColacionGradoDao(ColacionGradoDao colacionGradoDao) { this.colacionGradoDao = colacionGradoDao; }
 	
 	// metodos implementados
 
