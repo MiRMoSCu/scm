@@ -2,14 +2,13 @@ package com.artiffex.scm.web.businesstier.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -87,8 +86,8 @@ public class Participante implements Serializable {
 	public String getCiudad() { return ciudad; }
 	public void setCiudad(String ciudad) { this.ciudad = ciudad; }
 
-	@OneToOne(cascade=CascadeType.ALL)
-	@PrimaryKeyJoinColumn
+	@OneToOne
+	@JoinColumn(name="id_estado")
 	public Estado getEstado() { return estado; }
 	public void setEstado(Estado estado) { this.estado = estado; }
 

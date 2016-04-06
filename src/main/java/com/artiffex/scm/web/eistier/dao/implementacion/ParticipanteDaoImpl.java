@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
 import com.artiffex.scm.web.businesstier.entity.Participante;
@@ -20,18 +21,21 @@ public class ParticipanteDaoImpl implements ParticipanteDao {
 
 	public int crea(Participante participante) {
 		int id = 0;
+		Transaction tx = null;
 		try {
 			try {
 				session = HibernateUtil.getInstance().getCurrentSession();
 			} catch (HibernateException he) {
 				session = HibernateUtil.getInstance().openSession();
 			}
-			session.beginTransaction();
+			tx = session.beginTransaction();
 			id = (Integer) session.save(participante);
-			session.getTransaction().commit();
+			tx.commit();
+			tx = null;
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			session.getTransaction().rollback();
+			if ( tx != null )
+				tx.rollback();
 		}
 		return id;
 	}

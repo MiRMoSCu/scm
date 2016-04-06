@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+<beans 	xmlns="http://www.springframework.org/schema/beans"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:beans="http://www.springframework.org/schema/beans" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       	xsi:schemaLocation="
+       		http://www.springframework.org/schema/beans 
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+       		http://www.springframework.org/schema/context 
+			http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!-- ContextComponentScan -->
+    <context:component-scan base-package="com.artiffex.scm.web.webtier.controller"/>
+	<context:component-scan base-package="com.artiffex.scm.web.businesstier.service.implementacion"/>
+	<context:component-scan base-package="com.artiffex.scm.web.eistier.dao"/>
     
 	<!-- SPRING -->    
     <bean id="participanteService" class="com.artiffex.scm.web.businesstier.service.implementacion.ParticipanteServiceImpl">
@@ -9,39 +20,6 @@
     </bean>
     
     <!-- DAO -->
-    <bean id="participanteDao" class="com.artiffex.scm.web.eistier.dao.implementacion.ParticipanteDaoImpl">
-    	<property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
+    <bean id="participanteDao" class="com.artiffex.scm.web.eistier.dao.implementacion.ParticipanteDaoImpl"/>
     
-	<bean id="SessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<property name="dataSource" ref="DataSource" />
-		<property name="annotatedClasses">
-			<list>
-				<value>com.artiffex.scm.web.businesstier.entity.Participante</value>
-			</list>
-		</property>
-		<property name="hibernateProperties">
-			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-				<prop key="hibernate.show_sql">true</prop>
-			</props>
-		</property>
-	</bean>
-    
-    <!-- JDBC -->
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-		<property name="url" value="jdbc:mysql://127.0.0.1:3306/lithomat_scm_artiffex"/>
-		<property name="username" value="root"/>
-		<property name="password" value=""/>
-		<property name="initialSize" value="3" />
-		<property name="maxActive" value="10" />
-	</bean>
-	
-	<!-- 
-	<bean id="transactionManager" 
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource"/>
-	</bean>
-	-->
 </beans>
