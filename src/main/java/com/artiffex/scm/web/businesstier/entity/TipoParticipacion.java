@@ -3,10 +3,14 @@ package com.artiffex.scm.web.businesstier.entity;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="tipo_participacion")
 public class TipoParticipacion implements Serializable {
 
 	private static final long serialVersionUID = -5873106122527949760L;

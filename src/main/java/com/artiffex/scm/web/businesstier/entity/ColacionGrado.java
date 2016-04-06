@@ -3,12 +3,16 @@ package com.artiffex.scm.web.businesstier.entity;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="colacion_grado")
 public class ColacionGrado implements Serializable {
 
 	private static final long serialVersionUID = 7527050000641243964L;
@@ -39,12 +43,12 @@ public class ColacionGrado implements Serializable {
 	public void setIdColacionGrado(Integer idColacionGrado) { this.idColacionGrado = idColacionGrado; }
 
 	@OneToOne
-	@PrimaryKeyJoinColumn
+	@JoinColumn(name="id_participante")
 	public Participante getParticipante() { return participante; }
 	public void setParticipante(Participante participante) { this.participante = participante; }
 
 	@OneToOne
-	@PrimaryKeyJoinColumn
+	@JoinColumn(name="id_grado_pretende")
 	public Grado getGradoPretende() { return gradoPretende; }
 	public void setGradoPretende(Grado gradoPretende) { this.gradoPretende = gradoPretende; }
 

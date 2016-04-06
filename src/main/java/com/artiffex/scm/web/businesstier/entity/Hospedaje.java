@@ -4,12 +4,16 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="hospedaje")
 public class Hospedaje implements Serializable {
 
 	private static final long serialVersionUID = 4631123349883310598L;
@@ -45,12 +49,12 @@ public class Hospedaje implements Serializable {
 	public void setIdHospedaje(Integer idHospedaje) { this.idHospedaje = idHospedaje; }
 
 	@OneToOne
-	@PrimaryKeyJoinColumn
+	@JoinColumn(name="id_participante")
 	public Participante getParticipante() { return participante; }
 	public void setParticipante(Participante participante) { this.participante = participante; }
 
 	@OneToOne
-	@PrimaryKeyJoinColumn
+	@JoinColumn(name="id_hotel")
 	public Hotel getHotel() { return hotel; }
 	public void setHotel(Hotel hotel) { this.hotel = hotel; }
 

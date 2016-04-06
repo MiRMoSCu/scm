@@ -44,7 +44,7 @@ public class Acompañante implements Serializable {
 	public void setIdAcompañante(Integer idAcompañante) { this.idAcompañante = idAcompañante; }
 
 	@ManyToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE})
-	@JoinColumn(name="id_participante", insertable=false, updatable=false, nullable=false)
+	@JoinColumn(name="id_participante", nullable=false)
 	public Participante getParticipante() { return participante; }
 	public void setParticipante(Participante participante) { this.participante = participante; }
 

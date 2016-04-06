@@ -7,8 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -41,12 +41,12 @@ public class PerfilXUsuario implements Serializable {
 	public void setIdPerfilXUsuario(Integer idPerfilXUsuario) { this.idPerfilXUsuario = idPerfilXUsuario; }
 
 	@OneToOne
-	@PrimaryKeyJoinColumn
+	@JoinColumn(name="id_usuario")
 	public Usuario getUsuario() { return usuario; }
 	public void setUsuario(Usuario usuario) { this.usuario = usuario; }
 
 	@OneToOne
-	@PrimaryKeyJoinColumn
+	@JoinColumn(name="id_perfil")
 	public Perfil getPerfil() { return perfil; }
 	public void setPerfil(Perfil perfil) { this.perfil = perfil; }
 

@@ -24,18 +24,18 @@ public class ParticipanteDaoImpl implements ParticipanteDao {
 		Transaction tx = null;
 		try {
 			try {
-				session = HibernateUtil.getInstance().getCurrentSession();
+				this.session = HibernateUtil.getInstance().getCurrentSession();
 			} catch (HibernateException he) {
 				session = HibernateUtil.getInstance().openSession();
 			}
-			tx = session.beginTransaction();
-			id = (Integer) session.save(participante);
-			tx.commit();
+			tx = this.session.beginTransaction();
+			id = (Integer) this.session.save(participante);
+			this.session.getTransaction().commit();
 			tx = null;
 		} catch (Exception e) {
-			log.error(e.getMessage());
 			if ( tx != null )
-				tx.rollback();
+				this.session.getTransaction().rollback();
+			log.error(e.getMessage());
 		}
 		return id;
 	}

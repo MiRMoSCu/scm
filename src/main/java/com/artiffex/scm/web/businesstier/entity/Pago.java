@@ -4,12 +4,16 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="pago")
 public class Pago implements Serializable {
 
 	private static final long serialVersionUID = 5275291337375913287L;
@@ -42,7 +46,7 @@ public class Pago implements Serializable {
 	public void setIdPago(Integer idPago) { this.idPago = idPago; }
 
 	@OneToOne
-	@PrimaryKeyJoinColumn
+	@JoinColumn(name="id_participante")
 	public Participante getParticipante() { return participante; }
 	public void setParticipante(Participante participante) { this.participante = participante; }
 

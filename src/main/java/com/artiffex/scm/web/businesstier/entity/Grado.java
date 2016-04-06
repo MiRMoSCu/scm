@@ -3,10 +3,14 @@ package com.artiffex.scm.web.businesstier.entity;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="grado")
 public class Grado implements Serializable {
 
 	private static final long serialVersionUID = 2330949541524310859L;

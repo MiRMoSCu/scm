@@ -14,12 +14,16 @@
 	<context:component-scan base-package="com.artiffex.scm.web.businesstier.service.implementacion"/>
 	<context:component-scan base-package="com.artiffex.scm.web.eistier.dao"/>
     
-	<!-- SPRING -->    
+	<!-- SPRING -->
     <bean id="participanteService" class="com.artiffex.scm.web.businesstier.service.implementacion.ParticipanteServiceImpl">
     	<property name="participanteDao" ref="participanteDao"/>
+    </bean>
+    <bean id="colacionGradoService" class="com.artiffex.scm.web.businesstier.service.implementacion.ColacionGradoServiceImpl">
+    	<property name="colacionGradoDao" ref="colacionGradoDao"/>
     </bean>
     
     <!-- DAO -->
     <bean id="participanteDao" class="com.artiffex.scm.web.eistier.dao.implementacion.ParticipanteDaoImpl"/>
+    <bean id="colacionGradoDao" class="com.artiffex.scm.web.eistier.dao.implementacion.ColacionGradoDaoImpl"/>
     
 </beans>

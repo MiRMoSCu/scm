@@ -3,12 +3,16 @@ package com.artiffex.scm.web.businesstier.entity;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="registro")
 public class Registro implements Serializable {
 
 	private static final long serialVersionUID = -7085598198310935877L;
@@ -45,12 +49,12 @@ public class Registro implements Serializable {
 	public void setIdRegistro(Integer idRegistro) { this.idRegistro = idRegistro; }
 
 	@OneToOne
-	@PrimaryKeyJoinColumn
+	@JoinColumn(name="id_participante")
 	public Participante getParticipante() { return participante; }
 	public void setParticipante(Participante participante) { this.participante = participante; }
 
 	@OneToOne
-	@PrimaryKeyJoinColumn
+	@JoinColumn(name="id_grado")
 	public Grado getGrado() { return grado; }
 	public void setGrado(Grado grado) { this.grado = grado; }
 
@@ -63,12 +67,12 @@ public class Registro implements Serializable {
 	public void setDelegacion(String delegacion) { this.delegacion = delegacion; }
 
 	@OneToOne
-	@PrimaryKeyJoinColumn
+	@JoinColumn(name="id_tipo_participacion")
 	public TipoParticipacion getTipoParticipacion() { return tipoParticipacion; }
 	public void setTipoParticipacion(TipoParticipacion tipoParticipacion) { this.tipoParticipacion = tipoParticipacion; }
 
 	@OneToOne
-	@PrimaryKeyJoinColumn
+	@JoinColumn(name="id_tipo_ponencia")
 	public TipoPonencia getTipoPonencia() { return tipoPonencia; }
 	public void setTipoPonencia(TipoPonencia tipoPonencia) { this.tipoPonencia = tipoPonencia; }
 
