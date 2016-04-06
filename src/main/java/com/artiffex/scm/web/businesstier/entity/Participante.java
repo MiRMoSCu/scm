@@ -32,9 +32,9 @@ public class Participante implements Serializable {
 	private String telefonoCelular;
 	private String telefonoOficina;
 	private String email;
-	private Boolean aplicaAcompañante;
-	private Boolean aplicaHospedaje;
-	private Boolean activo;
+	private boolean aplicaAcompaniante;
+	private boolean aplicaHospedaje;
+	private boolean activo;
 
 	// constructor
 	public Participante() { }
@@ -44,8 +44,8 @@ public class Participante implements Serializable {
 			String numExterior, String numInterior, String colonia,
 			String delegacionMunicipio, Estado estado, String codigoPostal,
 			String telefonoParticular, String telefonoCelular,
-			String telefonoOficina, String email, Boolean aplicaAcompañante,
-			Boolean aplicaHospedaje, Boolean activo) {
+			String telefonoOficina, String email, boolean aplicaAcompaniante,
+			boolean aplicaHospedaje, boolean activo) {
 		super();
 		this.idParticipante = idParticipante;
 		this.nombre = nombre;
@@ -62,7 +62,7 @@ public class Participante implements Serializable {
 		this.telefonoCelular = telefonoCelular;
 		this.telefonoOficina = telefonoOficina;
 		this.email = email;
-		this.aplicaAcompañante = aplicaAcompañante;
+		this.aplicaAcompaniante = aplicaAcompaniante;
 		this.aplicaHospedaje = aplicaHospedaje;
 		this.activo = activo;
 	}
@@ -86,19 +86,19 @@ public class Participante implements Serializable {
 	public String getApMaterno() { return apMaterno; }
 	public void setApMaterno(String apMaterno) { this.apMaterno = apMaterno; }
 	
-	@Column(name="calle")
+	@Column(name="calle", length=60)
 	public String getCalle() { return calle; }
 	public void setCalle(String calle) { this.calle = calle; }
 
-	@Column(name="num_exterior")
+	@Column(name="num_exterior", length=15)
 	public String getNumExterior() { return numExterior; }
 	public void setNumExterior(String numExterior) { this.numExterior = numExterior; }
 
-	@Column(name="num_interior")
+	@Column(name="num_interior", length=15)
 	public String getNumInterior() { return numInterior; }
 	public void setNumInterior(String numInterior) { this.numInterior = numInterior; }
 
-	@Column(name="colonia")
+	@Column(name="colonia", length=60)
 	public String getColonia() { return colonia; }
 	public void setColonia(String colonia) { this.colonia = colonia; }
 
@@ -131,16 +131,16 @@ public class Participante implements Serializable {
 	public String getEmail() { return email; }
 	public void setEmail(String email) { this.email = email; }
 
-	@Column(name="aplica_acompañante", nullable=true)
-	public Boolean isAplicaAcompañante() { return aplicaAcompañante; }
-	public void setAplicaAcompañante(Boolean aplicaAcompañante) { this.aplicaAcompañante = aplicaAcompañante; }
+	@Column(name="aplica_acompaniante")
+	public boolean isAplicaAcompaniante() { return aplicaAcompaniante; }
+	public void setAplicaAcompaniante(boolean aplicaAcompaniante) { this.aplicaAcompaniante = aplicaAcompaniante; }
 
-	@Column(name="aplica_hospedaje", nullable=true)
-	public Boolean isAplicaHospedaje() { return aplicaHospedaje; }
-	public void setAplicaHospedaje(Boolean aplicaHospedaje) { this.aplicaHospedaje = aplicaHospedaje; }
+	@Column(name="aplica_hospedaje")
+	public boolean isAplicaHospedaje() { return aplicaHospedaje; }
+	public void setAplicaHospedaje(boolean aplicaHospedaje) { this.aplicaHospedaje = aplicaHospedaje; }
 
-	@Column(name="activo", nullable=true)
-	public Boolean isActivo() { return activo; }
-	public void setActivo(Boolean activo) { this.activo = activo; }
+	@Column(name="activo")
+	public boolean isActivo() { return activo; }
+	public void setActivo(boolean activo) { this.activo = activo; }
 
 }

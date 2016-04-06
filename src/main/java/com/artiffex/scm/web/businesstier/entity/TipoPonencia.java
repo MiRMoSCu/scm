@@ -18,12 +18,12 @@ public class TipoPonencia implements Serializable {
 	private Integer idTipoPonencia;
 	private String nombre;
 	private String descripcion;
-	private Boolean activo;
+	private boolean activo;
 	
 	// constructor
 	public TipoPonencia() { }
 	
-	public TipoPonencia(Integer idTipoPonencia, String nombre, String descripcion, Boolean activo) {
+	public TipoPonencia(Integer idTipoPonencia, String nombre, String descripcion, boolean activo) {
 		super();
 		this.idTipoPonencia = idTipoPonencia;
 		this.nombre = nombre;
@@ -46,7 +46,7 @@ public class TipoPonencia implements Serializable {
 	public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
 
 	@Column(name="activo")
-	public Boolean isActivo() { return activo; }
-	public void setActivo(Boolean activo) { this.activo = activo; }
+	public boolean isActivo() { return activo; }
+	public void setActivo(boolean activo) { this.activo = activo; }
 
 }

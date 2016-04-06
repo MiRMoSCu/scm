@@ -21,13 +21,13 @@ public class ColacionGrado implements Serializable {
 	private Participante participante;
 	private Grado gradoPretende;
 	private String cuerpoPretende;
-	private Boolean activo;
+	private boolean activo;
 	
 	// constructor
 	public ColacionGrado() { }
 
 	public ColacionGrado(Integer idColacionGrado, Participante participante,
-			Grado gradoPretende, String cuerpoPretende, Boolean activo) {
+			Grado gradoPretende, String cuerpoPretende, boolean activo) {
 		super();
 		this.idColacionGrado = idColacionGrado;
 		this.participante = participante;
@@ -57,7 +57,7 @@ public class ColacionGrado implements Serializable {
 	public void setCuerpoPretende(String cuerpoPretende) { this.cuerpoPretende = cuerpoPretende; }
 
 	@Column(name="activo")
-	public Boolean isActivo() { return activo; }
-	public void setActivo(Boolean activo) { this.activo = activo; }
+	public boolean isActivo() { return activo; }
+	public void setActivo(boolean activo) { this.activo = activo; }
 	
 }

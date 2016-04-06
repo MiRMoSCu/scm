@@ -17,11 +17,11 @@ public class Estado implements Serializable {
 	
 	private Integer idEstado;
 	private String nombre;
-	private Boolean activo;
+	private boolean activo;
 	
 	public Estado() { }
 	
-	public Estado(Integer idEstado, String nombre, Boolean activo) {
+	public Estado(Integer idEstado, String nombre, boolean activo) {
 		super();
 		this.idEstado = idEstado;
 		this.nombre = nombre;
@@ -39,7 +39,7 @@ public class Estado implements Serializable {
 	public void setNombre(String nombre) { this.nombre = nombre; }
 
 	@Column(name="activo")
-	public Boolean isActivo() { return activo; }
-	public void setActivo(Boolean activo) { this.activo = activo; }
+	public boolean isActivo() { return activo; }
+	public void setActivo(boolean activo) { this.activo = activo; }
 	
 }

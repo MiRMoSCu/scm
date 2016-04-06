@@ -13,25 +13,25 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="acompañante")
-public class Acompañante implements Serializable {
+@Table(name="acompaniante")
+public class Acompaniante implements Serializable {
 
 	private static final long serialVersionUID = 1575427180416768348L;
 	
-	private Integer idAcompañante;
+	private Integer idAcompaniante;
 	private Participante participante;
 	private String nombre;
 	private String apPaterno;
 	private String apMaterno;
-	private Boolean activo;
+	private boolean activo;
 	
 	// constructor
-	public Acompañante() { }
+	public Acompaniante() { }
 	
-	public Acompañante(Integer idAcompañante, Participante participante,
-			String nombre, Boolean activo) {
+	public Acompaniante(Integer idAcompaniante, Participante participante,
+			String nombre, boolean activo) {
 		super();
-		this.idAcompañante = idAcompañante;
+		this.idAcompaniante = idAcompaniante;
 		this.participante = participante;
 		this.nombre = nombre;
 		this.activo = activo;
@@ -39,9 +39,9 @@ public class Acompañante implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_acompañante", unique=true, nullable=false)
-	public Integer getIdAcompañante() { return idAcompañante; }
-	public void setIdAcompañante(Integer idAcompañante) { this.idAcompañante = idAcompañante; }
+	@Column(name="id_acompaniante", unique=true, nullable=false)
+	public Integer getIdAcompaniante() { return idAcompaniante; }
+	public void setIdAcompaniante(Integer idAcompaniante) { this.idAcompaniante = idAcompaniante; }
 
 	@ManyToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinColumn(name="id_participante", nullable=false)
@@ -61,7 +61,7 @@ public class Acompañante implements Serializable {
 	public void setApMaterno(String apMaterno) { this.apMaterno = apMaterno; }
 
 	@Column(name="activo")
-	public Boolean isActivo() { return activo; }
-	public void setActivo(Boolean activo) { this.activo = activo; }
+	public boolean isActivo() { return activo; }
+	public void setActivo(boolean activo) { this.activo = activo; }
 
 }

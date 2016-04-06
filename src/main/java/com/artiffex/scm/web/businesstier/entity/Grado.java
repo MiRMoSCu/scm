@@ -18,12 +18,12 @@ public class Grado implements Serializable {
 	private Integer idGrado;
 	private String nombre;
 	private String descripcion;
-	private Boolean activo;
+	private boolean activo;
 	
 	// constructor
 	public Grado() { }
 	
-	public Grado(Integer idGrado, String nombre, String descripcion, Boolean activo) {
+	public Grado(Integer idGrado, String nombre, String descripcion, boolean activo) {
 		super();
 		this.idGrado = idGrado;
 		this.nombre = nombre;
@@ -46,7 +46,7 @@ public class Grado implements Serializable {
 	public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
 
 	@Column(name="activo")
-	public Boolean isActivo() { return activo; }
-	public void setActivo(Boolean activo) { this.activo = activo; }
+	public boolean isActivo() { return activo; }
+	public void setActivo(boolean activo) { this.activo = activo; }
 	
 }

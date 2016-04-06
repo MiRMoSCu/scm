@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:url value="/" var="urlInicio"/>
+<c:url value="/" 						var="urlInicio"/>
+<c:url value="/registro_participante" 	var="urlRegistroParticipante" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -8,12 +9,18 @@
 		<title>Formulario Registro</title>
 		<script type="text/javascript">
 			var urlInicio = "${urlInicio}";
+			var urlRegistroParticipante = "${urlRegistroParticipante}";
 		</script>
 		<script type="text/javascript">
 			function menu(opcion) {
 				switch (opcion) {
 					case 'inicio':
 						document.form_registro.action = urlInicio;
+						document.form_registro.method = "POST";
+						document.form_registro.submit();
+						break;
+					case 'envia_formulario':
+						document.form_registro.action = urlRegistroParticipante;
 						document.form_registro.method = "POST";
 						document.form_registro.submit();
 						break;
@@ -32,19 +39,57 @@
 				<tr>
 					<td>Nombre(s):</td>
 					<td>
-						<input type="text"/>
+						<input 	type="text" 
+								name="nombre"/>
 					</td>
 				</tr>
 				<tr>
 					<td>Ap Paterno:</td>
 					<td>
-						<input type="text"/>
+						<input 	type="text"
+								name="ap_paterno"/>
 					</td>
 				</tr>
 				<tr>
 					<td>Ap Materno:</td>
 					<td>
-						<input type="text"/>
+						<input 	type="text"
+								name="ap_materno"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Calle:</td>
+					<td>
+						<input 	type="text"
+								name="calle"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Num Exterior:</td>
+					<td>
+						<input 	type="text"
+								name="num_exterior"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Num Interior:</td>
+					<td>
+						<input 	type="text"
+								name="num_interior"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Colonia:</td>
+					<td>
+						<input 	type="text"
+								name="colonia"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Delegacion/Municipio:</td>
+					<td>
+						<input 	type="text"
+								name="delegacion_municipio"/>
 					</td>
 				</tr>
 				<tr>
@@ -58,39 +103,53 @@
 					</td>
 				</tr>
 				<tr>
-					<td>Delegaci&oacute;n/Municipio:</td>
+					<td>C&oacute;igo Postal:</td>
 					<td>
-						<input type="text"/>
+						<input 	type="text"
+								name="codigo_postal"/>
 					</td>
 				</tr>
 				<tr>
 					<td>Tel&eacute;fono:</td>
 					<td>
-						<input type="text"/>
+						<input 	type="text"
+								name="telefono_particular"/>
 					</td>
 				</tr>
 				<tr>
-					<td>Tel M&oacute;vil:</td>
+					<td>Tel. M&oacute;vil:</td>
 					<td>
-						<input type="text"/>
+						<input 	type="text"
+								name="telefono_movil"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Tel. Oficina:</td>
+					<td>
+						<input 	type="text"
+								name="telefono_oficina"/>
 					</td>
 				</tr>
 				<tr>
 					<td>Email:</td>
 					<td>
-						<input type="text"/>
-					</td>
-				</tr>
-				<tr>
-					<td>¿Hospedaje?:</td>
-					<td>
-						<input type="checkbox"/>
+						<input 	type="text"
+								name="email"/>
 					</td>
 				</tr>
 				<tr>
 					<td>¿Acompa&ntilde;ante?:</td>
 					<td>
-						<input type="checkbox"/>
+						<input 	type="checkbox"
+								name="aplica_acompaniante"/>
+					</td>
+				</tr>
+				<tr>
+					<td>¿Hospedaje?:</td>
+					<td>
+						<input 	type="checkbox"
+								name="aplica_hospedaje"
+						/>
 					</td>
 				</tr>
 				<tr>

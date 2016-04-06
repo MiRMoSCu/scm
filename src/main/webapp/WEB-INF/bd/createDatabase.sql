@@ -1,0 +1,292 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema lithomat_scm_artiffex
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema lithomat_scm_artiffex
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `lithomat_scm_artiffex` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `lithomat_scm_artiffex` ;
+
+-- -----------------------------------------------------
+-- Table `lithomat_scm_artiffex`.`estado`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `lithomat_scm_artiffex`.`estado` (
+  `id_estado` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(60) NULL,
+  `activo` TINYINT(1) NULL,
+  PRIMARY KEY (`id_estado`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `lithomat_scm_artiffex`.`participante`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `lithomat_scm_artiffex`.`participante` (
+  `id_participante` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(80) NULL,
+  `ap_paterno` VARCHAR(45) NULL,
+  `ap_materno` VARCHAR(45) NULL,
+  `calle` VARCHAR(60) NULL,
+  `num_exterior` VARCHAR(15) NULL,
+  `num_interior` VARCHAR(15) NULL,
+  `colonia` VARCHAR(60) NULL,
+  `delegacion_municipio` VARCHAR(80) NULL,
+  `id_estado` INT UNSIGNED NOT NULL,
+  `codigo_postal` VARCHAR(15) NULL,
+  `telefono_particular` VARCHAR(15) NULL,
+  `telefono_celular` VARCHAR(15) NULL,
+  `telefono_oficina` VARCHAR(45) NULL,
+  `email` VARCHAR(120) NULL,
+  `aplica_acompaniante` TINYINT(1) NULL,
+  `aplica_hospedaje` TINYINT(1) NULL,
+  `activo` TINYINT(1) NULL,
+  PRIMARY KEY (`id_participante`),
+  INDEX `fk_participante_estado1_idx` (`id_estado` ASC),
+  CONSTRAINT `fk_participante_estado1`
+    FOREIGN KEY (`id_estado`)
+    REFERENCES `lithomat_scm_artiffex`.`estado` (`id_estado`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `lithomat_scm_artiffex`.`grado`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `lithomat_scm_artiffex`.`grado` (
+  `id_grado` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NULL,
+  `descripcion` VARCHAR(80) NULL,
+  `activo` TINYINT(1) NULL,
+  PRIMARY KEY (`id_grado`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `lithomat_scm_artiffex`.`acompaniante`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `lithomat_scm_artiffex`.`acompaniante` (
+  `id_acompaniante` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id_participante` INT UNSIGNED NOT NULL,
+  `nombre` VARCHAR(80) NULL,
+  `ap_paterno` VARCHAR(45) NULL,
+  `ap_materno` VARCHAR(45) NULL,
+  `activo` TINYINT(1) NULL,
+  PRIMARY KEY (`id_acompaniante`),
+  INDEX `fk_acompañante_participante1_idx` (`id_participante` ASC),
+  CONSTRAINT `fk_acompañante_participante1`
+    FOREIGN KEY (`id_participante`)
+    REFERENCES `lithomat_scm_artiffex`.`participante` (`id_participante`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `lithomat_scm_artiffex`.`perfil`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `lithomat_scm_artiffex`.`perfil` (
+  `id_perfil` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NULL,
+  `descripcion` VARCHAR(80) NULL,
+  `activo` TINYINT(1) NULL,
+  PRIMARY KEY (`id_perfil`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `lithomat_scm_artiffex`.`usuario`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `lithomat_scm_artiffex`.`usuario` (
+  `id_usuario` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(80) NULL,
+  `ap_paterno` VARCHAR(45) NULL,
+  `ap_materno` VARCHAR(45) NULL,
+  `usuario` VARCHAR(45) NULL,
+  `contrasenia` VARCHAR(45) NULL,
+  `activo` TINYINT(1) NULL,
+  PRIMARY KEY (`id_usuario`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `lithomat_scm_artiffex`.`perfil_x_usuario`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `lithomat_scm_artiffex`.`perfil_x_usuario` (
+  `id_perfil_x_usuario` INT UNSIGNED NOT NULL,
+  `id_usuario` INT UNSIGNED NOT NULL,
+  `id_perfil` INT UNSIGNED NOT NULL,
+  `activo` TINYINT(1) NULL,
+  PRIMARY KEY (`id_perfil_x_usuario`),
+  INDEX `fk_perfil_x_usuario_usuario1_idx` (`id_usuario` ASC),
+  INDEX `fk_perfil_x_usuario_perfil1_idx` (`id_perfil` ASC),
+  CONSTRAINT `fk_perfil_x_usuario_usuario1`
+    FOREIGN KEY (`id_usuario`)
+    REFERENCES `lithomat_scm_artiffex`.`usuario` (`id_usuario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_perfil_x_usuario_perfil1`
+    FOREIGN KEY (`id_perfil`)
+    REFERENCES `lithomat_scm_artiffex`.`perfil` (`id_perfil`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `lithomat_scm_artiffex`.`tipo_participacion`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `lithomat_scm_artiffex`.`tipo_participacion` (
+  `id_tipo_participacion` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NULL,
+  `descripcion` VARCHAR(45) NULL,
+  `activo` TINYINT(1) NULL,
+  PRIMARY KEY (`id_tipo_participacion`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `lithomat_scm_artiffex`.`tipo_ponencia`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `lithomat_scm_artiffex`.`tipo_ponencia` (
+  `id_tipo_ponencia` INT NOT NULL,
+  `nombre` VARCHAR(45) NULL,
+  `descripcion` VARCHAR(45) NULL,
+  `activo` TINYINT(1) NULL,
+  PRIMARY KEY (`id_tipo_ponencia`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `lithomat_scm_artiffex`.`registro`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `lithomat_scm_artiffex`.`registro` (
+  `id_registro` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id_participante` INT UNSIGNED NOT NULL,
+  `id_grado` INT UNSIGNED NOT NULL,
+  `nombre_cuerpo` VARCHAR(45) NULL,
+  `delegacion` VARCHAR(45) NULL,
+  `id_tipo_participacion` INT UNSIGNED NOT NULL,
+  `id_tipo_ponencia` INT NOT NULL,
+  `activo` TINYINT(1) NULL,
+  PRIMARY KEY (`id_registro`),
+  INDEX `fk_registro_grado1_idx` (`id_grado` ASC),
+  INDEX `fk_registro_tipo_participacion1_idx` (`id_tipo_participacion` ASC),
+  INDEX `fk_registro_ponencia1_idx` (`id_tipo_ponencia` ASC),
+  INDEX `fk_registro_participante1_idx` (`id_participante` ASC),
+  CONSTRAINT `fk_registro_grado1`
+    FOREIGN KEY (`id_grado`)
+    REFERENCES `lithomat_scm_artiffex`.`grado` (`id_grado`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_registro_tipo_participacion1`
+    FOREIGN KEY (`id_tipo_participacion`)
+    REFERENCES `lithomat_scm_artiffex`.`tipo_participacion` (`id_tipo_participacion`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_registro_ponencia1`
+    FOREIGN KEY (`id_tipo_ponencia`)
+    REFERENCES `lithomat_scm_artiffex`.`tipo_ponencia` (`id_tipo_ponencia`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_registro_participante1`
+    FOREIGN KEY (`id_participante`)
+    REFERENCES `lithomat_scm_artiffex`.`participante` (`id_participante`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `lithomat_scm_artiffex`.`hotel`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `lithomat_scm_artiffex`.`hotel` (
+  `id_hotel` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(200) NULL,
+  `activo` TINYINT(1) NULL,
+  PRIMARY KEY (`id_hotel`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `lithomat_scm_artiffex`.`hospedaje`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `lithomat_scm_artiffex`.`hospedaje` (
+  `id_hospedaje` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id_participante` INT UNSIGNED NOT NULL,
+  `id_hotel` INT UNSIGNED NOT NULL,
+  `fecha_entrada` DATE NULL,
+  `fecha_salida` DATE NULL,
+  `num_personas_habitacion` INT NULL,
+  `activo` TINYINT(1) NULL,
+  PRIMARY KEY (`id_hospedaje`),
+  INDEX `fk_hospedaje_hotel1_idx` (`id_hotel` ASC),
+  INDEX `fk_hospedaje_participante1_idx` (`id_participante` ASC),
+  CONSTRAINT `fk_hospedaje_hotel1`
+    FOREIGN KEY (`id_hotel`)
+    REFERENCES `lithomat_scm_artiffex`.`hotel` (`id_hotel`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_hospedaje_participante1`
+    FOREIGN KEY (`id_participante`)
+    REFERENCES `lithomat_scm_artiffex`.`participante` (`id_participante`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `lithomat_scm_artiffex`.`colacion_grado`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `lithomat_scm_artiffex`.`colacion_grado` (
+  `id_colacion_grado` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id_participante` INT UNSIGNED NOT NULL,
+  `id_grado_pretende` INT UNSIGNED NOT NULL,
+  `cuerpo_pretende` VARCHAR(80) NULL,
+  `activo` TINYINT(1) NULL,
+  PRIMARY KEY (`id_colacion_grado`),
+  INDEX `fk_colacion_grado_participante1_idx` (`id_participante` ASC),
+  INDEX `fk_colacion_grado_grado1_idx` (`id_grado_pretende` ASC),
+  CONSTRAINT `fk_colacion_grado_participante1`
+    FOREIGN KEY (`id_participante`)
+    REFERENCES `lithomat_scm_artiffex`.`participante` (`id_participante`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_colacion_grado_grado1`
+    FOREIGN KEY (`id_grado_pretende`)
+    REFERENCES `lithomat_scm_artiffex`.`grado` (`id_grado`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `lithomat_scm_artiffex`.`pago`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `lithomat_scm_artiffex`.`pago` (
+  `id_pago` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id_participante` INT UNSIGNED NOT NULL,
+  `importe_pago` DECIMAL(7,2) NULL,
+  `fecha_transaccion` DATE NULL,
+  `banco` VARCHAR(80) NULL,
+  `activo` TINYINT(1) NULL,
+  PRIMARY KEY (`id_pago`),
+  INDEX `fk_pago_participante1_idx` (`id_participante` ASC),
+  CONSTRAINT `fk_pago_participante1`
+    FOREIGN KEY (`id_participante`)
+    REFERENCES `lithomat_scm_artiffex`.`participante` (`id_participante`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

@@ -18,13 +18,13 @@ public class TipoParticipacion implements Serializable {
 	private Integer idTipoParticipacion;
 	private String nombre;
 	private String descripcion;
-	private Boolean activo;
+	private boolean activo;
 	
 	// constructor
 	public TipoParticipacion() { }
 
 	public TipoParticipacion(Integer idTipoParticipacion, String nombre,
-			String descripcion, Boolean activo) {
+			String descripcion, boolean activo) {
 		super();
 		this.idTipoParticipacion = idTipoParticipacion;
 		this.nombre = nombre;
@@ -47,7 +47,7 @@ public class TipoParticipacion implements Serializable {
 	public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
 
 	@Column(name="activo")
-	public Boolean isActivo() { return activo; }
-	public void setActivo(Boolean activo) { this.activo = activo; }
+	public boolean isActivo() { return activo; }
+	public void setActivo(boolean activo) { this.activo = activo; }
 	
 }

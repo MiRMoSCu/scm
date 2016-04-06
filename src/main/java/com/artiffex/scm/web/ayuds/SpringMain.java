@@ -15,6 +15,7 @@ public class SpringMain {
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("standaloneApplicationContext.xml");
 		
+		// ES NECESARIO ACTIVAR LOS GETTER Y SETTER DEL SERVICE
 		ColacionGradoService colacionGradoService = (ColacionGradoService) context.getBean("colacionGradoService");
 		ColacionGrado colacionGrado = new ColacionGrado();
 			Participante participante = new Participante();
@@ -30,7 +31,6 @@ public class SpringMain {
 		int idColacionGrado = colacionGradoService.creaColacionGrado(colacionGrado);
 		System.out.println("idColacionGrado:"+idColacionGrado);
 		colacionGrado = null;
-			
 
 		/*
 		ParticipanteService participanteService = (ParticipanteService) context.getBean("participanteService");

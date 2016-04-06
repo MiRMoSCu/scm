@@ -24,14 +24,14 @@ public class Hospedaje implements Serializable {
 	private Date fechaEntrada;
 	private Date fechaSalida;
 	private Integer numPersonasHabitacion;
-	private Boolean activo;
+	private boolean activo;
 	
 	// constructor
 	public Hospedaje() { }
 
 	public Hospedaje(Integer idHospedaje, Participante participante,
 			Hotel hotel, Date fechaEntrada, Date fechaSalida,
-			Integer numPersonasHabitacion, Boolean activo) {
+			Integer numPersonasHabitacion, boolean activo) {
 		super();
 		this.idHospedaje = idHospedaje;
 		this.participante = participante;
@@ -71,7 +71,7 @@ public class Hospedaje implements Serializable {
 	public void setNumPersonasHabitacion(Integer numPersonasHabitacion) { this.numPersonasHabitacion = numPersonasHabitacion; }
 
 	@Column(name="activo")
-	public Boolean isActivo() { return activo; }
-	public void setActivo(Boolean activo) { this.activo = activo; }
+	public boolean isActivo() { return activo; }
+	public void setActivo(boolean activo) { this.activo = activo; }
 	
 }

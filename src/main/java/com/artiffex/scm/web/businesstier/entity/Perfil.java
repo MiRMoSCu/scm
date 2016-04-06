@@ -18,13 +18,13 @@ public class Perfil implements Serializable {
 	private Integer idPerfil;
 	private String nombre;
 	private String descripcion;
-	private Boolean activo;
+	private boolean activo;
 	
 	// constructor
 	public Perfil() { }
 	
 	public Perfil(Integer idPerfil, String nombre, String descripcion,
-			Boolean activo) {
+			boolean activo) {
 		super();
 		this.idPerfil = idPerfil;
 		this.nombre = nombre;
@@ -47,7 +47,7 @@ public class Perfil implements Serializable {
 	public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
 	
 	@Column(name="activo")
-	public Boolean isActivo() { return activo; }
-	public void setActivo(Boolean activo) { this.activo = activo; }
+	public boolean isActivo() { return activo; }
+	public void setActivo(boolean activo) { this.activo = activo; }
 	
 }

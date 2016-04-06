@@ -5,7 +5,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import com.artiffex.scm.web.businesstier.entity.Acompañante;
+import com.artiffex.scm.web.businesstier.entity.Acompaniante;
 import com.artiffex.scm.web.businesstier.entity.Participante;
 import com.artiffex.scm.web.businesstier.entity.Perfil;
 import com.artiffex.scm.web.businesstier.entity.PerfilXUsuario;
@@ -34,9 +34,9 @@ public class Main {
 		Participante participante = (Participante) session.get(Participante.class, 1);
 		System.out.println(participante.getNombre());
 		System.out.println(participante.getEstado().getNombre());
-		List<Acompañante> listaAcompañante = session.createQuery("from Acompañante a where a.participante.idParticipante = 1").list(); 
+		List<Acompaniante> listaAcompañante = session.createQuery("from Acompañante a where a.participante.idParticipante = 1").list(); 
 		System.out.println(listaAcompañante.size());
-		for (Acompañante acompañante : listaAcompañante) {
+		for (Acompaniante acompañante : listaAcompañante) {
 			System.out.println(acompañante.getNombre());
 		}
 		System.out.println("");
