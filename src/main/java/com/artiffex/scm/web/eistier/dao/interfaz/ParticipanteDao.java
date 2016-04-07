@@ -8,14 +8,16 @@ public interface ParticipanteDao {
 	
 	public int crea(Participante participante);
 	
-	public Participante busca(int idParticipante);
+	public Participante buscaPorSQLQuery(String queryString);
 	
-	public Participante buscaPorQuery(String query);
+	public Participante buscaPorCriteriaQuery(String criteria);
 	
 	public void modifica(Participante participante);
 	
-	public void elimina(int idParticipante);
+	public void elimina(Participante participante); // ES MEJOR UTILIZAR BORRADO LOGICO
 	
-	public List<Participante> lista();
+	public List<Participante> listaPorSQLQuery(String queryString);
+	
+	public List<Participante> listaPorCriteriaQuery(String criteria);
 
 }

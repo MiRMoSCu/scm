@@ -23,20 +23,11 @@ public class Acompaniante implements Serializable {
 	private String nombre;
 	private String apPaterno;
 	private String apMaterno;
-	private boolean activo;
+	private Boolean activo;
 	
 	// constructor
 	public Acompaniante() { }
 	
-	public Acompaniante(Integer idAcompaniante, Participante participante,
-			String nombre, boolean activo) {
-		super();
-		this.idAcompaniante = idAcompaniante;
-		this.participante = participante;
-		this.nombre = nombre;
-		this.activo = activo;
-	}
-
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_acompaniante", unique=true, nullable=false)
@@ -61,7 +52,7 @@ public class Acompaniante implements Serializable {
 	public void setApMaterno(String apMaterno) { this.apMaterno = apMaterno; }
 
 	@Column(name="activo")
-	public boolean isActivo() { return activo; }
-	public void setActivo(boolean activo) { this.activo = activo; }
+	public Boolean isActivo() { return activo; }
+	public void setActivo(Boolean activo) { this.activo = activo; }
 
 }

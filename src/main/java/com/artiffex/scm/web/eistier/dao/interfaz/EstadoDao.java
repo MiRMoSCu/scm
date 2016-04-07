@@ -6,6 +6,6 @@ import com.artiffex.scm.web.businesstier.entity.Estado;
 
 public interface EstadoDao {
 
-	public List<Estado> lista();
+	public List<Estado> listaPorCriteriaQuery(String criteria);
 	
 }

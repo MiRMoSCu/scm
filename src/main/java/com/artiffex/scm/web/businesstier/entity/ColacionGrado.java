@@ -21,20 +21,10 @@ public class ColacionGrado implements Serializable {
 	private Participante participante;
 	private Grado gradoPretende;
 	private String cuerpoPretende;
-	private boolean activo;
+	private Boolean activo;
 	
 	// constructor
 	public ColacionGrado() { }
-
-	public ColacionGrado(Integer idColacionGrado, Participante participante,
-			Grado gradoPretende, String cuerpoPretende, boolean activo) {
-		super();
-		this.idColacionGrado = idColacionGrado;
-		this.participante = participante;
-		this.gradoPretende = gradoPretende;
-		this.cuerpoPretende = cuerpoPretende;
-		this.activo = activo;
-	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -57,7 +47,7 @@ public class ColacionGrado implements Serializable {
 	public void setCuerpoPretende(String cuerpoPretende) { this.cuerpoPretende = cuerpoPretende; }
 
 	@Column(name="activo")
-	public boolean isActivo() { return activo; }
-	public void setActivo(boolean activo) { this.activo = activo; }
+	public Boolean isActivo() { return activo; }
+	public void setActivo(Boolean activo) { this.activo = activo; }
 	
 }

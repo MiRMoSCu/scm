@@ -17,6 +17,7 @@ import com.artiffex.scm.web.businesstier.service.interfaz.ParticipanteService;
 import com.artiffex.scm.web.businesstier.utilidades.ComboSelect;
 
 @Controller
+@RequestMapping("/public")
 public class PublicController {
 
 	private static final Logger log = Logger.getLogger(PublicController.class); 
@@ -26,16 +27,6 @@ public class PublicController {
 	@Resource
 	private ParticipanteService participanteService;
 	
-	@RequestMapping("/inicio_html")
-	public String welcomeFileHtml(Model model) {
-		return "redirect:/public/inicio.html";
-	}
-	
-	@RequestMapping("/")
-	public String welcomeFileJsp(Model model) {
-		log.info("/");
-		return "inicio";
-	}
 	
 	@RequestMapping(value = "/formulario_participante")
 	public String formularioParticipante(Model model) {
@@ -61,9 +52,10 @@ public class PublicController {
 			@RequestParam(value="id_estado", required=false) Integer idEstado,
 			@RequestParam(value="codigo_postal", required=false) String codigoPostal,
 			@RequestParam(value="telefono_particular", required=false) String telefonoParticular,
-			@RequestParam(value="telefono_celular", required=false) String telefonoCelular,
+			@RequestParam(value="telefono_movil", required=false) String telefonoMovil,
 			@RequestParam(value="telefono_oficina", required=false) String telefonoOficina,
 			@RequestParam(value="email", required=false) String email,
+			@RequestParam(value="contrasenia_sitio", required=false) String contraseniaSitio,
 			@RequestParam(value="aplica_acompaniante", required=false) boolean aplicaAcompaniante,
 			@RequestParam(value="aplica_hospedaje", required=false) boolean aplicaHospedaje
 		) {
@@ -85,9 +77,10 @@ public class PublicController {
 		participante.setEstado(estado);
 		participante.setCodigoPostal(codigoPostal);
 		participante.setTelefonoParticular(telefonoParticular);
-		participante.setTelefonoCelular(telefonoCelular);
+		participante.setTelefonoMovil(telefonoMovil);
 		participante.setTelefonoOficina(telefonoOficina);
 		participante.setEmail(email);
+		participante.setContraseniaSitio(contraseniaSitio);
 		participante.setAplicaAcompaniante(aplicaAcompaniante);
 		participante.setAplicaHospedaje(aplicaHospedaje);
 		participante.setActivo(true);

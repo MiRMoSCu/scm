@@ -1,31 +1,27 @@
 package com.artiffex.scm.web.eistier.dao.implementacion;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
-import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
-import com.artiffex.scm.web.businesstier.entity.Estado;
-import com.artiffex.scm.web.eistier.dao.interfaz.EstadoDao;
+import com.artiffex.scm.web.businesstier.entity.ParametroConfiguracion;
+import com.artiffex.scm.web.eistier.dao.interfaz.ParametroConfiguracionDao;
 import com.artiffex.scm.web.eistier.hibernate.HibernateUtil;
 
-@Repository("estadoDao")
-public class EstadoDaoImpl implements EstadoDao {
+@Repository("parametroConfiguracionDao")
+public class ParametroConfiguracionDaoImpl implements ParametroConfiguracionDao {
 	
-	private static final Logger log = Logger.getLogger(EstadoDaoImpl.class);
+	private static final Logger log = Logger.getLogger(ParametroConfiguracionDaoImpl.class);
 	
 	private Session session;
 
-	@SuppressWarnings("unchecked")
-	public List<Estado> listaPorCriteriaQuery(String criteria) {
-		List<Estado> lista = new ArrayList<Estado>();
+	public ParametroConfiguracion buscaPorSQLQuery(String queryString) {
+		ParametroConfiguracion parametroConfiguracion = null;
 		Transaction tx = null;
-		Query query = null;
+		SQLQuery query = null;
 		try {
 			try {
 				this.session = HibernateUtil.getInstance().getCurrentSession();
@@ -33,8 +29,8 @@ public class EstadoDaoImpl implements EstadoDao {
 				this.session = HibernateUtil.getInstance().openSession();
 			}
 			tx = this.session.beginTransaction();
-			query = session.createQuery(criteria);
-			lista = query.list();
+			query = session.createSQLQuery(queryString);
+			parametroConfiguracion = (ParametroConfiguracion) query.uniqueResult();
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null)
@@ -44,7 +40,7 @@ public class EstadoDaoImpl implements EstadoDao {
 			query = null;
 			tx = null;
 		}
-		return lista;
+		return parametroConfiguracion;
 	}
 
 }

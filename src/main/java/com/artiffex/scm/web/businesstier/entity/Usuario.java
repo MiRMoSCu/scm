@@ -21,25 +21,12 @@ public class Usuario implements Serializable {
 	private String apMaterno;
 	private String usuario;
 	private String contrasenia;
-	private boolean activo;
+	private Boolean activo;
 	//private Set<PerfilXUsuario> perfilXUsuario = new HashSet<PerfilXUsuario>();
 	
 	// constructor
 	public Usuario() { }
 	
-	public Usuario(
-			Integer idUsuario, String nombre, String apPaterno,
-			String apMaterno, String usuario, String contrasenia, boolean activo) {
-		super();
-		this.idUsuario = idUsuario;
-		this.nombre = nombre;
-		this.apPaterno = apPaterno;
-		this.apMaterno = apMaterno;
-		this.usuario = usuario;
-		this.contrasenia = contrasenia;
-		this.activo = activo;
-	}
-
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_usuario", unique=true, nullable=false)
@@ -67,7 +54,7 @@ public class Usuario implements Serializable {
 	public void setContrasenia(String contrasenia) { this.contrasenia = contrasenia; }
 
 	@Column(name="activo")
-	public boolean isActivo() { return activo; }
-	public void setActivo(boolean activo) { this.activo = activo; }
+	public Boolean isActivo() { return activo; }
+	public void setActivo(Boolean activo) { this.activo = activo; }
 
 }

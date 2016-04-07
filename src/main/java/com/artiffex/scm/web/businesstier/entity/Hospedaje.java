@@ -24,23 +24,10 @@ public class Hospedaje implements Serializable {
 	private Date fechaEntrada;
 	private Date fechaSalida;
 	private Integer numPersonasHabitacion;
-	private boolean activo;
+	private Boolean activo;
 	
 	// constructor
 	public Hospedaje() { }
-
-	public Hospedaje(Integer idHospedaje, Participante participante,
-			Hotel hotel, Date fechaEntrada, Date fechaSalida,
-			Integer numPersonasHabitacion, boolean activo) {
-		super();
-		this.idHospedaje = idHospedaje;
-		this.participante = participante;
-		this.hotel = hotel;
-		this.fechaEntrada = fechaEntrada;
-		this.fechaSalida = fechaSalida;
-		this.numPersonasHabitacion = numPersonasHabitacion;
-		this.activo = activo;
-	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -71,7 +58,7 @@ public class Hospedaje implements Serializable {
 	public void setNumPersonasHabitacion(Integer numPersonasHabitacion) { this.numPersonasHabitacion = numPersonasHabitacion; }
 
 	@Column(name="activo")
-	public boolean isActivo() { return activo; }
-	public void setActivo(boolean activo) { this.activo = activo; }
+	public Boolean isActivo() { return activo; }
+	public void setActivo(Boolean activo) { this.activo = activo; }
 	
 }

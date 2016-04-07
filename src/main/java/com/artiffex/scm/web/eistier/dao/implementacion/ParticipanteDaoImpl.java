@@ -1,9 +1,12 @@
 package com.artiffex.scm.web.eistier.dao.implementacion;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
@@ -30,39 +33,157 @@ public class ParticipanteDaoImpl implements ParticipanteDao {
 			}
 			tx = this.session.beginTransaction();
 			id = (Integer) this.session.save(participante);
-			this.session.getTransaction().commit();
-			tx = null;
+			tx.commit();
 		} catch (Exception e) {
 			if ( tx != null )
-				this.session.getTransaction().rollback();
+				tx.rollback();
 			log.error(e.getMessage());
+		} finally {
+			tx = null;
 		}
 		return id;
 	}
 
-	public Participante busca(int idParticipante) {
-		// TODO Auto-generated method stub
-		return null;
+	public Participante buscaPorSQLQuery(String queryString) {
+		Participante participante = null;
+		Transaction tx = null;
+		SQLQuery query = null;
+		try {
+			try {
+				this.session = HibernateUtil.getInstance().getCurrentSession();
+			} catch (HibernateException he) {
+				session = HibernateUtil.getInstance().openSession();
+			}
+			tx = this.session.beginTransaction();
+			query = session.createSQLQuery(queryString);
+			participante = (Participante) query.uniqueResult();
+			tx.commit();
+		} catch (Exception e) {
+			if ( tx != null )
+				tx.rollback();
+			log.error(e.getMessage());
+		} finally {
+			query = null;
+			tx = null;
+		}
+		return participante;
 	}
-
-	public Participante buscaPorQuery(String query) {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public Participante buscaPorCriteriaQuery(String criteria) {
+		Participante participante = null;
+		Transaction tx = null;
+		Query query = null;
+		try {
+			try {
+				this.session = HibernateUtil.getInstance().getCurrentSession();
+			} catch (HibernateException he) {
+				session = HibernateUtil.getInstance().openSession();
+			}
+			tx = this.session.beginTransaction();
+			query = session.createQuery(criteria);
+			participante = (Participante) query.uniqueResult();
+			tx.commit();
+		} catch (Exception e) {
+			if ( tx != null )
+				tx.rollback();
+			log.error(e.getMessage());
+		} finally {
+			query = null;
+			tx = null;
+		}
+		return participante;
 	}
 
 	public void modifica(Participante participante) {
-		// TODO Auto-generated method stub
-		
+		Transaction tx = null;
+		try {
+			try {
+				this.session = HibernateUtil.getInstance().getCurrentSession();
+			} catch (HibernateException he) {
+				session = HibernateUtil.getInstance().openSession();
+			}
+			tx = this.session.beginTransaction();
+			session.update(participante);
+			tx.commit();
+		} catch (Exception e) {
+			if ( tx != null )
+				tx.rollback();
+			log.error(e.getMessage());
+		} finally {
+			tx = null;
+		}
 	}
 
-	public void elimina(int idParticipante) {
-		// TODO Auto-generated method stub
-		
+	public void elimina(Participante participante) {
+		Transaction tx = null;
+		try {
+			try {
+				this.session = HibernateUtil.getInstance().getCurrentSession();
+			} catch (HibernateException he) {
+				session = HibernateUtil.getInstance().openSession();
+			}
+			tx = this.session.beginTransaction();
+			session.delete(participante);
+			tx.commit();
+		} catch (Exception e) {
+			if ( tx != null )
+				tx.rollback();
+			log.error(e.getMessage());
+		} finally {
+			tx = null;
+		}
 	}
 
-	public List<Participante> lista() {
-		// TODO Auto-generated method stub
-		return null;
+	@SuppressWarnings("unchecked")
+	public List<Participante> listaPorSQLQuery(String queryString) {
+		List<Participante> lista = new ArrayList<Participante>();
+		Transaction tx = null;
+		SQLQuery query = null;
+		try {
+			try {
+				this.session = HibernateUtil.getInstance().getCurrentSession();
+			} catch (HibernateException he) {
+				session = HibernateUtil.getInstance().openSession();
+			}
+			tx = this.session.beginTransaction();
+			query = session.createSQLQuery(queryString);
+			lista = query.list();
+			tx.commit();
+		} catch (Exception e) {
+			if ( tx != null )
+				tx.rollback();
+			log.error(e.getMessage());
+		} finally {
+			query = null;
+			tx = null;
+		}
+		return lista;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Participante> listaPorCriteriaQuery(String criteria) {
+		List<Participante> lista = new ArrayList<Participante>();
+		Transaction tx = null;
+		Query query = null;
+		try {
+			try {
+				this.session = HibernateUtil.getInstance().getCurrentSession();
+			} catch (HibernateException he) {
+				session = HibernateUtil.getInstance().openSession();
+			}
+			tx = this.session.beginTransaction();
+			query = session.createQuery(criteria);
+			lista = query.list();
+			tx.commit();
+		} catch (Exception e) {
+			if ( tx != null )
+				tx.rollback();
+			log.error(e.getMessage());
+		} finally {
+			query = null;
+			tx = null;
+		}
+		return lista;
 	}
 
 }

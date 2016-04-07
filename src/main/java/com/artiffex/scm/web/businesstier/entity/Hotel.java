@@ -17,17 +17,10 @@ public class Hotel implements Serializable {
 	
 	private Integer idHotel;
 	private String nombre;
-	private boolean activo;
+	private Boolean activo;
 	
 	// constructor
 	public Hotel() { }
-
-	public Hotel(Integer idHotel, String nombre, boolean activo) {
-		super();
-		this.idHotel = idHotel;
-		this.nombre = nombre;
-		this.activo = activo;
-	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -40,7 +33,7 @@ public class Hotel implements Serializable {
 	public void setNombre(String nombre) { this.nombre = nombre; }
 
 	@Column(name="activo")
-	public boolean isActivo() { return activo; }
-	public void setActivo(boolean activo) { this.activo = activo; }
+	public Boolean isActivo() { return activo; }
+	public void setActivo(Boolean activo) { this.activo = activo; }
 	
 }

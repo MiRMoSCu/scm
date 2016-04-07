@@ -18,20 +18,11 @@ public class Perfil implements Serializable {
 	private Integer idPerfil;
 	private String nombre;
 	private String descripcion;
-	private boolean activo;
+	private Boolean activo;
 	
 	// constructor
 	public Perfil() { }
 	
-	public Perfil(Integer idPerfil, String nombre, String descripcion,
-			boolean activo) {
-		super();
-		this.idPerfil = idPerfil;
-		this.nombre = nombre;
-		this.descripcion = descripcion;
-		this.activo = activo;
-	}
-
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_perfil", unique=true, nullable=false)
@@ -47,7 +38,7 @@ public class Perfil implements Serializable {
 	public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
 	
 	@Column(name="activo")
-	public boolean isActivo() { return activo; }
-	public void setActivo(boolean activo) { this.activo = activo; }
+	public Boolean isActivo() { return activo; }
+	public void setActivo(Boolean activo) { this.activo = activo; }
 	
 }

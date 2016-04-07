@@ -18,7 +18,6 @@ public class ColacionGradoDaoImpl implements ColacionGradoDao {
 	private Session session;
 
 	public int crea(ColacionGrado colacionGrado) {
-		System.out.println(colacionGrado.getCuerpoPretende());
 		int id = 0;
 		Transaction tx = null;
 		try {
@@ -29,12 +28,13 @@ public class ColacionGradoDaoImpl implements ColacionGradoDao {
 			}
 			tx = this.session.beginTransaction();
 			id = (Integer) this.session.save(colacionGrado);
-			this.session.getTransaction().commit();
+			tx.commit();
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
 			if (tx != null)
-				this.session.getTransaction().rollback();
+				tx.rollback();
 			log.error(e.getMessage());
+		} finally {
+			tx = null;
 		}
 		return id;
 	}

@@ -24,23 +24,10 @@ public class Registro implements Serializable {
 	private String delegacion;
 	private TipoParticipacion tipoParticipacion;
 	private TipoPonencia tipoPonencia;
-	private boolean activo;
+	private Boolean activo;
 	
 	// constructor
 	public Registro() { }
-
-	public Registro(Integer idRegistro, Participante participante, Grado grado,
-			String nombreCuerpo, String delegacion,
-			TipoParticipacion tipoParticipacion, TipoPonencia tipoPonencia) {
-		super();
-		this.idRegistro = idRegistro;
-		this.participante = participante;
-		this.grado = grado;
-		this.nombreCuerpo = nombreCuerpo;
-		this.delegacion = delegacion;
-		this.tipoParticipacion = tipoParticipacion;
-		this.tipoPonencia = tipoPonencia;
-	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -77,7 +64,7 @@ public class Registro implements Serializable {
 	public void setTipoPonencia(TipoPonencia tipoPonencia) { this.tipoPonencia = tipoPonencia; }
 
 	@Column(name="activo")
-	public boolean isActivo() { return activo; }
-	public void setActivo(boolean activo) { this.activo = activo; }
+	public Boolean isActivo() { return activo; }
+	public void setActivo(Boolean activo) { this.activo = activo; }
 	
 }

@@ -23,21 +23,10 @@ public class Pago implements Serializable {
 	private Float importePago;
 	private Date fechaTransaccion;
 	private String banco;
-	private boolean activo;
+	private Boolean activo;
 	
 	// constructor
 	public Pago() { }
-
-	public Pago(Integer idPago, Participante participante, Float importePago,
-			Date fechaTransaccion, String banco, boolean activo) {
-		super();
-		this.idPago = idPago;
-		this.participante = participante;
-		this.importePago = importePago;
-		this.fechaTransaccion = fechaTransaccion;
-		this.banco = banco;
-		this.activo = activo;
-	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -63,7 +52,7 @@ public class Pago implements Serializable {
 	public void setBanco(String banco) { this.banco = banco; }
 
 	@Column(name="activo")
-	public boolean isActivo() { return activo; }
-	public void setActivo(boolean activo) { this.activo = activo; }
+	public Boolean isActivo() { return activo; }
+	public void setActivo(Boolean activo) { this.activo = activo; }
 	
 }

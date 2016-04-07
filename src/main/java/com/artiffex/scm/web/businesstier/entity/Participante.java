@@ -29,44 +29,16 @@ public class Participante implements Serializable {
 	private Estado estado;
 	private String codigoPostal;
 	private String telefonoParticular;
-	private String telefonoCelular;
+	private String telefonoMovil;
 	private String telefonoOficina;
 	private String email;
-	private boolean aplicaAcompaniante;
-	private boolean aplicaHospedaje;
-	private boolean activo;
+	private String contraseniaSitio;
+	private Boolean aplicaAcompaniante;
+	private Boolean aplicaHospedaje;
+	private Boolean activo;
 
 	// constructor
 	public Participante() { }
-
-	public Participante(Integer idParticipante, String nombre,
-			String apPaterno, String apMaterno, String calle,
-			String numExterior, String numInterior, String colonia,
-			String delegacionMunicipio, Estado estado, String codigoPostal,
-			String telefonoParticular, String telefonoCelular,
-			String telefonoOficina, String email, boolean aplicaAcompaniante,
-			boolean aplicaHospedaje, boolean activo) {
-		super();
-		this.idParticipante = idParticipante;
-		this.nombre = nombre;
-		this.apPaterno = apPaterno;
-		this.apMaterno = apMaterno;
-		this.calle = calle;
-		this.numExterior = numExterior;
-		this.numInterior = numInterior;
-		this.colonia = colonia;
-		this.delegacionMunicipio = delegacionMunicipio;
-		this.estado = estado;
-		this.codigoPostal = codigoPostal;
-		this.telefonoParticular = telefonoParticular;
-		this.telefonoCelular = telefonoCelular;
-		this.telefonoOficina = telefonoOficina;
-		this.email = email;
-		this.aplicaAcompaniante = aplicaAcompaniante;
-		this.aplicaHospedaje = aplicaHospedaje;
-		this.activo = activo;
-	}
-
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -119,9 +91,9 @@ public class Participante implements Serializable {
 	public String getTelefonoParticular() { return telefonoParticular; }
 	public void setTelefonoParticular(String telefonoParticular) { this.telefonoParticular = telefonoParticular; }
 
-	@Column(name="telefono_celular", length=15)
-	public String getTelefonoCelular() { return telefonoCelular; }
-	public void setTelefonoCelular(String telefonoCelular) { this.telefonoCelular = telefonoCelular; }
+	@Column(name="telefono_movil", length=15)
+	public String getTelefonoMovil() { return telefonoMovil; }
+	public void setTelefonoMovil(String telefonoMovil) { this.telefonoMovil = telefonoMovil; }
 
 	@Column(name="telefono_oficina", length=45)
 	public String getTelefonoOficina() { return telefonoOficina; }
@@ -130,17 +102,21 @@ public class Participante implements Serializable {
 	@Column(name="email", length=120)
 	public String getEmail() { return email; }
 	public void setEmail(String email) { this.email = email; }
+	
+	@Column(name="contrasenia_sitio", length=45)
+	public String getContraseniaSitio() { return contraseniaSitio; }
+	public void setContraseniaSitio(String contraseniaSitio) { this.contraseniaSitio = contraseniaSitio; }
 
 	@Column(name="aplica_acompaniante")
-	public boolean isAplicaAcompaniante() { return aplicaAcompaniante; }
-	public void setAplicaAcompaniante(boolean aplicaAcompaniante) { this.aplicaAcompaniante = aplicaAcompaniante; }
+	public Boolean isAplicaAcompaniante() { return aplicaAcompaniante; }
+	public void setAplicaAcompaniante(Boolean aplicaAcompaniante) { this.aplicaAcompaniante = aplicaAcompaniante; }
 
 	@Column(name="aplica_hospedaje")
-	public boolean isAplicaHospedaje() { return aplicaHospedaje; }
-	public void setAplicaHospedaje(boolean aplicaHospedaje) { this.aplicaHospedaje = aplicaHospedaje; }
+	public Boolean isAplicaHospedaje() { return aplicaHospedaje; }
+	public void setAplicaHospedaje(Boolean aplicaHospedaje) { this.aplicaHospedaje = aplicaHospedaje; }
 
 	@Column(name="activo")
-	public boolean isActivo() { return activo; }
-	public void setActivo(boolean activo) { this.activo = activo; }
+	public Boolean isActivo() { return activo; }
+	public void setActivo(Boolean activo) { this.activo = activo; }
 
 }
