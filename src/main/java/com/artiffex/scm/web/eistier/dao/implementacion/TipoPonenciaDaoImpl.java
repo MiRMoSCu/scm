@@ -44,31 +44,6 @@ public class TipoPonenciaDaoImpl implements TipoPonenciaDao {
 		return id;
 	}
 
-	public TipoPonencia buscaPorSQLQuery(String queryString) {
-		TipoPonencia obj = null;
-		Transaction tx = null;
-		SQLQuery query = null;
-		try {
-			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
-			}
-			tx = this.session.beginTransaction();
-			query = session.createSQLQuery(queryString);
-			obj = (TipoPonencia) query.uniqueResult();
-			tx.commit();
-		} catch (Exception e) {
-			if ( tx != null )
-				tx.rollback();
-			log.error(e.getMessage());
-		} finally {
-			query = null;
-			tx = null;
-		}
-		return obj;
-	}
-
 	public TipoPonencia buscaPorCriteriaQuery(String criteria) {
 		TipoPonencia obj = null;
 		Transaction tx = null;

@@ -8,8 +8,6 @@ public interface TipoMesaDao {
 	
 	public int crea(TipoMesa tipoMesa);
 	
-	public TipoMesa buscaPorSQLQuery(String queryString);
-	
 	public TipoMesa buscaPorCriteriaQuery(String criteria);
 	
 	public void modifica(TipoMesa tipoMesa);

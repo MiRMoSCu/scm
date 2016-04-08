@@ -44,31 +44,6 @@ public class PagoDaoImpl implements PagoDao {
 		return id;
 	}
 
-	public Pago buscaPorSQLQuery(String queryString) {
-		Pago obj = null;
-		Transaction tx = null;
-		SQLQuery query = null;
-		try {
-			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
-			}
-			tx = this.session.beginTransaction();
-			query = session.createSQLQuery(queryString);
-			obj = (Pago) query.uniqueResult();
-			tx.commit();
-		} catch (Exception e) {
-			if ( tx != null )
-				tx.rollback();
-			log.error(e.getMessage());
-		} finally {
-			query = null;
-			tx = null;
-		}
-		return obj;
-	}
-
 	public Pago buscaPorCriteriaQuery(String criteria) {
 		Pago obj = null;
 		Transaction tx = null;

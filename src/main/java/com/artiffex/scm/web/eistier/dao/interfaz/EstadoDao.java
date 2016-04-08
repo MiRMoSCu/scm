@@ -8,8 +8,6 @@ public interface EstadoDao {
 	
 	public int crea(Estado estado);
 	
-	public Estado buscaPorSQLQuery(String queryString);
-	
 	public Estado buscaPorCriteriaQuery(String criteria);
 	
 	public void modifica(Estado estado);

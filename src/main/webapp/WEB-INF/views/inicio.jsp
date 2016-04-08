@@ -7,6 +7,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Bienvenido</title>
+		<link rel="stylesheet" href="<c:url value="/resources/css/inicio.css"/>" type="text/css"></link>
 		<script type="text/javascript">
 			var urlFormulario 			= "${urlFormulario}";
 			var urlPaginaExcel			= "${urlPaginaExcel}";
@@ -30,14 +31,41 @@
 	</head>
 	<body>
 		<form name="form_inicio">
+			<div id=div_inicio>
+				<div id="div_cabezal">
+					<div id="div_img_cabezal">
+						<img alt="" src="<c:url value="/resources/image/cabezal.png"/>"/>
+					</div>
+					<div id="div_menu">
+						<div id="div_barra_lateral">
+							<img alt="" src="<c:url value="/resources/image/mnu_00_barra_lateral.png"/>"/>
+						</div>
+						<div id="div_menu_inicio">
+							<img alt="" src="<c:url value="/resources/image/mnu_01_normal.png"/>"/>
+						</div>
+						<div id="div_menu_bases">
+							<img alt="" src="<c:url value="/resources/image/mnu_02_normal.png"/>"/>
+						</div>
+					</div>
+				</div>
+			
+			</div>
+			<div style="height: 1000px;"></div>
+		
+		
+		
+		
 			BIENVENIDO AL SUPREMO CONSEJO DE MEXICO JSP
 			<br/>
 			<br/>
 			<img alt="..zzZZ" src="<c:url value="/resources/image/hoja_registro.jpg"/>" style="cursor: pointer;" onclick="menu('formulario_participante')">
 			<br/>
 			<br/>
+			Contador de visitas: ${contadorVisitas}
+			<br/>
+			<br/>
 			<span style="cursor:pointer;" onclick="menu('pagina_excel')">
-				<font color="blue">DESCARGA EXCEL</font>
+				<font color="blue">ADMIN DESCARGA EXCEL</font>
 			</span>
 		</form>
 	</body>

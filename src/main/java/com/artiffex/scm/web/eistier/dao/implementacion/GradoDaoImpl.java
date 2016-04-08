@@ -44,31 +44,6 @@ private static final Logger log = Logger.getLogger(GradoDaoImpl.class);
 		return id;
 	}
 
-	public Grado buscaPorSQLQuery(String queryString) {
-		Grado obj = null;
-		Transaction tx = null;
-		SQLQuery query = null;
-		try {
-			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
-			}
-			tx = this.session.beginTransaction();
-			query = session.createSQLQuery(queryString);
-			obj = (Grado) query.uniqueResult();
-			tx.commit();
-		} catch (Exception e) {
-			if ( tx != null )
-				tx.rollback();
-			log.error(e.getMessage());
-		} finally {
-			query = null;
-			tx = null;
-		}
-		return obj;
-	}
-
 	public Grado buscaPorCriteriaQuery(String criteria) {
 		Grado obj = null;
 		Transaction tx = null;

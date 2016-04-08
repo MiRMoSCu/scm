@@ -8,8 +8,6 @@ public interface PagoDao {
 	
 	public int crea(Pago pago);
 	
-	public Pago buscaPorSQLQuery(String queryString);
-	
 	public Pago buscaPorCriteriaQuery(String criteria);
 	
 	public void modifica(Pago pago);

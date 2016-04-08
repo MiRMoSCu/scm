@@ -8,8 +8,6 @@ public interface HospedajeDao {
 	
 	public int crea(Hospedaje hospedaje);
 	
-	public Hospedaje buscaPorSQLQuery(String queryString);
-	
 	public Hospedaje buscaPorCriteriaQuery(String criteria);
 	
 	public void modifica(Hospedaje hospedaje);

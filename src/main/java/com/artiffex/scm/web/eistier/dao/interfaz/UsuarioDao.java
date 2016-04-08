@@ -8,8 +8,6 @@ public interface UsuarioDao {
 	
 	public int crea(Usuario usuario);
 	
-	public Usuario buscaPorSQLQuery(String queryString);
-	
 	public Usuario buscaPorCriteriaQuery(String criteria);
 	
 	public void modifica(Usuario usuario);

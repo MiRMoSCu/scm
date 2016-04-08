@@ -48,15 +48,21 @@
 		<!-- con @Annotations -->
 		<mapping class="com.artiffex.scm.web.businesstier.entity.Acompaniante"/>
 		<mapping class="com.artiffex.scm.web.businesstier.entity.ColacionGrado"/>
+		<mapping class="com.artiffex.scm.web.businesstier.entity.CostoAcompaniante"/>
+		<mapping class="com.artiffex.scm.web.businesstier.entity.CostoCongresista"/>
 		<mapping class="com.artiffex.scm.web.businesstier.entity.Estado"/>
 		<mapping class="com.artiffex.scm.web.businesstier.entity.Grado"/>
+		<mapping class="com.artiffex.scm.web.businesstier.entity.GradoPretende"/>
 		<mapping class="com.artiffex.scm.web.businesstier.entity.Hospedaje"/>
 		<mapping class="com.artiffex.scm.web.businesstier.entity.Hotel"/>
 		<mapping class="com.artiffex.scm.web.businesstier.entity.Pago"/>
+		<mapping class="com.artiffex.scm.web.businesstier.entity.PaqueteHotel"/>
+		<mapping class="com.artiffex.scm.web.businesstier.entity.ParametroConfiguracion"/>
 		<mapping class="com.artiffex.scm.web.businesstier.entity.Participante"/>
 		<mapping class="com.artiffex.scm.web.businesstier.entity.Perfil"/>
 		<mapping class="com.artiffex.scm.web.businesstier.entity.PerfilXUsuario"/>
 		<mapping class="com.artiffex.scm.web.businesstier.entity.Registro"/>
+		<mapping class="com.artiffex.scm.web.businesstier.entity.TipoMesa"/>
 		<mapping class="com.artiffex.scm.web.businesstier.entity.TipoParticipacion"/>
 		<mapping class="com.artiffex.scm.web.businesstier.entity.TipoPonencia"/>
 		<mapping class="com.artiffex.scm.web.businesstier.entity.Usuario"/>

@@ -8,8 +8,6 @@ public interface HotelDao {
 	
 	public int crea(Hotel hotel);
 	
-	public Hotel buscaPorSQLQuery(String queryString);
-	
 	public Hotel buscaPorCriteriaQuery(String criteria);
 	
 	public void modifica(Hotel hotel);

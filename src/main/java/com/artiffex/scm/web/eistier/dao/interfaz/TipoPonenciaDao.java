@@ -8,8 +8,6 @@ public interface TipoPonenciaDao {
 	
 	public int crea(TipoPonencia tipoPonencia);
 	
-	public TipoPonencia buscaPorSQLQuery(String queryString);
-	
 	public TipoPonencia buscaPorCriteriaQuery(String criteria);
 	
 	public void modifica(TipoPonencia tipoPonencia);

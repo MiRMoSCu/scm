@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+
+#div_inicio {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	background: transparent;
+}
+
+#div_img_cabezal,
+#div_menu {
+	width: 1366px;
+	margin-left: auto;
+	margin-right: auto;
+	background: transparent;
+}
+
+#div_barra_lateral, 
+#div_menu_inicio,
+#div_menu_bases {
+	float: left;
+}

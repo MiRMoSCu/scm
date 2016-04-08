@@ -8,8 +8,6 @@ public interface RegistroDao {
 	
 	public int crea(Registro registro);
 	
-	public Registro buscaPorSQLQuery(String queryString);
-	
 	public Registro buscaPorCriteriaQuery(String criteria);
 	
 	public void modifica(Registro registro);

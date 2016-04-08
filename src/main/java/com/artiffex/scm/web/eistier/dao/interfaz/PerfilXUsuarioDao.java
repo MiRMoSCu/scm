@@ -8,8 +8,6 @@ public interface PerfilXUsuarioDao {
 	
 	public int crea(PerfilXUsuario perfilXUsuario);
 	
-	public PerfilXUsuario buscaPorSQLQuery(String queryString);
-	
 	public PerfilXUsuario buscaPorCriteriaQuery(String criteria);
 	
 	public void modifica(PerfilXUsuario perfilXUsuario);

@@ -138,17 +138,17 @@
 					</td>
 				</tr>
 				<tr>
-					<td>Contrase&ntilde;a sitio:</td>
-					<td>
-						<input 	type="text"
-								name="contrasenia_sitio"/>
-					</td>
-				</tr>
-				<tr>
 					<td>¿Acompa&ntilde;ante?:</td>
 					<td>
 						<input 	type="checkbox"
 								name="aplica_acompaniante"/>
+					</td>
+				</tr>
+				<tr>
+					<td>¿Colacion Grado?:</td>
+					<td>
+						<input 	type="checkbox"
+								name="aplica_colacion_grado"/>
 					</td>
 				</tr>
 				<tr>

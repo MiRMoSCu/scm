@@ -44,31 +44,6 @@ public class RegistroDaoImpl implements RegistroDao {
 		return id;
 	}
 
-	public Registro buscaPorSQLQuery(String queryString) {
-		Registro obj = null;
-		Transaction tx = null;
-		SQLQuery query = null;
-		try {
-			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
-			}
-			tx = this.session.beginTransaction();
-			query = session.createSQLQuery(queryString);
-			obj = (Registro) query.uniqueResult();
-			tx.commit();
-		} catch (Exception e) {
-			if ( tx != null )
-				tx.rollback();
-			log.error(e.getMessage());
-		} finally {
-			query = null;
-			tx = null;
-		}
-		return obj;
-	}
-
 	public Registro buscaPorCriteriaQuery(String criteria) {
 		Registro obj = null;
 		Transaction tx = null;

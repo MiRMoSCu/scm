@@ -13,29 +13,18 @@ public class ParametroConfiguracionServiceImpl implements ParametroConfiguracion
 	
 	@Resource
 	private ParametroConfiguracionDao parametroConfiguracionDao;
-
+	
 	public int obtieneContadorVisitas() {
 		int contadorVisitas = 0;
-		
-		StringBuilder sb = new StringBuilder();
-		sb.append(" SELECT ");
-		sb.append("    *");
-		sb.append(" FROM");
-		sb.append("    parametro_configuracion pc");
-		sb.append(" WHERE");
-		sb.append("    pc.nombre = 'contador_visitas'");
-		sb.append("        AND pc.activo = TRUE;");
-		
-		ParametroConfiguracion parametro = null;
-		parametro = parametroConfiguracionDao.buscaPorSQLQuery(sb.toString());
-		contadorVisitas = parametro.getValorInt();
-		
-		parametro = null;
-		sb = null;
-		
+		ParametroConfiguracion parametroConfiguracion = null;
+		parametroConfiguracion = parametroConfiguracionDao.buscaPorCriteriaQuery("from ParametroConfiguracion pc where pc.activo = true and pc.nombre = 'contador_visitas'");
+		if (parametroConfiguracion != null) {
+			contadorVisitas = parametroConfiguracion.getValorInt() + 1;
+			parametroConfiguracion.setValorInt(contadorVisitas);
+			parametroConfiguracionDao.modifica(parametroConfiguracion);
+		}
+		parametroConfiguracion = null;
 		return contadorVisitas;
 	}
-	
-	
 
 }

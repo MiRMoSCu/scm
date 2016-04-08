@@ -44,31 +44,6 @@ public class AcompanianteDaoImpl implements AcompanianteDao {
 		return id;
 	}
 
-	public Acompaniante buscaPorSQLQuery(String queryString) {
-		Acompaniante obj = null;
-		Transaction tx = null;
-		SQLQuery query = null;
-		try {
-			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
-			}
-			tx = this.session.beginTransaction();
-			query = session.createSQLQuery(queryString);
-			obj = (Acompaniante) query.uniqueResult();
-			tx.commit();
-		} catch (Exception e) {
-			if ( tx != null )
-				tx.rollback();
-			log.error(e.getMessage());
-		} finally {
-			query = null;
-			tx = null;
-		}
-		return obj;
-	}
-
 	public Acompaniante buscaPorCriteriaQuery(String criteria) {
 		Acompaniante obj = null;
 		Transaction tx = null;

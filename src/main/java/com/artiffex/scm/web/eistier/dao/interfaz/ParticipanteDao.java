@@ -8,8 +8,6 @@ public interface ParticipanteDao {
 	
 	public int crea(Participante participante);
 	
-	public Participante buscaPorSQLQuery(String queryString);
-	
 	public Participante buscaPorCriteriaQuery(String criteria);
 	
 	public void modifica(Participante participante);
@@ -19,5 +17,7 @@ public interface ParticipanteDao {
 	public List<Participante> listaPorSQLQuery(String queryString);
 	
 	public List<Participante> listaPorCriteriaQuery(String criteria);
+	
+	public Object buscaValorPorSQLQuery(String queryString);
 
 }

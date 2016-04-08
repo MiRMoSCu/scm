@@ -55,13 +55,10 @@ public class PublicController {
 			@RequestParam(value="telefono_movil", required=false) String telefonoMovil,
 			@RequestParam(value="telefono_oficina", required=false) String telefonoOficina,
 			@RequestParam(value="email", required=false) String email,
-			@RequestParam(value="contrasenia_sitio", required=false) String contraseniaSitio,
 			@RequestParam(value="aplica_acompaniante", required=false) boolean aplicaAcompaniante,
+			@RequestParam(value="aplica_colacion_grado", required=false) boolean aplicaColacionGrado,
 			@RequestParam(value="aplica_hospedaje", required=false) boolean aplicaHospedaje
 		) {
-		
-		System.out.println(aplicaAcompaniante);
-		System.out.println(aplicaHospedaje);
 		
 		Participante participante = new Participante();
 		participante.setNombre(nombre);
@@ -80,8 +77,8 @@ public class PublicController {
 		participante.setTelefonoMovil(telefonoMovil);
 		participante.setTelefonoOficina(telefonoOficina);
 		participante.setEmail(email);
-		participante.setContraseniaSitio(contraseniaSitio);
 		participante.setAplicaAcompaniante(aplicaAcompaniante);
+		participante.setAplicaColacionGrado(aplicaColacionGrado);
 		participante.setAplicaHospedaje(aplicaHospedaje);
 		participante.setActivo(true);
 		participanteService.creaParticipante(participante);

@@ -32,8 +32,8 @@ public class Participante implements Serializable {
 	private String telefonoMovil;
 	private String telefonoOficina;
 	private String email;
-	private String contraseniaSitio;
 	private Boolean aplicaAcompaniante;
+	private Boolean aplicaColacionGrado;
 	private Boolean aplicaHospedaje;
 	private Boolean activo;
 
@@ -103,13 +103,13 @@ public class Participante implements Serializable {
 	public String getEmail() { return email; }
 	public void setEmail(String email) { this.email = email; }
 	
-	@Column(name="contrasenia_sitio", length=45)
-	public String getContraseniaSitio() { return contraseniaSitio; }
-	public void setContraseniaSitio(String contraseniaSitio) { this.contraseniaSitio = contraseniaSitio; }
-
 	@Column(name="aplica_acompaniante")
 	public Boolean isAplicaAcompaniante() { return aplicaAcompaniante; }
 	public void setAplicaAcompaniante(Boolean aplicaAcompaniante) { this.aplicaAcompaniante = aplicaAcompaniante; }
+	
+	@Column(name="aplica_colacion_grado")
+	public Boolean getAplicaColacionGrado() { return aplicaColacionGrado; }
+	public void setAplicaColacionGrado(Boolean aplicaColacionGrado) { this.aplicaColacionGrado = aplicaColacionGrado; }
 
 	@Column(name="aplica_hospedaje")
 	public Boolean isAplicaHospedaje() { return aplicaHospedaje; }

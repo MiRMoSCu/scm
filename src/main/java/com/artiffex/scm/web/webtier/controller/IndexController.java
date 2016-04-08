@@ -26,8 +26,10 @@ public class IndexController {
 	public String welcomeFileJsp(Model model) {
 		log.info("/");
 		
-		int contadorVisitas = 0;
+		/* ELIMINAR COMENTARIOS PARA QUE FUNCIONE
+		int contadorVisitas = parametroConfiguracionService.obtieneContadorVisitas();
 		model.addAttribute("contadorVisitas",contadorVisitas);
+		*/
 		
 		return "inicio";
 	}

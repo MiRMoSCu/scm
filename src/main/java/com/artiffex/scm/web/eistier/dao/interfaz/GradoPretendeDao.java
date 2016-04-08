@@ -8,8 +8,6 @@ public interface GradoPretendeDao {
 	
 	public int crea(GradoPretende gradoPretende);
 	
-	public GradoPretende buscaPorSQLQuery(String queryString);
-	
 	public GradoPretende buscaPorCriteriaQuery(String criteria);
 	
 	public void modifica(GradoPretende gradoPretende);

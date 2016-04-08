@@ -8,8 +8,6 @@ public interface ColacionGradoDao {
 	
 	public int crea(ColacionGrado colacionGrado);
 	
-	public ColacionGrado buscaPorSQLQuery(String queryString);
-	
 	public ColacionGrado buscaPorCriteriaQuery(String criteria);
 	
 	public void modifica(ColacionGrado colacionGrado);

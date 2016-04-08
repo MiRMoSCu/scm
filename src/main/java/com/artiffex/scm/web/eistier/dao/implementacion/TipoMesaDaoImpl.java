@@ -44,31 +44,6 @@ public class TipoMesaDaoImpl implements TipoMesaDao {
 		return id;
 	}
 
-	public TipoMesa buscaPorSQLQuery(String queryString) {
-		TipoMesa obj = null;
-		Transaction tx = null;
-		SQLQuery query = null;
-		try {
-			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
-			}
-			tx = this.session.beginTransaction();
-			query = session.createSQLQuery(queryString);
-			obj = (TipoMesa) query.uniqueResult();
-			tx.commit();
-		} catch (Exception e) {
-			if ( tx != null )
-				tx.rollback();
-			log.error(e.getMessage());
-		} finally {
-			query = null;
-			tx = null;
-		}
-		return obj;
-	}
-
 	public TipoMesa buscaPorCriteriaQuery(String criteria) {
 		TipoMesa obj = null;
 		Transaction tx = null;

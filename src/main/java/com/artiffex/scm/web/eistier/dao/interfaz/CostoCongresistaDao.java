@@ -8,8 +8,6 @@ public interface CostoCongresistaDao {
 	
 	public int crea(CostoCongresista costoCongresista);
 	
-	public CostoCongresista buscaPorSQLQuery(String queryString);
-	
 	public CostoCongresista buscaPorCriteriaQuery(String criteria);
 	
 	public void modifica(CostoCongresista costoCongresista);

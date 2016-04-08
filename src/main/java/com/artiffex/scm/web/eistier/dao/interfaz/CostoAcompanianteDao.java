@@ -8,8 +8,6 @@ public interface CostoAcompanianteDao {
 	
 	public int crea(CostoAcompaniante costoAcompaniante);
 	
-	public CostoAcompaniante buscaPorSQLQuery(String queryString);
-	
 	public CostoAcompaniante buscaPorCriteriaQuery(String criteria);
 	
 	public void modifica(CostoAcompaniante costoAcompaniante);

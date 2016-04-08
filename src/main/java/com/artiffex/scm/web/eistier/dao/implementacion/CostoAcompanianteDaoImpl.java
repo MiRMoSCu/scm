@@ -44,31 +44,6 @@ public class CostoAcompanianteDaoImpl implements CostoAcompanianteDao {
 		return id;
 	}
 
-	public CostoAcompaniante buscaPorSQLQuery(String queryString) {
-		CostoAcompaniante obj = null;
-		Transaction tx = null;
-		SQLQuery query = null;
-		try {
-			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
-			}
-			tx = this.session.beginTransaction();
-			query = session.createSQLQuery(queryString);
-			obj = (CostoAcompaniante) query.uniqueResult();
-			tx.commit();
-		} catch (Exception e) {
-			if ( tx != null )
-				tx.rollback();
-			log.error(e.getMessage());
-		} finally {
-			query = null;
-			tx = null;
-		}
-		return obj;
-	}
-
 	public CostoAcompaniante buscaPorCriteriaQuery(String criteria) {
 		CostoAcompaniante obj = null;
 		Transaction tx = null;

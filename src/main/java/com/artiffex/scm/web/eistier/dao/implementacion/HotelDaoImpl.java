@@ -44,31 +44,6 @@ public class HotelDaoImpl implements HotelDao {
 		return id;
 	}
 
-	public Hotel buscaPorSQLQuery(String queryString) {
-		Hotel obj = null;
-		Transaction tx = null;
-		SQLQuery query = null;
-		try {
-			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
-			}
-			tx = this.session.beginTransaction();
-			query = session.createSQLQuery(queryString);
-			obj = (Hotel) query.uniqueResult();
-			tx.commit();
-		} catch (Exception e) {
-			if ( tx != null )
-				tx.rollback();
-			log.error(e.getMessage());
-		} finally {
-			query = null;
-			tx = null;
-		}
-		return obj;
-	}
-
 	public Hotel buscaPorCriteriaQuery(String criteria) {
 		Hotel obj = null;
 		Transaction tx = null;

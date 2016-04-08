@@ -44,31 +44,6 @@ public class ColacionGradoDaoImpl implements ColacionGradoDao {
 		return id;
 	}
 
-	public ColacionGrado buscaPorSQLQuery(String queryString) {
-		ColacionGrado obj = null;
-		Transaction tx = null;
-		SQLQuery query = null;
-		try {
-			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
-			}
-			tx = this.session.beginTransaction();
-			query = session.createSQLQuery(queryString);
-			obj = (ColacionGrado) query.uniqueResult();
-			tx.commit();
-		} catch (Exception e) {
-			if ( tx != null )
-				tx.rollback();
-			log.error(e.getMessage());
-		} finally {
-			query = null;
-			tx = null;
-		}
-		return obj;
-	}
-
 	public ColacionGrado buscaPorCriteriaQuery(String criteria) {
 		ColacionGrado obj = null;
 		Transaction tx = null;

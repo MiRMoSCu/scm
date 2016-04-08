@@ -8,8 +8,6 @@ public interface ParametroConfiguracionDao {
 	
 	public int crea(ParametroConfiguracion parametroConfiguracion);
 	
-	public ParametroConfiguracion buscaPorSQLQuery(String queryString);
-	
 	public ParametroConfiguracion buscaPorCriteriaQuery(String criteria);
 	
 	public void modifica(ParametroConfiguracion parametroConfiguracion);

@@ -8,8 +8,6 @@ public interface AcompanianteDao {
 
 	public int crea(Acompaniante acompaniante);
 	
-	public Acompaniante buscaPorSQLQuery(String queryString);
-	
 	public Acompaniante buscaPorCriteriaQuery(String criteria);
 	
 	public void modifica(Acompaniante acompaniante);

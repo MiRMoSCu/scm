@@ -44,31 +44,6 @@ public class HospedajeDaoImpl implements HospedajeDao {
 		return id;
 	}
 
-	public Hospedaje buscaPorSQLQuery(String queryString) {
-		Hospedaje obj = null;
-		Transaction tx = null;
-		SQLQuery query = null;
-		try {
-			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
-			}
-			tx = this.session.beginTransaction();
-			query = session.createSQLQuery(queryString);
-			obj = (Hospedaje) query.uniqueResult();
-			tx.commit();
-		} catch (Exception e) {
-			if ( tx != null )
-				tx.rollback();
-			log.error(e.getMessage());
-		} finally {
-			query = null;
-			tx = null;
-		}
-		return obj;
-	}
-
 	public Hospedaje buscaPorCriteriaQuery(String criteria) {
 		Hospedaje obj = null;
 		Transaction tx = null;

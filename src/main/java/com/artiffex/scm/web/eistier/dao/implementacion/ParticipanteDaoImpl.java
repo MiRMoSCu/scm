@@ -44,31 +44,6 @@ public class ParticipanteDaoImpl implements ParticipanteDao {
 		return id;
 	}
 
-	public Participante buscaPorSQLQuery(String queryString) {
-		Participante obj = null;
-		Transaction tx = null;
-		SQLQuery query = null;
-		try {
-			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
-			}
-			tx = this.session.beginTransaction();
-			query = session.createSQLQuery(queryString);
-			obj = (Participante) query.uniqueResult();
-			tx.commit();
-		} catch (Exception e) {
-			if ( tx != null )
-				tx.rollback();
-			log.error(e.getMessage());
-		} finally {
-			query = null;
-			tx = null;
-		}
-		return obj;
-	}
-	
 	public Participante buscaPorCriteriaQuery(String criteria) {
 		Participante obj = null;
 		Transaction tx = null;
@@ -184,6 +159,31 @@ public class ParticipanteDaoImpl implements ParticipanteDao {
 			tx = null;
 		}
 		return lista;
+	}
+
+	public Object buscaValorPorSQLQuery(String queryString) {
+		Object obj = null;
+		Transaction tx = null;
+		SQLQuery query = null;
+		try {
+			try {
+				this.session = HibernateUtil.getInstance().getCurrentSession();
+			} catch (HibernateException he) {
+				session = HibernateUtil.getInstance().openSession();
+			}
+			tx = this.session.beginTransaction();
+			query = session.createSQLQuery(queryString);
+			obj = query.uniqueResult();
+			tx.commit();
+		} catch (Exception e) {
+			if ( tx != null )
+				tx.rollback();
+			log.error(e.getMessage());
+		} finally {
+			query = null;
+			tx = null;
+		}
+		return obj;
 	}
 
 }

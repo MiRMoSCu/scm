@@ -44,31 +44,6 @@ public class ParametroConfiguracionDaoImpl implements ParametroConfiguracionDao 
 		return id;
 	}
 
-	public ParametroConfiguracion buscaPorSQLQuery(String queryString) {
-		ParametroConfiguracion obj = null;
-		Transaction tx = null;
-		SQLQuery query = null;
-		try {
-			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				this.session = HibernateUtil.getInstance().openSession();
-			}
-			tx = this.session.beginTransaction();
-			query = session.createSQLQuery(queryString);
-			obj = (ParametroConfiguracion) query.uniqueResult();
-			tx.commit();
-		} catch (Exception e) {
-			if (tx != null)
-				tx.rollback();
-			log.error(e.getMessage());
-		} finally {
-			query = null;
-			tx = null;
-		}
-		return obj;
-	}
-
 	public ParametroConfiguracion buscaPorCriteriaQuery(String criteria) {
 		ParametroConfiguracion obj = null;
 		Transaction tx = null;

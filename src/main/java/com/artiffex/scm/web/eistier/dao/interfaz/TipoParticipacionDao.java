@@ -8,8 +8,6 @@ public interface TipoParticipacionDao {
 	
 	public int crea(TipoParticipacion tipoParticipacion);
 	
-	public TipoParticipacion buscaPorSQLQuery(String queryString);
-	
 	public TipoParticipacion buscaPorCriteriaQuery(String criteria);
 	
 	public void modifica(TipoParticipacion tipoParticipacion);
