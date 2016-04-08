@@ -20,7 +20,7 @@ public class Hospedaje implements Serializable {
 	
 	private Integer idHospedaje;
 	private Participante participante;
-	private Hotel hotel;
+	private PaqueteHotel paqueteHotel;
 	private Date fechaEntrada;
 	private Date fechaSalida;
 	private Integer numPersonasHabitacion;
@@ -41,10 +41,10 @@ public class Hospedaje implements Serializable {
 	public void setParticipante(Participante participante) { this.participante = participante; }
 
 	@OneToOne
-	@JoinColumn(name="id_hotel")
-	public Hotel getHotel() { return hotel; }
-	public void setHotel(Hotel hotel) { this.hotel = hotel; }
-
+	@JoinColumn(name="id_paquete_hotel")
+	public PaqueteHotel getPaqueteHotel() { return paqueteHotel; }
+	public void setPaqueteHotel(PaqueteHotel paqueteHotel) { this.paqueteHotel = paqueteHotel; }
+	
 	@Column(name="fecha_entrada")
 	public Date getFechaEntrada() { return fechaEntrada; }
 	public void setFechaEntrada(Date fechaEntrada) { this.fechaEntrada = fechaEntrada; }

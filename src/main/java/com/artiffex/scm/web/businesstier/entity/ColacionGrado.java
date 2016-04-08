@@ -19,8 +19,9 @@ public class ColacionGrado implements Serializable {
 	
 	private Integer idColacionGrado;
 	private Participante participante;
-	private Grado gradoPretende;
+	private GradoPretende gradoPretende;
 	private String cuerpoPretende;
+	private String delegacionPretende;
 	private Boolean activo;
 	
 	// constructor
@@ -39,12 +40,16 @@ public class ColacionGrado implements Serializable {
 
 	@OneToOne
 	@JoinColumn(name="id_grado_pretende")
-	public Grado getGradoPretende() { return gradoPretende; }
-	public void setGradoPretende(Grado gradoPretende) { this.gradoPretende = gradoPretende; }
+	public GradoPretende getGradoPretende() { return gradoPretende; }
+	public void setGradoPretende(GradoPretende gradoPretende) { this.gradoPretende = gradoPretende; }
 
 	@Column(name="cuerpo_pretende", length=80)
 	public String getCuerpoPretende() { return cuerpoPretende; }
 	public void setCuerpoPretende(String cuerpoPretende) { this.cuerpoPretende = cuerpoPretende; }
+
+	@Column(name="delegacion_pretende", length=120)
+	public String getDelegacionPretende() { return delegacionPretende; }
+	public void setDelegacionPretende(String delegacionPretende) { this.delegacionPretende = delegacionPretende; }
 
 	@Column(name="activo")
 	public Boolean isActivo() { return activo; }

@@ -45,7 +45,7 @@ public class ParticipanteDaoImpl implements ParticipanteDao {
 	}
 
 	public Participante buscaPorSQLQuery(String queryString) {
-		Participante participante = null;
+		Participante obj = null;
 		Transaction tx = null;
 		SQLQuery query = null;
 		try {
@@ -56,7 +56,7 @@ public class ParticipanteDaoImpl implements ParticipanteDao {
 			}
 			tx = this.session.beginTransaction();
 			query = session.createSQLQuery(queryString);
-			participante = (Participante) query.uniqueResult();
+			obj = (Participante) query.uniqueResult();
 			tx.commit();
 		} catch (Exception e) {
 			if ( tx != null )
@@ -66,11 +66,11 @@ public class ParticipanteDaoImpl implements ParticipanteDao {
 			query = null;
 			tx = null;
 		}
-		return participante;
+		return obj;
 	}
 	
 	public Participante buscaPorCriteriaQuery(String criteria) {
-		Participante participante = null;
+		Participante obj = null;
 		Transaction tx = null;
 		Query query = null;
 		try {
@@ -81,7 +81,7 @@ public class ParticipanteDaoImpl implements ParticipanteDao {
 			}
 			tx = this.session.beginTransaction();
 			query = session.createQuery(criteria);
-			participante = (Participante) query.uniqueResult();
+			obj = (Participante) query.uniqueResult();
 			tx.commit();
 		} catch (Exception e) {
 			if ( tx != null )
@@ -91,7 +91,7 @@ public class ParticipanteDaoImpl implements ParticipanteDao {
 			query = null;
 			tx = null;
 		}
-		return participante;
+		return obj;
 	}
 
 	public void modifica(Participante participante) {

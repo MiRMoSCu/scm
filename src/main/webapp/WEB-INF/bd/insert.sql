@@ -78,7 +78,7 @@ INSERT INTO tipo_ponencia (id_tipo_ponencia, nombre, descripcion, activo) VALUES
 
 
 
-INSERT INTO tipo_mesa (id_tipo_mesa, nombre, descripcion, activo) VALUES (1,'Ninguna en especial',' ',1);
+INSERT INTO tipo_mesa (id_tipo_mesa, nombre, descripcion, activo) VALUES (1,'Ninguna en particular',' ',1);
 INSERT INTO tipo_mesa (id_tipo_mesa, nombre, descripcion, activo) VALUES (2,'Masonería en Constituciones',' ',1);
 INSERT INTO tipo_mesa (id_tipo_mesa, nombre, descripcion, activo) VALUES (3,'Derechos Humanos',' ',1);
 INSERT INTO tipo_mesa (id_tipo_mesa, nombre, descripcion, activo) VALUES (4,'Masonería y Educación',' ',1);
@@ -119,18 +119,6 @@ INSERT INTO paquete_hotel (id_paquete_hotel, id_hotel, nombre, descripcion, prec
 
 
 
-INSERT INTO empresa_tarjeta (id_empresa_tarjeta, nombre, descripcion, activo) VALUES (1,'VISA',' ',1);
-INSERT INTO empresa_tarjeta (id_empresa_tarjeta, nombre, descripcion, activo) VALUES (2,'Master Card',' ',1);
-
-
-
-
-INSERT INTO tipo_tarjeta (id_tipo_tarjeta, nombre, descripcion, activo) VALUES (1,'Crédito',' ',1);
-INSERT INTO tipo_tarjeta (id_tipo_tarjeta, nombre, descripcion, activo) VALUES (2,'Débito',' ',1);
-
-
-
-
 INSERT INTO costo_congresista (id_costo_congresista, fecha_inicio, fecha_fin, precio, activo) VALUES (1,'2016-01-01','2016-02-29',1800,1);
 INSERT INTO costo_congresista (id_costo_congresista, fecha_inicio, fecha_fin, precio, activo) VALUES (2,'2016-03-01','2016-04-30',2300,1);
 INSERT INTO costo_congresista (id_costo_congresista, fecha_inicio, fecha_fin, precio, activo) VALUES (3,'2016-05-01','2016-06-30',2800,1);
@@ -138,9 +126,9 @@ INSERT INTO costo_congresista (id_costo_congresista, fecha_inicio, fecha_fin, pr
 
 
 
-INSERT INTO costo_acompañante (id_costo_acompañante, fecha_inicio, fecha_fin, precio, activo) VALUES (1,'2016-01-01','2016-02-29',1500,1);
-INSERT INTO costo_acompañante (id_costo_acompañante, fecha_inicio, fecha_fin, precio, activo) VALUES (2,'2016-03-01','2016-04-30',2000,1);
-INSERT INTO costo_acompañante (id_costo_acompañante, fecha_inicio, fecha_fin, precio, activo) VALUES (3,'2016-05-01','2016-06-30',2500,1);
+INSERT INTO costo_acompaniante (id_costo_acompaniante, fecha_inicio, fecha_fin, precio, activo) VALUES (1,'2016-01-01','2016-02-29',1500,1);
+INSERT INTO costo_acompaniante (id_costo_acompaniante, fecha_inicio, fecha_fin, precio, activo) VALUES (2,'2016-03-01','2016-04-30',2000,1);
+INSERT INTO costo_acompaniante (id_costo_acompaniante, fecha_inicio, fecha_fin, precio, activo) VALUES (3,'2016-05-01','2016-06-30',2500,1);
 
 
 
@@ -161,7 +149,7 @@ INSERT INTO registro (id_registro, id_participante, id_grado, nombre_cuerpo, del
 
 
 
-INSERT INTO hospedaje (id_hospedaje, id_participante, id_hotel, id_paquete_hotel, fecha_entrada, fecha_salida, num_personas_habitacion, activo) VALUES (1,1,1,1,'2016-01-02','2016-01-03',1,1);
+INSERT INTO hospedaje (id_hospedaje, id_participante, id_paquete_hotel, fecha_entrada, fecha_salida, num_personas_habitacion, activo) VALUES (1,1,1,'2016-01-02','2016-01-03',1,1);
 
 
 

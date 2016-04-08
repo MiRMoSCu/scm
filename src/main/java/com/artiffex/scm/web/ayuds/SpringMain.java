@@ -4,7 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.artiffex.scm.web.businesstier.entity.ColacionGrado;
-import com.artiffex.scm.web.businesstier.entity.Grado;
+import com.artiffex.scm.web.businesstier.entity.GradoPretende;
 import com.artiffex.scm.web.businesstier.entity.Participante;
 import com.artiffex.scm.web.businesstier.service.interfaz.ColacionGradoService;
 
@@ -18,14 +18,17 @@ public class SpringMain {
 		// ES NECESARIO ACTIVAR LOS GETTER Y SETTER DEL SERVICE
 		ColacionGradoService colacionGradoService = (ColacionGradoService) context.getBean("colacionGradoService");
 		ColacionGrado colacionGrado = new ColacionGrado();
+		
 			Participante participante = new Participante();
 			participante.setIdParticipante(1);
 		colacionGrado.setParticipante(participante);
 			participante = null;
-			Grado gradoPretende = new Grado();
-			gradoPretende.setIdGrado(1);
+			
+			GradoPretende gradoPretende = new GradoPretende();
+			gradoPretende.setIdGradoPretende(1);
 		colacionGrado.setGradoPretende(gradoPretende);
 			gradoPretende = null;
+			
 		colacionGrado.setCuerpoPretende("Abejitas");
 		colacionGrado.setActivo(true);
 		int idColacionGrado = colacionGradoService.creaColacionGrado(colacionGrado);

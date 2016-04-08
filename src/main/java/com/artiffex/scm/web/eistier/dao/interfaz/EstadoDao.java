@@ -5,7 +5,19 @@ import java.util.List;
 import com.artiffex.scm.web.businesstier.entity.Estado;
 
 public interface EstadoDao {
-
-	public List<Estado> listaPorCriteriaQuery(String criteria);
 	
+	public int crea(Estado estado);
+	
+	public Estado buscaPorSQLQuery(String queryString);
+	
+	public Estado buscaPorCriteriaQuery(String criteria);
+	
+	public void modifica(Estado estado);
+	
+	public void elimina(Estado estado);
+	
+	public List<Estado> listaPorSQLQuery(String queryString);
+	
+	public List<Estado> ListaPorCriteriaQuery(String criteria);
+
 }

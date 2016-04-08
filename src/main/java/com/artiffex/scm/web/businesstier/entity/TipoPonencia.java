@@ -33,7 +33,7 @@ public class TipoPonencia implements Serializable {
 	public String getNombre() { return nombre; }
 	public void setNombre(String nombre) { this.nombre = nombre; }
 
-	@Column(name="descripcion", length=45)
+	@Column(name="descripcion", length=80)
 	public String getDescripcion() { return descripcion; }
 	public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
 

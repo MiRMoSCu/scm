@@ -24,6 +24,8 @@ public class Registro implements Serializable {
 	private String delegacion;
 	private TipoParticipacion tipoParticipacion;
 	private TipoPonencia tipoPonencia;
+	private String tituloPonencia;
+	private TipoMesa tipoMesa;
 	private Boolean activo;
 	
 	// constructor
@@ -62,9 +64,18 @@ public class Registro implements Serializable {
 	@JoinColumn(name="id_tipo_ponencia")
 	public TipoPonencia getTipoPonencia() { return tipoPonencia; }
 	public void setTipoPonencia(TipoPonencia tipoPonencia) { this.tipoPonencia = tipoPonencia; }
+	
+	@Column(name="titulo_ponencia", length=120)
+	public String getTituloPonencia() { return tituloPonencia; }
+	public void setTituloPonencia(String tituloPonencia) { this.tituloPonencia = tituloPonencia; }
+
+	@OneToOne
+	@JoinColumn(name="id_tipo_mesa")
+	public TipoMesa getTipoMesa() { return tipoMesa; }
+	public void setTipoMesa(TipoMesa tipoMesa) { this.tipoMesa = tipoMesa; }
 
 	@Column(name="activo")
 	public Boolean isActivo() { return activo; }
 	public void setActivo(Boolean activo) { this.activo = activo; }
-	
+
 }

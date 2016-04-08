@@ -20,7 +20,7 @@ public class EstadoServiceImpl implements EstadoService {
 	
 	public List<ComboSelect> listaComboSelect() {
 		List<ComboSelect> listaComboSelect = new ArrayList<ComboSelect>();
-		List<Estado> listaEstado = estadoDao.listaPorCriteriaQuery("from Estado e where e.activo = true order by e.idEstado asc");
+		List<Estado> listaEstado = estadoDao.ListaPorCriteriaQuery("from Estado e where e.activo = true order by e.idEstado asc");
 		for (Estado estado : listaEstado) {
 			ComboSelect cs = new ComboSelect();
 			cs.setValue(estado.getIdEstado());
