@@ -124,6 +124,12 @@
 					</form>
 				</div>
 			</div>
+			<div id="div_contenedor">
+				<div id="div_ocupa_espacio"></div>
+				<div id="div_zona_visible">
+					<div id="div_contenido"></div>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

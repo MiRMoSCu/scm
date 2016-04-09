@@ -61,6 +61,63 @@
 					document.form_menu.submit();	
 				}
 			}
+			
+			function submenu(opcion) {
+				switch(opcion) {
+					case 'submenu_div_generales':
+						document.submenu_registro.mnu_registro_01_normal.style.display = "none";
+						document.submenu_registro.mnu_registro_01_activo.style.display = "block";
+						
+						document.submenu_registro.mnu_registro_02_normal.style.display = "block";
+						document.submenu_registro.mnu_registro_02_activo.style.display = "none";
+						
+						document.submenu_registro.mnu_registro_03_normal.style.display = "block";
+						document.submenu_registro.mnu_registro_03_activo.style.display = "none";
+						
+						document.submenu_registro.mnu_registro_04_normal.style.display = "block";
+						document.submenu_registro.mnu_registro_04_activo.style.display = "none";
+						break;
+					case 'submenu_div_colacion':
+						document.submenu_registro.mnu_registro_01_normal.style.display = "block";
+						document.submenu_registro.mnu_registro_01_activo.style.display = "none";
+						
+						document.submenu_registro.mnu_registro_02_normal.style.display = "none";
+						document.submenu_registro.mnu_registro_02_activo.style.display = "block";
+						
+						document.submenu_registro.mnu_registro_03_normal.style.display = "block";
+						document.submenu_registro.mnu_registro_03_activo.style.display = "none";
+						
+						document.submenu_registro.mnu_registro_04_normal.style.display = "block";
+						document.submenu_registro.mnu_registro_04_activo.style.display = "none";
+						break;
+					case 'submenu_div_hospedaje':
+						document.submenu_registro.mnu_registro_01_normal.style.display = "block";
+						document.submenu_registro.mnu_registro_01_activo.style.display = "none";
+						
+						document.submenu_registro.mnu_registro_02_normal.style.display = "block";
+						document.submenu_registro.mnu_registro_02_activo.style.display = "none";
+						
+						document.submenu_registro.mnu_registro_03_normal.style.display = "none";
+						document.submenu_registro.mnu_registro_03_activo.style.display = "block";
+						
+						document.submenu_registro.mnu_registro_04_normal.style.display = "block";
+						document.submenu_registro.mnu_registro_04_activo.style.display = "none";
+						break;
+					case 'submenu_div_pago':
+						document.submenu_registro.mnu_registro_01_normal.style.display = "block";
+						document.submenu_registro.mnu_registro_01_activo.style.display = "none";
+						
+						document.submenu_registro.mnu_registro_02_normal.style.display = "block";
+						document.submenu_registro.mnu_registro_02_activo.style.display = "none";
+						
+						document.submenu_registro.mnu_registro_03_normal.style.display = "block";
+						document.submenu_registro.mnu_registro_03_activo.style.display = "none";
+						
+						document.submenu_registro.mnu_registro_04_normal.style.display = "none";
+						document.submenu_registro.mnu_registro_04_activo.style.display = "block";
+						break;
+				}
+			}
 		</script>
 	</head>
 	<body>
@@ -122,6 +179,36 @@
 						</div>
 					</div>
 					</form>
+				</div>
+			</div>
+			<div id="div_contenedor">
+				<div id="div_ocupa_espacio"></div>
+				<div id="div_zona_visible">
+					<div id="div_espacio_trabajo">
+						<div style="width: 100%; height: 30px;"></div>
+						<div id="div_esquina_redonda">
+							<div id="div_contenedor_menu_registro">
+								<form name="submenu_registro">
+									<div id="div_menu_datos_generales" onclick="submenu('submenu_div_generales')">
+										<img id="mnu_registro_01_normal" alt="" src="<c:url value="/resources/image/mnu_registro_01_normal.png"/>" style="display: none;">
+										<img id="mnu_registro_01_activo" alt="" src="<c:url value="/resources/image/mnu_registro_01_activo.png"/>">
+									</div>
+									<div id="div_menu_datos_colacion"  onclick="submenu('submenu_div_colacion')">
+										<img id="mnu_registro_02_normal" alt="" src="<c:url value="/resources/image/mnu_registro_02_normal.png"/>">
+										<img id="mnu_registro_02_activo" alt="" src="<c:url value="/resources/image/mnu_registro_02_activo.png"/>" style="display: none;">
+									</div>
+									<div id="div_menu_datos_hospedaje" onclick="submenu('submenu_div_hospedaje')">
+										<img id="mnu_registro_03_normal" alt="" src="<c:url value="/resources/image/mnu_registro_03_normal.png"/>">
+										<img id="mnu_registro_03_activo" alt="" src="<c:url value="/resources/image/mnu_registro_03_activo.png"/>" style="display: none;">
+									</div>
+									<div id="div_menu_datos_pago" onclick="submenu('submenu_div_pago')">
+										<img id="mnu_registro_04_normal" alt="" src="<c:url value="/resources/image/mnu_registro_04_normal.png"/>">
+										<img id="mnu_registro_04_activo" alt="" src="<c:url value="/resources/image/mnu_registro_04_activo.png"/>" style="display: none;">
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

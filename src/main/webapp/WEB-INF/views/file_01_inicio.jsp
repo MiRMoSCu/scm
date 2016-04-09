@@ -147,37 +147,60 @@
 			</div>
 			<div id="div_contenedor">
 				<div id="div_ocupa_espacio"></div>
-				<div id="div_contenido">
+				<div id="div_zona_visible">
 					<div id="div_cortina"></div>
-					<div id="div_invitacion">
-						Hola
+					<div id="div_mensaje">
+						<div id="div_banda_vertical"></div>
+						<div id="div_fotografia"></div>
+						<div id="div_invitacion">
+							<div id="div_contenido_mensaje">
+								<div style="width: 100%; height: 80px;"></div>
+								<p class="morado centrado">INVITACI&Oacute;N DEL SOBERANO GRAN COMENDADOR</p>
+								<p class="justificado">
+								Año con año, en forma ininterrumpida, el Supremo Consejo de Soberanos Grandes Inspectores Generales del 
+								Trig&eacute;simo Tercero y &Uacute;ltimo Grado del Rito Escoc&eacute;s Antiguo y Aceptado para la
+								Jurisdicci&oacute;n Mas&oacute;nica de los Estados Unidos Mexicanos ha celebrado el Congreso Nacional
+								Mas&oacute;nico de Grados Filos&oacute;ficos, en el que siempre se re&uacute;ne un gran grupo de Hermanos
+								que llevan la representaci&oacute;n de la Masoner&iacute;a Filos&oacute;fica de M&eacute;xico.
+								</p>
+								<p class="justificado">
+								Tras treinta y cinco congresos nacionales que han tenido como sedes pr&aacute;cticamente todas las capitales
+								de los Estados, toca por primera vez a la Ciudad de M&eacute;xico tener el honor de organizar el XXXVI
+								Congreso para reflexionar, en la residencia de los Poderes Federales sobre la marcha de la Instituci&oacute;n,
+								la materia de su conocimiento ancestral, la prospectiva de los objetivos del perfeccionamiento humano y
+								social que siempre busca, promueve y ahora, con el eje rector fundamental del movimiento constitucional
+								que preocupa a M&eacute;xico y al mundo, para adecuar y renovar la Carta Pol&iacute;tica fundamental a la
+								&eacute;poca que vivimos frente a nuevos problemas mundiales y derechos humanos antes no reconocidos.</p>
+								<p class="justificado">
+								Te invitamos a &eacute;ste, que seguramente ser&aacute; un Congreso memorable e innovador, anal&iacute;tico y
+								propositivo, de nuevo encuentro fraternal y de dise&ntilde;o del camino futuro que debe seguir nuestra
+								Instituci&oacute;n.</p>
+								<p class="justificado">
+								Esta p&aacute;gina te ofrece la ruta sencilla y amigable para tu inscripci&oacute;n y proporciona la
+								informaci&oacute;n fundamental del Congreso, cuyo tema "Masoner&iacute;a y Constitucionalismo", suscita
+								ya el mayor inter&eacute;s...</p>
+								<p class="centrado negrita">¡B I E N V E N I D O S!</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-			
-			
-		<div style="height: 1000px;">
-		
-		
+		<div style="height: 1000px; display: none;">
+			<form name="inicio">
+				BIENVENIDO AL SUPREMO CONSEJO DE MEXICO JSP
+				<br/>
+				<br/>
+				<img alt="..zzZZ" src="<c:url value="/resources/image/hoja_registro.jpg"/>" style="cursor: pointer;" onclick="operacion('formulario_participante')">
+				<br/>
+				<br/>
+				Contador de visitas: ${contadorVisitas}
+				<br/>
+				<br/>
+				<span style="cursor:pointer;" onclick="operacion('pagina_excel')">
+					<font color="blue">ADMIN DESCARGA EXCEL</font>
+				</span>
+			</form>
 		</div>
-	
-	
-	
-		<form name="inicio">
-			BIENVENIDO AL SUPREMO CONSEJO DE MEXICO JSP
-			<br/>
-			<br/>
-			<img alt="..zzZZ" src="<c:url value="/resources/image/hoja_registro.jpg"/>" style="cursor: pointer;" onclick="operacion('formulario_participante')">
-			<br/>
-			<br/>
-			Contador de visitas: ${contadorVisitas}
-			<br/>
-			<br/>
-			<span style="cursor:pointer;" onclick="operacion('pagina_excel')">
-				<font color="blue">ADMIN DESCARGA EXCEL</font>
-			</span>
-		</form>
-		
 	</body>
 </html>
