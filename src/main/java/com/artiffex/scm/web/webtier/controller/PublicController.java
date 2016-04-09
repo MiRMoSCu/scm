@@ -28,9 +28,87 @@ public class PublicController {
 	private ParticipanteService participanteService;
 	
 	
+	@RequestMapping("/inicio")
+	public String inicio(Model model) {
+		log.info("/public/inicio");
+		
+		/* ELIMINAR COMENTARIOS PARA QUE FUNCIONE
+		int contadorVisitas = parametroConfiguracionService.obtieneContadorVisitas();
+		model.addAttribute("contadorVisitas",contadorVisitas);
+		*/
+		
+		return "file_01_inicio";
+	}
+	
+	@RequestMapping("/bases")
+	public String bases(Model model) {
+		log.info("/public/bases");
+		return "file_02_bases";
+	}
+	
+	@RequestMapping("/academico")
+	public String academico(Model model) {
+		log.info("/public/academico");
+		return "file_03_academico";
+	}
+	
+	@RequestMapping("/acompaniante")
+	public String acompaniante(Model model) {
+		log.info("/public/acompaniante");
+		return "file_04_acompaniante";
+	}
+	
+	@RequestMapping("/sede")
+	public String sede(Model model) {
+		log.info("/public/sede");
+		return "file_05_sede";
+	}
+	
+	@RequestMapping("/hospedaje")
+	public String hospedaje(Model model) {
+		log.info("/public/hospedaje");
+		return "file_06_hospedaje";
+	}
+	
+	@RequestMapping("/documentos")
+	public String documentos(Model model) {
+		log.info("/public/documentos");
+		return "file_07_documentos";
+	}
+	
+	@RequestMapping("/registro")
+	public String registro(Model model) {
+		log.info("/public/registro");
+		return "file_08_registro";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@RequestMapping(value = "/formulario_participante")
 	public String formularioParticipante(Model model) {
-		log.info("/formulario_participante");
+		log.info("/public/formulario_participante");
 		
 		List<ComboSelect> listaEstados = estadoService.listaComboSelect();
 		model.addAttribute("listaEstados",listaEstados);

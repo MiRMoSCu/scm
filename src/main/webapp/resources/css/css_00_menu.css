@@ -1,0 +1,66 @@
+@CHARSET "UTF-8";
+
+#div_encabezado {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	background: transparent;
+}
+
+
+
+#div_img_cintillo,
+#div_menu {
+	width: 1366px;
+	margin-left: auto;
+	margin-right: auto;
+	background: transparent;
+}
+
+#div_menu {
+	height: 59px;
+}
+
+#div_barra_lateral, 
+#div_menu_inicio,
+#div_menu_bases,
+#div_menu_academico,
+#div_menu_acompaniante,
+#div_menu_sede,
+#div_menu_hospedaje,
+#div_menu_documentos,
+#div_menu_registro {
+	float: left;
+}
+
+#div_contenedor {
+	width: 1366px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#div_ocupa_espacio {
+	width: 100%;
+	height: 182px;
+	background: transparent;
+}
+
+#div_contenido {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	top: 207px;
+	background: green;
+}
+
+#div_cortina {
+	
+}
+
+#div_invitacion {
+	width: 100%;
+	height: 577px;
+}

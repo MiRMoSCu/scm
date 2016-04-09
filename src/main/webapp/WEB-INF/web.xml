@@ -7,7 +7,7 @@
 	<display-name>SCM</display-name>
 	
 	<welcome-file-list>
-		<welcome-file>/</welcome-file>
+		<welcome-file>/public/inicio</welcome-file>
 	</welcome-file-list>
 	
 	<!-- Spring Log4j configuration -->
