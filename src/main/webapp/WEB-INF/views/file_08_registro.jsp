@@ -194,18 +194,22 @@
 							<div id="div_contenedor_menu_registro">
 								<form name="submenu_registro">
 									<div id="div_menu_datos_generales" onclick="submenu('submenu_div_generales')">
+									<!-- <div id="div_menu_datos_generales" -->
 										<img id="mnu_registro_01_normal" alt="" src="<c:url value="/resources/image/mnu_registro_01_normal.png"/>" style="display: none;">
 										<img id="mnu_registro_01_activo" alt="" src="<c:url value="/resources/image/mnu_registro_01_activo.png"/>">
 									</div>
 									<div id="div_menu_datos_colacion"  onclick="submenu('submenu_div_colacion')">
+									<!-- <div id="div_menu_datos_colacion"> -->
 										<img id="mnu_registro_02_normal" alt="" src="<c:url value="/resources/image/mnu_registro_02_normal.png"/>">
 										<img id="mnu_registro_02_activo" alt="" src="<c:url value="/resources/image/mnu_registro_02_activo.png"/>" style="display: none;">
 									</div>
 									<div id="div_menu_datos_hospedaje" onclick="submenu('submenu_div_hospedaje')">
+									<!-- <div id="div_menu_datos_hospedaje"> -->
 										<img id="mnu_registro_03_normal" alt="" src="<c:url value="/resources/image/mnu_registro_03_normal.png"/>">
 										<img id="mnu_registro_03_activo" alt="" src="<c:url value="/resources/image/mnu_registro_03_activo.png"/>" style="display: none;">
 									</div>
 									<div id="div_menu_datos_pago" onclick="submenu('submenu_div_pago')">
+									<!-- <div id="div_menu_datos_pago"> -->
 										<img id="mnu_registro_04_normal" alt="" src="<c:url value="/resources/image/mnu_registro_04_normal.png"/>">
 										<img id="mnu_registro_04_activo" alt="" src="<c:url value="/resources/image/mnu_registro_04_activo.png"/>" style="display: none;">
 									</div>
@@ -218,125 +222,54 @@
 											<div id="div_columna_izquierda_datos_generales">
 												<br/>
 												<table border="0">
-													<tr>
-														<td colspan="2" class="morado">NOMBRE</td>
-													</tr>
-													<tr>
-														<td colspan="2" class="gris">APELLIDO PATERNO</td>
-													</tr>
-													<tr>
-														<td colspan="2">
-															<input type="text"/>
-														</td>
-													</tr>
-													<tr>
-														<td colspan="2" class="gris">APELLIDO MATERNO</td>
-													</tr>
-													<tr>
-														<td colspan="2">
-															<input type="text"/>
-														</td>
-													</tr>
-													<tr>
-														<td colspan="2" class="gris">NOMBRE(S)</td>
-													</tr>
-													<tr>
-														<td colspan="2">
-															<input type="text"/>
-														</td>
-													</tr>
-													<tr>
-														<td colspan="2" class="morado">DIRECCI&Oacute;N</td>
-													</tr>
-													<tr>
-														<td colspan="2" class="gris">CALLE</td>
-													</tr>
-													<tr>
-														<td colspan="2">
-															<input type="text"/>
-														</td>
-													</tr>
-													<tr>
-														<td>
+													<tr><td colspan="2" class="morado">NOMBRE</td></tr>
+													<tr><td colspan="2" class="gris">APELLIDO PATERNO</td></tr>
+													<tr><td colspan="2"><input type="text"/></td></tr>
+													<tr><td colspan="2" class="gris">APELLIDO MATERNO</td></tr>
+													<tr><td colspan="2"><input type="text"/></td></tr>
+													<tr><td colspan="2" class="gris">NOMBRE(S)</td></tr>
+													<tr><td colspan="2"><input type="text"/></td></tr>
+													<tr><td colspan="2" class="morado">DIRECCI&Oacute;N</td></tr>
+													<tr><td colspan="2" class="gris">CALLE</td></tr>
+													<tr><td colspan="2"><input type="text"/></td></tr>
+													<tr><td>
 															<table border="0">
-																<tr>
-																	<td class="gris">NUM. EXT.</td>
-																</tr>
-																<tr>
-																	<td>
-																		<input type="text"/>
-																	</td>
-																</tr>
+																<tr><td class="gris">NUM. EXT.</td></tr>
+																<tr><td><input type="text"/></td></tr>
 															</table>
 														</td>
 														<td>
 															<table border="0">
-																<tr>
-																	<td class="gris">NUM. INT.</td>
-																</tr>
-																<tr>
-																	<td>
-																		<input type="text"/>
-																	</td>
-																</tr>
+																<tr><td class="gris">NUM. INT.</td></tr>
+																<tr><td><input type="text"/></td></tr>
 															</table>
 														</td>
 													</tr>
-													<tr>
-														<td colspan="2" class="gris">COLONIA</td>
-													</tr>
-													<tr>
-														<td colspan="2">
-															<input type="text"/>
-														</td>
-													</tr>
-													<tr>
-														<td>
+													<tr><td colspan="2" class="gris">COLONIA</td></tr>
+													<tr><td colspan="2"><input type="text"/></td></tr>
+													<tr><td>
 															<table>
-																<tr>
-																	<td class="gris">DELEG. / MUNICIPIO</td>
-																</tr>
-																<tr>
-																	<td><input type="text"/></td>
-																</tr>
+																<tr><td class="gris">DELEG. / MUNICIPIO</td></tr>
+																<tr><td><input type="text"/></td></tr>
 															</table>
 														</td>
 														<td>
 															<table border="0">
-																<tr>
-																	<td class="gris">CIUDAD</td>
-																</tr>
-																<tr>
-																	<td>
-																		<input type="text"/>
-																	</td>
-																</tr>
+																<tr><td class="gris">CIUDAD</td></tr>
+																<tr><td><input type="text"/></td></tr>
 															</table>
 														</td>
 													</tr>
-													<tr>
-														<td>
+													<tr><td>
 															<table border="0">
-																<tr>
-																	<td class="gris">ESTADO</td>
-																</tr>
-																<tr>
-																	<td>
-																		<select></select>
-																	</td>
-																</tr>
+																<tr><td class="gris">ESTADO</td></tr>
+																<tr><td><select></select></td></tr>
 															</table>
 														</td>
 														<td>
 															<table border="0">
-																<tr>
-																	<td class="gris">C&Oacute;DIGO POSTAL</td>
-																</tr>
-																<tr>
-																	<td>
-																		<input type="text"/>
-																	</td>
-																</tr>
+																<tr><td class="gris">C&Oacute;DIGO POSTAL</td></tr>
+																<tr><td><input type="text"/></td></tr>
 															</table>
 														</td>
 													</tr>
@@ -347,88 +280,34 @@
 											<div id="div_columna_derecha_datos_generales">
 												<br/>
 												<table border="0">
-													<tr>
-														<td>&nbsp;</td>
-													</tr>
-													<tr>
-														<td colspan="2" class="gris">TEL&Eacute;FONO PARTICULAR &nbsp; (INCLUYE CLAVE LADA)</td>
-													</tr>
-													<tr>
-														<td colspan="2">
-															<input type="text"/>
-														</td>
-													</tr>
-													<tr>
-														<td colspan="2" class="gris">TEL&Eacute;FONO CELULAR &nbsp; (10 DIG&Iacute;TOS)</td>
-													</tr>
-													<tr>
-														<td colspan="2">
-															<input type="text"/>
-														</td>
-													</tr>
-													<tr>
-														<td colspan="2" class="gris">TEL&Eacute;FONO OFICINA &nbsp; (10 DIG&Iacute;TOS)</td>
-													</tr>
-													<tr>
-														<td colspan="2">
-															<input type="text"/>
-														</td>
-													</tr>
-													<tr>
-														<td colspan="2" class="gris">CORREO ELECTR&Oacute;NICO</td>
-													</tr>
-													<tr>
-														<td colspan="2">
-															<input type="text"/>
-														</td>
-													</tr>
-													<tr>
-														<td colspan="2" class="gris">¿ACUDIRA CON ACOMPA&Ntilde;ANTE?</td>
-													</tr>
-													<tr>
-														<td colspan="2">
+													<tr><td>&nbsp;</td></tr>
+													<tr><td colspan="2" class="gris">TEL&Eacute;FONO PARTICULAR &nbsp; (INCLUYE CLAVE LADA)</td></tr>
+													<tr><td colspan="2"><input type="text"/></td></tr>
+													<tr><td colspan="2" class="gris">TEL&Eacute;FONO CELULAR &nbsp; (10 DIG&Iacute;TOS)</td></tr>
+													<tr><td colspan="2"><input type="text"/></td></tr>
+													<tr><td colspan="2" class="gris">TEL&Eacute;FONO OFICINA &nbsp; (10 DIG&Iacute;TOS)</td></tr>
+													<tr><td colspan="2"><input type="text"/></td></tr>
+													<tr><td colspan="2" class="gris">CORREO ELECTR&Oacute;NICO</td></tr>
+													<tr><td colspan="2"><input type="text"/></td></tr>
+													<tr><td colspan="2" class="gris">¿ACUDIRA CON ACOMPA&Ntilde;ANTE?</td></tr>
+													<tr><td colspan="2">
 															<table>
 																<tr>
 																	<td width="1%" class="gris">NO</td>
-																	<td width="20%">
-																		<input type="radio" name="aplica_acompaniante"/>
-																	</td>
+																	<td width="20%"><input type="radio" name="aplica_acompaniante"/></td>
 																	<td width="1%" class="gris">SI</td>
-																	<td>
-																		<input type="radio" name="aplica_acompaniante"/>
-																	</td>
+																	<td><input type="radio" name="aplica_acompaniante"/></td>
 																</tr>
-															
 															</table>
 														</td>
 													</tr>
-													<tr>
-														<td colspan="2" class="morado">DATOS DEL ACOMPA&Ntilde;ANTE</td>
-													</tr>
-													<tr>
-														<td colspan="2" class="gris">APELLIDO PATERNO</td>
-													</tr>
-													<tr>
-														<td colspan="2" class="">
-															<input type="text"/>
-														</td>
-													</tr>
-													<tr>
-														<td colspan="2" class="gris">APELLIDO MATERNO</td>
-													</tr>
-													<tr>
-														<td colspan="2" class="">
-															<input type="text"/>
-														</td>
-													</tr>
-													<tr>
-														<td colspan="2" class="gris">NOMBRES(S)</td>
-													</tr>
-													<tr>
-														<td>
-															<input type="text"/>
-														</td>
-													</tr>
+													<tr><td colspan="2" class="morado">DATOS DEL ACOMPA&Ntilde;ANTE</td></tr>
+													<tr><td colspan="2" class="gris">APELLIDO PATERNO</td></tr>
+													<tr><td colspan="2" class=""><input type="text"/></td></tr>
+													<tr><td colspan="2" class="gris">APELLIDO MATERNO</td></tr>
+													<tr><td colspan="2" class=""><input type="text"/></td></tr>
+													<tr><td colspan="2" class="gris">NOMBRES(S)</td></tr>
+													<tr><td><input type="text"/></td></tr>
 												</table>
 											</div>
 										</div>
@@ -452,12 +331,85 @@
 								</div>
 								<div id="div_contenedor_datos_colacion" style="display: none; background: transparent;">
 									<div id="div_contenedor_ambos_paneles">
-										<div id="div_panel_izquierdo"></div>
-										<div id="div_panel_derecho"></div>
+										<div id="div_panel_izquierdo">
+											<div id="div_columna_izquierda_datos_filiacion">
+												<br/>
+												<table>
+													<tr><td colspan="2" class="morado">AFILIACI&Oacute;N Y PARTICIPACI&Oacute;N</td></tr>
+													<tr><td width="50%">
+															<table>
+																<tr><td class="gris">GRADO</td></tr>
+																<tr><td><select></select></td></tr>
+															</table>
+														</td>
+														<td>&nbsp;</td>
+													</tr>
+													<tr><td colspan="2" class="gris">NOMBRE DEL CUERPO</td></tr>
+													<tr><td colspan="2"><input type="text"/></td></tr>
+													<tr><td colspan="2" class="gris">DELEGACI&Oacute;N</td></tr>
+													<tr><td colspan="2"><input type="text"/></td></tr>
+													<tr><td width="50%">
+															<table>
+																<tr><td class="gris">PARTICIPACI&Oacute;N</td></tr>
+																<tr><td><select></select></td></tr>
+															</table>
+														</td>
+														<td>
+															<table>
+																<tr><td class="gris">PONENCIA</td></tr>
+																<tr><td><select></select></td></tr>
+															</table>
+														</td>
+													</tr>
+													<tr><td colspan="2" class="gris">T&Iacute;TULO PONENCIA (SI APLICA)</td></tr>
+													<tr><td colspan="2"><input type="text"/></td></tr>
+													<tr><td width="50%">
+															<table>
+																<tr><td class="gris">MESA TRABAJO</td></tr>
+																<tr><td><select></select></td></tr>
+															</table>
+														</td>
+														<td>&nbsp;</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+										<div id="div_panel_derecho">
+											<div id="div_columna_derecha_datos_filiacion">
+												<br/>
+												<table>
+													<tr><td colspan="2" class="morado">COLACI&Oacute;N</td></tr>
+													<tr><td colspan="2" class="gris">¿REALIZAR&Aacute; COLACI&Oacute;N DE GRADOS?</td></tr>
+													<tr><td colspan="2">
+															<table>
+																<tr>
+																	<td width="1%" class="gris">NO</td>
+																	<td width="20%"><input type="radio" name="aplica_colacion_grado"/></td>
+																	<td width="1%" class="gris">SI</td>
+																	<td><input type="radio" name="aplica_colacion_grado"/></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+													<tr><td width="50%">
+															<table>
+																<tr><td class="gris">GRADO INGRESA</td></tr>
+																<tr><td><select></select></td></tr>
+															</table>
+														</td>
+														<td>&nbsp;</td>
+													</tr>
+													<tr><td colspan="2" class="gris">CUERPO</td></tr>
+													<tr><td colspan="2"><input type="text"/></td></tr>
+													<tr><td colspan="2" class="gris">DELEGACI&Oacute;N</td></tr>
+													<tr><td colspan="2"><input type="text"/></td></tr>
+												</table>
+											</div>
+										</div>
 									</div>
 									<div id="div_pie_panel">
 										<div id="div_contenedor_btns_cambio_panel">
-											<div style="float: left;">
+											<div style="float: left;" onclick="submenu('submenu_div_generales')">
 												<img alt="" 
 													src="<c:url value="/resources/image/btn_regresar_normal.png"/>"
 													onmouseover="this.src='<c:url value="/resources/image/btn_regresar_mouse.png"/>'"
@@ -466,7 +418,7 @@
 											<div style="float: left;">
 												<img alt="" src="<c:url value="/resources/image/localizador_2.png"/>">
 											</div>
-											<div style="float: left;">
+											<div style="float: left;" onclick="submenu('submenu_div_hospedaje')">
 												<img alt="" 
 													src="<c:url value="/resources/image/btn_siguiente_normal.png"/>"
 													onmouseover="this.src='<c:url value="/resources/image/btn_siguiente_mouse.png"/>'"
@@ -477,12 +429,14 @@
 								</div>
 								<div id="div_contenedor_datos_hospedaje" style="display: none; background: transparent;">
 									<div id="div_contenedor_ambos_paneles">
-										<div id="div_panel_izquierdo"></div>
-										<div id="div_panel_derecho"></div>
+										<div id="div_panel_izquierdo_derecho_unificado">
+										
+										
+										</div>
 									</div>
 									<div id="div_pie_panel">
 										<div id="div_contenedor_btns_cambio_panel">
-											<div style="float: left;">
+											<div style="float: left;" onclick="submenu('submenu_div_colacion')">
 												<img alt="" 
 													src="<c:url value="/resources/image/btn_regresar_normal.png"/>"
 													onmouseover="this.src='<c:url value="/resources/image/btn_regresar_mouse.png"/>'"
@@ -491,7 +445,7 @@
 											<div style="float: left;">
 												<img alt="" src="<c:url value="/resources/image/localizador_3.png"/>">
 											</div>
-											<div style="float: left;">
+											<div style="float: left;" onclick="submenu('submenu_div_pago')">
 												<img alt="" 
 													src="<c:url value="/resources/image/btn_siguiente_normal.png"/>"
 													onmouseover="this.src='<c:url value="/resources/image/btn_siguiente_mouse.png"/>'"
@@ -507,7 +461,7 @@
 									</div>
 									<div id="div_pie_panel">
 										<div id="div_contenedor_btns_cambio_panel">
-											<div style="float: left;">
+											<div style="float: left;" onclick="submenu('submenu_div_hospedaje')">
 												<img alt="" 
 													src="<c:url value="/resources/image/btn_regresar_normal.png"/>"
 													onmouseover="this.src='<c:url value="/resources/image/btn_regresar_mouse.png"/>'"
@@ -516,7 +470,7 @@
 											<div style="float: left;">
 												<img alt="" src="<c:url value="/resources/image/localizador_4.png"/>">
 											</div>
-											<div style="float: left;">
+											<div style="float: left;" onclick="alert('guarda informacion')">
 												<img alt="" 
 													src="<c:url value="/resources/image/btn_enviar_normal.png"/>"
 													onmouseover="this.src='<c:url value="/resources/image/btn_enviar_mouse.png"/>'"

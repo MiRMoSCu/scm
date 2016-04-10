@@ -91,7 +91,8 @@
 	background: transparent; /* brown; */
 }
 
-#div_columna_izquierda_datos_generales {
+#div_columna_izquierda_datos_generales,
+#div_columna_izquierda_datos_filiacion {
 	width: 282px; /* 58%; */
 	height: 100%;
 	float: right;
@@ -99,12 +100,21 @@
 	background: transparent; /* black; */
 }
 
-#div_columna_derecha_datos_generales {
+#div_columna_derecha_datos_generales,
+#div_columna_derecha_datos_filiacion {
 	width: 58%;
 	height: 100%;
 	float: left;
 	margin-left: 30px;
 	background: transparent; /* black; */
+}
+
+#div_panel_izquierdo_derecho_unificado {
+	width: 872px;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	background: orange;
 }
 
 #div_contenedor_btns_cambio_panel {
@@ -135,6 +145,7 @@ table {
 
 input,
 select {
+	/*border-radius: 25px;*/
 	width: 100%;
 }
 
