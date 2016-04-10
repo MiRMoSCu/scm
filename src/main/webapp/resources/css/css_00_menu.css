@@ -12,7 +12,7 @@
 
 #div_img_cintillo,
 #div_menu {
-	width: 1366px;
+	width: 1150px;
 	margin-left: auto;
 	margin-right: auto;
 	background: transparent;
@@ -35,7 +35,7 @@
 }
 
 #div_contenedor {
-	width: 1366px;
+	width: 1150px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -52,7 +52,3 @@
 	margin-right: auto;
 	background: transparent; /* green; */
 }
-
-
-
-

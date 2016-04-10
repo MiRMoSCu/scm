@@ -6,25 +6,43 @@
 
 #div_mensaje {
 	width: 100%;
-	height: 577px;
+	height: 609px;
 }
 
 #div_banda_vertical {
-	width: 230px;
+	width: 200px;
 	height: 100%;
 	float: left;
-	background: #000;
+	background: black; /* #000; */
+}
+
+#div_leon {
+	width: 200px;
+	height: 152px;
+	margin-top: 230px;
 }
 
 #div_fotografia {
-	width: 330px;
+	width: 300px;
 	height: 100%;
 	float: left;
-	background: gray; /* #a0cf12; */
+	background: transparent; /* gray; */ /* gray; */ /* #a0cf12; */
+}
+
+#div_comendador {
+	width: 230px;
+	height: 346px;
+	margin-top: 105px;
+	margin-left: 55px;
+}
+
+#pie_foto {
+	width: 230px;
+	background: transparent; /* orange; */
 }
 
 #div_invitacion {
-	width: 806px;
+	width: 650px;
 	height: 100%;
 	float: left;
 	background: transparent; /*red;*/
@@ -32,14 +50,16 @@
 
 #div_contenido_mensaje {
 	width: 90%;
+	height: 100%;
 	margin-left: auto;
 	margin-right: auto;
-	background: transparent; /*orange;*/
+	background: transparent;/* orange; */
 }
 
 p {
 	font-family: Verdana, Geneva, sans-serif;
 	text-indent: 2em;
+	font-size: small;
 }
 
 .morado {
@@ -58,5 +78,5 @@ p {
 
 .justificado {
 	text-align: justify;
-	font-size: small;
+	
 }

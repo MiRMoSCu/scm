@@ -67,54 +67,58 @@
 					case 'submenu_div_generales':
 						document.submenu_registro.mnu_registro_01_normal.style.display = "none";
 						document.submenu_registro.mnu_registro_01_activo.style.display = "block";
-						
+						document.getElementById("div_contenedor_datos_generales").style.display = "block";
 						document.submenu_registro.mnu_registro_02_normal.style.display = "block";
 						document.submenu_registro.mnu_registro_02_activo.style.display = "none";
-						
+						document.getElementById("div_contenedor_datos_colacion").style.display = "none";
 						document.submenu_registro.mnu_registro_03_normal.style.display = "block";
 						document.submenu_registro.mnu_registro_03_activo.style.display = "none";
-						
+						document.getElementById("div_contenedor_datos_hospedaje").style.display = "none";
 						document.submenu_registro.mnu_registro_04_normal.style.display = "block";
 						document.submenu_registro.mnu_registro_04_activo.style.display = "none";
+						document.getElementById("div_contenedor_datos_pago").style.display = "none";
 						break;
 					case 'submenu_div_colacion':
 						document.submenu_registro.mnu_registro_01_normal.style.display = "block";
 						document.submenu_registro.mnu_registro_01_activo.style.display = "none";
-						
+						document.getElementById("div_contenedor_datos_generales").style.display = "none";
 						document.submenu_registro.mnu_registro_02_normal.style.display = "none";
 						document.submenu_registro.mnu_registro_02_activo.style.display = "block";
-						
+						document.getElementById("div_contenedor_datos_colacion").style.display = "block";
 						document.submenu_registro.mnu_registro_03_normal.style.display = "block";
 						document.submenu_registro.mnu_registro_03_activo.style.display = "none";
-						
+						document.getElementById("div_contenedor_datos_hospedaje").style.display = "none";
 						document.submenu_registro.mnu_registro_04_normal.style.display = "block";
 						document.submenu_registro.mnu_registro_04_activo.style.display = "none";
+						document.getElementById("div_contenedor_datos_pago").style.display = "none";
 						break;
 					case 'submenu_div_hospedaje':
 						document.submenu_registro.mnu_registro_01_normal.style.display = "block";
 						document.submenu_registro.mnu_registro_01_activo.style.display = "none";
-						
+						document.getElementById("div_contenedor_datos_generales").style.display = "none";
 						document.submenu_registro.mnu_registro_02_normal.style.display = "block";
 						document.submenu_registro.mnu_registro_02_activo.style.display = "none";
-						
+						document.getElementById("div_contenedor_datos_colacion").style.display = "none";
 						document.submenu_registro.mnu_registro_03_normal.style.display = "none";
 						document.submenu_registro.mnu_registro_03_activo.style.display = "block";
-						
+						document.getElementById("div_contenedor_datos_hospedaje").style.display = "block";
 						document.submenu_registro.mnu_registro_04_normal.style.display = "block";
 						document.submenu_registro.mnu_registro_04_activo.style.display = "none";
+						document.getElementById("div_contenedor_datos_pago").style.display = "none";
 						break;
 					case 'submenu_div_pago':
 						document.submenu_registro.mnu_registro_01_normal.style.display = "block";
 						document.submenu_registro.mnu_registro_01_activo.style.display = "none";
-						
+						document.getElementById("div_contenedor_datos_generales").style.display = "none";
 						document.submenu_registro.mnu_registro_02_normal.style.display = "block";
 						document.submenu_registro.mnu_registro_02_activo.style.display = "none";
-						
+						document.getElementById("div_contenedor_datos_colacion").style.display = "none";
 						document.submenu_registro.mnu_registro_03_normal.style.display = "block";
 						document.submenu_registro.mnu_registro_03_activo.style.display = "none";
-						
+						document.getElementById("div_contenedor_datos_hospedaje").style.display = "none";
 						document.submenu_registro.mnu_registro_04_normal.style.display = "none";
 						document.submenu_registro.mnu_registro_04_activo.style.display = "block";
+						document.getElementById("div_contenedor_datos_pago").style.display = "block";
 						break;
 				}
 			}
@@ -206,6 +210,321 @@
 										<img id="mnu_registro_04_activo" alt="" src="<c:url value="/resources/image/mnu_registro_04_activo.png"/>" style="display: none;">
 									</div>
 								</form>
+							</div>
+							<div id="div_contenedor_formularios">
+								<div id="div_contenedor_datos_generales" style="display: block; background: transparent;">
+									<div id="div_contenedor_ambos_paneles">
+										<div id="div_panel_izquierdo">
+											<div id="div_columna_izquierda_datos_generales">
+												<br/>
+												<table border="0">
+													<tr>
+														<td colspan="2" class="morado">NOMBRE</td>
+													</tr>
+													<tr>
+														<td colspan="2" class="gris">APELLIDO PATERNO</td>
+													</tr>
+													<tr>
+														<td colspan="2">
+															<input type="text"/>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="2" class="gris">APELLIDO MATERNO</td>
+													</tr>
+													<tr>
+														<td colspan="2">
+															<input type="text"/>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="2" class="gris">NOMBRE(S)</td>
+													</tr>
+													<tr>
+														<td colspan="2">
+															<input type="text"/>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="2" class="morado">DIRECCI&Oacute;N</td>
+													</tr>
+													<tr>
+														<td colspan="2" class="gris">CALLE</td>
+													</tr>
+													<tr>
+														<td colspan="2">
+															<input type="text"/>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<table border="0">
+																<tr>
+																	<td class="gris">NUM. EXT.</td>
+																</tr>
+																<tr>
+																	<td>
+																		<input type="text"/>
+																	</td>
+																</tr>
+															</table>
+														</td>
+														<td>
+															<table border="0">
+																<tr>
+																	<td class="gris">NUM. INT.</td>
+																</tr>
+																<tr>
+																	<td>
+																		<input type="text"/>
+																	</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="2" class="gris">COLONIA</td>
+													</tr>
+													<tr>
+														<td colspan="2">
+															<input type="text"/>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<table>
+																<tr>
+																	<td class="gris">DELEG. / MUNICIPIO</td>
+																</tr>
+																<tr>
+																	<td><input type="text"/></td>
+																</tr>
+															</table>
+														</td>
+														<td>
+															<table border="0">
+																<tr>
+																	<td class="gris">CIUDAD</td>
+																</tr>
+																<tr>
+																	<td>
+																		<input type="text"/>
+																	</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<table border="0">
+																<tr>
+																	<td class="gris">ESTADO</td>
+																</tr>
+																<tr>
+																	<td>
+																		<select></select>
+																	</td>
+																</tr>
+															</table>
+														</td>
+														<td>
+															<table border="0">
+																<tr>
+																	<td class="gris">C&Oacute;DIGO POSTAL</td>
+																</tr>
+																<tr>
+																	<td>
+																		<input type="text"/>
+																	</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+										<div id="div_panel_derecho">
+											<div id="div_columna_derecha_datos_generales">
+												<br/>
+												<table border="0">
+													<tr>
+														<td>&nbsp;</td>
+													</tr>
+													<tr>
+														<td colspan="2" class="gris">TEL&Eacute;FONO PARTICULAR &nbsp; (INCLUYE CLAVE LADA)</td>
+													</tr>
+													<tr>
+														<td colspan="2">
+															<input type="text"/>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="2" class="gris">TEL&Eacute;FONO CELULAR &nbsp; (10 DIG&Iacute;TOS)</td>
+													</tr>
+													<tr>
+														<td colspan="2">
+															<input type="text"/>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="2" class="gris">TEL&Eacute;FONO OFICINA &nbsp; (10 DIG&Iacute;TOS)</td>
+													</tr>
+													<tr>
+														<td colspan="2">
+															<input type="text"/>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="2" class="gris">CORREO ELECTR&Oacute;NICO</td>
+													</tr>
+													<tr>
+														<td colspan="2">
+															<input type="text"/>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="2" class="gris">¿ACUDIRA CON ACOMPA&Ntilde;ANTE?</td>
+													</tr>
+													<tr>
+														<td colspan="2">
+															<table>
+																<tr>
+																	<td width="1%" class="gris">NO</td>
+																	<td width="20%">
+																		<input type="radio" name="aplica_acompaniante"/>
+																	</td>
+																	<td width="1%" class="gris">SI</td>
+																	<td>
+																		<input type="radio" name="aplica_acompaniante"/>
+																	</td>
+																</tr>
+															
+															</table>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="2" class="morado">DATOS DEL ACOMPA&Ntilde;ANTE</td>
+													</tr>
+													<tr>
+														<td colspan="2" class="gris">APELLIDO PATERNO</td>
+													</tr>
+													<tr>
+														<td colspan="2" class="">
+															<input type="text"/>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="2" class="gris">APELLIDO MATERNO</td>
+													</tr>
+													<tr>
+														<td colspan="2" class="">
+															<input type="text"/>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="2" class="gris">NOMBRES(S)</td>
+													</tr>
+													<tr>
+														<td>
+															<input type="text"/>
+														</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+									</div>
+									<div id="div_pie_panel">
+										<div id="div_contenedor_btns_cambio_panel">
+											<div style="float: left;">
+												<img alt="" src="<c:url value="/resources/image/btn_regresar_normal.png"/>"/>
+											</div>
+											<div style="float: left;">
+												<img alt="" src="<c:url value="/resources/image/localizador_1.png"/>">
+											</div>
+											<div style="float: left;" onclick="submenu('submenu_div_colacion')">
+												<img alt="" 
+													src="<c:url value="/resources/image/btn_siguiente_normal.png"/>"
+													onmouseover="this.src='<c:url value="/resources/image/btn_siguiente_mouse.png"/>'"
+													onmouseout="this.src='<c:url value="/resources/image/btn_siguiente_normal.png"/>'"/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="div_contenedor_datos_colacion" style="display: none; background: transparent;">
+									<div id="div_contenedor_ambos_paneles">
+										<div id="div_panel_izquierdo"></div>
+										<div id="div_panel_derecho"></div>
+									</div>
+									<div id="div_pie_panel">
+										<div id="div_contenedor_btns_cambio_panel">
+											<div style="float: left;">
+												<img alt="" 
+													src="<c:url value="/resources/image/btn_regresar_normal.png"/>"
+													onmouseover="this.src='<c:url value="/resources/image/btn_regresar_mouse.png"/>'"
+													onmouseout="this.src='<c:url value="/resources/image/btn_regresar_normal.png"/>'"/>
+											</div>
+											<div style="float: left;">
+												<img alt="" src="<c:url value="/resources/image/localizador_2.png"/>">
+											</div>
+											<div style="float: left;">
+												<img alt="" 
+													src="<c:url value="/resources/image/btn_siguiente_normal.png"/>"
+													onmouseover="this.src='<c:url value="/resources/image/btn_siguiente_mouse.png"/>'"
+													onmouseout="this.src='<c:url value="/resources/image/btn_siguiente_normal.png"/>'"/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="div_contenedor_datos_hospedaje" style="display: none; background: transparent;">
+									<div id="div_contenedor_ambos_paneles">
+										<div id="div_panel_izquierdo"></div>
+										<div id="div_panel_derecho"></div>
+									</div>
+									<div id="div_pie_panel">
+										<div id="div_contenedor_btns_cambio_panel">
+											<div style="float: left;">
+												<img alt="" 
+													src="<c:url value="/resources/image/btn_regresar_normal.png"/>"
+													onmouseover="this.src='<c:url value="/resources/image/btn_regresar_mouse.png"/>'"
+													onmouseout="this.src='<c:url value="/resources/image/btn_regresar_normal.png"/>'"/>
+											</div>
+											<div style="float: left;">
+												<img alt="" src="<c:url value="/resources/image/localizador_3.png"/>">
+											</div>
+											<div style="float: left;">
+												<img alt="" 
+													src="<c:url value="/resources/image/btn_siguiente_normal.png"/>"
+													onmouseover="this.src='<c:url value="/resources/image/btn_siguiente_mouse.png"/>'"
+													onmouseout="this.src='<c:url value="/resources/image/btn_siguiente_normal.png"/>'"/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="div_contenedor_datos_pago" style="display: none; background: transparent;">
+									<div id="div_contenedor_ambos_paneles">
+										<div id="div_panel_izquierdo"></div>
+										<div id="div_panel_derecho"></div>
+									</div>
+									<div id="div_pie_panel">
+										<div id="div_contenedor_btns_cambio_panel">
+											<div style="float: left;">
+												<img alt="" 
+													src="<c:url value="/resources/image/btn_regresar_normal.png"/>"
+													onmouseover="this.src='<c:url value="/resources/image/btn_regresar_mouse.png"/>'"
+													onmouseout="this.src='<c:url value="/resources/image/btn_regresar_normal.png"/>'"/>
+											</div>
+											<div style="float: left;">
+												<img alt="" src="<c:url value="/resources/image/localizador_4.png"/>">
+											</div>
+											<div style="float: left;">
+												<img alt="" 
+													src="<c:url value="/resources/image/btn_enviar_normal.png"/>"
+													onmouseover="this.src='<c:url value="/resources/image/btn_enviar_mouse.png"/>'"
+													onmouseout="this.src='<c:url value="/resources/image/btn_enviar_normal.png"/>'"/>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

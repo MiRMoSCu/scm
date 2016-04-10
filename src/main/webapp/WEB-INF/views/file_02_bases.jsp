@@ -127,7 +127,22 @@
 			<div id="div_contenedor">
 				<div id="div_ocupa_espacio"></div>
 				<div id="div_zona_visible">
-					<div id="div_contenido"></div>
+					<div id="div_contenido">
+					sdfds
+					fsdf
+					sfsdf
+					sb <br/> <br/> <br/> <br/> <br/> <br/>
+					asdasda
+					dsd
+					asd
+					asd
+					<br/>
+					sdasd
+					<br/>
+					asas
+					
+					
+					</div>
 				</div>
 			</div>
 		</div>

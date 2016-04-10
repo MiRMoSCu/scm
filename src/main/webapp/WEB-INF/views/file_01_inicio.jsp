@@ -150,11 +150,25 @@
 				<div id="div_zona_visible">
 					<div id="div_cortina"></div>
 					<div id="div_mensaje">
-						<div id="div_banda_vertical"></div>
-						<div id="div_fotografia"></div>
+						<div id="div_banda_vertical">
+							<div id="div_leon">
+								<img alt="" src="<c:url value="/resources/image/leon.png"/>"/>
+							</div>
+						</div>
+						<div id="div_fotografia">
+							<div id="div_comendador">
+								<img alt="" src="<c:url value="/resources/image/comendador_gaspar_ruiz_tenorio.png"/>"/>
+								<div id="pie_foto">
+									<font style="font-size:small; font-family: Verdana, Geneva, sans-serif">
+										M.·.P.·.S.·.G.·.C.·.<br/>
+										<b>Gaspar Antonio Ru&iacute;z Tenorio</b>
+									</font>
+								</div>
+							</div>
+						</div>
 						<div id="div_invitacion">
 							<div id="div_contenido_mensaje">
-								<div style="width: 100%; height: 80px;"></div>
+								<div style="width: 100%; height: 60px;"></div>
 								<p class="morado centrado">INVITACI&Oacute;N DEL SOBERANO GRAN COMENDADOR</p>
 								<p class="justificado">
 								Año con año, en forma ininterrumpida, el Supremo Consejo de Soberanos Grandes Inspectores Generales del 
@@ -186,8 +200,8 @@
 				</div>
 			</div>
 		</div>
-		<div style="height: 1000px; display: none;">
-			<form name="inicio">
+		<div style="height: 1000px; display: block;">
+			<form name="form_inicio">
 				BIENVENIDO AL SUPREMO CONSEJO DE MEXICO JSP
 				<br/>
 				<br/>
