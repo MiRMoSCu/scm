@@ -193,23 +193,23 @@
 						<div id="div_esquina_redonda">
 							<div id="div_contenedor_menu_registro">
 								<form name="submenu_registro">
-									<div id="div_menu_datos_generales" onclick="submenu('submenu_div_generales')">
-									<!-- <div id="div_menu_datos_generales" -->
+									<!-- <div id="div_menu_datos_generales" onclick="submenu('submenu_div_generales')"> -->
+									<div id="div_menu_datos_generales">
 										<img id="mnu_registro_01_normal" alt="" src="<c:url value="/resources/image/mnu_registro_01_normal.png"/>" style="display: none;">
 										<img id="mnu_registro_01_activo" alt="" src="<c:url value="/resources/image/mnu_registro_01_activo.png"/>">
 									</div>
-									<div id="div_menu_datos_colacion"  onclick="submenu('submenu_div_colacion')">
-									<!-- <div id="div_menu_datos_colacion"> -->
+									<!-- <div id="div_menu_datos_colacion"  onclick="submenu('submenu_div_colacion')"> -->
+									<div id="div_menu_datos_colacion">
 										<img id="mnu_registro_02_normal" alt="" src="<c:url value="/resources/image/mnu_registro_02_normal.png"/>">
 										<img id="mnu_registro_02_activo" alt="" src="<c:url value="/resources/image/mnu_registro_02_activo.png"/>" style="display: none;">
 									</div>
-									<div id="div_menu_datos_hospedaje" onclick="submenu('submenu_div_hospedaje')">
-									<!-- <div id="div_menu_datos_hospedaje"> -->
+									<!-- <div id="div_menu_datos_hospedaje" onclick="submenu('submenu_div_hospedaje')"> -->
+									<div id="div_menu_datos_hospedaje">
 										<img id="mnu_registro_03_normal" alt="" src="<c:url value="/resources/image/mnu_registro_03_normal.png"/>">
 										<img id="mnu_registro_03_activo" alt="" src="<c:url value="/resources/image/mnu_registro_03_activo.png"/>" style="display: none;">
 									</div>
-									<div id="div_menu_datos_pago" onclick="submenu('submenu_div_pago')">
-									<!-- <div id="div_menu_datos_pago"> -->
+									<!-- <div id="div_menu_datos_pago" onclick="submenu('submenu_div_pago')"> -->
+									<div id="div_menu_datos_pago">
 										<img id="mnu_registro_04_normal" alt="" src="<c:url value="/resources/image/mnu_registro_04_normal.png"/>">
 										<img id="mnu_registro_04_activo" alt="" src="<c:url value="/resources/image/mnu_registro_04_activo.png"/>" style="display: none;">
 									</div>
@@ -280,7 +280,12 @@
 											<div id="div_columna_derecha_datos_generales">
 												<br/>
 												<table border="0">
-													<tr><td>&nbsp;</td></tr>
+													<tr><td>
+														<div style="float: right;">
+															<div style="float: left; font-size: xx-small;" class="morado">FECHA &nbsp;</div>
+															<div style="float: left;" class="gris">01/01/2016</div>
+														</div>
+													</td></tr>
 													<tr><td colspan="2" class="gris">TEL&Eacute;FONO PARTICULAR &nbsp; (INCLUYE CLAVE LADA)</td></tr>
 													<tr><td colspan="2"><input type="text"/></td></tr>
 													<tr><td colspan="2" class="gris">TEL&Eacute;FONO CELULAR &nbsp; (10 DIG&Iacute;TOS)</td></tr>
@@ -511,18 +516,95 @@
 								<div id="div_contenedor_datos_pago" style="display: none; background: transparent;">
 									<div id="div_contenedor_ambos_paneles">
 										<div id="div_panel_izquierdo_derecho_unificado">
-										<!-- 
 											<div id="div_columna_izquierda_datos_pago">
-												<img alt="" src="<c:url value="/resources/image/precios_congreso_colacion_hotel.png"/>">
+												<div style="padding-top: 11px;">
+													<img alt="" src="<c:url value="/resources/image/precios_congreso_colacion_hotel.png"/>">
+												</div>
 											</div>
 											<div id="div_columna_centro_datos_pago">
-												<div id="div_contenedor_conceptos_pago"></div>
+												<div style="padding-top: 11px; float: right; padding-right: 3px;">
+													<div id="div_contenedor_conceptos_pago">
+														<br/>
+														<table border="0">
+															<tr><td colspan="2" class="morado">CONCEPTOS DE PAGO</td></tr>
+															<tr>
+																<td class="gris">INSCRIP. CONGRESISTA</td>
+																<td><input type="text"></td>
+															</tr>
+															<tr>
+																<td class="gris">INSCRIP. ACOMPA&Ntilde;ANTE</td>
+																<td><input type="text"></td>
+															</tr>
+															<tr>
+																<td class="gris">COLACI&Oacute;N GRADO</td>
+																<td><input type="text"></td>
+															</tr>
+															<tr>
+																<td class="gris">HOSPEDAJE ($)</td>
+																<td><input type="text"></td>
+															</tr>
+															<tr>
+																<td colspan="2">&nbsp;</td>
+															</tr>
+															<tr>
+																<td class="morado">TOTAL INVERSI&Oacute;N</td>
+																<td><input type="text"></td>
+															</tr>
+															<tr><td colspan="2">&nbsp;</td></tr>
+														</table>
+													</div>
+												</div>
 											</div>
 											<div id="div_columna_derecha_datos_pago">
-												<div id="div_contenedor_conceptos_transferencia"></div>
+												<div style="padding-top: 11px;">
+													<div id="div_contenedor_conceptos_transferencia">
+														<br/>
+														<table>
+															<tr><td colspan="2" class="morado">TRANSFERENCIA BANCARIA</td></tr>
+															<tr><td colspan="2" class="gris">BANCO</td></tr>
+															<tr><td colspan="2"><input type="text"/></td></tr>
+															<tr><td width="50%">
+																	<table border="0">
+																		<tr><td class="gris">NUM. SUCURSAL</td></tr>
+																		<tr><td><input type="text"/></td></tr>
+																	</table>
+																	</td>
+																	<td>&nbsp;</td>
+															</tr>
+															<tr><td colspan="2" class="gris">CIUDAD</td></tr>
+															<tr><td colspan="2"><input type="text"/></td></tr>
+															<tr><td width="50%">
+																	<table border="0">
+																		<tr><td class="gris">NUM. REFERENCIA</td></tr>
+																		<tr><td><input type="text"/></td></tr>
+																	</table>
+																<td width="50%">
+																	<table border="0">
+																		<tr><td class="gris">FEC. TRANSACC.</td></tr>
+																		<tr><td><input type="text"/></td></tr>
+																	</table>
+																</td>
+															</tr>
+															<tr><td colspan="2" class="gris">PERMITA 72 HORAS PARA QUE SU PAGO SE VEA REFLEJADO N NUESTRO SISTEMA</td></tr>
+															<tr><td>&nbsp;</td></tr>
+															<tr><td colspan="2" class="gris">TOTAL DEPOSITADO</td></tr>
+															<tr><td width="50%">
+																	<table border="0">
+																		<tr><td>
+																			<table><tr>
+																				<td class="gris">$</td>
+																				<td><input type="text"/></td>
+																			</tr></table>
+																		</td></tr>
+																	</table>
+																	</td>
+																	<td>&nbsp;</td>
+															</tr>
+														</table>
+													</div>
+												</div>
 											</div>
 										</div>
-										 -->
 									</div>
 									<div id="div_pie_panel">
 										<div id="div_contenedor_btns_cambio_panel">

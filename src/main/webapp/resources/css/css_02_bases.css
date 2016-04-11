@@ -1,7 +1,61 @@
 @CHARSET "UTF-8";
 
-#div_contenido {
-	width: 100%;
-	height: 2000px;
-	background: purple;
+#div_banda_vertical {
+	width: 200px;
+	height: 609px;
+	float: left;
+	background: black; /* #000; */
+}
+
+#div_leon {
+	width: 200px;
+	height: 152px;
+	margin-top: 230px;
+}
+
+#div_descripion_bases {
+	width: 950px;
+	/*height: 1000px;*/
+	float: right;
+	background: transparent; /* pink; */
+}
+
+#div_padding {
+	padding-top: 60px; 
+	padding-left: 50px;
+	padding-right: 28px;
+	background: transparent; /* green; */
+}
+
+p {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: small;
+}
+
+.morado {
+	color: #670499;
+}
+
+.negrita {
+	color: #000;
+}
+
+.centrado {
+	text-align: center;
+}
+
+.justificado {
+	text-align: justify;
+}
+
+.izquierda {
+	text-align: left;
+}
+
+.mediano {
+	font-size: medium;
+}
+
+.normal {
+	font-size: small;
 }

@@ -200,7 +200,7 @@
 				</div>
 			</div>
 		</div>
-		<div style="height: 1000px; display: block;">
+		<div style="height: 1000px; display: none;">
 			<form name="form_inicio">
 				BIENVENIDO AL SUPREMO CONSEJO DE MEXICO JSP
 				<br/>
