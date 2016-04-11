@@ -430,8 +430,62 @@
 								<div id="div_contenedor_datos_hospedaje" style="display: none; background: transparent;">
 									<div id="div_contenedor_ambos_paneles">
 										<div id="div_panel_izquierdo_derecho_unificado">
-										
-										
+											<div id="div_columna_izquierda_datos_hospedaje">
+												<div id="div_contenedor_tabla_izquierda_datos_hospedaje">
+													<br>
+													<table>
+														<tr><td colspan="2" class="gris">¿REQUIERE HOSPEDAJE?</td></tr>
+														<tr><td colspan="2">
+																<table>
+																	<tr>
+																		<td width="1%" class="gris">NO</td>
+																		<td width="20%"><input type="radio" name="aplica_colacion_grado"/></td>
+																		<td width="1%" class="gris">SI</td>
+																		<td><input type="radio" name="aplica_colacion_grado"/></td>
+																	</tr>
+																</table>
+															</td>
+														</tr>
+														<tr><td colspan="2" class="gris">PAQUETE</td></tr>
+														<tr><td colspan="2"><select></select></td></tr>
+														<tr><td>
+															<table border="0">
+																<tr><td class="gris">LLEGADA</td></tr>
+																<tr><td><input type="text"/></td></tr>
+															</table>
+															</td>
+															<td>
+																<table border="0">
+																	<tr><td class="gris">SALIDA</td></tr>
+																	<tr><td><input type="text"/></td></tr>
+																</table>
+															</td>
+														</tr>
+														<tr><td>
+															<table border="0">
+																<tr><td class="gris">NUM. PERSONAS</td></tr>
+																<tr><td><input type="text"/></td></tr>
+															</table>
+															</td>
+															<td>&nbsp;</td>
+														</tr>
+														<tr><td colspan="2">&nbsp;</td></tr>
+														<tr><td>
+															<table border="0">
+																<tr><td class="morado">TOTAL HOTEL</td></tr>
+																<tr><td><input type="text"/></td></tr>
+															</table>
+															</td>
+															<td>&nbsp;</td>
+														</tr>
+													</table>
+												</div>
+											</div>
+											<div id="div_columna_derecha_datos_hospedaje">
+												<div style="margin-top: 13px;">
+													<img alt="" src="<c:url value="/resources/image/precios_hospedaje.png"/>"/>
+												</div>
+											</div>
 										</div>
 									</div>
 									<div id="div_pie_panel">
@@ -456,8 +510,19 @@
 								</div>
 								<div id="div_contenedor_datos_pago" style="display: none; background: transparent;">
 									<div id="div_contenedor_ambos_paneles">
-										<div id="div_panel_izquierdo"></div>
-										<div id="div_panel_derecho"></div>
+										<div id="div_panel_izquierdo_derecho_unificado">
+										<!-- 
+											<div id="div_columna_izquierda_datos_pago">
+												<img alt="" src="<c:url value="/resources/image/precios_congreso_colacion_hotel.png"/>">
+											</div>
+											<div id="div_columna_centro_datos_pago">
+												<div id="div_contenedor_conceptos_pago"></div>
+											</div>
+											<div id="div_columna_derecha_datos_pago">
+												<div id="div_contenedor_conceptos_transferencia"></div>
+											</div>
+										</div>
+										 -->
 									</div>
 									<div id="div_pie_panel">
 										<div id="div_contenedor_btns_cambio_panel">

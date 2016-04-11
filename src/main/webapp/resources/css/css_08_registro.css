@@ -114,8 +114,76 @@
 	height: 100%;
 	margin-left: auto;
 	margin-right: auto;
-	background: orange;
+	background: transparent; /* orange; */
 }
+
+#div_columna_izquierda_datos_hospedaje {
+	width: 232px;
+	height: 100%;
+	float: left;
+	background: transparent;  /* yellow; */
+}
+
+#div_contenedor_tabla_izquierda_datos_hospedaje {
+	width: 222px;
+	height: 100%;
+	margin-right: 10px;
+	background: transparent; /* green; */
+}
+
+#div_columna_derecha_datos_hospedaje {
+	width:640px;
+	height: 100%;
+	float: left;
+	background: transparent; /* fuchsia; */
+}
+
+
+
+
+#div_columna_izquierda_datos_pago {
+	width: 329px;
+	height: 100%;
+	float: left;
+	padding-top: 11px;
+	background: transparent;  /* maroon; */
+}
+
+#div_columna_centro_datos_pago {
+	width: 296px;
+	float: left;
+	/*padding-top: 11px;*/
+	padding-left: 5px;
+	background: transparent; /* fuchsia; */
+}
+
+
+#div_contenedor_conceptos_pago {
+	border-radius: 20px;
+	width: 270px;
+	padding-left: 10px;
+	padding-right: 10px; 
+	background: #fff;
+}
+
+
+#div_columna_derecha_datos_pago {
+	width: 242px;
+	height: 100%;
+	float: left;
+	/*padding-top: 11px;*/
+	background: transparent; /* green; */
+}
+
+#div_contenedor_conceptos_transferencia {
+	width: 232px;
+	margin-left: 5px; 
+	margin-right: 5px;
+	background: transparent; /* red; */
+}
+
+
+
 
 #div_contenedor_btns_cambio_panel {
 	width: 308px;
