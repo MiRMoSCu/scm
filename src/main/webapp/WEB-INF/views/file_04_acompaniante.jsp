@@ -124,6 +124,25 @@
 					</form>
 				</div>
 			</div>
+			<div id="div_contenedor">
+				<div id="div_ocupa_espacio"></div>
+				<div id="div_zona_visible">
+					<div>
+						<div id="div_banda_vertical">
+							<div id="div_leon">
+								<img alt="" src="<c:url value="/resources/image/leon.png"/>"/>
+							</div>
+						</div>
+						<div id="div_descripcion_acompaniantes">
+							<div id="div_padding">
+								<div id="div_programa_acompaniantes">
+									<img alt="" src="<c:url value="/resources/image/programa_acompaniantes.png"/>"/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>
