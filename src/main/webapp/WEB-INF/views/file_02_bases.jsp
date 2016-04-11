@@ -134,25 +134,20 @@
 							</div>
 						</div>
 						<div id="div_descripion_bases">
-							<div id="div_padding" >
-								<p class="centrado mediano">
-									<b>El Supremo Consejo de Soberanos Grandes Inspectores Generales del 33° <br/>
-									y &uacute;ltimo grado del R.·.E.·.A.·.A.·. para la jurisdicci&oacute;n mas&oacute;nica <br/>
-									de los Estados Unidos Mexicanos <br/>
-									en virtud del acuerdo tomado el d&iacute;a 25 de julio de 2015 <br/>
-									en la Ciudad de Toluca de Lerdo, Estado de M&eacute;xico, <br/>
-									sede del XXXV Congreso Nacional Mas&oacute;nico de Grados Filos&oacute;ficos <br>
-									<br/><span class="morado">CONVOCA</span></b><br/>
-								</p>
-								<p class="centrado">
-									A la celebraci&oacute;n del <br/>
-									<b>XXXVI Congreso Nacional Mas&oacute;nico de Grados Filos&oacute;ficos</b> <br/>
-									que se llevar&aacute; a cabo del 20 al 23 de julio de 2016, <br/>
-									en los Valles y Campamentos de la Ciudad de M&eacute;xico, <br/>
-									de acuerdo a las siguientes: <br/></p>
-								<p class="centrado">
-									<br/><b>BASES</b><br/>
-								</p>
+							<div id="div_padding">
+								<p class="centrado mediano"><b>El Supremo Consejo de Soberanos Grandes Inspectores Generales del 33° <br/>
+								y &uacute;ltimo grado del R.·.E.·.A.·.A.·. para la jurisdicci&oacute;n mas&oacute;nica <br/>
+								de los Estados Unidos Mexicanos <br/>
+								en virtud del acuerdo tomado el d&iacute;a 25 de julio de 2015 <br/>
+								en la Ciudad de Toluca de Lerdo, Estado de M&eacute;xico, <br/>
+								sede del XXXV Congreso Nacional Mas&oacute;nico de Grados Filos&oacute;ficos <br>
+								<br/><span class="morado">CONVOCA</span></b><br/></p>
+								<p class="centrado">A la celebraci&oacute;n del <br/>
+								<b>XXXVI Congreso Nacional Mas&oacute;nico de Grados Filos&oacute;ficos</b> <br/>
+								que se llevar&aacute; a cabo del 20 al 23 de julio de 2016, <br/>
+								en los Valles y Campamentos de la Ciudad de M&eacute;xico, <br/>
+								de acuerdo a las siguientes: <br/></p>
+								<p class="centrado"><br/><b>BASES</b><br/></p>
 								<p class="izquierda morado"><b>Objetivos del Congreso</b></p>
 								<p class="justificado">Analizar los problemas m&aacute;s relevantes que enfrenta la sociedad mexicana, 
 								sustentados en los principios mas&oacute;nicos de Libertad, Igualdad y Fraternidad, con el fin de proponer 
@@ -179,10 +174,6 @@
 								Correo electr&oacute;nico<br/>
 								<span class="morado">subdelegadodf@congresoxxxviscm.org.mx</span><br/>
 								Tel&eacute;fono celular: 55 4098 3910</p>
-								
-								
-								
-								
 								<br/>
 								<p class="izquierda morado"><b>Otorgamiento de grados (colaci&oacute;n)</b></p>
 								<p class="justificado">Artículo 11 de los Estatutos:<br/>
