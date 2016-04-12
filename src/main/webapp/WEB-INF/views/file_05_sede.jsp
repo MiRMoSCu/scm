@@ -124,7 +124,73 @@
 					</form>
 				</div>
 			</div>
+			<div id="div_contenedor">
+				<div id="div_ocupa_espacio"></div>
+				<div id="div_zona_visiable">
+					<div id="div_espacio_trabajo">
+						<div style="width: 100%; height: 30px;"></div>
+						<div id="div_collage_sede">
+							<div id="div_columna_izquierda">
+								<div id="div_descripcion_stunam">
+									<p class="izquierda color_morado"><b>Sindicato de Trabajadores de la Universiad Nacional Aut&oacute;noma de M&eacute;xico (STUNAM)</b></p>
+									<p class="justificado">La Sede del Congreso ser&aacute;n las instalaciones del Sindicato de Trabajadores de la Universidad Nacional 
+									Aut&oacute;noma de M&eacute;xico (STUNAM). Estas instalaciones permiten llevar a cabo todas las actividades del congreso en el mismo 
+									lugar con un alto grado de seguridad. Cuenta con estacionamiento propio, elevadores, accesos para discapacitados, &aacute;reas comunes 
+									para los recesos de caf&eacute;, y un auditorio para 2,000 personas con aire acondicionado, as&iacute; como aulas para llevar a cabo 
+									las sesiones en los pisos 4° y 5°.</p>
+									<p class="justificado">En el &aacute;rea exterior se cuenta con un estacionamiento para 20 autom&oacute;viles y en el s&oacute;tano, 
+									para 40 m&aacute;s. La fotograf&iacute;a oficial del congreso ser&aacute; tomada en el &aacute;rea exterior, justo enfrente del 
+									vest&iacute;bulo, en el sitio de la fuente.</p>
+									<p class="justificado">En la planta baja, por la entrada del lado derecho que lleva directamente al auditorio, encontrar&aacute; el 
+									&aacute;rea de registro donde podr&aacute; adquirir su paquete de bienvenida. Esa ser&aacute; el &aacute;rea de control de entrada y 
+									salida debido a que la entrada del lado izquierdo que da directamente al vest&iacute;bulo estar&aacute; cerrada durante los d&iacute;as del congreso.</p>
+									<p class="justificado">Cruzando el &aacute;rea de registro, entrar&aacute; al edificio por el &aacute;rea del auditorio y deber&aacute; 
+									dirigirse a la izquierda, por frente del foro, hasta el vest&iacute;bulo donde se encuentra las escaleras, los ascensores y los baños de mujeres. 
+									El &aacute;rea del Auditorio ser&aacute; usado para diversos fines: Ceremonia Inaugural, al oriente (frente); Ceremonia de la Constituci&oacute;n, 
+									al poniente (parte posterior) debajo de los tragaluces. Una parte del &aacute;rea ser&aacute; habilitada para el coctel de bienvenida 
+									y como comedor durante los d&iacute;as de sesi&oacute;n, as&iacute; como tambi&eacute;n, para la cena de Gala y la Ceremonia de Clausura.</p>
+									<p class="justificado">Las sesiones de las mesas ser&aacute;n en los pisos 4° y 5° en el ala oriente. Por favor consulte los mamparos 
+									que habr&aacute; en el vest&iacute;bulo y en cada uno de los pisos para localizar la mesa que le corresponda. Los baños est&aacute;n localizados 
+									en el &aacute;rea de las escaleras. En cada piso habr&aacute; uno exclusivo para mujeres u hombres. El &aacute;rea de receso de caf&eacute; se 
+									localizar&aacute; en el 5° piso en el &aacute;rea noreste. El &aacute;rea para venta de art&iacute;culos mas&oacute;nicos estar&aacute; localizado en 
+									el 4° piso saliendo de los elevadores y también el &aacute;rea noreste.</p>
+									<p class="justificado">El transporte de los hoteles a la sede y viceversa dejar&aacute;n y recoger&aacute;n a los congresistas en el 
+									estacionamiento. Se recomienda no salir o dejar los autos en el exterior por cuestiones de seguridad.</p>
+								</div>
+							</div>
+							<div id="div_columna_derecha">
+								<div id="div_contenedor_mapa_foto_stunam">
+									<div id="div_contenedor_mapa_stunam">
+										<div id="div_mapa_stunam">
+											<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.368932535297!2d-99.1197985703415!3d19.353171656089767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fe1a06e9eee5%3A0x5aacdd5690dd118f!2sSTUNAM!5e0!3m2!1ses!2smx!4v1460446817065" 
+											width="350" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+										</div>
+									</div>
+									<div id="div_contenedor_foto_stunam">
+										<div id="div_foto_stunam">
+											<img alt="" src="<c:url value="/resources/image/foto_stunam.jpg"/>"/>
+										</div>
+										<div id="div_pie_foto_stunam">
+											<div id="div_pie_foto_descripcion">
+												<p class="x_small color_morado"><b>CENTRO DE CONVENCIONES</b><br/><b>CENTENO</b></p>
+												<p class="x_small color_gris">Centeno 145 <br/>
+												Col. Granjas Esmeralda, C.P. 09810 <br/>
+												Iztapalapa, Ciudad de M&eacute;xico</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="div_separador_fotografias"></div>
+								<div>
+									<img alt="" src="<c:url value="/resources/image/foto_stunam_interior.png"/>"/>
+								</div>
+								
+							
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-		
 	</body>
 </html>

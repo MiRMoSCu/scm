@@ -33,6 +33,13 @@
 	background: #4baa42;
 }
 
+#id_separador_holiday {
+	width: 100%;
+	height: 5px;
+	margin-bottom: 15px;
+	background: #4baa42;
+}
+
 #div_columna_hotel_city {
 	width: 374px;
 	height: 100%;
@@ -43,6 +50,13 @@
 #div_cintilla_color_city {
 	width: 100%;
 	height: 9px;
+	background: #00468a;
+}
+
+#id_separador_city {
+	width: 100%;
+	height: 5px;
+	margin-bottom: 15px;
 	background: #00468a;
 }
 
@@ -59,12 +73,20 @@
 	background: #e1001a;
 }
 
+#id_separador_ramada {
+	width: 100%;
+	height: 5px;
+	margin-bottom: 15px;
+	background: #e1001a;
+}
+
 #div_contenedor_logo {
 	width: 338px;
 	height: 100px;
 	margin-top: 9px;
 	margin-left: auto;
 	margin-right: auto;
+	padding-bottom: 9px;
 	background: transparent; /* black; */
 }
 
@@ -87,14 +109,55 @@
 	height: 100%;
 	float: right;
 	padding-top: 10px;
-	background: white;
+	background: transparent; /* white; */
 	
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: x-small;
 	text-align: left;
 }
 
+#div_contenedor_contrato {
+	width: 328px;
+	height: 100%;
+	margin-top: 9px;
+	margin-left: auto;
+	margin-right: auto;
+	background: white;
+}
+
+#div_contrato {
+	width: 289px;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 9px;
+	background: transparent; /* yellow; */
+	
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: small; 
+	text-align: justify;
+}
+
+#div_fotografia {
+	width: 289px;
+	margin-bottom: 15px;
+	background: transparent; /* green; */
+}
+
+#div_margen_inferior {
+	width: 100%;
+	height: 24px;
+}
+
+#div_espacio_blanco_bottom {
+	width: 100%;
+	height: 230px;
+	background: white;
+}
+
 .color_gris { color: #6A6A6A; }
 .color_holiday { color: #4baa42; }
 .color_city { color: #00468a; }
 .color_ramada { color: #e1001a; }
+	
+}
