@@ -182,6 +182,22 @@
 	background: transparent; /* maroon; */
 }
 
+#div_advertencia {
+	width: 850px;
+	height: 35px;
+	margin-left: auto;
+	margin-right: auto;
+	background: transparent; /* purple; */
+}
+
+#div_texto_advertencia {
+	padding-top: 3px;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: small;
+	text-align: justify;
+	color: #6A6A6A;
+}
+
 table {
 	margin: 0px;
 	border: 0px;

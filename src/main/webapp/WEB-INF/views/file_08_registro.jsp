@@ -628,6 +628,13 @@
 								</div>
 							</div>
 						</div>
+						<div id="div_advertencia">
+							<div id="div_texto_advertencia">
+								Estimado Congresista: Le solicitamos que una vez que inicie la captura de la informaci&oacute;n, 
+								la termine en la misma sesi&oacute;n ya que la informaci&oacute;n no queda guardada. 
+								De no terminar, deber&aacute; volver a llenar el formulario al abrir una nueva sesi&oacute;n.
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

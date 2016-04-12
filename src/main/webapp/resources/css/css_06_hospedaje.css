@@ -1,1 +1,100 @@
 @CHARSET "UTF-8";
+
+#div_espacio_trabajo {
+	width: 100%;
+	background: transparent; /* pink; */
+}
+
+#div_contenedor_tres_columnas {
+	width: 1150px; /* 1122px; */
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	background: transparent;  /* green; */
+}
+
+#div_columna_espacio_blanco {
+	width: 14px;
+	height: 100px;
+	float: left;
+	background: transparent; /* yellow; */
+}
+
+#div_columna_hotel_holiday {
+	width: 374px;
+	height: 100%;
+	float: left;
+	background: #e6f1e0;
+}
+
+#div_cintilla_color_holiday {
+	width: 100%;
+	height: 9px;
+	background: #4baa42;
+}
+
+#div_columna_hotel_city {
+	width: 374px;
+	height: 100%;
+	float: left;
+	background: #e0eff9;
+}
+
+#div_cintilla_color_city {
+	width: 100%;
+	height: 9px;
+	background: #00468a;
+}
+
+#div_columna_hotel_ramada {
+	width: 374px;
+	height: 100%;
+	float: left;
+	background: #fef2ea;
+}
+
+#div_cintilla_color_ramada {
+	width: 100%;
+	height: 9px;
+	background: #e1001a;
+}
+
+#div_contenedor_logo {
+	width: 338px;
+	height: 100px;
+	margin-top: 9px;
+	margin-left: auto;
+	margin-right: auto;
+	background: transparent; /* black; */
+}
+
+#div_logo {
+	width: 138px;
+	height: 101px;
+	float: left;
+	background: transparent; /* yellow; */
+}
+
+#div_logo_descripcion {
+	width: 200px;
+	height: 101px;
+	float: right;
+	background: transparent; /* red; */
+}
+
+#div_direccion_hotel {
+	width: 190px;
+	height: 100%;
+	float: right;
+	padding-top: 10px;
+	background: white;
+	
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: x-small;
+	text-align: left;
+}
+
+.color_gris { color: #6A6A6A; }
+.color_holiday { color: #4baa42; }
+.color_city { color: #00468a; }
+.color_ramada { color: #e1001a; }

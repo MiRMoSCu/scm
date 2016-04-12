@@ -124,7 +124,76 @@
 					</form>
 				</div>
 			</div>
+			<div id="div_contenedor">
+				<div id="div_ocupa_espacio"></div>
+				<div id="div_zona_visible">
+					<div id="div_espacio_trabajo">
+						<div style="width: 100%; height: 30px;"></div>
+						<div id="div_contenedor_tres_columnas">
+							<div id="div_columna_hotel_holiday">
+								<div id="div_cintilla_color_holiday"></div>
+								<div id="div_contenedor_logo">
+									<div id="div_logo">
+										<img alt="" src="<c:url value="/resources/image/logo_hotel_holiday.png"/>"/>
+									</div>
+									<div id="div_logo_descripcion">
+										<div id="div_direccion_hotel">
+											<span class="color_holiday"><b>Hotel Holiday Inn</b><br/><b>Plaza Universidad</b><br/></span>
+											<span class="color_gris">Parroquia, 1056 <br/>
+											Col. Santa Cruz Atoyac, C.P. 03310 <br/>
+											Coyoac&aacute;n, Ciudad de M&eacute;xico <br/>
+											Tel&eacute;fono: (55) 9183 7700 <br/>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="div_columna_espacio_blanco"></div>
+							<div id="div_columna_hotel_city">
+								<div id="div_cintilla_color_city"></div>
+								<div id="div_contenedor_logo">
+									<div id="div_logo">
+										<img alt="" src="<c:url value="/resources/image/logo_hotel_city.png"/>"/>
+									</div>
+									<div id="div_logo_descripcion">
+										<div id="div_direccion_hotel">
+											<span class="color_city"><b>Hotel City Express Plus</b><br/></span>
+											<span class="color_gris">
+											Av. Popocat&eacute;petl 546 <br/>
+											Col. Xoco, C.P. 03330 <br/>
+											Coyoac&aacute;n, Ciudad de M&eacute;xico <br/>
+											Tel&eacute;fono: (55) 5623 6580
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="div_columna_espacio_blanco"></div>
+							<div id="div_columna_hotel_ramada">
+								<div id="div_cintilla_color_ramada"></div>
+								<div id="div_contenedor_logo">
+									<div id="div_logo">
+										<img alt="" src="<c:url value="/resources/image/logo_hotel_ramada.png"/>"/>
+									</div>
+									<div id="div_logo_descripcion">
+										<div id="div_direccion_hotel">
+											<span class="color_ramada"><b>Hotel Ramada</b><br/></span>
+											<span class="color_gris">
+											Calzada de Tlalpan 1561 <br/>
+											Col. Portales, C.P. 03300 <br/>
+											Coyoac&aacute;n, Ciudad de M&eacute;xico <br/>
+											Teléfono: (55) 5604 8944  
+											</span>
+										
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+				</div>
+			</div>
 		</div>
-		
 	</body>
 </html>

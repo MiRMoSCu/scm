@@ -193,9 +193,8 @@
 								&uacute;nica y exclusivamente, mediante dep&oacute;sito bancario o transferencia a la cuenta:<br/>
 								<span class="morado">Banamex N° 1227284,<br/>
 								Sucursal 221, a nombre de Cultura y Arte A. C.</span></p>
-								<p>Una vez realizado el dep&oacute;sito de pago de derechos de colaci&oacute;n de grados, se deber&aacute; 
-								enviar la imagen de la ficha por correo electr&oacute;nico a <span class="morado">grantesoreroadjunto@gmail.com</span>
-								con los siguientes datos:</p>
+								<p>Una vez realizado el dep&oacute;sito de pago de derechos de colaci&oacute;n de grados, anotar el 
+								n&uacute;mero de referencia en la hoja de registro.</p>
 								<p class="justificado">En lo no previsto en las bases anteriores será resuelto por el Comité Organizador 
 								del Congreso.</p>
 								<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
