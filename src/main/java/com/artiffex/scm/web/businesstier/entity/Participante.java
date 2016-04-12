@@ -26,6 +26,7 @@ public class Participante implements Serializable {
 	private String numInterior;
 	private String colonia;
 	private String delegacionMunicipio;
+	private String ciudad;
 	private Estado estado;
 	private String codigoPostal;
 	private String telefonoParticular;
@@ -77,6 +78,10 @@ public class Participante implements Serializable {
 	@Column(name="delegacion_municipio", length=80)
 	public String getDelegacionMunicipio() { return delegacionMunicipio; }
 	public void setDelegacionMunicipio(String delegacionMunicipio) { this.delegacionMunicipio = delegacionMunicipio; }
+	
+	@Column(name="ciudad", length=80)
+	public String getCiudad() { return ciudad; }
+	public void setCiudad(String ciudad) { this.ciudad = ciudad; }
 
 	@OneToOne
 	@JoinColumn(name="id_estado")
@@ -119,4 +124,8 @@ public class Participante implements Serializable {
 	public Boolean isActivo() { return activo; }
 	public void setActivo(Boolean activo) { this.activo = activo; }
 
+	
+
+	
+	
 }

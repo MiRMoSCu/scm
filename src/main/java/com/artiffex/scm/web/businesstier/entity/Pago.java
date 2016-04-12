@@ -21,7 +21,7 @@ public class Pago implements Serializable {
 	private Integer idPago;
 	private Participante participante;
 	private Float costoCongresista;
-	private Float costoAcompañante;
+	private Float costoAcompaniante;
 	private Float costoColacionGrado;
 	private Float costoHospedaje;
 	private Float costoTotal;
@@ -51,9 +51,9 @@ public class Pago implements Serializable {
 	public Float getCostoCongresista() { return costoCongresista; }
 	public void setCostoCongresista(Float costoCongresista) { this.costoCongresista = costoCongresista; }
 
-	@Column(name="costo_acompañante", precision=2)
-	public Float getCostoAcompañante() { return costoAcompañante; }
-	public void setCostoAcompañante(Float costoAcompañante) { this.costoAcompañante = costoAcompañante; }
+	@Column(name="costo_acompaniante", precision=2)
+	public Float getCostoAcompaniante() { return costoAcompaniante; }
+	public void setCostoAcompaniante(Float costoAcompaniante) { this.costoAcompaniante = costoAcompaniante; }
 
 	@Column(name="costo_colacion_grado", precision=2)
 	public Float getCostoColacionGrado() { return costoColacionGrado; }

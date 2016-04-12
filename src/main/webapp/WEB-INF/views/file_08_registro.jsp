@@ -15,8 +15,20 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Registro</title>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 		<link rel="stylesheet" href="<c:url value="/resources/css/css_00_menu.css"/>" type="text/css"></link>
 		<link rel="stylesheet" href="<c:url value="/resources/css/css_08_registro.css"/>" type="text/css"></link>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		<script type="text/javascript">
+			// inicializacion jquery
+			$(document).ready(function(){});
+			// inicializacion datepicker
+			$(function(){
+				$("[name=fecha_transaccion]").datepicker({dateFormat:'yy-mm-dd'});
+				$("[name=fecha_transaccion]").datepicker("setDate",new Date());
+			});
+		</script>
 		<script type="text/javascript">
 			var urlInicio				= "${urlInicio}";
 			var urlBases 				= "${urlBases}";
@@ -65,61 +77,112 @@
 			function submenu(opcion) {
 				switch(opcion) {
 					case 'submenu_div_generales':
-						document.submenu_registro.mnu_registro_01_normal.style.display = "none";
-						document.submenu_registro.mnu_registro_01_activo.style.display = "block";
+						document.form_submenu_registro.mnu_registro_01_normal.style.display = "none";
+						document.form_submenu_registro.mnu_registro_01_activo.style.display = "block";
 						document.getElementById("div_contenedor_datos_generales").style.display = "block";
-						document.submenu_registro.mnu_registro_02_normal.style.display = "block";
-						document.submenu_registro.mnu_registro_02_activo.style.display = "none";
+						document.form_submenu_registro.mnu_registro_02_normal.style.display = "block";
+						document.form_submenu_registro.mnu_registro_02_activo.style.display = "none";
 						document.getElementById("div_contenedor_datos_colacion").style.display = "none";
-						document.submenu_registro.mnu_registro_03_normal.style.display = "block";
-						document.submenu_registro.mnu_registro_03_activo.style.display = "none";
+						document.form_submenu_registro.mnu_registro_03_normal.style.display = "block";
+						document.form_submenu_registro.mnu_registro_03_activo.style.display = "none";
 						document.getElementById("div_contenedor_datos_hospedaje").style.display = "none";
-						document.submenu_registro.mnu_registro_04_normal.style.display = "block";
-						document.submenu_registro.mnu_registro_04_activo.style.display = "none";
+						document.form_submenu_registro.mnu_registro_04_normal.style.display = "block";
+						document.form_submenu_registro.mnu_registro_04_activo.style.display = "none";
 						document.getElementById("div_contenedor_datos_pago").style.display = "none";
 						break;
 					case 'submenu_div_colacion':
-						document.submenu_registro.mnu_registro_01_normal.style.display = "block";
-						document.submenu_registro.mnu_registro_01_activo.style.display = "none";
+						document.form_submenu_registro.mnu_registro_01_normal.style.display = "block";
+						document.form_submenu_registro.mnu_registro_01_activo.style.display = "none";
 						document.getElementById("div_contenedor_datos_generales").style.display = "none";
-						document.submenu_registro.mnu_registro_02_normal.style.display = "none";
-						document.submenu_registro.mnu_registro_02_activo.style.display = "block";
+						document.form_submenu_registro.mnu_registro_02_normal.style.display = "none";
+						document.form_submenu_registro.mnu_registro_02_activo.style.display = "block";
 						document.getElementById("div_contenedor_datos_colacion").style.display = "block";
-						document.submenu_registro.mnu_registro_03_normal.style.display = "block";
-						document.submenu_registro.mnu_registro_03_activo.style.display = "none";
+						document.form_submenu_registro.mnu_registro_03_normal.style.display = "block";
+						document.form_submenu_registro.mnu_registro_03_activo.style.display = "none";
 						document.getElementById("div_contenedor_datos_hospedaje").style.display = "none";
-						document.submenu_registro.mnu_registro_04_normal.style.display = "block";
-						document.submenu_registro.mnu_registro_04_activo.style.display = "none";
+						document.form_submenu_registro.mnu_registro_04_normal.style.display = "block";
+						document.form_submenu_registro.mnu_registro_04_activo.style.display = "none";
 						document.getElementById("div_contenedor_datos_pago").style.display = "none";
 						break;
 					case 'submenu_div_hospedaje':
-						document.submenu_registro.mnu_registro_01_normal.style.display = "block";
-						document.submenu_registro.mnu_registro_01_activo.style.display = "none";
+						document.form_submenu_registro.mnu_registro_01_normal.style.display = "block";
+						document.form_submenu_registro.mnu_registro_01_activo.style.display = "none";
 						document.getElementById("div_contenedor_datos_generales").style.display = "none";
-						document.submenu_registro.mnu_registro_02_normal.style.display = "block";
-						document.submenu_registro.mnu_registro_02_activo.style.display = "none";
+						document.form_submenu_registro.mnu_registro_02_normal.style.display = "block";
+						document.form_submenu_registro.mnu_registro_02_activo.style.display = "none";
 						document.getElementById("div_contenedor_datos_colacion").style.display = "none";
-						document.submenu_registro.mnu_registro_03_normal.style.display = "none";
-						document.submenu_registro.mnu_registro_03_activo.style.display = "block";
+						document.form_submenu_registro.mnu_registro_03_normal.style.display = "none";
+						document.form_submenu_registro.mnu_registro_03_activo.style.display = "block";
 						document.getElementById("div_contenedor_datos_hospedaje").style.display = "block";
-						document.submenu_registro.mnu_registro_04_normal.style.display = "block";
-						document.submenu_registro.mnu_registro_04_activo.style.display = "none";
+						document.form_submenu_registro.mnu_registro_04_normal.style.display = "block";
+						document.form_submenu_registro.mnu_registro_04_activo.style.display = "none";
 						document.getElementById("div_contenedor_datos_pago").style.display = "none";
 						break;
 					case 'submenu_div_pago':
-						document.submenu_registro.mnu_registro_01_normal.style.display = "block";
-						document.submenu_registro.mnu_registro_01_activo.style.display = "none";
+						document.form_submenu_registro.mnu_registro_01_normal.style.display = "block";
+						document.form_submenu_registro.mnu_registro_01_activo.style.display = "none";
 						document.getElementById("div_contenedor_datos_generales").style.display = "none";
-						document.submenu_registro.mnu_registro_02_normal.style.display = "block";
-						document.submenu_registro.mnu_registro_02_activo.style.display = "none";
+						document.form_submenu_registro.mnu_registro_02_normal.style.display = "block";
+						document.form_submenu_registro.mnu_registro_02_activo.style.display = "none";
 						document.getElementById("div_contenedor_datos_colacion").style.display = "none";
-						document.submenu_registro.mnu_registro_03_normal.style.display = "block";
-						document.submenu_registro.mnu_registro_03_activo.style.display = "none";
+						document.form_submenu_registro.mnu_registro_03_normal.style.display = "block";
+						document.form_submenu_registro.mnu_registro_03_activo.style.display = "none";
 						document.getElementById("div_contenedor_datos_hospedaje").style.display = "none";
-						document.submenu_registro.mnu_registro_04_normal.style.display = "none";
-						document.submenu_registro.mnu_registro_04_activo.style.display = "block";
+						document.form_submenu_registro.mnu_registro_04_normal.style.display = "none";
+						document.form_submenu_registro.mnu_registro_04_activo.style.display = "block";
 						document.getElementById("div_contenedor_datos_pago").style.display = "block";
 						break;
+				}
+			}
+			
+			function aplicaAcompaniante(opcion) {
+				if (Boolean(opcion)) {
+					document.form_registro.acompaniante_ap_paterno.readOnly = false;
+					document.form_registro.acompaniante_ap_materno.readOnly = false;
+					document.form_registro.acompaniante_nombre.readOnly 	= false;
+				} else {
+					document.form_registro.acompaniante_ap_paterno.value 	= "";
+					document.form_registro.acompaniante_ap_materno.value 	= "";
+					document.form_registro.acompaniante_nombre.value 		= "";
+					document.form_registro.acompaniante_ap_paterno.readOnly = true;
+					document.form_registro.acompaniante_ap_materno.readOnly = true;
+					document.form_registro.acompaniante_nombre.readOnly 	= true;
+				}
+			}
+			
+			function aplicaColacion(opcion) {
+				if (Boolean(opcion)) {
+					document.form_registro.id_grado_pretende.disabled 	= false;
+					document.form_registro.cuerpo_pretende.readOnly 	= false;
+					document.form_registro.delegacion_pretende.readOnly = false;
+				} else {
+					document.form_registro.id_grado_pretende.selectedIndex 	= 0;
+					document.form_registro.cuerpo_pretende.value 			= "";
+					document.form_registro.delegacion_pretende.value 		= "";
+					
+					document.form_registro.id_grado_pretende.disabled 	= true;
+					document.form_registro.cuerpo_pretende.readOnly 	= true;
+					document.form_registro.delegacion_pretende.readOnly = true;
+				}
+			}
+			
+			function aplicaHospedaje(opcion) {
+				if (Boolean(opcion)) {
+					$("[name=fecha_entrada]").datepicker({dateFormat:'yy-mm-dd'});
+					$("[name=fecha_entrada]").datepicker("setDate",new Date());
+					$("[name=fecha_salida]").datepicker({dateFormat:'yy-mm-dd'});
+					$("[name=fecha_salida]").datepicker("setDate",new Date());
+					document.form_registro.id_paquete_hotal.disabled 		= false;
+					document.form_registro.num_personas_habitacion.readOnly = false;
+				} else {
+					document.form_registro.id_grado_pretende.selectedIndex 	= 0;
+					$("[name=fecha_entrada]").datepicker('destroy');
+					$("[name=fecha_salida]").datepicker('destroy');
+					document.form_registro.fecha_entrada.value 				= "";
+					document.form_registro.fecha_salida.value 				= "";
+					document.form_registro.num_personas_habitacion.value 	= "";
+					document.form_registro.id_paquete_hotal.disabled 		= true;
+					document.form_registro.num_personas_habitacion.readOnly = true;
 				}
 			}
 		</script>
@@ -192,7 +255,7 @@
 						<div style="width: 100%; height: 30px;"></div>
 						<div id="div_esquina_redonda">
 							<div id="div_contenedor_menu_registro">
-								<form name="submenu_registro">
+								<form name="form_submenu_registro">
 									<!-- <div id="div_menu_datos_generales" onclick="submenu('submenu_div_generales')"> -->
 									<div id="div_menu_datos_generales">
 										<img id="mnu_registro_01_normal" alt="" src="<c:url value="/resources/image/mnu_registro_01_normal.png"/>" style="display: none;">
@@ -215,424 +278,439 @@
 									</div>
 								</form>
 							</div>
-							<div id="div_contenedor_formularios">
-								<div id="div_contenedor_datos_generales" style="display: block; background: transparent;">
-									<div id="div_contenedor_ambos_paneles">
-										<div id="div_panel_izquierdo">
-											<div id="div_columna_izquierda_datos_generales">
-												<br/>
-												<table border="0">
-													<tr><td colspan="2" class="morado">NOMBRE</td></tr>
-													<tr><td colspan="2" class="gris">APELLIDO PATERNO</td></tr>
-													<tr><td colspan="2"><input type="text"/></td></tr>
-													<tr><td colspan="2" class="gris">APELLIDO MATERNO</td></tr>
-													<tr><td colspan="2"><input type="text"/></td></tr>
-													<tr><td colspan="2" class="gris">NOMBRE(S)</td></tr>
-													<tr><td colspan="2"><input type="text"/></td></tr>
-													<tr><td colspan="2" class="morado">DIRECCI&Oacute;N</td></tr>
-													<tr><td colspan="2" class="gris">CALLE</td></tr>
-													<tr><td colspan="2"><input type="text"/></td></tr>
-													<tr><td>
-															<table border="0">
-																<tr><td class="gris">NUM. EXT.</td></tr>
-																<tr><td><input type="text"/></td></tr>
-															</table>
-														</td>
-														<td>
-															<table border="0">
-																<tr><td class="gris">NUM. INT.</td></tr>
-																<tr><td><input type="text"/></td></tr>
-															</table>
-														</td>
-													</tr>
-													<tr><td colspan="2" class="gris">COLONIA</td></tr>
-													<tr><td colspan="2"><input type="text"/></td></tr>
-													<tr><td>
-															<table>
-																<tr><td class="gris">DELEG. / MUNICIPIO</td></tr>
-																<tr><td><input type="text"/></td></tr>
-															</table>
-														</td>
-														<td>
-															<table border="0">
-																<tr><td class="gris">CIUDAD</td></tr>
-																<tr><td><input type="text"/></td></tr>
-															</table>
-														</td>
-													</tr>
-													<tr><td>
-															<table border="0">
-																<tr><td class="gris">ESTADO</td></tr>
-																<tr><td><select></select></td></tr>
-															</table>
-														</td>
-														<td>
-															<table border="0">
-																<tr><td class="gris">C&Oacute;DIGO POSTAL</td></tr>
-																<tr><td><input type="text"/></td></tr>
-															</table>
-														</td>
-													</tr>
-												</table>
+							<form name="form_registro">
+								<div id="div_contenedor_formularios">
+									<div id="div_contenedor_datos_generales" style="display: block; background: transparent;">
+										<div id="div_contenedor_ambos_paneles">
+											<div id="div_panel_izquierdo">
+												<div id="div_columna_izquierda_datos_generales">
+													<br/>
+													<table border="0">
+														<tr><td colspan="2" class="morado">NOMBRE</td></tr>
+														<tr><td colspan="2" class="gris">APELLIDO PATERNO</td></tr>
+														<tr><td colspan="2"><input type="text" name="participante_ap_paterno"/></td></tr>
+														<tr><td colspan="2" class="gris">APELLIDO MATERNO</td></tr>
+														<tr><td colspan="2"><input type="text" name="participante_ap_materno"/></td></tr>
+														<tr><td colspan="2" class="gris">NOMBRE(S)</td></tr>
+														<tr><td colspan="2"><input type="text" name="participante_nombre"/></td></tr>
+														<tr><td colspan="2" class="morado">DIRECCI&Oacute;N</td></tr>
+														<tr><td colspan="2" class="gris">CALLE</td></tr>
+														<tr><td colspan="2"><input type="text" name="calle"/></td></tr>
+														<tr><td>
+																<table border="0">
+																	<tr><td class="gris">NUM. EXT.</td></tr>
+																	<tr><td><input type="text" name="num_exterior"/></td></tr>
+																</table>
+															</td>
+															<td>
+																<table border="0">
+																	<tr><td class="gris">NUM. INT.</td></tr>
+																	<tr><td><input type="text" name="num_interior"/></td></tr>
+																</table>
+															</td>
+														</tr>
+														<tr><td colspan="2" class="gris">COLONIA</td></tr>
+														<tr><td colspan="2"><input type="text" name="colonia"/></td></tr>
+														<tr><td>
+																<table>
+																	<tr><td class="gris">DELEG. / MUNICIPIO</td></tr>
+																	<tr><td><input type="text" name="delegacion_municipio"/></td></tr>
+																</table>
+															</td>
+															<td>
+																<table border="0">
+																	<tr><td class="gris">CIUDAD</td></tr>
+																	<tr><td><input type="text" name="ciudad"/></td></tr>
+																</table>
+															</td>
+														</tr>
+														<tr><td>
+																<table border="0">
+																	<tr><td class="gris">ESTADO</td></tr>
+																	<tr><td><select id="id_estado" name="id_estado"></select></td></tr>
+																</table>
+															</td>
+															<td>
+																<table border="0">
+																	<tr><td class="gris">C&Oacute;DIGO POSTAL</td></tr>
+																	<tr><td><input type="text" name="codigo_postal"/></td></tr>
+																</table>
+															</td>
+														</tr>
+													</table>
+												</div>
 											</div>
-										</div>
-										<div id="div_panel_derecho">
-											<div id="div_columna_derecha_datos_generales">
-												<br/>
-												<table border="0">
-													<tr><td>
-														<div style="float: right;">
-															<div style="float: left; font-size: xx-small;" class="morado">FECHA &nbsp;</div>
-															<div style="float: left;" class="gris">01/01/2016</div>
-														</div>
-													</td></tr>
-													<tr><td colspan="2" class="gris">TEL&Eacute;FONO PARTICULAR &nbsp; (INCLUYE CLAVE LADA)</td></tr>
-													<tr><td colspan="2"><input type="text"/></td></tr>
-													<tr><td colspan="2" class="gris">TEL&Eacute;FONO CELULAR &nbsp; (10 DIG&Iacute;TOS)</td></tr>
-													<tr><td colspan="2"><input type="text"/></td></tr>
-													<tr><td colspan="2" class="gris">TEL&Eacute;FONO OFICINA &nbsp; (10 DIG&Iacute;TOS)</td></tr>
-													<tr><td colspan="2"><input type="text"/></td></tr>
-													<tr><td colspan="2" class="gris">CORREO ELECTR&Oacute;NICO</td></tr>
-													<tr><td colspan="2"><input type="text"/></td></tr>
-													<tr><td colspan="2" class="gris">¿ACUDIRA CON ACOMPA&Ntilde;ANTE?</td></tr>
-													<tr><td colspan="2">
-															<table>
-																<tr>
-																	<td width="1%" class="gris">NO</td>
-																	<td width="20%"><input type="radio" name="aplica_acompaniante"/></td>
-																	<td width="1%" class="gris">SI</td>
-																	<td><input type="radio" name="aplica_acompaniante"/></td>
-																</tr>
-															</table>
-														</td>
-													</tr>
-													<tr><td colspan="2" class="morado">DATOS DEL ACOMPA&Ntilde;ANTE</td></tr>
-													<tr><td colspan="2" class="gris">APELLIDO PATERNO</td></tr>
-													<tr><td colspan="2" class=""><input type="text"/></td></tr>
-													<tr><td colspan="2" class="gris">APELLIDO MATERNO</td></tr>
-													<tr><td colspan="2" class=""><input type="text"/></td></tr>
-													<tr><td colspan="2" class="gris">NOMBRES(S)</td></tr>
-													<tr><td><input type="text"/></td></tr>
-												</table>
-											</div>
-										</div>
-									</div>
-									<div id="div_pie_panel">
-										<div id="div_contenedor_btns_cambio_panel">
-											<div style="float: left;">
-												<img alt="" src="<c:url value="/resources/image/btn_regresar_normal.png"/>"/>
-											</div>
-											<div style="float: left;">
-												<img alt="" src="<c:url value="/resources/image/localizador_1.png"/>">
-											</div>
-											<div style="float: left;" onclick="submenu('submenu_div_colacion')">
-												<img alt="" 
-													src="<c:url value="/resources/image/btn_siguiente_normal.png"/>"
-													onmouseover="this.src='<c:url value="/resources/image/btn_siguiente_mouse.png"/>'"
-													onmouseout="this.src='<c:url value="/resources/image/btn_siguiente_normal.png"/>'"/>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div id="div_contenedor_datos_colacion" style="display: none; background: transparent;">
-									<div id="div_contenedor_ambos_paneles">
-										<div id="div_panel_izquierdo">
-											<div id="div_columna_izquierda_datos_filiacion">
-												<br/>
-												<table>
-													<tr><td colspan="2" class="morado">AFILIACI&Oacute;N Y PARTICIPACI&Oacute;N</td></tr>
-													<tr><td width="50%">
-															<table>
-																<tr><td class="gris">GRADO</td></tr>
-																<tr><td><select></select></td></tr>
-															</table>
-														</td>
-														<td>&nbsp;</td>
-													</tr>
-													<tr><td colspan="2" class="gris">NOMBRE DEL CUERPO</td></tr>
-													<tr><td colspan="2"><input type="text"/></td></tr>
-													<tr><td colspan="2" class="gris">DELEGACI&Oacute;N</td></tr>
-													<tr><td colspan="2"><input type="text"/></td></tr>
-													<tr><td width="50%">
-															<table>
-																<tr><td class="gris">PARTICIPACI&Oacute;N</td></tr>
-																<tr><td><select></select></td></tr>
-															</table>
-														</td>
-														<td>
-															<table>
-																<tr><td class="gris">PONENCIA</td></tr>
-																<tr><td><select></select></td></tr>
-															</table>
-														</td>
-													</tr>
-													<tr><td colspan="2" class="gris">T&Iacute;TULO PONENCIA (SI APLICA)</td></tr>
-													<tr><td colspan="2"><input type="text"/></td></tr>
-													<tr><td width="50%">
-															<table>
-																<tr><td class="gris">MESA TRABAJO</td></tr>
-																<tr><td><select></select></td></tr>
-															</table>
-														</td>
-														<td>&nbsp;</td>
-													</tr>
-												</table>
-											</div>
-										</div>
-										<div id="div_panel_derecho">
-											<div id="div_columna_derecha_datos_filiacion">
-												<br/>
-												<table>
-													<tr><td colspan="2" class="morado">COLACI&Oacute;N</td></tr>
-													<tr><td colspan="2" class="gris">¿REALIZAR&Aacute; COLACI&Oacute;N DE GRADOS?</td></tr>
-													<tr><td colspan="2">
-															<table>
-																<tr>
-																	<td width="1%" class="gris">NO</td>
-																	<td width="20%"><input type="radio" name="aplica_colacion_grado"/></td>
-																	<td width="1%" class="gris">SI</td>
-																	<td><input type="radio" name="aplica_colacion_grado"/></td>
-																</tr>
-															</table>
-														</td>
-													</tr>
-													<tr><td width="50%">
-															<table>
-																<tr><td class="gris">GRADO INGRESA</td></tr>
-																<tr><td><select></select></td></tr>
-															</table>
-														</td>
-														<td>&nbsp;</td>
-													</tr>
-													<tr><td colspan="2" class="gris">CUERPO</td></tr>
-													<tr><td colspan="2"><input type="text"/></td></tr>
-													<tr><td colspan="2" class="gris">DELEGACI&Oacute;N</td></tr>
-													<tr><td colspan="2"><input type="text"/></td></tr>
-												</table>
-											</div>
-										</div>
-									</div>
-									<div id="div_pie_panel">
-										<div id="div_contenedor_btns_cambio_panel">
-											<div style="float: left;" onclick="submenu('submenu_div_generales')">
-												<img alt="" 
-													src="<c:url value="/resources/image/btn_regresar_normal.png"/>"
-													onmouseover="this.src='<c:url value="/resources/image/btn_regresar_mouse.png"/>'"
-													onmouseout="this.src='<c:url value="/resources/image/btn_regresar_normal.png"/>'"/>
-											</div>
-											<div style="float: left;">
-												<img alt="" src="<c:url value="/resources/image/localizador_2.png"/>">
-											</div>
-											<div style="float: left;" onclick="submenu('submenu_div_hospedaje')">
-												<img alt="" 
-													src="<c:url value="/resources/image/btn_siguiente_normal.png"/>"
-													onmouseover="this.src='<c:url value="/resources/image/btn_siguiente_mouse.png"/>'"
-													onmouseout="this.src='<c:url value="/resources/image/btn_siguiente_normal.png"/>'"/>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div id="div_contenedor_datos_hospedaje" style="display: none; background: transparent;">
-									<div id="div_contenedor_ambos_paneles">
-										<div id="div_panel_izquierdo_derecho_unificado">
-											<div id="div_columna_izquierda_datos_hospedaje">
-												<div id="div_contenedor_tabla_izquierda_datos_hospedaje">
-													<br>
-													<table>
-														<tr><td colspan="2" class="gris">¿REQUIERE HOSPEDAJE?</td></tr>
+											<div id="div_panel_derecho">
+												<div id="div_columna_derecha_datos_generales">
+													<br/>
+													<table border="0">
+														<tr><td>
+															<div style="float: right;">
+																<div style="float: left; font-size: xx-small;" class="morado">FECHA &nbsp;</div>
+																<div style="float: left;" class="gris">01/01/2016</div>
+															</div>
+														</td></tr>
+														<tr><td colspan="2" class="gris">TEL&Eacute;FONO PARTICULAR &nbsp; (INCLUYE CLAVE LADA)</td></tr>
+														<tr><td colspan="2"><input type="text" name="telefono_particular"/></td></tr>
+														<tr><td colspan="2" class="gris">TEL&Eacute;FONO CELULAR &nbsp; (10 DIG&Iacute;TOS)</td></tr>
+														<tr><td colspan="2"><input type="text" name="telefono_movil"/></td></tr>
+														<tr><td colspan="2" class="gris">TEL&Eacute;FONO OFICINA &nbsp; (10 DIG&Iacute;TOS)</td></tr>
+														<tr><td colspan="2"><input type="text" name="telefono_oficina"/></td></tr>
+														<tr><td colspan="2" class="gris">CORREO ELECTR&Oacute;NICO</td></tr>
+														<tr><td colspan="2"><input type="text" name="email"/></td></tr>
+														<tr><td colspan="2" class="gris">¿ACUDIRA CON ACOMPA&Ntilde;ANTE?</td></tr>
 														<tr><td colspan="2">
 																<table>
 																	<tr>
-																		<td width="1%" class="gris">NO</td>
-																		<td width="20%"><input type="radio" name="aplica_colacion_grado"/></td>
-																		<td width="1%" class="gris">SI</td>
-																		<td><input type="radio" name="aplica_colacion_grado"/></td>
+																		<td width="1%" class="gris">
+																			<span onclick="document.form_registro.aplica_acompaniante[0].click();">NO</span>
+																		</td>
+																		<td width="20%"><input type="radio" name="aplica_acompaniante" onclick="aplicaAcompaniante(false)" checked/></td>
+																		<td width="1%" class="gris">
+																			<span onclick="document.form_registro.aplica_acompaniante[1].click();">SI</span>
+																		</td>
+																		<td><input type="radio" name="aplica_acompaniante" onclick="aplicaAcompaniante(true)"/></td>
 																	</tr>
 																</table>
 															</td>
 														</tr>
-														<tr><td colspan="2" class="gris">PAQUETE</td></tr>
-														<tr><td colspan="2"><select></select></td></tr>
-														<tr><td>
-															<table border="0">
-																<tr><td class="gris">LLEGADA</td></tr>
-																<tr><td><input type="text"/></td></tr>
-															</table>
-															</td>
-															<td>
-																<table border="0">
-																	<tr><td class="gris">SALIDA</td></tr>
-																	<tr><td><input type="text"/></td></tr>
+														<tr><td colspan="2" class="morado">DATOS DEL ACOMPA&Ntilde;ANTE</td></tr>
+														<tr><td colspan="2" class="gris">APELLIDO PATERNO</td></tr>
+														<tr><td colspan="2" class=""><input type="text" name="acompaniante_ap_paterno" readonly/></td></tr>
+														<tr><td colspan="2" class="gris">APELLIDO MATERNO</td></tr>
+														<tr><td colspan="2" class=""><input type="text" name="acompaniante_ap_materno" readonly/></td></tr>
+														<tr><td colspan="2" class="gris">NOMBRES(S)</td></tr>
+														<tr><td colspan="2" class=""><input type="text" name="acompaniante_nombre" readonly/></td></tr>
+													</table>
+												</div>
+											</div>
+										</div>
+										<div id="div_pie_panel">
+											<div id="div_contenedor_btns_cambio_panel">
+												<div style="float: left;">
+													<img alt="" src="<c:url value="/resources/image/btn_regresar_normal.png"/>"/>
+												</div>
+												<div style="float: left;">
+													<img alt="" src="<c:url value="/resources/image/localizador_1.png"/>">
+												</div>
+												<div style="float: left;" onclick="submenu('submenu_div_colacion')">
+													<img alt="" 
+														src="<c:url value="/resources/image/btn_siguiente_normal.png"/>"
+														onmouseover="this.src='<c:url value="/resources/image/btn_siguiente_mouse.png"/>'"
+														onmouseout="this.src='<c:url value="/resources/image/btn_siguiente_normal.png"/>'"/>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="div_contenedor_datos_colacion" style="display: none; background: transparent;">
+										<div id="div_contenedor_ambos_paneles">
+											<div id="div_panel_izquierdo">
+												<div id="div_columna_izquierda_datos_filiacion">
+													<br/>
+													<table>
+														<tr><td colspan="2" class="morado">AFILIACI&Oacute;N Y PARTICIPACI&Oacute;N</td></tr>
+														<tr><td width="50%">
+																<table>
+																	<tr><td class="gris">GRADO</td></tr>
+																	<tr><td><select id="id_grado" name="id_grado"></select></td></tr>
 																</table>
-															</td>
-														</tr>
-														<tr><td>
-															<table border="0">
-																<tr><td class="gris">NUM. PERSONAS</td></tr>
-																<tr><td><input type="text"/></td></tr>
-															</table>
 															</td>
 															<td>&nbsp;</td>
 														</tr>
-														<tr><td colspan="2">&nbsp;</td></tr>
-														<tr><td>
-															<table border="0">
-																<tr><td class="morado">TOTAL HOTEL</td></tr>
-																<tr><td><input type="text"/></td></tr>
-															</table>
+														<tr><td colspan="2" class="gris">NOMBRE DEL CUERPO</td></tr>
+														<tr><td colspan="2"><input type="text" name="registro_nombre_cuerpo"/></td></tr>
+														<tr><td colspan="2" class="gris">DELEGACI&Oacute;N</td></tr>
+														<tr><td colspan="2"><input type="text" name="registro_delegacion"/></td></tr>
+														<tr><td width="50%">
+																<table>
+																	<tr><td class="gris">PARTICIPACI&Oacute;N</td></tr>
+																	<tr><td><select id="id_tipo_participacion" name="id_tipo_participacion"></select></td></tr>
+																</table>
+															</td>
+															<td>
+																<table>
+																	<tr><td class="gris">PONENCIA</td></tr>
+																	<tr><td><select id="id_tipo_ponencia" name="id_tipo_ponencia"></select></td></tr>
+																</table>
+															</td>
+														</tr>
+														<tr><td colspan="2" class="gris">T&Iacute;TULO PONENCIA (SI APLICA)</td></tr>
+														<tr><td colspan="2"><input type="text" name="titulo_ponencia"/></td></tr>
+														<tr><td width="50%">
+																<table>
+																	<tr><td class="gris">MESA TRABAJO</td></tr>
+																	<tr><td><select id="id_tipo_mesa" name="id_tipo_mesa"></select></td></tr>
+																</table>
 															</td>
 															<td>&nbsp;</td>
 														</tr>
 													</table>
 												</div>
 											</div>
-											<div id="div_columna_derecha_datos_hospedaje">
-												<div style="margin-top: 13px;">
-													<img alt="" src="<c:url value="/resources/image/precios_hospedaje.png"/>"/>
+											<div id="div_panel_derecho">
+												<div id="div_columna_derecha_datos_filiacion">
+													<br/>
+													<table>
+														<tr><td colspan="2" class="morado">COLACI&Oacute;N</td></tr>
+														<tr><td colspan="2" class="gris">¿REALIZAR&Aacute; COLACI&Oacute;N DE GRADOS?</td></tr>
+														<tr><td colspan="2">
+																<table>
+																	<tr>
+																		<td width="1%" class="gris">
+																			<span onclick="document.form_registro.aplica_colacion_grado[0].click()">NO</span>
+																		</td>
+																		<td width="20%"><input type="radio" name="aplica_colacion_grado" onclick="aplicaColacion(false)" checked/></td>
+																		<td width="1%" class="gris">
+																			<span onclick="document.form_registro.aplica_colacion_grado[1].click()">SI</span>
+																		</td>
+																		<td><input type="radio" name="aplica_colacion_grado" onclick="aplicaColacion(true)"/></td>
+																	</tr>
+																</table>
+															</td>
+														</tr>
+														<tr><td width="50%">
+																<table>
+																	<tr><td class="gris">GRADO INGRESA</td></tr>
+																	<tr><td><select id="id_grado_pretende" name="id_grado_pretende" disabled></select></td></tr>
+																</table>
+															</td>
+															<td>&nbsp;</td>
+														</tr>
+														<tr><td colspan="2" class="gris">CUERPO</td></tr>
+														<tr><td colspan="2"><input type="text" name="cuerpo_pretende" readonly/></td></tr>
+														<tr><td colspan="2" class="gris">DELEGACI&Oacute;N</td></tr>
+														<tr><td colspan="2"><input type="text" name="delegacion_pretende" readonly/></td></tr>
+													</table>
+												</div>
+											</div>
+										</div>
+										<div id="div_pie_panel">
+											<div id="div_contenedor_btns_cambio_panel">
+												<div style="float: left;" onclick="submenu('submenu_div_generales')">
+													<img alt="" 
+														src="<c:url value="/resources/image/btn_regresar_normal.png"/>"
+														onmouseover="this.src='<c:url value="/resources/image/btn_regresar_mouse.png"/>'"
+														onmouseout="this.src='<c:url value="/resources/image/btn_regresar_normal.png"/>'"/>
+												</div>
+												<div style="float: left;">
+													<img alt="" src="<c:url value="/resources/image/localizador_2.png"/>">
+												</div>
+												<div style="float: left;" onclick="submenu('submenu_div_hospedaje')">
+													<img alt="" 
+														src="<c:url value="/resources/image/btn_siguiente_normal.png"/>"
+														onmouseover="this.src='<c:url value="/resources/image/btn_siguiente_mouse.png"/>'"
+														onmouseout="this.src='<c:url value="/resources/image/btn_siguiente_normal.png"/>'"/>
 												</div>
 											</div>
 										</div>
 									</div>
-									<div id="div_pie_panel">
-										<div id="div_contenedor_btns_cambio_panel">
-											<div style="float: left;" onclick="submenu('submenu_div_colacion')">
-												<img alt="" 
-													src="<c:url value="/resources/image/btn_regresar_normal.png"/>"
-													onmouseover="this.src='<c:url value="/resources/image/btn_regresar_mouse.png"/>'"
-													onmouseout="this.src='<c:url value="/resources/image/btn_regresar_normal.png"/>'"/>
-											</div>
-											<div style="float: left;">
-												<img alt="" src="<c:url value="/resources/image/localizador_3.png"/>">
-											</div>
-											<div style="float: left;" onclick="submenu('submenu_div_pago')">
-												<img alt="" 
-													src="<c:url value="/resources/image/btn_siguiente_normal.png"/>"
-													onmouseover="this.src='<c:url value="/resources/image/btn_siguiente_mouse.png"/>'"
-													onmouseout="this.src='<c:url value="/resources/image/btn_siguiente_normal.png"/>'"/>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div id="div_contenedor_datos_pago" style="display: none; background: transparent;">
-									<div id="div_contenedor_ambos_paneles">
-										<div id="div_panel_izquierdo_derecho_unificado">
-											<div id="div_columna_izquierda_datos_pago">
-												<div style="padding-top: 11px;">
-													<img alt="" src="<c:url value="/resources/image/precios_congreso_colacion_hotel.png"/>">
-												</div>
-											</div>
-											<div id="div_columna_centro_datos_pago">
-												<div style="padding-top: 11px; float: right; padding-right: 3px;">
-													<div id="div_contenedor_conceptos_pago">
-														<br/>
-														<table border="0">
-															<tr><td colspan="2" class="morado">CONCEPTOS DE PAGO</td></tr>
-															<tr>
-																<td class="gris">INSCRIP. CONGRESISTA</td>
-																<td><input type="text"></td>
-															</tr>
-															<tr>
-																<td class="gris">INSCRIP. ACOMPA&Ntilde;ANTE</td>
-																<td><input type="text"></td>
-															</tr>
-															<tr>
-																<td class="gris">COLACI&Oacute;N GRADO</td>
-																<td><input type="text"></td>
-															</tr>
-															<tr>
-																<td class="gris">HOSPEDAJE ($)</td>
-																<td><input type="text"></td>
-															</tr>
-															<tr>
-																<td colspan="2">&nbsp;</td>
-															</tr>
-															<tr>
-																<td class="morado">TOTAL INVERSI&Oacute;N</td>
-																<td><input type="text"></td>
-															</tr>
-															<tr><td colspan="2">&nbsp;</td></tr>
-														</table>
-													</div>
-												</div>
-											</div>
-											<div id="div_columna_derecha_datos_pago">
-												<div style="padding-top: 11px;">
-													<div id="div_contenedor_conceptos_transferencia">
-														<br/>
+									<div id="div_contenedor_datos_hospedaje" style="display: none; background: transparent;">
+										<div id="div_contenedor_ambos_paneles">
+											<div id="div_panel_izquierdo_derecho_unificado">
+												<div id="div_columna_izquierda_datos_hospedaje">
+													<div id="div_contenedor_tabla_izquierda_datos_hospedaje">
+														<br>
 														<table>
-															<tr><td colspan="2" class="morado">TRANSFERENCIA BANCARIA</td></tr>
-															<tr><td colspan="2" class="gris">BANCO</td></tr>
-															<tr><td colspan="2"><input type="text"/></td></tr>
-															<tr><td width="50%">
-																	<table border="0">
-																		<tr><td class="gris">NUM. SUCURSAL</td></tr>
-																		<tr><td><input type="text"/></td></tr>
-																	</table>
-																	</td>
-																	<td>&nbsp;</td>
-															</tr>
-															<tr><td colspan="2" class="gris">CIUDAD</td></tr>
-															<tr><td colspan="2"><input type="text"/></td></tr>
-															<tr><td width="50%">
-																	<table border="0">
-																		<tr><td class="gris">NUM. REFERENCIA</td></tr>
-																		<tr><td><input type="text"/></td></tr>
-																	</table>
-																<td width="50%">
-																	<table border="0">
-																		<tr><td class="gris">FEC. TRANSACC.</td></tr>
-																		<tr><td><input type="text"/></td></tr>
+															<tr><td colspan="2" class="gris">¿REQUIERE HOSPEDAJE?</td></tr>
+															<tr><td colspan="2">
+																	<table>
+																		<tr>
+																			<td width="1%" class="gris">
+																				<span onclick="document.form_registro.aplica_hospedaje[0].click()">NO</span>
+																			</td>
+																			<td width="20%"><input type="radio" name="aplica_hospedaje" onclick="aplicaHospedaje(false)" checked/></td>
+																			<td width="1%" class="gris">
+																				<span onclick="document.form_registro.aplica_hospedaje[1].click()">SI</span>
+																			</td>
+																			<td><input type="radio" name="aplica_hospedaje" onclick="aplicaHospedaje(true)"/></td>
+																		</tr>
 																	</table>
 																</td>
 															</tr>
-															<tr><td colspan="2" class="gris">PERMITA 72 HORAS PARA QUE SU PAGO SE VEA REFLEJADO N NUESTRO SISTEMA</td></tr>
-															<tr><td>&nbsp;</td></tr>
-															<tr><td colspan="2" class="gris">TOTAL DEPOSITADO</td></tr>
-															<tr><td width="50%">
+															<tr><td colspan="2" class="gris">PAQUETE</td></tr>
+															<tr><td colspan="2"><select id="id_paquete_hotal" name="id_paquete_hotel" disabled></select></td></tr>
+															<tr><td>
+																<table border="0">
+																	<tr><td class="gris">LLEGADA</td></tr>
+																	<tr><td><input type="text" name="fecha_entrada" readonly/></td></tr>
+																</table>
+																</td>
+																<td>
 																	<table border="0">
-																		<tr><td>
-																			<table><tr>
-																				<td class="gris">$</td>
-																				<td><input type="text"/></td>
-																			</tr></table>
-																		</td></tr>
+																		<tr><td class="gris">SALIDA</td></tr>
+																		<tr><td><input type="text" name="fecha_salida" readonly/></td></tr>
 																	</table>
-																	</td>
-																	<td>&nbsp;</td>
+																</td>
+															</tr>
+															<tr><td>
+																<table border="0">
+																	<tr><td class="gris">NUM. PERSONAS</td></tr>
+																	<tr><td><input type="text" name="num_personas_habitacion" readonly/></td></tr>
+																</table>
+																</td>
+																<td>&nbsp;</td>
+															</tr>
+															<tr><td colspan="2">&nbsp;</td></tr>
+															<tr><td>
+																<table border="0">
+																	<tr><td class="morado">TOTAL HOTEL</td></tr>
+																	<tr><td><input type="text" name="paquete_hotel_precio" readonly/></td></tr>
+																</table>
+																</td>
+																<td>&nbsp;</td>
 															</tr>
 														</table>
 													</div>
 												</div>
+												<div id="div_columna_derecha_datos_hospedaje">
+													<div style="margin-top: 13px;">
+														<img alt="" src="<c:url value="/resources/image/precios_hospedaje.png"/>"/>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div id="div_pie_panel">
+											<div id="div_contenedor_btns_cambio_panel">
+												<div style="float: left;" onclick="submenu('submenu_div_colacion')">
+													<img alt="" 
+														src="<c:url value="/resources/image/btn_regresar_normal.png"/>"
+														onmouseover="this.src='<c:url value="/resources/image/btn_regresar_mouse.png"/>'"
+														onmouseout="this.src='<c:url value="/resources/image/btn_regresar_normal.png"/>'"/>
+												</div>
+												<div style="float: left;">
+													<img alt="" src="<c:url value="/resources/image/localizador_3.png"/>">
+												</div>
+												<div style="float: left;" onclick="submenu('submenu_div_pago')">
+													<img alt="" 
+														src="<c:url value="/resources/image/btn_siguiente_normal.png"/>"
+														onmouseover="this.src='<c:url value="/resources/image/btn_siguiente_mouse.png"/>'"
+														onmouseout="this.src='<c:url value="/resources/image/btn_siguiente_normal.png"/>'"/>
+												</div>
 											</div>
 										</div>
 									</div>
-									<div id="div_pie_panel">
-										<div id="div_contenedor_btns_cambio_panel">
-											<div style="float: left;" onclick="submenu('submenu_div_hospedaje')">
-												<img alt="" 
-													src="<c:url value="/resources/image/btn_regresar_normal.png"/>"
-													onmouseover="this.src='<c:url value="/resources/image/btn_regresar_mouse.png"/>'"
-													onmouseout="this.src='<c:url value="/resources/image/btn_regresar_normal.png"/>'"/>
+									<div id="div_contenedor_datos_pago" style="display: none; background: transparent;">
+										<div id="div_contenedor_ambos_paneles">
+											<div id="div_panel_izquierdo_derecho_unificado">
+												<div id="div_columna_izquierda_datos_pago">
+													<div style="padding-top: 11px;">
+														<img alt="" src="<c:url value="/resources/image/precios_congreso_colacion_hotel.png"/>">
+													</div>
+												</div>
+												<div id="div_columna_centro_datos_pago">
+													<div style="padding-top: 11px; float: right; padding-right: 3px;">
+														<div id="div_contenedor_conceptos_pago">
+															<br/>
+															<table border="0">
+																<tr><td colspan="2" class="morado">CONCEPTOS DE PAGO</td></tr>
+																<tr>
+																	<td class="gris">INSCRIP. CONGRESISTA</td>
+																	<td><input type="text" name="costo_congresista"></td>
+																</tr>
+																<tr>
+																	<td class="gris">INSCRIP. ACOMPA&Ntilde;ANTE</td>
+																	<td><input type="text" name="costo_acompaniante"></td>
+																</tr>
+																<tr>
+																	<td class="gris">COLACI&Oacute;N GRADO</td>
+																	<td><input type="text" name="costo_colacion_grado"></td>
+																</tr>
+																<tr>
+																	<td class="gris">HOSPEDAJE ($)</td>
+																	<td><input type="text" name="costo_hospedaje"></td>
+																</tr>
+																<tr>
+																	<td colspan="2">&nbsp;</td>
+																</tr>
+																<tr>
+																	<td class="morado">TOTAL INVERSI&Oacute;N</td>
+																	<td><input type="text" name="costo_total"></td>
+																</tr>
+																<tr><td colspan="2">&nbsp;</td></tr>
+															</table>
+														</div>
+													</div>
+												</div>
+												<div id="div_columna_derecha_datos_pago">
+													<div style="padding-top: 11px;">
+														<div id="div_contenedor_conceptos_transferencia">
+															<br/>
+															<table>
+																<tr><td colspan="2" class="morado">TRANSFERENCIA BANCARIA</td></tr>
+																<tr><td colspan="2" class="gris">BANCO</td></tr>
+																<tr><td colspan="2"><input type="text" name="nombre_pago"/></td></tr>
+																<tr><td width="50%">
+																		<table border="0">
+																			<tr><td class="gris">NUM. SUCURSAL</td></tr>
+																			<tr><td><input type="text" name="num_sucursal"/></td></tr>
+																		</table>
+																		</td>
+																		<td>&nbsp;</td>
+																</tr>
+																<tr><td colspan="2" class="gris">CIUDAD</td></tr>
+																<tr><td colspan="2"><input type="text" name="pago_ciudad"/></td></tr>
+																<tr><td width="50%">
+																		<table border="0">
+																			<tr><td class="gris">NUM. REFERENCIA</td></tr>
+																			<tr><td><input type="text" name="num_referencia"/></td></tr>
+																		</table>
+																	<td width="50%">
+																		<table border="0">
+																			<tr><td class="gris">FEC. TRANSACC.</td></tr>
+																			<tr><td><input type="text" name="fecha_transaccion" readonly/></td></tr>
+																		</table>
+																	</td>
+																</tr>
+																<tr><td colspan="2" class="gris">PERMITA 72 HORAS PARA QUE SU PAGO SE VEA REFLEJADO N NUESTRO SISTEMA</td></tr>
+																<tr><td>&nbsp;</td></tr>
+																<tr><td colspan="2" class="gris">TOTAL DEPOSITADO</td></tr>
+																<tr><td width="50%">
+																		<table border="0">
+																			<tr><td>
+																				<table><tr>
+																					<td class="gris">$</td>
+																					<td><input type="text" name="importe_pago"/></td>
+																				</tr></table>
+																			</td></tr>
+																		</table>
+																		</td>
+																		<td>&nbsp;</td>
+																</tr>
+															</table>
+														</div>
+													</div>
+												</div>
 											</div>
-											<div style="float: left;">
-												<img alt="" src="<c:url value="/resources/image/localizador_4.png"/>">
-											</div>
-											<div style="float: left;" onclick="alert('guarda informacion')">
-												<img alt="" 
-													src="<c:url value="/resources/image/btn_enviar_normal.png"/>"
-													onmouseover="this.src='<c:url value="/resources/image/btn_enviar_mouse.png"/>'"
-													onmouseout="this.src='<c:url value="/resources/image/btn_enviar_normal.png"/>'"/>
+										</div>
+										<div id="div_pie_panel">
+											<div id="div_contenedor_btns_cambio_panel">
+												<div style="float: left;" onclick="submenu('submenu_div_hospedaje')">
+													<img alt="" 
+														src="<c:url value="/resources/image/btn_regresar_normal.png"/>"
+														onmouseover="this.src='<c:url value="/resources/image/btn_regresar_mouse.png"/>'"
+														onmouseout="this.src='<c:url value="/resources/image/btn_regresar_normal.png"/>'"/>
+												</div>
+												<div style="float: left;">
+													<img alt="" src="<c:url value="/resources/image/localizador_4.png"/>">
+												</div>
+												<div style="float: left;" onclick="alert('guarda informacion')">
+													<img alt="" 
+														src="<c:url value="/resources/image/btn_enviar_normal.png"/>"
+														onmouseover="this.src='<c:url value="/resources/image/btn_enviar_mouse.png"/>'"
+														onmouseout="this.src='<c:url value="/resources/image/btn_enviar_normal.png"/>'"/>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-							</div>
+							</form>
 						</div>
 						<div id="div_advertencia">
 							<div id="div_texto_advertencia">
 								Estimado Congresista: Le solicitamos que una vez que inicie la captura de la informaci&oacute;n, 
-								la termine en la misma sesi&oacute;n ya que la informaci&oacute;n no queda guardada. 
-								De no terminar, deber&aacute; volver a llenar el formulario al abrir una nueva sesi&oacute;n.
+								la termine en la misma sesi&oacute;n ya que la informaci&oacute;n no es guardada en partes. 
+								De no terminar, deber&aacute; volver a llenar el formulario al abrir una nueva sesi&oacute;n y la 
+								&uacute;ltima informaci&oacute;n registrada ser&aacute; tomada como la informaci&oacute;n v&aacute;lida.
 							</div>
 						</div>
 					</div>
