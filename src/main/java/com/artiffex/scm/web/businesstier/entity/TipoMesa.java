@@ -25,7 +25,7 @@ public class TipoMesa implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_tipo_mes", unique=true, nullable=false)
+	@Column(name="id_tipo_mesa", unique=true, nullable=false)
 	public Integer getIdTipoMesa() { return idTipoMesa; }
 	public void setIdTipoMesa(Integer idTipoMesa) { this.idTipoMesa = idTipoMesa; }
 

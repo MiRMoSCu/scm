@@ -17,5 +17,5 @@ public interface CostoCongresistaDao {
 	public List<CostoCongresista> listaPorSQLQuery(String queryString);
 	
 	public List<CostoCongresista> listaPorCriteriaQuery(String criteria);
-
+	
 }

@@ -191,6 +191,7 @@ CREATE TABLE IF NOT EXISTS `lithomat_scm_artiffex`.`registro` (
   `id_tipo_ponencia` INT NOT NULL,
   `titulo_ponencia` VARCHAR(120) NULL,
   `id_tipo_mesa` INT UNSIGNED NOT NULL,
+  `fecha_registro` DATE NULL,
   `activo` TINYINT(1) NULL,
   PRIMARY KEY (`id_registro`),
   INDEX `fk_registro_grado1_idx` (`id_grado` ASC),

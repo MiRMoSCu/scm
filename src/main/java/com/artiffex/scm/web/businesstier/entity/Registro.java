@@ -1,6 +1,7 @@
 package com.artiffex.scm.web.businesstier.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,6 +27,7 @@ public class Registro implements Serializable {
 	private TipoPonencia tipoPonencia;
 	private String tituloPonencia;
 	private TipoMesa tipoMesa;
+	private Date fechaRegistro;
 	private Boolean activo;
 	
 	// constructor
@@ -73,6 +75,10 @@ public class Registro implements Serializable {
 	@JoinColumn(name="id_tipo_mesa")
 	public TipoMesa getTipoMesa() { return tipoMesa; }
 	public void setTipoMesa(TipoMesa tipoMesa) { this.tipoMesa = tipoMesa; }
+	
+	@Column(name="fecha_registro")
+	public Date getFechaRegistro() { return fechaRegistro; }
+	public void setFechaRegistro(Date fechaRegistro) { this.fechaRegistro = fechaRegistro; }
 
 	@Column(name="activo")
 	public Boolean isActivo() { return activo; }

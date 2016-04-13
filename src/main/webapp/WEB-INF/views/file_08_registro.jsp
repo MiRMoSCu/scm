@@ -8,8 +8,11 @@
 <c:url value="/public/hospedaje" 				var="urlHospedaje"/>
 <c:url value="/public/documentos" 				var="urlDocumentos"/>
 <c:url value="/public/registro" 				var="urlRegistro"/>
+<c:url value="/public/costoAcompaniante" 		var="urlCostoAcompaniante"/>
+
 <c:url value="/public/formulario_participante" 	var="urlFormulario" />
 <c:url value="/private/pagina_excel" 			var="urlPaginaExcel" />
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -20,6 +23,7 @@
 		<link rel="stylesheet" href="<c:url value="/resources/css/css_08_registro.css"/>" type="text/css"></link>
 		<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 		<script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		<script type="text/javascript" src="<c:url value="/resources/js/utilidades.js"/>"></script>
 		<script type="text/javascript">
 			// inicializacion jquery
 			$(document).ready(function(){});
@@ -38,6 +42,7 @@
 			var urlHospedaje 			= "${urlHospedaje}";
 			var urlDocumentos 			= "${urlDocumentos}";
 			var urlRegistro 			= "${urlRegistro}";
+			var urlCostoAcompaniante	= "${urlCostoAcompaniante}";
 		</script>
 		<script type="text/javascript">
 			var enviaFormulario = true;
@@ -135,11 +140,28 @@
 				}
 			}
 			
+			function busquedaCostoAcompaniante() {
+				$.ajax({
+					type:"POST",
+					url:urlCostoAcompaniante,
+					data:{},
+					success:function(response) {
+						document.form_costos.costo_acompaniante.value 	= response;
+						document.form_registro.costo_acompaniante.value = parseFloat(response).formatMoney(2);
+						sumaCostosCongresista();
+					},
+					error:function(e) {
+						console.log("No fue posible conectar con el servidor");
+					}
+				});
+			}
+			
 			function aplicaAcompaniante(opcion) {
 				if (Boolean(opcion)) {
 					document.form_registro.acompaniante_ap_paterno.readOnly = false;
 					document.form_registro.acompaniante_ap_materno.readOnly = false;
 					document.form_registro.acompaniante_nombre.readOnly 	= false;
+					busquedaCostoAcompaniante();
 				} else {
 					document.form_registro.acompaniante_ap_paterno.value 	= "";
 					document.form_registro.acompaniante_ap_materno.value 	= "";
@@ -147,6 +169,9 @@
 					document.form_registro.acompaniante_ap_paterno.readOnly = true;
 					document.form_registro.acompaniante_ap_materno.readOnly = true;
 					document.form_registro.acompaniante_nombre.readOnly 	= true;
+					document.form_costos.costo_acompaniante.value			= 0;
+					document.form_registro.costo_acompaniante.value 		= (0).formatMoney(2);
+					sumaCostosCongresista();
 				}
 			}
 			
@@ -159,19 +184,20 @@
 					document.form_registro.id_grado_pretende.selectedIndex 	= 0;
 					document.form_registro.cuerpo_pretende.value 			= "";
 					document.form_registro.delegacion_pretende.value 		= "";
-					
 					document.form_registro.id_grado_pretende.disabled 	= true;
 					document.form_registro.cuerpo_pretende.readOnly 	= true;
 					document.form_registro.delegacion_pretende.readOnly = true;
+					document.form_registro.costo_colacion_grado.value	= (0).formatMoney(2);
 				}
+				sumaCostosCongresista();
 			}
 			
 			function aplicaHospedaje(opcion) {
 				if (Boolean(opcion)) {
 					$("[name=fecha_entrada]").datepicker({dateFormat:'yy-mm-dd'});
-					$("[name=fecha_entrada]").datepicker("setDate",new Date());
+					//$("[name=fecha_entrada]").datepicker("setDate",'2016-07-21');
 					$("[name=fecha_salida]").datepicker({dateFormat:'yy-mm-dd'});
-					$("[name=fecha_salida]").datepicker("setDate",new Date());
+					//$("[name=fecha_salida]").datepicker("setDate",'2016-07-23');
 					document.form_registro.id_paquete_hotal.disabled 		= false;
 					document.form_registro.num_personas_habitacion.readOnly = false;
 				} else {
@@ -183,11 +209,30 @@
 					document.form_registro.num_personas_habitacion.value 	= "";
 					document.form_registro.id_paquete_hotal.disabled 		= true;
 					document.form_registro.num_personas_habitacion.readOnly = true;
+					document.form_registro.costo_hospedaje.value			= (0).formatMoney(2);
 				}
+				sumaCostosCongresista();
 			}
+			
+			function sumaCostosCongresista() {
+				var costoCongresista = parseFloat(document.form_costos.costo_congresista.value);
+				var costoAcompaniante = parseFloat(document.form_costos.costo_acompaniante.value);
+				var costoColacionGrado = parseFloat(document.form_costos.costo_colacion_grado.value);
+				var costoHospedaje = parseFloat(document.form_costos.costo_hospedaje.value);
+				var costoTotal = costoCongresista + costoAcompaniante + costoColacionGrado + costoHospedaje;
+				document.form_costos.costo_total.value = costoTotal;
+				document.form_registro.costo_total.value = (costoTotal).formatMoney(2);
+			}
+			
+			function formato_numeros() {
+				document.form_registro.costo_congresista.value 	= parseFloat(document.form_costos.costo_congresista.value).formatMoney(2);
+				document.form_registro.costo_total.value 		= parseFloat(document.form_costos.costo_congresista.value).formatMoney(2);
+			}
+			
+			
 		</script>
 	</head>
-	<body>
+	<body onload="formato_numeros()">
 		<div id="div_registro">
 			<div id="div_encabezado">
 				<div id="div_img_cintillo">
@@ -328,7 +373,7 @@
 																<table border="0">
 																	<tr><td class="gris">ESTADO</td></tr>
 																	<tr><td><select id="id_estado" name="id_estado">
-																		<c:forEach var="estado" items="${listaEstados}">
+																		<c:forEach var="estado" items="${listaEstado}">
 																			<option value="${estado.value}">${estado.text}</option>
 																		</c:forEach>
 																	</select></td></tr>
@@ -337,7 +382,7 @@
 															<td>
 																<table border="0">
 																	<tr><td class="gris">C&Oacute;DIGO POSTAL</td></tr>
-																	<tr><td><input type="text" name="codigo_postal"/></td></tr>
+																	<tr><td><input type="text" name="codigo_postal" onkeydown="revisaNumero(false, this.value, event, null, null)" maxlength="5"/></td></tr>
 																</table>
 															</td>
 														</tr>
@@ -351,15 +396,15 @@
 														<tr><td>
 															<div style="float: right;">
 																<div style="float: left; font-size: xx-small;" class="morado">FECHA &nbsp;</div>
-																<div style="float: left;" class="gris">01/01/2016</div>
+																<div style="float: left;" class="gris">${fecha_actual}</div>
 															</div>
 														</td></tr>
 														<tr><td colspan="2" class="gris">TEL&Eacute;FONO PARTICULAR &nbsp; (INCLUYE CLAVE LADA)</td></tr>
-														<tr><td colspan="2"><input type="text" name="telefono_particular"/></td></tr>
+														<tr><td colspan="2"><input type="text" name="telefono_particular" onkeydown="revisaNumero(false, this.value, event, null, null)"/></td></tr>
 														<tr><td colspan="2" class="gris">TEL&Eacute;FONO CELULAR &nbsp; (10 DIG&Iacute;TOS)</td></tr>
-														<tr><td colspan="2"><input type="text" name="telefono_movil"/></td></tr>
+														<tr><td colspan="2"><input type="text" name="telefono_movil" onkeydown="revisaNumero(false, this.value, event, null, null)"/></td></tr>
 														<tr><td colspan="2" class="gris">TEL&Eacute;FONO OFICINA &nbsp; (10 DIG&Iacute;TOS)</td></tr>
-														<tr><td colspan="2"><input type="text" name="telefono_oficina"/></td></tr>
+														<tr><td colspan="2"><input type="text" name="telefono_oficina" onkeydown="revisaNumero(false, this.value, event, null, null)"/></td></tr>
 														<tr><td colspan="2" class="gris">CORREO ELECTR&Oacute;NICO</td></tr>
 														<tr><td colspan="2"><input type="text" name="email"/></td></tr>
 														<tr><td colspan="2" class="gris">¿ACUDIRA CON ACOMPA&Ntilde;ANTE?</td></tr>
@@ -417,7 +462,7 @@
 																<table>
 																	<tr><td class="gris">GRADO</td></tr>
 																	<tr><td><select id="id_grado" name="id_grado">
-																		<c:forEach var="grado" items="${listaGrados}">
+																		<c:forEach var="grado" items="${listaGrado}">
 																			<option value="${grado.value}">${grado.text}</option>
 																		</c:forEach>
 																	</select></td></tr>
@@ -442,7 +487,11 @@
 															<td>
 																<table>
 																	<tr><td class="gris">PONENCIA</td></tr>
-																	<tr><td><select id="id_tipo_ponencia" name="id_tipo_ponencia"></select></td></tr>
+																	<tr><td><select id="id_tipo_ponencia" name="id_tipo_ponencia">
+																		<c:forEach var="tipoPonencia" items="${listaTipoPonencia}">
+																			<option value="${tipoPonencia.value}">${tipoPonencia.text}</option>
+																		</c:forEach>
+																	</select></td></tr>
 																</table>
 															</td>
 														</tr>
@@ -451,7 +500,11 @@
 														<tr><td width="50%">
 																<table>
 																	<tr><td class="gris">MESA TRABAJO</td></tr>
-																	<tr><td><select id="id_tipo_mesa" name="id_tipo_mesa"></select></td></tr>
+																	<tr><td><select id="id_tipo_mesa" name="id_tipo_mesa">
+																		<c:forEach var="tipoMesa" items="${listaTipoMesa}">
+																			<option value="${tipoMesa.value}">${tipoMesa.text}</option>
+																		</c:forEach>
+																	</select></td></tr>
 																</table>
 															</td>
 															<td>&nbsp;</td>
@@ -483,7 +536,11 @@
 														<tr><td width="50%">
 																<table>
 																	<tr><td class="gris">GRADO INGRESA</td></tr>
-																	<tr><td><select id="id_grado_pretende" name="id_grado_pretende" disabled></select></td></tr>
+																	<tr><td><select id="id_grado_pretende" name="id_grado_pretende" disabled>
+																		<c:forEach var="gradoPretende" items="${listaGradoPretende}">
+																			<option value="${gradoPretende.value}">${gradoPretende.text}</option>
+																		</c:forEach>
+																	</select></td></tr>
 																</table>
 															</td>
 															<td>&nbsp;</td>
@@ -540,7 +597,11 @@
 																</td>
 															</tr>
 															<tr><td colspan="2" class="gris">PAQUETE</td></tr>
-															<tr><td colspan="2"><select id="id_paquete_hotal" name="id_paquete_hotel" disabled></select></td></tr>
+															<tr><td colspan="2"><select id="id_paquete_hotal" name="id_paquete_hotel" disabled>
+																<c:forEach var="paqueteHotel" items="${listaPaqueteHotel}">
+																	<option value="${paqueteHotel.value}">${paqueteHotel.text}</option>
+																</c:forEach>
+															</select></td></tr>
 															<tr><td>
 																<table border="0">
 																	<tr><td class="gris">LLEGADA</td></tr>
@@ -557,7 +618,7 @@
 															<tr><td>
 																<table border="0">
 																	<tr><td class="gris">NUM. PERSONAS</td></tr>
-																	<tr><td><input type="text" name="num_personas_habitacion" readonly/></td></tr>
+																	<tr><td><input type="text" name="num_personas_habitacion" onkeydown="revisaNumero(false, this.value, event, null, null)" readonly/></td></tr>
 																</table>
 																</td>
 																<td>&nbsp;</td>
@@ -616,27 +677,27 @@
 															<table border="0">
 																<tr><td colspan="2" class="morado">CONCEPTOS DE PAGO</td></tr>
 																<tr>
-																	<td class="gris">INSCRIP. CONGRESISTA</td>
-																	<td><input type="text" name="costo_congresista" style="text-align: right;" readonly></td>
+																	<td class="gris">INSCRIP. CONGRESISTA ($)</td>
+																	<td width="40%"><input type="text" name="costo_congresista" value="${precio_x_fecha}" style="text-align: right;" readonly></td>
 																</tr>
 																<tr>
-																	<td class="gris">INSCRIP. ACOMPA&Ntilde;ANTE</td>
-																	<td><input type="text" name="costo_acompaniante" style="text-align: right;" readonly></td>
+																	<td class="gris">INSCRIP. ACOMPA&Ntilde;ANTE ($)</td>
+																	<td><input type="text" name="costo_acompaniante" value="0.00" style="text-align: right;" readonly></td>
 																</tr>
 																<tr>
-																	<td class="gris">COLACI&Oacute;N GRADO</td>
-																	<td><input type="text" name="costo_colacion_grado" style="text-align: right;" readonly></td>
+																	<td class="gris">COLACI&Oacute;N GRADO ($)</td>
+																	<td><input type="text" name="costo_colacion_grado" value="0.00" style="text-align: right;" readonly></td>
 																</tr>
 																<tr>
-																	<td class="gris">HOSPEDAJE</td>
-																	<td><input type="text" name="costo_hospedaje" style="text-align: right;" readonly></td>
+																	<td class="gris">HOSPEDAJE ($)</td>
+																	<td><input type="text" name="costo_hospedaje" value="0.00" style="text-align: right;" readonly></td>
 																</tr>
 																<tr>
 																	<td colspan="2">&nbsp;</td>
 																</tr>
 																<tr>
-																	<td class="morado">TOTAL INVERSI&Oacute;N</td>
-																	<td><input type="text" name="costo_total" style="text-align: right;" readonly></td>
+																	<td class="morado">TOTAL INVERSI&Oacute;N ($)</td>
+																	<td><input type="text" name="costo_total" value="${precio_x_fecha}" style="text-align: right;" readonly></td>
 																</tr>
 																<tr><td colspan="2">&nbsp;</td></tr>
 															</table>
@@ -664,7 +725,7 @@
 																<tr><td width="50%">
 																		<table border="0">
 																			<tr><td class="gris">NUM. REFERENCIA</td></tr>
-																			<tr><td><input type="text" name="num_referencia"/></td></tr>
+																			<tr><td><input type="text" name="num_referencia" onkeydown="revisaNumero(false, this.value, event, null, null)"/></td></tr>
 																		</table>
 																	<td width="50%">
 																		<table border="0">
@@ -673,7 +734,7 @@
 																		</table>
 																	</td>
 																</tr>
-																<tr><td colspan="2" class="gris">PERMITA 72 HORAS PARA QUE SU PAGO SE VEA REFLEJADO N NUESTRO SISTEMA</td></tr>
+																<tr><td colspan="2" class="gris">PERMITA 72 HORAS PARA QUE SU PAGO SE VEA REFLEJADO EN NUESTRO SISTEMA</td></tr>
 																<tr><td>&nbsp;</td></tr>
 																<tr><td colspan="2" class="gris">TOTAL DEPOSITADO</td></tr>
 																<tr><td width="50%">
@@ -681,7 +742,7 @@
 																			<tr><td>
 																				<table><tr>
 																					<td class="gris">$</td>
-																					<td><input type="text" name="importe_pago" style="text-align: right;"/></td>
+																					<td><input type="text" name="importe_pago" onkeydown="revisaNumero(true, this.value, event, null, null)" style="text-align: right;"/></td>
 																				</tr></table>
 																			</td></tr>
 																		</table>
@@ -722,12 +783,20 @@
 								Estimado Congresista: Le solicitamos que una vez que inicie la captura de la informaci&oacute;n, 
 								la termine en la misma sesi&oacute;n ya que la informaci&oacute;n no es guardada en partes. 
 								De no terminar, deber&aacute; volver a llenar el formulario al abrir una nueva sesi&oacute;n y la 
-								&uacute;ltima informaci&oacute;n registrada ser&aacute; tomada como la informaci&oacute;n v&aacute;lida.
+								&uacute;ltima informaci&oacute;n registrada ser&aacute; tomada como la informaci&oacute;n v&aacute;lida. 
+								Este formulario es &uacute;nicamente una herramienta informativa para agilizar su registro.
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<form name="form_costos">
+			<input type="hidden" name="costo_congresista" 		value="${precio_x_fecha}"/>
+			<input type="hidden" name="costo_acompaniante" 		value="0"/>
+			<input type="hidden" name="costo_colacion_grado" 	value="0"/>
+			<input type="hidden" name="costo_hospedaje" 		value="0"/>
+			<input type="hidden" name="costo_total" 			value="0"/>
+		</form>
 	</body>
 </html>

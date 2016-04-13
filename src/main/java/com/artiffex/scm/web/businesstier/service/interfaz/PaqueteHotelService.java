@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.artiffex.scm.web.businesstier.utilidades.ComboSelect;
 
-public interface TipoPonenciaService {
+public interface PaqueteHotelService {
 	
 	public List<ComboSelect> listaComboSelect();
 

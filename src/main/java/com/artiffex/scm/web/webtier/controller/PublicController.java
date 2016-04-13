@@ -1,5 +1,8 @@
 package com.artiffex.scm.web.webtier.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -8,16 +11,23 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.artiffex.scm.web.businesstier.entity.Estado;
 import com.artiffex.scm.web.businesstier.entity.Participante;
-import com.artiffex.scm.web.businesstier.entity.TipoPonencia;
+import com.artiffex.scm.web.businesstier.service.interfaz.CostoAcompanianteService;
+import com.artiffex.scm.web.businesstier.service.interfaz.CostoCongresistaService;
 import com.artiffex.scm.web.businesstier.service.interfaz.EstadoService;
+import com.artiffex.scm.web.businesstier.service.interfaz.GradoPretendeService;
 import com.artiffex.scm.web.businesstier.service.interfaz.GradoService;
+import com.artiffex.scm.web.businesstier.service.interfaz.PaqueteHotelService;
 import com.artiffex.scm.web.businesstier.service.interfaz.ParametroConfiguracionService;
 import com.artiffex.scm.web.businesstier.service.interfaz.ParticipanteService;
+import com.artiffex.scm.web.businesstier.service.interfaz.TipoMesaService;
 import com.artiffex.scm.web.businesstier.service.interfaz.TipoParticipacionService;
+import com.artiffex.scm.web.businesstier.service.interfaz.TipoPonenciaService;
 import com.artiffex.scm.web.businesstier.utilidades.ComboSelect;
 
 @Controller
@@ -29,14 +39,25 @@ public class PublicController {
 	@Resource
 	private ParametroConfiguracionService parametroConfiguracionService;
 	@Resource
+	private CostoCongresistaService costoCongresistaService;
+	@Resource
 	private EstadoService estadoService;
 	@Resource
 	private GradoService gradoService;
 	@Resource
 	private TipoParticipacionService tipoParticipacionService;
 	@Resource
-	private TipoPonencia tipoPonencia;
+	private TipoPonenciaService tipoPonenciaService;
+	@Resource
+	private TipoMesaService tipoMesaService;
+	@Resource
+	private GradoPretendeService gradoPretendeService;
+	@Resource
+	private PaqueteHotelService paqueteHotelService;
+	@Resource
+	private CostoAcompanianteService costoAcompanianteService;
 	
+
 	
 	@Resource
 	private ParticipanteService participanteService;
@@ -92,21 +113,49 @@ public class PublicController {
 	public String registro(Model model) {
 		log.info("/public/registro");
 		
-		List<ComboSelect> listaEstados = estadoService.listaComboSelect();
-		model.addAttribute("listaEstados",listaEstados);
-		listaEstados = null;
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		model.addAttribute("fecha_actual",simpleDateFormat.format(new Date(Calendar.getInstance().getTimeInMillis())));
+		simpleDateFormat = null;
 		
-		List<ComboSelect> listaGrados = gradoService.listaComboSelect();
-		model.addAttribute("listaGrados",listaGrados);
-		listaGrados = null;
+		model.addAttribute("precio_x_fecha",costoCongresistaService.precioPorFecha());
+		
+		List<ComboSelect> listaEstado = estadoService.listaComboSelect();
+		model.addAttribute("listaEstado",listaEstado);
+		listaEstado = null;
+		
+		List<ComboSelect> listaGrado = gradoService.listaComboSelect();
+		model.addAttribute("listaGrado",listaGrado);
+		listaGrado = null;
 		
 		List<ComboSelect> listaTipoParticipacion = tipoParticipacionService.listaComboSelect();
 		model.addAttribute("listaTipoParticipacion",listaTipoParticipacion);
 		listaTipoParticipacion = null;
 		
+		List<ComboSelect> listaTipoPonencia = tipoPonenciaService.listaComboSelect();
+		model.addAttribute("listaTipoPonencia",listaTipoPonencia);
+		listaTipoPonencia = null;
+		
+		List<ComboSelect> listaTipoMesa = tipoMesaService.listaComboSelect();
+		model.addAttribute("listaTipoMesa",listaTipoMesa);
+		listaTipoMesa = null;
+		
+		List<ComboSelect> listaGradoPretende = gradoPretendeService.listaComboSelect();
+		model.addAttribute("listaGradoPretende",listaGradoPretende);
+		listaTipoMesa = null;
+		
+		List<ComboSelect> listaPaqueteHotel = paqueteHotelService.listaComboSelect();
+		model.addAttribute("listaPaqueteHotel",listaPaqueteHotel);
+		listaPaqueteHotel = null;
 		
 		
 		return "file_08_registro";
+	}
+	
+	@RequestMapping(value="/costoAcompaniante", method=RequestMethod.POST)
+	@ResponseBody
+	public String busquedaCostoAcompaniante() {
+		Float precio = costoAcompanianteService.precioPorFecha();
+		return precio.toString();
 	}
 	
 	

@@ -96,9 +96,9 @@ INSERT INTO grado_pretende (id_grado_pretende, nombre, descripcion, precio, acti
 
 
 
-INSERT INTO hotel (id_hotel, nombre, activo) VALUES (1,'Holiday Inn Plaza Universidad (Sede)',1);
-INSERT INTO hotel (id_hotel, nombre, activo) VALUES (2,'City Express Patio Universiad (Sub-sede)',1);
-INSERT INTO hotel (id_hotel, nombre, activo) VALUES (3,'Ramada Inn Vía Venetto (Sub-sede)',1);
+INSERT INTO hotel (id_hotel, nombre, activo) VALUES (1,'Holiday Inn (Sede)',1);
+INSERT INTO hotel (id_hotel, nombre, activo) VALUES (2,'City Express (Sub-sede)',1);
+INSERT INTO hotel (id_hotel, nombre, activo) VALUES (3,'Ramada Inn (Sub-sede)',1);
 
 
 
