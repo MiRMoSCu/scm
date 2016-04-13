@@ -16,6 +16,6 @@ public interface EstadoDao {
 	
 	public List<Estado> listaPorSQLQuery(String queryString);
 	
-	public List<Estado> ListaPorCriteriaQuery(String criteria);
+	public List<Estado> listaPorCriteriaQuery(String criteria);
 
 }

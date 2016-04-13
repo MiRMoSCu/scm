@@ -136,7 +136,7 @@ public class HospedajeDaoImpl implements HospedajeDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Hospedaje> ListaPorCriteriaQuery(String criteria) {
+	public List<Hospedaje> listaPorCriteriaQuery(String criteria) {
 		List<Hospedaje> lista = new ArrayList<Hospedaje>();
 		Transaction tx = null;
 		Query query = null;

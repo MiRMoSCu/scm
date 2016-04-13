@@ -136,7 +136,7 @@ private static final Logger log = Logger.getLogger(GradoDaoImpl.class);
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Grado> ListaPorCriteriaQuery(String criteria) {
+	public List<Grado> listaPorCriteriaQuery(String criteria) {
 		List<Grado> lista = new ArrayList<Grado>();
 		Transaction tx = null;
 		Query query = null;

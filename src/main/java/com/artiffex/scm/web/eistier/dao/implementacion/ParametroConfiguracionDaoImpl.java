@@ -136,7 +136,7 @@ public class ParametroConfiguracionDaoImpl implements ParametroConfiguracionDao 
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<ParametroConfiguracion> ListaPorCriteriaQuery(String criteria) {
+	public List<ParametroConfiguracion> listaPorCriteriaQuery(String criteria) {
 		List<ParametroConfiguracion> lista = new ArrayList<ParametroConfiguracion>();
 		Transaction tx = null;
 		Query query = null;

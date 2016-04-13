@@ -16,6 +16,6 @@ public interface RegistroDao {
 	
 	public List<Registro> listaPorSQLQuery(String queryString);
 	
-	public List<Registro> ListaPorCriteriaQuery(String criteria);
+	public List<Registro> listaPorCriteriaQuery(String criteria);
 
 }

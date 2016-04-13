@@ -16,6 +16,6 @@ public interface PerfilDao {
 	
 	public List<Perfil> listaPorSQLQuery(String queryString);
 	
-	public List<Perfil> ListaPorCriteriaQuery(String criteria);
+	public List<Perfil> listaPorCriteriaQuery(String criteria);
 
 }

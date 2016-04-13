@@ -16,6 +16,6 @@ public interface GradoDao {
 	
 	public List<Grado> listaPorSQLQuery(String queryString);
 	
-	public List<Grado> ListaPorCriteriaQuery(String criteria);
+	public List<Grado> listaPorCriteriaQuery(String criteria);
 
 }

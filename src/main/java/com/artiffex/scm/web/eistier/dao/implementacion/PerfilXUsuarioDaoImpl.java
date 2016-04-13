@@ -136,7 +136,7 @@ public class PerfilXUsuarioDaoImpl implements PerfilXUsuarioDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<PerfilXUsuario> ListaPorCriteriaQuery(String criteria) {
+	public List<PerfilXUsuario> listaPorCriteriaQuery(String criteria) {
 		List<PerfilXUsuario> lista = new ArrayList<PerfilXUsuario>();
 		Transaction tx = null;
 		Query query = null;

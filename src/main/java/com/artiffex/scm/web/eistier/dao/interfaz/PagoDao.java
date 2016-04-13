@@ -16,6 +16,6 @@ public interface PagoDao {
 	
 	public List<Pago> listaPorSQLQuery(String queryString);
 	
-	public List<Pago> ListaPorCriteriaQuery(String criteria);
+	public List<Pago> listaPorCriteriaQuery(String criteria);
 
 }

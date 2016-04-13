@@ -16,6 +16,6 @@ public interface TipoMesaDao {
 	
 	public List<TipoMesa> listaPorSQLQuery(String queryString);
 	
-	public List<TipoMesa> ListaPorCriteriaQuery(String criteria);
+	public List<TipoMesa> listaPorCriteriaQuery(String criteria);
 
 }

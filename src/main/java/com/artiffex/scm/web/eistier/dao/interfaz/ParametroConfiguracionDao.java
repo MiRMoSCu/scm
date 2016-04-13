@@ -16,6 +16,6 @@ public interface ParametroConfiguracionDao {
 	
 	public List<ParametroConfiguracion> listaPorSQLQuery(String queryString);
 	
-	public List<ParametroConfiguracion> ListaPorCriteriaQuery(String criteria);
+	public List<ParametroConfiguracion> listaPorCriteriaQuery(String criteria);
 	
 }

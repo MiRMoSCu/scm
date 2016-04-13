@@ -136,7 +136,7 @@ public class TipoParticipacionDaoImpl implements TipoParticipacionDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<TipoParticipacion> ListaPorCriteriaQuery(String criteria) {
+	public List<TipoParticipacion> listaPorCriteriaQuery(String criteria) {
 		List<TipoParticipacion> lista = new ArrayList<TipoParticipacion>();
 		Transaction tx = null;
 		Query query = null;

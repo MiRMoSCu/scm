@@ -196,6 +196,7 @@
 								<p class="centrado negrita">¡B I E N V E N I D O S!</p>
 							</div>
 						</div>
+						<div id="div_contador_visitas">Total visitas:&nbsp;${contadorVisitas}</div>
 					</div>
 				</div>
 			</div>

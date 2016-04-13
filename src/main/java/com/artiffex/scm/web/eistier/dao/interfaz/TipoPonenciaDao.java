@@ -16,6 +16,6 @@ public interface TipoPonenciaDao {
 	
 	public List<TipoPonencia> listaPorSQLQuery(String queryString);
 	
-	public List<TipoPonencia> ListaPorCriteriaQuery(String criteria);
+	public List<TipoPonencia> listaPorCriteriaQuery(String criteria);
 
 }

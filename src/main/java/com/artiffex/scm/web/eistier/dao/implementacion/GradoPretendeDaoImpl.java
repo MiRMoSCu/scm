@@ -136,7 +136,7 @@ public class GradoPretendeDaoImpl implements GradoPretendeDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<GradoPretende> ListaPorCriteriaQuery(String criteria) {
+	public List<GradoPretende> listaPorCriteriaQuery(String criteria) {
 		List<GradoPretende> lista = new ArrayList<GradoPretende>();
 		Transaction tx = null;
 		Query query = null;

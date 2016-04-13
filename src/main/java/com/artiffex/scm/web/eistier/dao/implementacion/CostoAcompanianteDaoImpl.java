@@ -136,7 +136,7 @@ public class CostoAcompanianteDaoImpl implements CostoAcompanianteDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<CostoAcompaniante> ListaPorCriteriaQuery(String criteria) {
+	public List<CostoAcompaniante> listaPorCriteriaQuery(String criteria) {
 		List<CostoAcompaniante> lista = new ArrayList<CostoAcompaniante>();
 		Transaction tx = null;
 		Query query = null;

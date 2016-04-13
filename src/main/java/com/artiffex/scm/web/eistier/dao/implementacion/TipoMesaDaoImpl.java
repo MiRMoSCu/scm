@@ -136,7 +136,7 @@ public class TipoMesaDaoImpl implements TipoMesaDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<TipoMesa> ListaPorCriteriaQuery(String criteria) {
+	public List<TipoMesa> listaPorCriteriaQuery(String criteria) {
 		List<TipoMesa> lista = new ArrayList<TipoMesa>();
 		Transaction tx = null;
 		Query query = null;

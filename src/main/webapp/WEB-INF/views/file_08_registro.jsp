@@ -327,7 +327,11 @@
 														<tr><td>
 																<table border="0">
 																	<tr><td class="gris">ESTADO</td></tr>
-																	<tr><td><select id="id_estado" name="id_estado"></select></td></tr>
+																	<tr><td><select id="id_estado" name="id_estado">
+																		<c:forEach var="estado" items="${listaEstados}">
+																			<option value="${estado.value}">${estado.text}</option>
+																		</c:forEach>
+																	</select></td></tr>
 																</table>
 															</td>
 															<td>
@@ -412,7 +416,11 @@
 														<tr><td width="50%">
 																<table>
 																	<tr><td class="gris">GRADO</td></tr>
-																	<tr><td><select id="id_grado" name="id_grado"></select></td></tr>
+																	<tr><td><select id="id_grado" name="id_grado">
+																		<c:forEach var="grado" items="${listaGrados}">
+																			<option value="${grado.value}">${grado.text}</option>
+																		</c:forEach>
+																	</select></td></tr>
 																</table>
 															</td>
 															<td>&nbsp;</td>
@@ -424,7 +432,11 @@
 														<tr><td width="50%">
 																<table>
 																	<tr><td class="gris">PARTICIPACI&Oacute;N</td></tr>
-																	<tr><td><select id="id_tipo_participacion" name="id_tipo_participacion"></select></td></tr>
+																	<tr><td><select id="id_tipo_participacion" name="id_tipo_participacion">
+																		<c:forEach var="tipoParticipacion" items="${listaTipoParticipacion}">
+																			<option value="${tipoParticipacion.value}">${tipoParticipacion.text}</option>
+																		</c:forEach>
+																	</select></td></tr>
 																</table>
 															</td>
 															<td>
@@ -554,7 +566,7 @@
 															<tr><td>
 																<table border="0">
 																	<tr><td class="morado">TOTAL HOTEL</td></tr>
-																	<tr><td><input type="text" name="paquete_hotel_precio" readonly/></td></tr>
+																	<tr><td><input type="text" name="paquete_hotel_precio" style="text-align: right;" readonly/></td></tr>
 																</table>
 																</td>
 																<td>&nbsp;</td>
@@ -605,26 +617,26 @@
 																<tr><td colspan="2" class="morado">CONCEPTOS DE PAGO</td></tr>
 																<tr>
 																	<td class="gris">INSCRIP. CONGRESISTA</td>
-																	<td><input type="text" name="costo_congresista"></td>
+																	<td><input type="text" name="costo_congresista" style="text-align: right;" readonly></td>
 																</tr>
 																<tr>
 																	<td class="gris">INSCRIP. ACOMPA&Ntilde;ANTE</td>
-																	<td><input type="text" name="costo_acompaniante"></td>
+																	<td><input type="text" name="costo_acompaniante" style="text-align: right;" readonly></td>
 																</tr>
 																<tr>
 																	<td class="gris">COLACI&Oacute;N GRADO</td>
-																	<td><input type="text" name="costo_colacion_grado"></td>
+																	<td><input type="text" name="costo_colacion_grado" style="text-align: right;" readonly></td>
 																</tr>
 																<tr>
-																	<td class="gris">HOSPEDAJE ($)</td>
-																	<td><input type="text" name="costo_hospedaje"></td>
+																	<td class="gris">HOSPEDAJE</td>
+																	<td><input type="text" name="costo_hospedaje" style="text-align: right;" readonly></td>
 																</tr>
 																<tr>
 																	<td colspan="2">&nbsp;</td>
 																</tr>
 																<tr>
 																	<td class="morado">TOTAL INVERSI&Oacute;N</td>
-																	<td><input type="text" name="costo_total"></td>
+																	<td><input type="text" name="costo_total" style="text-align: right;" readonly></td>
 																</tr>
 																<tr><td colspan="2">&nbsp;</td></tr>
 															</table>
@@ -669,7 +681,7 @@
 																			<tr><td>
 																				<table><tr>
 																					<td class="gris">$</td>
-																					<td><input type="text" name="importe_pago"/></td>
+																					<td><input type="text" name="importe_pago" style="text-align: right;"/></td>
 																				</tr></table>
 																			</td></tr>
 																		</table>

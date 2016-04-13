@@ -136,7 +136,7 @@ public class PagoDaoImpl implements PagoDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Pago> ListaPorCriteriaQuery(String criteria) {
+	public List<Pago> listaPorCriteriaQuery(String criteria) {
 		List<Pago> lista = new ArrayList<Pago>();
 		Transaction tx = null;
 		Query query = null;

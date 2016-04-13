@@ -136,7 +136,7 @@ public class CostoCongresistaDaoImpl implements CostoCongresistaDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<CostoCongresista> ListaPorCriteriaQuery(String criteria) {
+	public List<CostoCongresista> listaPorCriteriaQuery(String criteria) {
 		List<CostoCongresista> lista = new ArrayList<CostoCongresista>();
 		Transaction tx = null;
 		Query query = null;

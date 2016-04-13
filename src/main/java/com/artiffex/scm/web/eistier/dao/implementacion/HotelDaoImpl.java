@@ -136,7 +136,7 @@ public class HotelDaoImpl implements HotelDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Hotel> ListaPorCriteriaQuery(String criteria) {
+	public List<Hotel> listaPorCriteriaQuery(String criteria) {
 		List<Hotel> lista = new ArrayList<Hotel>();
 		Transaction tx = null;
 		Query query = null;

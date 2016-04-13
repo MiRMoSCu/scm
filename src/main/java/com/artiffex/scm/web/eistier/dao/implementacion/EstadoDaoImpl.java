@@ -136,7 +136,7 @@ public class EstadoDaoImpl implements EstadoDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Estado> ListaPorCriteriaQuery(String criteria) {
+	public List<Estado> listaPorCriteriaQuery(String criteria) {
 		List<Estado> lista = new ArrayList<Estado>();
 		Transaction tx = null;
 		Query query = null;

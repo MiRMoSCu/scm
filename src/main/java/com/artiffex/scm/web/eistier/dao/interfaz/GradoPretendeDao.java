@@ -16,6 +16,6 @@ public interface GradoPretendeDao {
 	
 	public List<GradoPretende> listaPorSQLQuery(String queryString);
 	
-	public List<GradoPretende> ListaPorCriteriaQuery(String criteria);
+	public List<GradoPretende> listaPorCriteriaQuery(String criteria);
 
 }

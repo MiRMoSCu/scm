@@ -136,7 +136,7 @@ public class TipoPonenciaDaoImpl implements TipoPonenciaDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<TipoPonencia> ListaPorCriteriaQuery(String criteria) {
+	public List<TipoPonencia> listaPorCriteriaQuery(String criteria) {
 		List<TipoPonencia> lista = new ArrayList<TipoPonencia>();
 		Transaction tx = null;
 		Query query = null;

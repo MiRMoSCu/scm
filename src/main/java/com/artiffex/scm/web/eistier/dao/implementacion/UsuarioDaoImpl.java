@@ -136,7 +136,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Usuario> ListaPorCriteriaQuery(String criteria) {
+	public List<Usuario> listaPorCriteriaQuery(String criteria) {
 		List<Usuario> lista = new ArrayList<Usuario>();
 		Transaction tx = null;
 		Query query = null;

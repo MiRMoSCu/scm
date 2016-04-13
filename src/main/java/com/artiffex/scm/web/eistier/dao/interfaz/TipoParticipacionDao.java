@@ -16,6 +16,6 @@ public interface TipoParticipacionDao {
 	
 	public List<TipoParticipacion> listaPorSQLQuery(String queryString);
 	
-	public List<TipoParticipacion> ListaPorCriteriaQuery(String criteria);
+	public List<TipoParticipacion> listaPorCriteriaQuery(String criteria);
 
 }

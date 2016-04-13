@@ -16,6 +16,6 @@ public interface CostoAcompanianteDao {
 	
 	public List<CostoAcompaniante> listaPorSQLQuery(String queryString);
 	
-	public List<CostoAcompaniante> ListaPorCriteriaQuery(String criteria);
+	public List<CostoAcompaniante> listaPorCriteriaQuery(String criteria);
 
 }

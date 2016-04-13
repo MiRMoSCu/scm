@@ -136,7 +136,7 @@ public class PerfilDaoImpl implements PerfilDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Perfil> ListaPorCriteriaQuery(String criteria) {
+	public List<Perfil> listaPorCriteriaQuery(String criteria) {
 		List<Perfil> lista = new ArrayList<Perfil>();
 		Transaction tx = null;
 		Query query = null;

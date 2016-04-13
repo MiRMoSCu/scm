@@ -12,8 +12,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.artiffex.scm.web.businesstier.entity.Estado;
 import com.artiffex.scm.web.businesstier.entity.Participante;
+import com.artiffex.scm.web.businesstier.entity.TipoPonencia;
 import com.artiffex.scm.web.businesstier.service.interfaz.EstadoService;
+import com.artiffex.scm.web.businesstier.service.interfaz.GradoService;
+import com.artiffex.scm.web.businesstier.service.interfaz.ParametroConfiguracionService;
 import com.artiffex.scm.web.businesstier.service.interfaz.ParticipanteService;
+import com.artiffex.scm.web.businesstier.service.interfaz.TipoParticipacionService;
 import com.artiffex.scm.web.businesstier.utilidades.ComboSelect;
 
 @Controller
@@ -23,7 +27,17 @@ public class PublicController {
 	private static final Logger log = Logger.getLogger(PublicController.class); 
 
 	@Resource
+	private ParametroConfiguracionService parametroConfiguracionService;
+	@Resource
 	private EstadoService estadoService;
+	@Resource
+	private GradoService gradoService;
+	@Resource
+	private TipoParticipacionService tipoParticipacionService;
+	@Resource
+	private TipoPonencia tipoPonencia;
+	
+	
 	@Resource
 	private ParticipanteService participanteService;
 	
@@ -32,10 +46,8 @@ public class PublicController {
 	public String inicio(Model model) {
 		log.info("/public/inicio");
 		
-		/* ELIMINAR COMENTARIOS PARA QUE FUNCIONE
 		int contadorVisitas = parametroConfiguracionService.obtieneContadorVisitas();
 		model.addAttribute("contadorVisitas",contadorVisitas);
-		*/
 		
 		return "file_01_inicio";
 	}
@@ -79,6 +91,21 @@ public class PublicController {
 	@RequestMapping("/registro")
 	public String registro(Model model) {
 		log.info("/public/registro");
+		
+		List<ComboSelect> listaEstados = estadoService.listaComboSelect();
+		model.addAttribute("listaEstados",listaEstados);
+		listaEstados = null;
+		
+		List<ComboSelect> listaGrados = gradoService.listaComboSelect();
+		model.addAttribute("listaGrados",listaGrados);
+		listaGrados = null;
+		
+		List<ComboSelect> listaTipoParticipacion = tipoParticipacionService.listaComboSelect();
+		model.addAttribute("listaTipoParticipacion",listaTipoParticipacion);
+		listaTipoParticipacion = null;
+		
+		
+		
 		return "file_08_registro";
 	}
 	

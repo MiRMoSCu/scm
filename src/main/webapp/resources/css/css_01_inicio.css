@@ -56,6 +56,12 @@
 	background: transparent;/* orange; */
 }
 
+#div_contador_visitas {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: small;
+	color: #6A6A6A;
+}
+
 p {
 	font-family: Verdana, Geneva, sans-serif;
 	text-indent: 2em;

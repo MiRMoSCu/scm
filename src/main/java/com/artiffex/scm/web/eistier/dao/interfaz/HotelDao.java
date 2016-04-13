@@ -16,6 +16,6 @@ public interface HotelDao {
 	
 	public List<Hotel> listaPorSQLQuery(String queryString);
 	
-	public List<Hotel> ListaPorCriteriaQuery(String criteria);
+	public List<Hotel> listaPorCriteriaQuery(String criteria);
 
 }

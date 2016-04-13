@@ -136,7 +136,7 @@ public class RegistroDaoImpl implements RegistroDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Registro> ListaPorCriteriaQuery(String criteria) {
+	public List<Registro> listaPorCriteriaQuery(String criteria) {
 		List<Registro> lista = new ArrayList<Registro>();
 		Transaction tx = null;
 		Query query = null;
