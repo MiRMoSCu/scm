@@ -7,5 +7,7 @@ import com.artiffex.scm.web.businesstier.utilidades.ComboSelect;
 public interface PaqueteHotelService {
 	
 	public List<ComboSelect> listaComboSelect();
+	
+	public float precioPorPaquete(int idPaqueteHotel);
 
 }

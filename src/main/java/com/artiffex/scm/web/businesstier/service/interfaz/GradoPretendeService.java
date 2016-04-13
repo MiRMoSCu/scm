@@ -7,5 +7,7 @@ import com.artiffex.scm.web.businesstier.utilidades.ComboSelect;
 public interface GradoPretendeService {
 	
 	public List<ComboSelect> listaComboSelect();
+	
+	public float precioPorGrado(int idGradoPretende);
 
 }

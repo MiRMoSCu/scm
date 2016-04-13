@@ -9,6 +9,10 @@
 <c:url value="/public/documentos" 				var="urlDocumentos"/>
 <c:url value="/public/registro" 				var="urlRegistro"/>
 <c:url value="/public/costoAcompaniante" 		var="urlCostoAcompaniante"/>
+<c:url value="/public/costoColacion" 			var="urlCostoColacion"/>
+<c:url value="/public/costoHospedaje" 			var="urlCostoHospedaje"/>
+<c:url value="/public/guardaRegistro" 			var="urlGuardaRegistro"/>
+
 
 <c:url value="/public/formulario_participante" 	var="urlFormulario" />
 <c:url value="/private/pagina_excel" 			var="urlPaginaExcel" />
@@ -43,6 +47,9 @@
 			var urlDocumentos 			= "${urlDocumentos}";
 			var urlRegistro 			= "${urlRegistro}";
 			var urlCostoAcompaniante	= "${urlCostoAcompaniante}";
+			var urlCostoColacion		= "${urlCostoColacion}";
+			var urlCostoHospedaje		= "${urlCostoHospedaje}";
+			var urlGuardaRegistro		= "${urlGuardaRegistro}";
 		</script>
 		<script type="text/javascript">
 			var enviaFormulario = true;
@@ -175,11 +182,28 @@
 				}
 			}
 			
+			function busquedaCostoColacion() {
+				$.ajax({
+					type:"POST",
+					url:urlCostoColacion,
+					data:{id_grado_pretende:document.form_registro.id_grado_pretende.value},
+					success:function(response) {
+						document.form_costos.costo_colacion_grado.value 	= response;
+						document.form_registro.costo_colacion_grado.value 	= parseFloat(response).formatMoney(2);
+						sumaCostosCongresista();
+					},
+					error:function(e) {
+						console.log("No fue posible conectar con el servidor");
+					}
+				});
+			}
+			
 			function aplicaColacion(opcion) {
 				if (Boolean(opcion)) {
 					document.form_registro.id_grado_pretende.disabled 	= false;
 					document.form_registro.cuerpo_pretende.readOnly 	= false;
 					document.form_registro.delegacion_pretende.readOnly = false;
+					busquedaCostoColacion();
 				} else {
 					document.form_registro.id_grado_pretende.selectedIndex 	= 0;
 					document.form_registro.cuerpo_pretende.value 			= "";
@@ -187,9 +211,26 @@
 					document.form_registro.id_grado_pretende.disabled 	= true;
 					document.form_registro.cuerpo_pretende.readOnly 	= true;
 					document.form_registro.delegacion_pretende.readOnly = true;
+					document.form_costos.costo_colacion_grado.value		= 0;
 					document.form_registro.costo_colacion_grado.value	= (0).formatMoney(2);
+					sumaCostosCongresista();
 				}
-				sumaCostosCongresista();
+			}
+			
+			function busquedaCostoHospedaje() {
+				$.ajax({
+					type:"POST",
+					url:urlCostoHospedaje,
+					data:{id_paquete_hotel:document.form_registro.id_paquete_hotel.value},
+					success:function(response) {
+						document.form_costos.costo_hospedaje.value 		= response;
+						document.form_registro.costo_hospedaje.value 	= parseFloat(response).formatMoney(2);
+						sumaCostosCongresista();
+					},
+					error:function(e) {
+						console.log("No fue posible conectar con el servidor");
+					}
+				});
 			}
 			
 			function aplicaHospedaje(opcion) {
@@ -198,20 +239,22 @@
 					//$("[name=fecha_entrada]").datepicker("setDate",'2016-07-21');
 					$("[name=fecha_salida]").datepicker({dateFormat:'yy-mm-dd'});
 					//$("[name=fecha_salida]").datepicker("setDate",'2016-07-23');
-					document.form_registro.id_paquete_hotal.disabled 		= false;
+					document.form_registro.id_paquete_hotel.disabled 		= false;
 					document.form_registro.num_personas_habitacion.readOnly = false;
+					busquedaCostoHospedaje();
 				} else {
-					document.form_registro.id_grado_pretende.selectedIndex 	= 0;
+					document.form_registro.id_paquete_hotel.selectedIndex 	= 0;
 					$("[name=fecha_entrada]").datepicker('destroy');
 					$("[name=fecha_salida]").datepicker('destroy');
 					document.form_registro.fecha_entrada.value 				= "";
 					document.form_registro.fecha_salida.value 				= "";
 					document.form_registro.num_personas_habitacion.value 	= "";
-					document.form_registro.id_paquete_hotal.disabled 		= true;
+					document.form_registro.id_paquete_hotel.disabled 		= true;
 					document.form_registro.num_personas_habitacion.readOnly = true;
+					document.form_costos.costo_hospedaje.value				= 0;
 					document.form_registro.costo_hospedaje.value			= (0).formatMoney(2);
+					sumaCostosCongresista();
 				}
-				sumaCostosCongresista();
 			}
 			
 			function sumaCostosCongresista() {
@@ -222,6 +265,42 @@
 				var costoTotal = costoCongresista + costoAcompaniante + costoColacionGrado + costoHospedaje;
 				document.form_costos.costo_total.value = costoTotal;
 				document.form_registro.costo_total.value = (costoTotal).formatMoney(2);
+			}
+			
+			function guardaRegistro() {
+				var correcto = true;
+				
+				if (correcto
+						&& (document.form_registro.participante_ap_paterno.value == ""
+							|| document.form_registro.participante_nombre.value == "")) {
+					correcto = false;
+					alert("Estimado Congresista, es necesario que especifique su nombre completo");
+				}
+				
+				if (correcto
+						&& (document.form_registro.importe_pago.value == ""
+							|| document.form_registro.num_referencia.value == ""
+							|| document.form_registro.nombre_banco.value == "")) {
+					correcto = false;
+					alert("Estimado Congresista, es necesario que especifique la información de su transferencia bancaria");
+				}
+				
+				if (correcto) {
+					$.ajax({
+						type:"POST",
+						url:urlGuardaRegistro,
+						data:$("[name=form_registro]").serialize(),
+						success:function(response) {
+							console.log(response);
+							alert("Estimado Congresista, tu información ha quedado registrada. ¡Bienvenido!");
+							// congela campos
+							
+						},
+						error:function(e) {
+							alert("¡Ofrecemos disculpas! No fue posible conectarse con el servidor. Intentelo más tarde.");
+						}
+					});	
+				}
 			}
 			
 			function formato_numeros() {
@@ -536,7 +615,7 @@
 														<tr><td width="50%">
 																<table>
 																	<tr><td class="gris">GRADO INGRESA</td></tr>
-																	<tr><td><select id="id_grado_pretende" name="id_grado_pretende" disabled>
+																	<tr><td><select id="id_grado_pretende" name="id_grado_pretende" onchange="busquedaCostoColacion()" disabled>
 																		<c:forEach var="gradoPretende" items="${listaGradoPretende}">
 																			<option value="${gradoPretende.value}">${gradoPretende.text}</option>
 																		</c:forEach>
@@ -597,7 +676,7 @@
 																</td>
 															</tr>
 															<tr><td colspan="2" class="gris">PAQUETE</td></tr>
-															<tr><td colspan="2"><select id="id_paquete_hotal" name="id_paquete_hotel" disabled>
+															<tr><td colspan="2"><select id="id_paquete_hotel" name="id_paquete_hotel" onchange="busquedaCostoHospedaje()" disabled>
 																<c:forEach var="paqueteHotel" items="${listaPaqueteHotel}">
 																	<option value="${paqueteHotel.value}">${paqueteHotel.text}</option>
 																</c:forEach>
@@ -711,7 +790,7 @@
 															<table>
 																<tr><td colspan="2" class="morado">TRANSFERENCIA BANCARIA</td></tr>
 																<tr><td colspan="2" class="gris">BANCO</td></tr>
-																<tr><td colspan="2"><input type="text" name="nombre_pago"/></td></tr>
+																<tr><td colspan="2"><input type="text" name="nombre_banco"/></td></tr>
 																<tr><td width="50%">
 																		<table border="0">
 																			<tr><td class="gris">NUM. SUCURSAL</td></tr>
@@ -766,7 +845,7 @@
 												<div style="float: left;">
 													<img alt="" src="<c:url value="/resources/image/localizador_4.png"/>">
 												</div>
-												<div style="float: left;" onclick="alert('guarda informacion')">
+												<div style="float: left;" onclick="guardaRegistro()">
 													<img alt="" 
 														src="<c:url value="/resources/image/btn_enviar_normal.png"/>"
 														onmouseover="this.src='<c:url value="/resources/image/btn_enviar_mouse.png"/>'"

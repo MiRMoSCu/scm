@@ -1,5 +1,6 @@
 package com.artiffex.scm.web.businesstier.service.implementacion;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,12 +12,15 @@ import com.artiffex.scm.web.businesstier.entity.GradoPretende;
 import com.artiffex.scm.web.businesstier.service.interfaz.GradoPretendeService;
 import com.artiffex.scm.web.businesstier.utilidades.ComboSelect;
 import com.artiffex.scm.web.eistier.dao.interfaz.GradoPretendeDao;
+import com.artiffex.scm.web.eistier.dao.interfaz.UtilidadesDao;
 
 @Service("gradoPretendeService")
 public class GradoPretendeServiceImpl implements GradoPretendeService {
 	
 	@Resource
 	private GradoPretendeDao gradoPretendeDao;
+	@Resource
+	private UtilidadesDao utilidadesDao;
 
 	public List<ComboSelect> listaComboSelect() {
 		List<ComboSelect> listaComboSelect = new ArrayList<ComboSelect>();
@@ -31,6 +35,27 @@ public class GradoPretendeServiceImpl implements GradoPretendeService {
 		}
 		listaGradoPretende = null;
 		return listaComboSelect;
+	}
+
+	public float precioPorGrado(int idGradoPretende) {
+		float precio = 0f;
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append(" SELECT ");
+		sb.append("    gp.precio");
+		sb.append(" FROM");
+		sb.append("    grado_pretende gp");
+		sb.append(" WHERE");
+		sb.append("    gp.activo = TRUE");
+		sb.append("        AND gp.id_grado_pretende = ");
+		sb.append(idGradoPretende);
+		sb.append(";");
+		
+		precio = ((BigDecimal) utilidadesDao.buscaValorPorSQLQuery(sb.toString())).floatValue();
+		
+		sb = null;
+		
+		return precio;
 	}
 	
 }

@@ -6,6 +6,8 @@ public interface ParticipanteService {
 	
 	public int creaParticipante(Participante participante);
 	
+	public Participante buscaParticipante(int idParticipante);
+	
 	public byte[] obtieneDocumentoListaParticipante();
 
 }

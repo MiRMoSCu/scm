@@ -33,6 +33,10 @@ public class ParticipanteServiceImpl implements ParticipanteService {
 	public int creaParticipante(Participante participante) {
 		return participanteDao.crea(participante);
 	}
+	
+	public Participante buscaParticipante(int idParticipante) {
+		return participanteDao.buscaPorCriteriaQuery("from Participante p where p.idParticipante = " + idParticipante);
+	}
 
 	public byte[] obtieneDocumentoListaParticipante() {
 		List<Participante> listaParticipante = participanteDao.listaPorCriteriaQuery("from Participante p where p.activo = true order by p.idParticipante asc");
@@ -68,5 +72,7 @@ public class ParticipanteServiceImpl implements ParticipanteService {
 			return null;
 		}
 	}
+
+	
 
 }
