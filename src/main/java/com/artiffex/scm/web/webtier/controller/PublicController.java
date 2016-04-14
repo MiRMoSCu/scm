@@ -1,5 +1,6 @@
 package com.artiffex.scm.web.webtier.controller;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -15,23 +16,30 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.artiffex.scm.web.businesstier.entity.Acompaniante;
 import com.artiffex.scm.web.businesstier.entity.ColacionGrado;
 import com.artiffex.scm.web.businesstier.entity.Estado;
 import com.artiffex.scm.web.businesstier.entity.Grado;
 import com.artiffex.scm.web.businesstier.entity.GradoPretende;
+import com.artiffex.scm.web.businesstier.entity.Hospedaje;
+import com.artiffex.scm.web.businesstier.entity.PaqueteHotel;
 import com.artiffex.scm.web.businesstier.entity.Participante;
 import com.artiffex.scm.web.businesstier.entity.Registro;
 import com.artiffex.scm.web.businesstier.entity.TipoMesa;
 import com.artiffex.scm.web.businesstier.entity.TipoParticipacion;
 import com.artiffex.scm.web.businesstier.entity.TipoPonencia;
+import com.artiffex.scm.web.businesstier.service.interfaz.AcompanianteService;
+import com.artiffex.scm.web.businesstier.service.interfaz.ColacionGradoService;
 import com.artiffex.scm.web.businesstier.service.interfaz.CostoAcompanianteService;
 import com.artiffex.scm.web.businesstier.service.interfaz.CostoCongresistaService;
 import com.artiffex.scm.web.businesstier.service.interfaz.EstadoService;
 import com.artiffex.scm.web.businesstier.service.interfaz.GradoPretendeService;
 import com.artiffex.scm.web.businesstier.service.interfaz.GradoService;
+import com.artiffex.scm.web.businesstier.service.interfaz.HospedajeService;
 import com.artiffex.scm.web.businesstier.service.interfaz.PaqueteHotelService;
 import com.artiffex.scm.web.businesstier.service.interfaz.ParametroConfiguracionService;
 import com.artiffex.scm.web.businesstier.service.interfaz.ParticipanteService;
+import com.artiffex.scm.web.businesstier.service.interfaz.RegistroService;
 import com.artiffex.scm.web.businesstier.service.interfaz.TipoMesaService;
 import com.artiffex.scm.web.businesstier.service.interfaz.TipoParticipacionService;
 import com.artiffex.scm.web.businesstier.service.interfaz.TipoPonenciaService;
@@ -68,6 +76,14 @@ public class PublicController {
 	
 	@Resource
 	private ParticipanteService participanteService;
+	@Resource
+	private RegistroService registroService;
+	@Resource
+	private AcompanianteService acompanianteService;
+	@Resource
+	private ColacionGradoService colacionGradoService;
+	@Resource
+	private HospedajeService hospedajeService;
 	
 	
 	@RequestMapping("/inicio")
@@ -216,11 +232,23 @@ public class PublicController {
 			@RequestParam(value = "titulo_ponencia", required = false) String tituloPonencia,
 			@RequestParam(value = "id_tipo_mesa", required = false) Integer idTipoMesa,
 			
+			@RequestParam(value = "acompaniante_ap_paterno") String acompanianteApPaterno,
+			@RequestParam(value = "acompaniante_ap_materno") String acompanianteApMaterno,
+			@RequestParam(value = "acompaniante_nombre") String acompanianteNombre,
+			
 			@RequestParam(value = "id_grado_pretende", required = false) Integer idGradoPretende,
 			@RequestParam(value = "cuerpo_pretende", required = false) String cuerpoPretende,
-			@RequestParam(value = "delegacion_pretende", required = false) String delegacionPretende
-		) {
+			@RequestParam(value = "delegacion_pretende", required = false) String delegacionPretende,
+			
+			@RequestParam(value = "id_paquete_hotel", required = false) Integer idPaqueteHotel,
+			@RequestParam(value = "fecha_entrada", required = false) String fechaEntrada,
+			@RequestParam(value = "fecha_salida", required = false) String fechaSalida,
+			@RequestParam(value = "num_personas_habitacion", required = false) Integer numPersonasHabitacion
+		) throws ParseException {
 		log.info("/public/guardaRegistro");
+		System.out.println(aplicaAcompaniante);
+		System.out.println(aplicaColacionGrado);
+		System.out.println(aplicaHospedaje);
 		
 		Participante participante = new Participante();
 		participante.setApPaterno(participanteApPaterno);
@@ -247,6 +275,7 @@ public class PublicController {
 		
 		int idParticipante = participanteService.creaParticipante(participante);
 		participante = participanteService.buscaParticipante(idParticipante);
+		System.out.println("idParticipante:" + participante.getIdParticipante());
 		
 		Registro registro = new Registro();
 		registro.setParticipante(participante);
@@ -266,6 +295,16 @@ public class PublicController {
 			tipoMesa.setIdTipoMesa(idTipoMesa);
 		registro.setTipoMesa(tipoMesa);
 		registro.setActivo(true);
+		registroService.creaRegistro(registro);
+		
+		if (aplicaAcompaniante) {
+			Acompaniante acompaniante = new Acompaniante();
+			acompaniante.setParticipante(participante);
+			acompaniante.setApPaterno(acompanianteApPaterno);
+			acompaniante.setApMaterno(acompanianteApPaterno);
+			acompaniante.setNombre(acompanianteNombre);
+			acompanianteService.creaAcompaniante(acompaniante);
+		}
 		
 		if (aplicaColacionGrado) {
 			ColacionGrado colacionGrado = new ColacionGrado();
@@ -276,20 +315,24 @@ public class PublicController {
 			colacionGrado.setCuerpoPretende(cuerpoPretende);
 			colacionGrado.setDelegacionPretende(delegacionPretende);
 			colacionGrado.setActivo(true);
+			colacionGradoService.creaColacionGrado(colacionGrado);
 		}
-		
-		if (aplicaAcompaniante) {
-			
-		}
-		
-		
 		
 		if (aplicaHospedaje) {
-			
+			Hospedaje hospedaje = new Hospedaje();
+			hospedaje.setParticipante(participante);
+				PaqueteHotel paqueteHotel = new PaqueteHotel();
+				paqueteHotel.setIdPaqueteHotel(idPaqueteHotel);
+			if (!"".equals(fechaEntrada))
+				hospedaje.setFechaEntrada(new SimpleDateFormat("yyyy/MM/dd").parse(fechaEntrada));
+			if (!"".equals(fechaSalida))
+				hospedaje.setFechaSalida(new SimpleDateFormat("yyyy/MM/dd").parse(fechaSalida));
+			hospedaje.setNumPersonasHabitacion(numPersonasHabitacion);
+			hospedaje.setActivo(true);
+			hospedajeService.creaHospedaje(hospedaje);
 		}
 		
-		
-		return "ok";
+		return participante.getIdParticipante().toString();
 	}
 	
 	

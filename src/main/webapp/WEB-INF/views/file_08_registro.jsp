@@ -493,11 +493,11 @@
 																		<td width="1%" class="gris">
 																			<span onclick="document.form_registro.aplica_acompaniante[0].click();">NO</span>
 																		</td>
-																		<td width="20%"><input type="radio" name="aplica_acompaniante" onclick="aplicaAcompaniante(false)" checked/></td>
+																		<td width="20%"><input type="radio" value="false" name="aplica_acompaniante" onclick="aplicaAcompaniante(false)" checked/></td>
 																		<td width="1%" class="gris">
 																			<span onclick="document.form_registro.aplica_acompaniante[1].click();">SI</span>
 																		</td>
-																		<td><input type="radio" name="aplica_acompaniante" onclick="aplicaAcompaniante(true)"/></td>
+																		<td><input type="radio" value="true" name="aplica_acompaniante" onclick="aplicaAcompaniante(true)"/></td>
 																	</tr>
 																</table>
 															</td>
@@ -603,11 +603,11 @@
 																		<td width="1%" class="gris">
 																			<span onclick="document.form_registro.aplica_colacion_grado[0].click()">NO</span>
 																		</td>
-																		<td width="20%"><input type="radio" name="aplica_colacion_grado" onclick="aplicaColacion(false)" checked/></td>
+																		<td width="20%"><input type="radio" value="false" name="aplica_colacion_grado" onclick="aplicaColacion(false)" checked/></td>
 																		<td width="1%" class="gris">
 																			<span onclick="document.form_registro.aplica_colacion_grado[1].click()">SI</span>
 																		</td>
-																		<td><input type="radio" name="aplica_colacion_grado" onclick="aplicaColacion(true)"/></td>
+																		<td><input type="radio" value="true" name="aplica_colacion_grado" onclick="aplicaColacion(true)"/></td>
 																	</tr>
 																</table>
 															</td>
@@ -666,11 +666,11 @@
 																			<td width="1%" class="gris">
 																				<span onclick="document.form_registro.aplica_hospedaje[0].click()">NO</span>
 																			</td>
-																			<td width="20%"><input type="radio" name="aplica_hospedaje" onclick="aplicaHospedaje(false)" checked/></td>
+																			<td width="20%"><input type="radio" value="false" name="aplica_hospedaje" onclick="aplicaHospedaje(false)" checked/></td>
 																			<td width="1%" class="gris">
 																				<span onclick="document.form_registro.aplica_hospedaje[1].click()">SI</span>
 																			</td>
-																			<td><input type="radio" name="aplica_hospedaje" onclick="aplicaHospedaje(true)"/></td>
+																			<td><input type="radio" value="true" name="aplica_hospedaje" onclick="aplicaHospedaje(true)"/></td>
 																		</tr>
 																	</table>
 																</td>
@@ -794,7 +794,7 @@
 																<tr><td width="50%">
 																		<table border="0">
 																			<tr><td class="gris">NUM. SUCURSAL</td></tr>
-																			<tr><td><input type="text" name="num_sucursal"/></td></tr>
+																			<tr><td><input type="text" name="num_sucursal" onkeydown="revisaNumero(false, this.value, event, null, null)"/></td></tr>
 																		</table>
 																		</td>
 																		<td>&nbsp;</td>

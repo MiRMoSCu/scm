@@ -216,9 +216,13 @@ table {
 	font-size: x-small;
 }
 
-input,
 select {
 	/*border-radius: 25px;*/
+	width: 100%;
+}
+
+input {
+	text-transform: uppercase;
 	width: 100%;
 }
 
