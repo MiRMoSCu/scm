@@ -20,7 +20,7 @@ public class IndexController {
 	
 	@RequestMapping("/")
 	public String welcomeFileJsp(Model model) {
-		return "redirect:/public/inicio";
+		return "redirect:/public/inicio_";
 	}
 	
 }

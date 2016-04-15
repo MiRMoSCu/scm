@@ -14,9 +14,9 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Bienvenido</title>
 		<link rel="stylesheet" href="<c:url value="/resources/css/css_menu.css"/>" type="text/css"></link>
-		<link rel="stylesheet" href="<c:url value="/resources/css/css_01.css"/>" type="text/css"></link>
+		<link rel="stylesheet" href="<c:url value="/resources/css/css_00.css"/>" type="text/css"></link>
 		<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-		<script type="text/javascript" src="<c:url value="/resources/js/js_01.js"/>"></script>
+		<script type="text/javascript" src="<c:url value="/resources/js/js_00.js"/>"></script>
 		<script type="text/javascript">
 			// inicializacion jquery
 			$(document).ready(function(){});
@@ -32,7 +32,9 @@
 			var urlRegistro 			= "${urlRegistro}";
 		</script>
 	</head>
-	<body>
+	<!-- <body> -->
+	<!-- <body onload="fadingCortina()"> -->
+	<body onload="setTimeout(fadingCortina(),10000)">
 		<div id=div_inicio>
 			<div id="div_encabezado">
 				<div id="div_img_cintillo">
@@ -96,8 +98,12 @@
 			<div id="div_contenedor">
 				<div id="div_ocupa_espacio"></div>
 				<div id="div_zona_visible">
-					<div id="div_cortina" style="display: none;"></div>
-					<div id="div_mensaje">
+					<div id="div_cortina">
+						<div id="div_leon_lema">
+							<img alt="" src="<c:url value="/resources/image/leon_lema.png"/>"/>
+						</div>
+					</div>
+					<div id="div_mensaje" style="display: none;">
 						<div id="div_banda_vertical">
 							<div id="div_leon">
 								<img alt="" src="<c:url value="/resources/image/leon.png"/>"/>

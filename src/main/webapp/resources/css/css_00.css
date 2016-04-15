@@ -6,6 +6,14 @@
 	background: black;
 }
 
+#div_leon_lema {
+	width: 501px;
+	height: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 54px;
+}
+
 #div_mensaje {
 	width: 100%;
 	height: 609px;

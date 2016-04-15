@@ -72,6 +72,16 @@ public class PublicController /* extends WebMvcConfigurerAdapter */ {
     }
     */
 	
+	@RequestMapping("/inicio_")
+	public String inicioCortinilla(Model model) {
+		log.info("/public/inicio_");
+		
+		int contadorVisitas = parametroConfiguracionService.obtieneContadorVisitas();
+		model.addAttribute("contadorVisitas",contadorVisitas);
+		
+		return "file_00_cortinilla";
+	}
+	
 	@RequestMapping("/inicio")
 	public String inicio(Model model) {
 		log.info("/public/inicio");
