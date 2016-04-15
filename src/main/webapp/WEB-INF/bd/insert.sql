@@ -133,35 +133,4 @@ INSERT INTO costo_acompaniante (id_costo_acompaniante, fecha_inicio, fecha_fin, 
 
 
 
-INSERT INTO participante (id_participante, nombre, id_estado, activo) VALUES (1,'Gerardo',1,1);
-
-
-
-
-INSERT INTO acompaniante (id_acompaniante, id_participante, nombre, activo) VALUES (1,1,'Lalo',1);
-INSERT INTO acompaniante (id_acompaniante, id_participante, nombre, activo) VALUES (2,1,'Mario',1);
-
-
-
-
-INSERT INTO registro (id_registro, id_participante, id_grado, nombre_cuerpo, delegacion, id_tipo_participacion, id_tipo_ponencia, id_tipo_mesa, activo) VALUES (1,1,1,'Abejitas','Plantitas',1,3,1,1);
-
-
-
-
-INSERT INTO hospedaje (id_hospedaje, id_participante, id_paquete_hotel, fecha_entrada, fecha_salida, num_personas_habitacion, activo) VALUES (1,1,1,'2016-01-02','2016-01-03',1,1);
-
-
-
-
-INSERT INTO colacion_grado (id_colacion_grado, id_participante, id_grado_pretende, cuerpo_pretende, activo) VALUES (1,1,2,'Cocodrilitos',1);
-
-
-
-
-INSERT INTO pago (id_pago, id_participante, importe_pago, activo) VALUES (1,1,2000,1);
-
-
-
-
 INSERT INTO parametro_configuracion (id_parametro_configuracion, nombre, valor_int, activo) VALUES (1,'contador_visitas',0,1);
