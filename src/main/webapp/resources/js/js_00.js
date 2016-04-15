@@ -60,5 +60,5 @@ function fadingCortina() {
 		$("#div_cortina").fadeOut(2500, function(){
 			$("#div_mensaje").fadeIn(2000);
 		});
-	}, 2000);
+	}, 3500);
 }
