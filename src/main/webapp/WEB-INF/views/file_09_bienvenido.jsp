@@ -8,15 +8,14 @@
 <c:url value="/public/hospedaje" 				var="urlHospedaje"/>
 <c:url value="/public/documentos" 				var="urlDocumentos"/>
 <c:url value="/public/registro" 				var="urlRegistro"/>
-<c:url value="/public/formulario_participante" 	var="urlFormulario" />
-<c:url value="/private/pagina_excel" 			var="urlPaginaExcel" />
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Programa acad&eacute;mico</title>
+		<title>Bienvenido</title>
 		<link rel="stylesheet" href="<c:url value="/resources/css/css_00_menu.css"/>" type="text/css"></link>
-		<link rel="stylesheet" href="<c:url value="/resources/css/css_03.css"/>" type="text/css"></link>
+		<link rel="stylesheet" href="<c:url value="/resources/css/css_09.css"/>" type="text/css"></link>
 		<script type="text/javascript">
 			var urlInicio				= "${urlInicio}";
 			var urlBases 				= "${urlBases}";
@@ -64,7 +63,7 @@
 		</script>
 	</head>
 	<body>
-		<div id="div_academico">
+		<div id="div_registro">
 			<div id="div_encabezado">
 				<div id="div_img_cintillo">
 					<img alt="" src="<c:url value="/resources/image/cabezal.png"/>"/>
@@ -87,8 +86,11 @@
 							 	onmouseover="this.src='<c:url value="/resources/image/mnu_02_mouse.png"/>'"
 							 	onmouseout="this.src='<c:url value="/resources/image/mnu_02_normal.png"/>'"/>
 						</div>
-						<div id="div_menu_academico">
-							<img alt="" src="<c:url value="/resources/image/mnu_03_activo.png"/>"/>
+						<div id="div_menu_academico" onclick="menu('pagina_academico')">
+							<img alt="" 
+								src="<c:url value="/resources/image/mnu_03_normal.png"/>"
+								onmouseover="this.src='<c:url value="/resources/image/mnu_03_mouse.png"/>'"
+								onmouseout="this.src='<c:url value="/resources/image/mnu_03_normal.png"/>'"/>
 						</div>
 						<div id="div_menu_acompaniante" onclick="menu('pagina_acompaniante')">
 							<img alt="" 
@@ -114,11 +116,8 @@
 								onmouseover="this.src='<c:url value="/resources/image/mnu_07_mouse.png"/>'"
 								onmouseout="this.src='<c:url value="/resources/image/mnu_07_normal.png"/>'"/>
 						</div>
-						<div id="div_menu_registro" onclick="menu('pagina_registro')">
-							<img alt="" 
-								src="<c:url value="/resources/image/mnu_08_normal.png"/>"
-								onmouseover="this.src='<c:url value="/resources/image/mnu_08_mouse.png"/>'"
-								onmouseout="this.src='<c:url value="/resources/image/mnu_08_normal.png"/>'"/>
+						<div id="div_menu_registro">
+							<img alt="" src="<c:url value="/resources/image/mnu_08_activo.png"/>"/>
 						</div>
 					</div>
 					</form>
@@ -127,57 +126,18 @@
 			<div id="div_contenedor">
 				<div id="div_ocupa_espacio"></div>
 				<div id="div_zona_visible">
-					<div>
-						<div id="div_banda_vertical">
-							<div id="div_leon">
-								<img alt="" src="<c:url value="/resources/image/leon.png"/>"/>
-							</div>
-						</div>
-						<div id="div_descripcion_congresistas">
-							<div id="div_padding">
-								<div id="div_programa_congresista">
-									<img alt="" src="<c:url value="/resources/image/programa_congresistas.png"/>"/>
+					<div id="div_espacio_trabajo">
+						<div style="width: 100%; height: 30px;"></div>
+						<div id="div_esquina_redonda">
+							<div id="div_mensaje_inscripcion_bienvenida">
+								<div id="div_logo_inscripcion">
+								
 								</div>
-								<div>
-									<br/>
-									<p class="izquierda morado"><b>Ponencias</b></p>
-									<p class="justificado">Podr&aacute;n ser elaboradas en forma individual, en pequeños grupos 
-									o por Cuerpo filos&oacute;fico.<br/>
-									Los temas, mas&oacute;nicos o profanos que se abordar&aacute;n, bajo el lema MASONER&Iacute;A Y CONSTITUCIONALISMO, son:</p>
-									<p class="justificado"><b>Mesa de trabajo N° 1</b><br/>
-									Participaci&oacute;n e ideales de la masoner&iacute;a en las constituciones y su proyección hac&iacute;a el siglo XXI.</p>
-									<p class="justificado"><b>Mesa de trabajo N° 2</b><br/>
-									Los derechos humanos desde el punto de vista de la masoner&iacute;a filos&oacute;fica.</p>
-									<p class="justificado"><b>Mesa de trabajo N° 3</b><br/>
-									Enfoque mas&oacute;nico y prospectiva de la educaci&oacute;n.</p>
-									<p class="justificado"><b>Mesa de trabajo N° 4</b><br/>
-									El enfoque de la filosof&iacute;a mas&oacute;nica con respecto a la globalizaci&oacute;n de la econom&iacute;a, 
-									la soberan&iacute;a sobre los recursos nacionales y el desarrollo sustentable.</p>
-									<p class="justificado"><b>Mesa de trabajo N° 5</b><br/>
-									La visi&oacute;n mas&oacute;nica sobre la libertad de creencias y el estado laico.</p>
-									<p class="izquierda morado"><b>Estructura de las ponencias</b></p>
-									<p class="justificado">Aspectos de forma:<br/>
-									Todas las ponencias deber&aacute;n tener:<br/></p>
-									<ul>
-										<li>Car&aacute;tula con los datos del ponente, t&iacute;tulo de la ponencia, nombre, grado, cuerpo al 
-										que pertenece, tel&eacute;fono, correo electr&oacute;nico, delegaci&oacute;n provincial.</li>
-										<li>Introducci&oacute;n</li>
-										<li>Desarrollo</li>
-										<li>Conclusi&oacute;n</li>
-										<li>Propuesta</li>
-										<li>Bibliograf&iacute;a</li>
-									</ul>
-									<p class="justificado">Las ponencias ser&aacute;n elaboradas en Word letra Arial no. 12, junto con una presentación en Power Point 
-									para ser expuesta en un tiempo no mayor de 15 minutos.</p>
-									<p class="justificado">Aspectos de fondo:<br/>
-									Todos los temas mas&oacute;nicos o profanos deber&aacute;n ser tratados de conformidad con lo dispuesto 
-									en el Art&iacute;culo 118 de los Reglamentos Generales.</p>
-									<p class="justificado">Todas las ponencias y sus respectivas presentaciones, se deber&aacute;n enviar al comit&eacute; organizador 
-									del congreso, al correo <span class="morado">contacto@congresoxxxviscm.org.mx</span>, a m&aacute;s tardar el 
-									d&iacute;a 30 de junio de 2016.</p>
-									<p class="justificado">Toda la información del Congreso, se publicar&aacute; en breve en la siguiente direcci&oacute;n: 
-									www.congresoxxxviscm.org.mx</p>
-									<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+								<div id="div_datos_congresista">
+									<p class="morado">¡Bienvenido <b>${nombreCongresista}</b>!</p>
+									<p class="gris">Tu n&uacute;mero de registro es: <span class="morado"><b>${idParticipante}</b></span></p>
+									<p class="gris">Sugerimos que lo mantengas a la mano en el momento de tu llegada al Congreso. 
+									Esto permitir&aacute; agilizar la entrada de todos los congresistas.</p>
 								</div>
 							</div>
 						</div>

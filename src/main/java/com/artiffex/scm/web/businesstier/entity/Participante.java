@@ -113,7 +113,7 @@ public class Participante implements Serializable {
 	public void setAplicaAcompaniante(Boolean aplicaAcompaniante) { this.aplicaAcompaniante = aplicaAcompaniante; }
 	
 	@Column(name="aplica_colacion_grado")
-	public Boolean getAplicaColacionGrado() { return aplicaColacionGrado; }
+	public Boolean isAplicaColacionGrado() { return aplicaColacionGrado; }
 	public void setAplicaColacionGrado(Boolean aplicaColacionGrado) { this.aplicaColacionGrado = aplicaColacionGrado; }
 
 	@Column(name="aplica_hospedaje")

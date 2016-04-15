@@ -11,10 +11,12 @@ import javax.annotation.Resource;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.artiffex.scm.web.businesstier.entity.Acompaniante;
 import com.artiffex.scm.web.businesstier.entity.ColacionGrado;
@@ -47,7 +49,7 @@ import com.artiffex.scm.web.businesstier.utilidades.ComboSelect;
 
 @Controller
 @RequestMapping("/public")
-public class PublicController {
+public class PublicController /* extends WebMvcConfigurerAdapter */ {
 
 	private static final Logger log = Logger.getLogger(PublicController.class); 
 
@@ -71,9 +73,6 @@ public class PublicController {
 	private PaqueteHotelService paqueteHotelService;
 	@Resource
 	private CostoAcompanianteService costoAcompanianteService;
-	
-
-	
 	@Resource
 	private ParticipanteService participanteService;
 	@Resource
@@ -85,6 +84,14 @@ public class PublicController {
 	@Resource
 	private HospedajeService hospedajeService;
 	
+	
+	
+	/*
+	@Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/public/bienvenido").setViewName("file_09_bienvenido");
+    }
+    */
 	
 	@RequestMapping("/inicio")
 	public String inicio(Model model) {
@@ -170,7 +177,6 @@ public class PublicController {
 		model.addAttribute("listaPaqueteHotel",listaPaqueteHotel);
 		listaPaqueteHotel = null;
 		
-		
 		return "file_08_registro";
 	}
 	
@@ -203,7 +209,6 @@ public class PublicController {
 	}
 	
 	@RequestMapping(value="/guardaRegistro", method=RequestMethod.POST)
-	@ResponseBody
 	public String guardaRegistro(
 			@RequestParam(value = "participante_ap_paterno", required = false) String participanteApPaterno,
 			@RequestParam(value = "participante_ap_materno", required = false) String participanteApMaterno,
@@ -212,7 +217,7 @@ public class PublicController {
 			@RequestParam(value = "num_exterior", required = false) String numExterior,
 			@RequestParam(value = "num_interior", required = false) String numInterior,
 			@RequestParam(value = "colonia", required = false) String colonia,
-			@RequestParam(value = "delegacionMunicipio", required = false) String delegacionMunicipio,
+			@RequestParam(value = "delegacion_municipio", required = false) String delegacionMunicipio,
 			@RequestParam(value = "ciudad", required = false) String ciudad,
 			@RequestParam(value = "id_estado", required = false) Integer idEstado,
 			@RequestParam(value = "codigo_postal", required = false) String codigoPostal,
@@ -243,12 +248,13 @@ public class PublicController {
 			@RequestParam(value = "id_paquete_hotel", required = false) Integer idPaqueteHotel,
 			@RequestParam(value = "fecha_entrada", required = false) String fechaEntrada,
 			@RequestParam(value = "fecha_salida", required = false) String fechaSalida,
-			@RequestParam(value = "num_personas_habitacion", required = false) Integer numPersonasHabitacion
+			@RequestParam(value = "num_personas_habitacion", required = false) Integer numPersonasHabitacion,
+			
+			final RedirectAttributes redirectAttributes
 		) throws ParseException {
 		log.info("/public/guardaRegistro");
-		System.out.println(aplicaAcompaniante);
-		System.out.println(aplicaColacionGrado);
-		System.out.println(aplicaHospedaje);
+		System.out.println(fechaEntrada);
+		
 		
 		Participante participante = new Participante();
 		participante.setApPaterno(participanteApPaterno);
@@ -275,13 +281,13 @@ public class PublicController {
 		
 		int idParticipante = participanteService.creaParticipante(participante);
 		participante = participanteService.buscaParticipante(idParticipante);
-		System.out.println("idParticipante:" + participante.getIdParticipante());
 		
 		Registro registro = new Registro();
 		registro.setParticipante(participante);
 			Grado grado = new Grado();
 			grado.setIdGrado(idGrado);
 		registro.setGrado(grado);
+		
 		registro.setNombreCuerpo(registroNombreCuerpo);
 		registro.setDelegacion(registroDelegacion);
 			TipoParticipacion tipoParticipacion = new TipoParticipacion();
@@ -294,8 +300,16 @@ public class PublicController {
 			TipoMesa tipoMesa = new TipoMesa();
 			tipoMesa.setIdTipoMesa(idTipoMesa);
 		registro.setTipoMesa(tipoMesa);
+		registro.setFechaRegistro(new Date(Calendar.getInstance().getTimeInMillis()));
 		registro.setActivo(true);
 		registroService.creaRegistro(registro);
+		
+		estado 				= null;
+		grado 				= null;
+		tipoParticipacion 	= null;
+		tipoPonencia 		= null;
+		tipoMesa 			= null;
+		
 		
 		if (aplicaAcompaniante) {
 			Acompaniante acompaniante = new Acompaniante();
@@ -316,49 +330,46 @@ public class PublicController {
 			colacionGrado.setDelegacionPretende(delegacionPretende);
 			colacionGrado.setActivo(true);
 			colacionGradoService.creaColacionGrado(colacionGrado);
+			
+			gradoPretende = null;
 		}
 		
 		if (aplicaHospedaje) {
+			System.out.println("isPaqueteHotel:" + idPaqueteHotel);
 			Hospedaje hospedaje = new Hospedaje();
 			hospedaje.setParticipante(participante);
 				PaqueteHotel paqueteHotel = new PaqueteHotel();
 				paqueteHotel.setIdPaqueteHotel(idPaqueteHotel);
+			hospedaje.setPaqueteHotel(paqueteHotel);
 			if (!"".equals(fechaEntrada))
-				hospedaje.setFechaEntrada(new SimpleDateFormat("yyyy/MM/dd").parse(fechaEntrada));
+				hospedaje.setFechaEntrada(new SimpleDateFormat("yyyy-MM-dd").parse(fechaEntrada));
 			if (!"".equals(fechaSalida))
-				hospedaje.setFechaSalida(new SimpleDateFormat("yyyy/MM/dd").parse(fechaSalida));
+				hospedaje.setFechaSalida(new SimpleDateFormat("yyyy-MM-dd").parse(fechaSalida));
 			hospedaje.setNumPersonasHabitacion(numPersonasHabitacion);
 			hospedaje.setActivo(true);
 			hospedajeService.creaHospedaje(hospedaje);
+			
+			paqueteHotel = null;
 		}
 		
-		return participante.getIdParticipante().toString();
+		//return participante.getIdParticipante().toString(); // AJAX
+		redirectAttributes.addFlashAttribute("id_participante", participante.getIdParticipante());
+		return "redirect:/public/bienvenido";
 	}
 	
+	@RequestMapping(value="/bienvenido")
+	public String mensajeBienvenido(
+			@ModelAttribute(value="id_participante") Integer idParticipante,
+			Model model
+		) {
+		Participante participante = participanteService.buscaParticipante(idParticipante);
+		model.addAttribute("nombreCongresista",participante.getNombre());
+		model.addAttribute("idParticipante", idParticipante + "00");
+		participante = null;
+		return "file_09_bienvenido";
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	/*
 	@RequestMapping(value = "/formulario_participante")
 	public String formularioParticipante(Model model) {
 		log.info("/public/formulario_participante");
@@ -369,7 +380,9 @@ public class PublicController {
 		
 		return "formulario_participante";
 	}
+	*/
 	
+	/*
 	@RequestMapping(value = "/registro_participante")
 	public String registroParticipante(
 			@RequestParam(value="nombre", required=false) String nombre,
@@ -418,5 +431,6 @@ public class PublicController {
 		
 		return "gracias";
 	}
+	*/
 	
 }

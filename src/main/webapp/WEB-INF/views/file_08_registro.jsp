@@ -12,6 +12,7 @@
 <c:url value="/public/costoColacion" 			var="urlCostoColacion"/>
 <c:url value="/public/costoHospedaje" 			var="urlCostoHospedaje"/>
 <c:url value="/public/guardaRegistro" 			var="urlGuardaRegistro"/>
+<c:url value="/public/bienvenido" 				var="urlBienvenido"/>
 
 
 <c:url value="/public/formulario_participante" 	var="urlFormulario" />
@@ -24,7 +25,7 @@
 		<title>Registro</title>
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 		<link rel="stylesheet" href="<c:url value="/resources/css/css_00_menu.css"/>" type="text/css"></link>
-		<link rel="stylesheet" href="<c:url value="/resources/css/css_08_registro.css"/>" type="text/css"></link>
+		<link rel="stylesheet" href="<c:url value="/resources/css/css_08.css"/>" type="text/css"></link>
 		<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 		<script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 		<script type="text/javascript" src="<c:url value="/resources/js/utilidades.js"/>"></script>
@@ -223,8 +224,9 @@
 					url:urlCostoHospedaje,
 					data:{id_paquete_hotel:document.form_registro.id_paquete_hotel.value},
 					success:function(response) {
-						document.form_costos.costo_hospedaje.value 		= response;
-						document.form_registro.costo_hospedaje.value 	= parseFloat(response).formatMoney(2);
+						document.form_costos.costo_hospedaje.value 			= response;
+						document.form_registro.paquete_hotel_precio.value 	= parseFloat(response).formatMoney(2);
+						document.form_registro.costo_hospedaje.value 		= parseFloat(response).formatMoney(2);
 						sumaCostosCongresista();
 					},
 					error:function(e) {
@@ -252,6 +254,7 @@
 					document.form_registro.id_paquete_hotel.disabled 		= true;
 					document.form_registro.num_personas_habitacion.readOnly = true;
 					document.form_costos.costo_hospedaje.value				= 0;
+					document.form_registro.paquete_hotel_precio.value		= (0).formatMoney(2);
 					document.form_registro.costo_hospedaje.value			= (0).formatMoney(2);
 					sumaCostosCongresista();
 				}
@@ -267,9 +270,10 @@
 				document.form_registro.costo_total.value = (costoTotal).formatMoney(2);
 			}
 			
-			function guardaRegistro() {
+			function revisaFormulario() {
 				var correcto = true;
 				
+				// VALIDA NOMBRE
 				if (correcto
 						&& (document.form_registro.participante_ap_paterno.value == ""
 							|| document.form_registro.participante_nombre.value == "")) {
@@ -277,6 +281,7 @@
 					alert("Estimado Congresista, es necesario que especifique su nombre completo");
 				}
 				
+				// VALIDA TRANSFERENCIA BANCARIA
 				if (correcto
 						&& (document.form_registro.importe_pago.value == ""
 							|| document.form_registro.num_referencia.value == ""
@@ -285,21 +290,43 @@
 					alert("Estimado Congresista, es necesario que especifique la información de su transferencia bancaria");
 				}
 				
-				if (correcto) {
-					$.ajax({
-						type:"POST",
-						url:urlGuardaRegistro,
-						data:$("[name=form_registro]").serialize(),
-						success:function(response) {
-							console.log(response);
-							alert("Estimado Congresista, tu información ha quedado registrada. ¡Bienvenido!");
-							// congela campos
-							
-						},
-						error:function(e) {
-							alert("¡Ofrecemos disculpas! No fue posible conectarse con el servidor. Intentelo más tarde.");
-						}
-					});	
+				// VALIDA IMPORTE TRANSFERENCIA BANCARIA
+				console.log(parseFloat(document.form_registro.importe_pago.value))
+				console.log(parseFloat(document.form_costos.costo_total.value))
+				
+				if (correcto
+						&& parseFloat(document.form_registro.importe_pago.value) != parseFloat(document.form_costos.costo_total.value)) {
+					correcto = false;
+					alert("Estimado Congresista, la transferencia bancaria que realizó no corresponde con su información de registro. No es posible ingresar su información.");
+				}
+				
+				return correcto;
+			}
+			
+			function guardaRegistro() {
+				if (revisaFormulario()) {
+					if ( confirm("¿Esta seguro que desea enviar su informacion?") ) {
+						// SUBMIT FORM
+						document.form_registro.action = urlGuardaRegistro;
+						document.form_registro.method = "POST";
+						document.form_registro.submit();
+						/*
+						$.ajax({
+							type:"POST",
+							url:urlGuardaRegistro,
+							data:$("[name=form_registro]").serialize(),
+							success:function(response) {
+								console.log(response);
+								alert("Estimado Congresista, tu información ha quedado registrada. ¡Bienvenido!");
+								// congela campos
+								
+							},
+							error:function(e) {
+								alert("¡Ofrecemos disculpas! No fue posible conectarse con el servidor. Intentelo más tarde.");
+							}
+						});
+						*/
+					}
 				}
 			}
 			
@@ -307,7 +334,6 @@
 				document.form_registro.costo_congresista.value 	= parseFloat(document.form_costos.costo_congresista.value).formatMoney(2);
 				document.form_registro.costo_total.value 		= parseFloat(document.form_costos.costo_congresista.value).formatMoney(2);
 			}
-			
 			
 		</script>
 	</head>
@@ -485,7 +511,7 @@
 														<tr><td colspan="2" class="gris">TEL&Eacute;FONO OFICINA &nbsp; (10 DIG&Iacute;TOS)</td></tr>
 														<tr><td colspan="2"><input type="text" name="telefono_oficina" onkeydown="revisaNumero(false, this.value, event, null, null)"/></td></tr>
 														<tr><td colspan="2" class="gris">CORREO ELECTR&Oacute;NICO</td></tr>
-														<tr><td colspan="2"><input type="text" name="email"/></td></tr>
+														<tr><td colspan="2"><input type="text" name="email" style="text-transform: lowercase;"/></td></tr>
 														<tr><td colspan="2" class="gris">¿ACUDIRA CON ACOMPA&Ntilde;ANTE?</td></tr>
 														<tr><td colspan="2">
 																<table>
@@ -706,7 +732,7 @@
 															<tr><td>
 																<table border="0">
 																	<tr><td class="morado">TOTAL HOTEL</td></tr>
-																	<tr><td><input type="text" name="paquete_hotel_precio" style="text-align: right;" readonly/></td></tr>
+																	<tr><td><input type="text" name="paquete_hotel_precio" value="0.00" style="text-align: right;" readonly/></td></tr>
 																</table>
 																</td>
 																<td>&nbsp;</td>
@@ -875,7 +901,7 @@
 			<input type="hidden" name="costo_acompaniante" 		value="0"/>
 			<input type="hidden" name="costo_colacion_grado" 	value="0"/>
 			<input type="hidden" name="costo_hospedaje" 		value="0"/>
-			<input type="hidden" name="costo_total" 			value="0"/>
+			<input type="hidden" name="costo_total" 			value="${precio_x_fecha}"/>
 		</form>
 	</body>
 </html>

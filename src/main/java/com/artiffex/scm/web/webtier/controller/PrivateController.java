@@ -27,14 +27,14 @@ public class PrivateController {
 	private ParticipanteService participanteService;
 
 	@Secured({"ROLE_ROOT","ROLE_ADMIN"})
-	@RequestMapping("/pagina_excel")
+	@RequestMapping("/admin/busqueda_registros")
 	public String paginaExcel(Model model) {
 		log.info("/pagina_excel");
-		return "pagina_excel";
+		return "file_10_pagina_excel";
 	}
 	
 	@Secured({"ROLE_ROOT","ROLE_ADMIN"})
-	@RequestMapping("/descarga_excel")
+	@RequestMapping("/admin/obtiene_registros/excel")
 	public void obtieneExcel(HttpServletRequest request, HttpServletResponse response) {
 		log.info("/obtiene_excel");
 		System.out.println("Entro a obtener el excel");

@@ -24,6 +24,15 @@
 			<artifactId>javax.annotation-api</artifactId>
 			<version>1.2</version>
 		</dependency>
+		
+		
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.0.0.GA</version>
+		</dependency>
+		
+		
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
@@ -74,6 +83,15 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>3.1.1.RELEASE</version>
 		</dependency>
+		
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>3.1.1.RELEASE</version>
+		</dependency>
+		
+			
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
@@ -206,6 +224,17 @@
 			<version>1.1</version>
 		</dependency>
 		<!--  -->
+		
+		<!-- ESTA LIBRERIA NO TIENE NADA QUE VER CON HIBERNATE RELATIONAL MAPPINGS, UNICAMENTE SE USA PARA VALIDACION -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>4.2.0.Final</version>
+		</dependency>
+				
+		
+		
+		
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-c3p0</artifactId>

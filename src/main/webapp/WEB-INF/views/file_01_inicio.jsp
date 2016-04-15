@@ -16,7 +16,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Bienvenido</title>
 		<link rel="stylesheet" href="<c:url value="/resources/css/css_00_menu.css"/>" type="text/css"></link>
-		<link rel="stylesheet" href="<c:url value="/resources/css/css_01_inicio.css"/>" type="text/css"></link>
+		<link rel="stylesheet" href="<c:url value="/resources/css/css_01.css"/>" type="text/css"></link>
 		<script type="text/javascript">
 			var urlInicio				= "${urlInicio}";
 			var urlBases 				= "${urlBases}";
