@@ -37,7 +37,7 @@ public class PrivateController {
 	@RequestMapping("/admin/obtiene_registros/excel")
 	public void obtieneExcel(HttpServletRequest request, HttpServletResponse response) {
 		log.info("/obtiene_excel");
-		System.out.println("Entro a obtener el excel");
+		//System.out.println("Entro a obtener el excel");
 		byte[] documento = participanteService.obtieneDocumentoListaParticipante();
 		Calendar calendar = Calendar.getInstance();
 		Date date = new Date(calendar.getTimeInMillis());

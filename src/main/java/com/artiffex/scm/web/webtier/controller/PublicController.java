@@ -1,6 +1,5 @@
 package com.artiffex.scm.web.webtier.controller;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -18,30 +17,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.artiffex.scm.web.businesstier.entity.Acompaniante;
-import com.artiffex.scm.web.businesstier.entity.ColacionGrado;
-import com.artiffex.scm.web.businesstier.entity.Estado;
-import com.artiffex.scm.web.businesstier.entity.Grado;
-import com.artiffex.scm.web.businesstier.entity.GradoPretende;
-import com.artiffex.scm.web.businesstier.entity.Hospedaje;
-import com.artiffex.scm.web.businesstier.entity.PaqueteHotel;
 import com.artiffex.scm.web.businesstier.entity.Participante;
-import com.artiffex.scm.web.businesstier.entity.Registro;
-import com.artiffex.scm.web.businesstier.entity.TipoMesa;
-import com.artiffex.scm.web.businesstier.entity.TipoParticipacion;
-import com.artiffex.scm.web.businesstier.entity.TipoPonencia;
-import com.artiffex.scm.web.businesstier.service.interfaz.AcompanianteService;
-import com.artiffex.scm.web.businesstier.service.interfaz.ColacionGradoService;
+import com.artiffex.scm.web.businesstier.service.interfaz.CongresoService;
 import com.artiffex.scm.web.businesstier.service.interfaz.CostoAcompanianteService;
 import com.artiffex.scm.web.businesstier.service.interfaz.CostoCongresistaService;
 import com.artiffex.scm.web.businesstier.service.interfaz.EstadoService;
 import com.artiffex.scm.web.businesstier.service.interfaz.GradoPretendeService;
 import com.artiffex.scm.web.businesstier.service.interfaz.GradoService;
-import com.artiffex.scm.web.businesstier.service.interfaz.HospedajeService;
 import com.artiffex.scm.web.businesstier.service.interfaz.PaqueteHotelService;
 import com.artiffex.scm.web.businesstier.service.interfaz.ParametroConfiguracionService;
 import com.artiffex.scm.web.businesstier.service.interfaz.ParticipanteService;
-import com.artiffex.scm.web.businesstier.service.interfaz.RegistroService;
 import com.artiffex.scm.web.businesstier.service.interfaz.TipoMesaService;
 import com.artiffex.scm.web.businesstier.service.interfaz.TipoParticipacionService;
 import com.artiffex.scm.web.businesstier.service.interfaz.TipoPonenciaService;
@@ -76,13 +61,7 @@ public class PublicController /* extends WebMvcConfigurerAdapter */ {
 	@Resource
 	private ParticipanteService participanteService;
 	@Resource
-	private RegistroService registroService;
-	@Resource
-	private AcompanianteService acompanianteService;
-	@Resource
-	private ColacionGradoService colacionGradoService;
-	@Resource
-	private HospedajeService hospedajeService;
+	private CongresoService congresoService;
 	
 	
 	
@@ -224,10 +203,11 @@ public class PublicController /* extends WebMvcConfigurerAdapter */ {
 			@RequestParam(value = "telefono_particular", required = false) String telefonoParticular,
 			@RequestParam(value = "telefono_movil", required = false) String telefonoMovil,
 			@RequestParam(value = "telefono_oficina", required = false) String telefonoOficina,
+			@RequestParam(value = "email", required = false) String email,
 			@RequestParam(value = "aplica_acompaniante", required = false) Boolean aplicaAcompaniante,
 			@RequestParam(value = "aplica_colacion_grado", required = false) Boolean aplicaColacionGrado,
 			@RequestParam(value = "aplica_hospedaje", required = false) Boolean aplicaHospedaje,
-			@RequestParam(value = "email", required = false) String email,
+			
 			
 			@RequestParam(value = "id_grado", required = false) Integer idGrado,
 			@RequestParam(value = "registro_nombre_cuerpo", required = false) String registroNombreCuerpo,
@@ -250,120 +230,40 @@ public class PublicController /* extends WebMvcConfigurerAdapter */ {
 			@RequestParam(value = "fecha_salida", required = false) String fechaSalida,
 			@RequestParam(value = "num_personas_habitacion", required = false) Integer numPersonasHabitacion,
 			
+			@RequestParam(value = "nombre_banco", required = false) String nombreBanco,
+			@RequestParam(value = "num_sucursal", required = false) String numSucursal,
+			@RequestParam(value = "pago_ciudad", required = false) String pagoCiudad,
+			@RequestParam(value = "num_referencia", required = false) String numReferencia,
+			@RequestParam(value = "fecha_transaccion", required = false) String fechaTransaccion,
+			@RequestParam(value = "importe_pago", required = false) Float importePago,
+			
 			final RedirectAttributes redirectAttributes
-		) throws ParseException {
+		) {
 		log.info("/public/guardaRegistro");
-		System.out.println(fechaEntrada);
+		//System.out.println(fechaEntrada);
 		
-		
-		Participante participante = new Participante();
-		participante.setApPaterno(participanteApPaterno);
-		participante.setApMaterno(participanteApMaterno);
-		participante.setNombre(participanteNombre);
-		participante.setCalle(calle);
-		participante.setNumExterior(numExterior);
-		participante.setNumInterior(numInterior);
-		participante.setColonia(colonia);
-		participante.setDelegacionMunicipio(delegacionMunicipio);
-		participante.setCiudad(ciudad);
-			Estado estado = new Estado();
-			estado.setIdEstado(idEstado);
-		participante.setEstado(estado);
-		participante.setCodigoPostal(codigoPostal);
-		participante.setTelefonoParticular(telefonoParticular);
-		participante.setTelefonoMovil(telefonoMovil);
-		participante.setTelefonoOficina(telefonoOficina);
-		participante.setEmail(email);
-		participante.setAplicaAcompaniante(aplicaAcompaniante);
-		participante.setAplicaColacionGrado(aplicaColacionGrado);
-		participante.setAplicaHospedaje(aplicaHospedaje);
-		participante.setActivo(true);
-		
-		int idParticipante = participanteService.creaParticipante(participante);
-		participante = participanteService.buscaParticipante(idParticipante);
-		
-		Registro registro = new Registro();
-		registro.setParticipante(participante);
-			Grado grado = new Grado();
-			grado.setIdGrado(idGrado);
-		registro.setGrado(grado);
-		
-		registro.setNombreCuerpo(registroNombreCuerpo);
-		registro.setDelegacion(registroDelegacion);
-			TipoParticipacion tipoParticipacion = new TipoParticipacion();
-			tipoParticipacion.setIdTipoParticipacion(idTipoParticipacion);
-		registro.setTipoParticipacion(tipoParticipacion);
-			TipoPonencia tipoPonencia = new TipoPonencia();
-			tipoPonencia.setIdTipoPonencia(idTipoPonencia);
-		registro.setTipoPonencia(tipoPonencia);
-		registro.setTituloPonencia(tituloPonencia);
-			TipoMesa tipoMesa = new TipoMesa();
-			tipoMesa.setIdTipoMesa(idTipoMesa);
-		registro.setTipoMesa(tipoMesa);
-		registro.setFechaRegistro(new Date(Calendar.getInstance().getTimeInMillis()));
-		registro.setActivo(true);
-		registroService.creaRegistro(registro);
-		
-		estado 				= null;
-		grado 				= null;
-		tipoParticipacion 	= null;
-		tipoPonencia 		= null;
-		tipoMesa 			= null;
-		
-		
-		if (aplicaAcompaniante) {
-			Acompaniante acompaniante = new Acompaniante();
-			acompaniante.setParticipante(participante);
-			acompaniante.setApPaterno(acompanianteApPaterno);
-			acompaniante.setApMaterno(acompanianteApPaterno);
-			acompaniante.setNombre(acompanianteNombre);
-			acompanianteService.creaAcompaniante(acompaniante);
-		}
-		
-		if (aplicaColacionGrado) {
-			ColacionGrado colacionGrado = new ColacionGrado();
-			colacionGrado.setParticipante(participante);
-				GradoPretende gradoPretende = new GradoPretende();
-				gradoPretende.setIdGradoPretende(idGradoPretende);
-			colacionGrado.setGradoPretende(gradoPretende);
-			colacionGrado.setCuerpoPretende(cuerpoPretende);
-			colacionGrado.setDelegacionPretende(delegacionPretende);
-			colacionGrado.setActivo(true);
-			colacionGradoService.creaColacionGrado(colacionGrado);
-			
-			gradoPretende = null;
-		}
-		
-		if (aplicaHospedaje) {
-			System.out.println("isPaqueteHotel:" + idPaqueteHotel);
-			Hospedaje hospedaje = new Hospedaje();
-			hospedaje.setParticipante(participante);
-				PaqueteHotel paqueteHotel = new PaqueteHotel();
-				paqueteHotel.setIdPaqueteHotel(idPaqueteHotel);
-			hospedaje.setPaqueteHotel(paqueteHotel);
-			if (!"".equals(fechaEntrada))
-				hospedaje.setFechaEntrada(new SimpleDateFormat("yyyy-MM-dd").parse(fechaEntrada));
-			if (!"".equals(fechaSalida))
-				hospedaje.setFechaSalida(new SimpleDateFormat("yyyy-MM-dd").parse(fechaSalida));
-			hospedaje.setNumPersonasHabitacion(numPersonasHabitacion);
-			hospedaje.setActivo(true);
-			hospedajeService.creaHospedaje(hospedaje);
-			
-			paqueteHotel = null;
-		}
+		int idParticipante = congresoService.creaInformacion(
+				participanteApPaterno, participanteApMaterno, participanteNombre, 
+				calle, numExterior, numInterior, colonia, delegacionMunicipio, ciudad, idEstado, codigoPostal, telefonoParticular, telefonoMovil, telefonoOficina, email,  
+				aplicaAcompaniante, aplicaColacionGrado, aplicaHospedaje, 
+				idGrado, registroNombreCuerpo, registroDelegacion, idTipoParticipacion, idTipoPonencia, tituloPonencia, idTipoMesa, 
+				acompanianteApPaterno, acompanianteApMaterno, acompanianteNombre, 
+				idGradoPretende, cuerpoPretende, delegacionPretende, 
+				idPaqueteHotel, fechaEntrada, fechaSalida, numPersonasHabitacion, 
+				nombreBanco, numSucursal, pagoCiudad, numReferencia, fechaTransaccion, importePago);
 		
 		//return participante.getIdParticipante().toString(); // AJAX
-		redirectAttributes.addFlashAttribute("id_participante", participante.getIdParticipante());
+		redirectAttributes.addFlashAttribute("idParticipante", idParticipante);
 		return "redirect:/public/bienvenido";
 	}
 	
 	@RequestMapping(value="/bienvenido")
 	public String mensajeBienvenido(
-			@ModelAttribute(value="id_participante") Integer idParticipante,
+			@ModelAttribute(value="idParticipante") Integer idParticipante,
 			Model model
 		) {
 		Participante participante = participanteService.buscaParticipante(idParticipante);
-		model.addAttribute("nombreCongresista",participante.getNombre());
+		model.addAttribute("nombreCongresista",participante.getNombre().toUpperCase());
 		model.addAttribute("idParticipante", idParticipante + "00");
 		participante = null;
 		return "file_09_bienvenido";
