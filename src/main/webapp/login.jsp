@@ -7,29 +7,27 @@
 		<title>Administrador</title>
 	</head>
 	<body>
-		<form name="login" action="<c:url value="/j_spring_security_check"/>" method="post">
-			<table>
-				<tr>
-					<td>Usuario:</td>
-					<td>
-						<input 	type="text"
-								name="usuario"/>
-					</td>
-				</tr>
-				<tr>
-					<td>Contrase&ntilde;a:</td>
-					<td>
-						<input	type="password"
-								name="contrasenia"/>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2" style="text-align: right;">
-						<input type="submit"
-								value="Entrar"/>
-					</td>
-				</tr>
-			</table>
-		</form>
+		<div style="width: 200px; margin-left: auto; margin-right: auto; font-family: Verdana;">
+			<form name="login" action="<c:url value="/j_spring_security_check"/>" method="post">
+				<table border="0" width="100%">
+				
+					<tr>
+						<td>
+							<input 	type="text" name="usuario" style="width: 97%;"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input	type="password" name="contrasenia" style="width: 97%;"/>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: center">
+							<input type="submit" value="OK" style="width: 100%;"/>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
 	</body>
 </html>

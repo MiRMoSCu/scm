@@ -130,14 +130,20 @@
 						<div style="width: 100%; height: 30px;"></div>
 						<div id="div_esquina_redonda">
 							<div id="div_mensaje_inscripcion_bienvenida">
-								<div id="div_logo_inscripcion">
-								
-								</div>
 								<div id="div_datos_congresista">
+									<br/><br/><br/><br/><br/>
 									<p class="morado">¡Bienvenido <b>${nombreCongresista}</b>!</p>
 									<p class="gris">Tu n&uacute;mero de registro es: <span class="morado"><b>${idParticipante}</b></span></p>
 									<p class="gris">Sugerimos que lo mantengas a la mano en el momento de tu llegada al Congreso. 
 									Esto permitir&aacute; agilizar la entrada de todos los congresistas.</p>
+								</div>
+								<div id="div_pie_inscripcion">
+									<div id="div_barra_color_negro">
+										<div id="div_pie_leon">
+											<img alt="" src="<c:url value="/resources/image/pie_logo_congreso.png"/>" style="z-index: 20;"/>
+										</div>	
+									</div>
+									
 								</div>
 							</div>
 						</div>

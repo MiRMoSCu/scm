@@ -7,6 +7,14 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Obtiene Excel</title>
+		<style type="text/css">
+			#div_tabla_con_boton {
+				width: 200px;
+				background: transparent; /* green; */
+				margin-left: auto;
+				margin-right: auto;
+			}
+		</style>
 		<script type="text/javascript">
 			var urlSalir = "${urlSalir}";
 			var urlDescargaExcel = "${urlDescargaExcel}";
@@ -29,12 +37,19 @@
 		</script>
 	</head>
 	<body>
-		<form name="form_obtiene_excel">
-			OBTIENE EXCEL
-			<input type="button" value="obten excel" onclick="menu('obtiene_excel')"/>
-			<br/>
-			<br/>
-			<input 	type="button" value="Salir" onclick="menu('salir')"/>
-		</form>
+		<div id="div_tabla_con_boton">
+			<form name="form_obtiene_excel">
+				<table border="0" width="100%">
+					<tr>
+						<td width="50%" style="text-align: center;">
+							<input type="button" value="Excel" onclick="menu('obtiene_excel')" style="width: 100%;"/>
+						</td>
+						<td width="50%" style="text-align: center;">
+							<input 	type="button" value="Salir" onclick="menu('salir')" style="width: 100%;"/>
+						</td>
+					</tr>
+				</table>
+			</form>	
+		</div>
 	</body>
 </html>

@@ -21,21 +21,53 @@
 	background: transparent; /* orange; */
 }
 
-#div_logo_inscripcion {
-	width: 300px;
-	height: 300px;
-	margin-left: auto;
-	margin-right: auto;
-	background: graytext;
-}
-
 #div_datos_congresista {
 	width: 600px;
+	height: 341px;
 	margin-left: auto;
 	margin-right: auto;
 	background: transparent; /* fuchsia; */
 	text-align: center;
 }
+
+#div_barra_sin_bordes {
+	width: 100%;
+	height: 25px;
+	background: green;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	
+}
+
+#div_pie_inscripcion {
+	border-radius: 25px;
+	width: 100%;
+	height: 164px;
+	margin-left: auto;
+	margin-right: auto;
+	background: black;
+	position: relative;
+}
+
+#div_barra_color_negro {
+	width: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background: black;
+	z-index: 10;
+}
+
+#div_pie_leon {
+	width: 143px;
+	height: 129px;
+	padding-top: 12px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+}
+
 
 .morado {
 	color: #670499;
