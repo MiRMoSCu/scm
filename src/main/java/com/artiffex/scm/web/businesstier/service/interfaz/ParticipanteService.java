@@ -8,6 +8,4 @@ public interface ParticipanteService {
 	
 	public Participante buscaParticipante(int idParticipante);
 	
-	public byte[] obtieneDocumentoListaParticipante();
-
 }

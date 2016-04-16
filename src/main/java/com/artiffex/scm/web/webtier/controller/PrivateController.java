@@ -15,7 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.artiffex.scm.web.businesstier.service.interfaz.ParticipanteService;
+import com.artiffex.scm.web.businesstier.service.interfaz.CongresoService;
 
 @Controller
 @RequestMapping("/private")
@@ -24,7 +24,7 @@ public class PrivateController {
 	private static final Logger log = Logger.getLogger(PrivateController.class);
 	
 	@Resource
-	private ParticipanteService participanteService;
+	private CongresoService congresoService;
 
 	@Secured({"ROLE_ROOT","ROLE_ADMIN"})
 	@RequestMapping("/admin/busqueda_registros")
@@ -38,7 +38,7 @@ public class PrivateController {
 	public void obtieneExcel(HttpServletRequest request, HttpServletResponse response) {
 		log.info("/obtiene_excel");
 		//System.out.println("Entro a obtener el excel");
-		byte[] documento = participanteService.obtieneDocumentoListaParticipante();
+		byte[] documento = congresoService.obtieneDocumentoListaParticipante();
 		Calendar calendar = Calendar.getInstance();
 		Date date = new Date(calendar.getTimeInMillis());
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddmmss");

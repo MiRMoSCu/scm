@@ -46,5 +46,7 @@ public interface CongresoService {
 			String fechaTransaccion,
 			Float importePago
 		);
+	
+	public byte[] obtieneDocumentoListaParticipante();
 
 }
