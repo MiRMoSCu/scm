@@ -8,13 +8,19 @@
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="hibernate.connection.max_allowed_packet">50M</property>
-<!-- LOCAL DATABASE -->
-<!--   
-		<property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/lithomat_scm_artiffex</property>
+<!-- LOCAL DEPLOY, LOCAL DATABASE -->
+<!-- 
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/xxxvicon_lithomat_scm_artiffex</property>
 		<property name="hibernate.connection.username">root</property>
 -->
-<!-- PRODUCTION DATABASE  -->
- 
+<!-- LOCAL DEPLOY, REMOTE DATABASE -->
+<!-- 
+		<property name="hibernate.connection.url">jdbc:mysql://31.170.106.44:3306/xxxvicon_lithomat_scm_artiffex</property>
+		<property name="hibernate.connection.username">xxxvicon_root</property>
+		<property name="hibernate.connection.password">Hno33Ovidio</property>
+-->
+
+<!-- REMOTE DEPLOY, REMOTE DATABASE  -->
 		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/xxxvicon_lithomat_scm_artiffex</property>
 		<property name="hibernate.connection.username">xxxvicon_root</property>
 		<property name="hibernate.connection.password">Hno33Ovidio</property>

@@ -47,7 +47,7 @@
         	/WEB-INF/config/applicationContext-jdbc.xml,
         	/WEB-INF/config/applicationContext-security.xml
         </param-value>
-    </context-param>
+    </context-param> 
 	<servlet>
 		<servlet-name>scm</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
