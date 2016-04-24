@@ -19,7 +19,6 @@
 		<property name="hibernate.connection.username">xxxvicon_root</property>
 		<property name="hibernate.connection.password">Hno33Ovidio</property>
 -->
-
 <!-- REMOTE DEPLOY, REMOTE DATABASE  -->
 		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/xxxvicon_lithomat_scm_artiffex</property>
 		<property name="hibernate.connection.username">xxxvicon_root</property>

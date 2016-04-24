@@ -34,7 +34,7 @@ import com.artiffex.scm.web.businesstier.utilidades.ComboSelect;
 
 @Controller
 @RequestMapping("/public")
-public class PublicController /* extends WebMvcConfigurerAdapter */ {
+public class PublicController {
 
 	private static final Logger log = Logger.getLogger(PublicController.class); 
 
@@ -65,12 +65,6 @@ public class PublicController /* extends WebMvcConfigurerAdapter */ {
 	
 	
 	
-	/*
-	@Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/public/bienvenido").setViewName("file_09_bienvenido");
-    }
-    */
 	
 	@RequestMapping("/inicio_")
 	public String inicioCortinilla(Model model) {
@@ -217,7 +211,6 @@ public class PublicController /* extends WebMvcConfigurerAdapter */ {
 			@RequestParam(value = "aplica_acompaniante", required = false) Boolean aplicaAcompaniante,
 			@RequestParam(value = "aplica_colacion_grado", required = false) Boolean aplicaColacionGrado,
 			@RequestParam(value = "aplica_hospedaje", required = false) Boolean aplicaHospedaje,
-			
 			
 			@RequestParam(value = "id_grado", required = false) Integer idGrado,
 			@RequestParam(value = "registro_nombre_cuerpo", required = false) String registroNombreCuerpo,
