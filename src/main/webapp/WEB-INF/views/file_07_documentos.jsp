@@ -124,7 +124,42 @@
 					</form>
 				</div>
 			</div>
+			<div id="div_contenedor">
+				<div id="div_ocupa_espacio"></div>
+				<div id="div_zona_visible">
+					<div>
+						<div id="div_banda_vertical">
+							<div id="div_leon">
+								<img alt="" src="<c:url value="/resources/image/leon.png"/>"/>
+							</div>
+						</div>
+						<div id="div_descripion_documentos_historicos">
+							<div id="div_padding">
+								<p class="izquierda morado"><b>Documentos</b></p>
+								<!-- 
+								<ul>
+									<li><a download href="<c:url value="/resources/documento/1aComisionDeConstitucion1916-1917.pdf"/>">1a Comisi&oacute;n de Constituci&oacute;n 1916 - 1917</a></li>
+									<li><a download href="<c:url value="/resources/documento/2aComisionDeConstitucion1916-1917.pdf"/>">2a Comisi&oacute;n de Constituci&oacute;n 1916 - 1917</a></li>
+									<li><a download href="<c:url value="/resources/documento/ComisionDeAdministracion.pdf"/>">Comisi&oacute;n de Administraci&oacute;n</a></li>
+									<li><a download href="<c:url value="/resources/documento/ComisionDePeticionesReglamentoYEstilo.pdf"/>">Comisi&oacute;n de Peticiones Reglamento y Estilo</a></li>
+									<li><a download href="<c:url value="/resources/documento/CompilacionDocumentos.pdf"/>">Compilaci&oacute;n de Documentos</a></li>
+									<li><a download href="<c:url value="/resources/documento/ConstitucionManuscrita1917.pdf"/>">Constituci&oacute;n manuscrita 1917</a></li>
+									<li><a download href="<c:url value="/resources/documento/ConstitucionMexico.pdf"/>">Constituci&oacute;n de M&eacute;xico</a></li>
+									<li><a download href="<c:url value="/resources/documento/CredencialesConservadas.pdf"/>">Credenciales Conservadas</a></li>
+									<li><a download href="<c:url value="/resources/documento/DiarioDeLosDebatesDelConstituyenteTomo1.pdf"/>">Diario de los Debates del Constituyente Tomo 1</a></li>
+									<li><a download href="<c:url value="/resources/documento/DiarioDeLosDebatesDelConstituyenteTomo2.pdf"/>">Diario de los Debates del Constituyente Tomo 2</a></li>
+									<li><a download href="<c:url value="/resources/documento/IndiceDeDiputados.pdf"/>">&Iacute;ndice de Diputados</a></li>
+									<li><a download href="<c:url value="/resources/documento/LibroActas1916-1917.pdf"/>">Libro Actas 1916-1917</a></li>
+									<li><a download href="<c:url value="/resources/documento/LibroDeActasSecretas1916-1977.pdf"/>">Libro de Actas Secretas 1916 - 1977</a></li>
+									<li><a download href="<c:url value="/resources/documento/ListadosAsistencias.pdf"/>">Listados Asistencias</a></li>
+									<li><a download href="<c:url value="/resources/documento/RegistroDeDiputados.pdf"/>">Registro de Diputados</a></li>
+								</ul>
+								-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-		
 	</body>
 </html>

@@ -226,6 +226,9 @@ public class CongresoServiceImpl implements CongresoService {
 			acompaniante.setNombre(acompanianteNombre);
 			acompanianteService.creaAcompaniante(acompaniante);
 			acompaniante.setActivo(true);
+			
+			acompaniante = null;
+			
 		}
 		
 		if (aplicaColacionGrado) {
@@ -240,6 +243,7 @@ public class CongresoServiceImpl implements CongresoService {
 			colacionGradoService.creaColacionGrado(colacionGrado);
 			
 			gradoPretende = null;
+			colacionGrado = null;
 		}
 		
 		if (aplicaHospedaje) {
@@ -270,6 +274,7 @@ public class CongresoServiceImpl implements CongresoService {
 			hospedajeService.creaHospedaje(hospedaje);
 			
 			paqueteHotel = null;
+			hospedaje = null;
 		}
 		
 		float costoCongresista = costoCongresistaService.precioPorFecha();

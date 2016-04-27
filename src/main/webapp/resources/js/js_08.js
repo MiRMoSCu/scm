@@ -240,14 +240,18 @@ function revisaFormulario() {
 	}
 	
 	// VALIDA IMPORTE TRANSFERENCIA BANCARIA
-	console.log(parseFloat(document.form_registro.importe_pago.value))
-	console.log(parseFloat(document.form_costos.costo_total.value))
-	
+	//console.log(parseFloat(document.form_registro.importe_pago.value))
+	//console.log(parseFloat(document.form_costos.costo_total.value))
 	if (correcto
 			&& parseFloat(document.form_registro.importe_pago.value) != parseFloat(document.form_costos.costo_total.value)) {
 		correcto = false;
 		alert("Estimado Congresista, la transferencia bancaria que realizó no corresponde con su información de registro. No es posible ingresar su información.");
 	}
+	
+	// VALIDA FECHA DE HOTEL
+	
+	
+	
 	
 	return correcto;
 }

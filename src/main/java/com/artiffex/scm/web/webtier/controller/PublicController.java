@@ -70,7 +70,7 @@ public class PublicController {
 	public String inicioCortinilla(Model model) {
 		log.info("/public/inicio_");
 		
-		int contadorVisitas = parametroConfiguracionService.obtieneContadorVisitas();
+		int contadorVisitas = parametroConfiguracionService.obtieneContadorVisitasNuevoVisitante();
 		model.addAttribute("contadorVisitas",contadorVisitas);
 		
 		return "file_00_cortinilla";

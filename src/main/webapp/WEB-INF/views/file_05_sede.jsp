@@ -184,9 +184,10 @@
 								<div>
 									<img alt="" src="<c:url value="/resources/image/foto_stunam_interior.png"/>"/>
 								</div>
-								
-							
 							</div>
+						</div>
+						<div>
+							<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 						</div>
 					</div>
 				</div>

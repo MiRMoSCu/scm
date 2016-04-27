@@ -14,7 +14,7 @@ public class ParametroConfiguracionServiceImpl implements ParametroConfiguracion
 	@Resource
 	private ParametroConfiguracionDao parametroConfiguracionDao;
 	
-	public int obtieneContadorVisitas() {
+	public int obtieneContadorVisitasNuevoVisitante() {
 		int contadorVisitas = 0;
 		ParametroConfiguracion parametroConfiguracion = null;
 		parametroConfiguracion = parametroConfiguracionDao.buscaPorCriteriaQuery("from ParametroConfiguracion pc where pc.activo = true and pc.nombre = 'contador_visitas'");
@@ -22,6 +22,17 @@ public class ParametroConfiguracionServiceImpl implements ParametroConfiguracion
 			contadorVisitas = parametroConfiguracion.getValorInt() + 1;
 			parametroConfiguracion.setValorInt(contadorVisitas);
 			parametroConfiguracionDao.modifica(parametroConfiguracion);
+		}
+		parametroConfiguracion = null;
+		return contadorVisitas;
+	}
+	
+	public int obtieneContadorVisitas() {
+		int contadorVisitas = 0;
+		ParametroConfiguracion parametroConfiguracion = null;
+		parametroConfiguracion = parametroConfiguracionDao.buscaPorCriteriaQuery("from ParametroConfiguracion pc where pc.activo = true and pc.nombre = 'contador_visitas'");
+		if (parametroConfiguracion != null) {
+			contadorVisitas = parametroConfiguracion.getValorInt();
 		}
 		parametroConfiguracion = null;
 		return contadorVisitas;
