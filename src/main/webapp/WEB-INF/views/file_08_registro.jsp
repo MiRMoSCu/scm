@@ -145,7 +145,7 @@
 									</div>
 								</form>
 							</div>
-							<form name="form_registro">
+							<form name="form_registro" accept-charset="ISO-8859-1">
 								<div id="div_contenedor_formularios">
 									<div id="div_contenedor_datos_generales" style="display: block; background: transparent;">
 										<div id="div_contenedor_ambos_paneles">

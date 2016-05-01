@@ -173,10 +173,10 @@
 									Todos los temas mas&oacute;nicos o profanos deber&aacute;n ser tratados de conformidad con lo dispuesto 
 									en el Art&iacute;culo 118 de los Reglamentos Generales.</p>
 									<p class="justificado">Todas las ponencias y sus respectivas presentaciones, se deber&aacute;n enviar al comit&eacute; organizador 
-									del congreso, al correo <span class="morado">contacto@congresoxxxviscm.org.mx</span>, a m&aacute;s tardar el 
+									del congreso, al correo <span class="morado">contacto@xxxvicongresoscm.org.mx</span>, a m&aacute;s tardar el 
 									d&iacute;a 30 de junio de 2016.</p>
 									<p class="justificado">Toda la información del Congreso, se publicar&aacute; en breve en la siguiente direcci&oacute;n: 
-									www.congresoxxxviscm.org.mx</p>
+									www.xxxvicongresoscm.org.mx</p>
 									<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 								</div>
 							</div>

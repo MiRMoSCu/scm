@@ -172,7 +172,7 @@
 								<p class="justificado">I.·.P.·.H.·. Luis Carlos Mej&iacute;a Garc&iacute;a, 33° S.·.N.·.,<br/>
 								Subdelegado en Funciones de Delegado para Valles y Campamentos del Distrito Federal.<br/>
 								Correo electr&oacute;nico<br/>
-								<span class="morado">subdelegadodf@congresoxxxviscm.org.mx</span><br/>
+								<span class="morado">subdelegadodf@xxxvicongresoscm.org.mx</span><br/>
 								Tel&eacute;fono celular: 55 4098 3910</p>
 								<br/>
 								<p class="izquierda morado"><b>Otorgamiento de grados (colaci&oacute;n)</b></p>
