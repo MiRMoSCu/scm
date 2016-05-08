@@ -1,7 +1,10 @@
 package com.artiffex.scm.web.businesstier.service.implementacion;
 
 import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -37,23 +40,39 @@ public class GradoPretendeServiceImpl implements GradoPretendeService {
 		return listaComboSelect;
 	}
 
-	public float precioPorGrado(int idGradoPretende) {
+	public float precioPorGradoPorFecha(int idGradoPretende, Date fecha) {
 		float precio = 0f;
+		
+		DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
 		
 		StringBuilder sb = new StringBuilder();
 		sb.append(" SELECT ");
-		sb.append("    gp.precio");
+		sb.append("    gpp.precio");
 		sb.append(" FROM");
-		sb.append("    grado_pretende gp");
+		sb.append("    grado_pretende gp,");
+		sb.append("    grado_pretende_precio gpp");
 		sb.append(" WHERE");
-		sb.append("    gp.activo = TRUE");
+		sb.append("    gpp.id_grado_pretende = gp.id_grado_pretende");
+		sb.append("        AND gp.activo = TRUE");
+		sb.append("        AND gpp.activo = TRUE");
+		sb.append("        AND '");
+		sb.append(df.format(fecha));
+		sb.append("' >= gpp.fecha_inicio");
+		sb.append("        AND '");
+		sb.append(df.format(fecha));
+		sb.append("' <= gpp.fecha_fin");
 		sb.append("        AND gp.id_grado_pretende = ");
 		sb.append(idGradoPretende);
 		sb.append(";");
 		
-		precio = ((BigDecimal) utilidadesDao.buscaValorPorSQLQuery(sb.toString())).floatValue();
+		try {
+			precio = ((BigDecimal) utilidadesDao.buscaValorPorSQLQuery(sb.toString())).floatValue();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 		
 		sb = null;
+		df = null;
 		
 		return precio;
 	}

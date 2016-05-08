@@ -25,6 +25,4 @@ public class ColacionGradoServiceImpl implements ColacionGradoService {
 		return colacionGradoDao.crea(colacionGrado);
 	}
 
-	
-
 }

@@ -145,8 +145,9 @@ public class CongresoServiceImpl implements CongresoService {
 	
 	
 
-	public int creaInformacion(String participanteApPaterno,
-			String participanteApMaterno, String participanteNombre,
+	public int creaInformacion(
+			Date fecha,
+			String participanteApPaterno, String participanteApMaterno, String participanteNombre,
 			String calle, String numExterior, String numInterior,
 			String colonia, String delegacionMunicipio, String ciudad,
 			Integer idEstado, String codigoPostal, String telefonoParticular,
@@ -279,7 +280,7 @@ public class CongresoServiceImpl implements CongresoService {
 		
 		float costoCongresista = costoCongresistaService.precioPorFecha();
 		float costoAcompaniante = aplicaAcompaniante?costoAcompanianteService.precioPorFecha():0f;
-		float costoColacionGrado = aplicaColacionGrado?gradoPretendeService.precioPorGrado(idGradoPretende):0f;
+		float costoColacionGrado = aplicaColacionGrado?gradoPretendeService.precioPorGradoPorFecha(idGradoPretende,fecha):0f;
 		float costoHospedaje = aplicaHospedaje?paqueteHotelService.precioPorPaquete(idPaqueteHotel):0f;
 		float costoTotal = costoCongresista + costoAcompaniante + costoColacionGrado + costoHospedaje;
 		

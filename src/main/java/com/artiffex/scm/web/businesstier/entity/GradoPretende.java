@@ -1,12 +1,15 @@
 package com.artiffex.scm.web.businesstier.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,8 +21,9 @@ public class GradoPretende implements Serializable {
 	private Integer idGradoPretende;
 	private String nombre;
 	private String descripcion;
-	private Float precio;
 	private Boolean activo;
+	// relaciones de uno a muchos que mantiene con otras tablas
+	private List<GradoPretendePrecio> listaGradoPretendePrecio;
 	
 	// constructor
 	public GradoPretende() { }
@@ -38,13 +42,14 @@ public class GradoPretende implements Serializable {
 	public String getDescripcion() { return descripcion; }
 	public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
 
-	@Column(name="precio", precision=2)
-	public Float getPrecio() { return precio; }
-	public void setPrecio(Float precio) { this.precio = precio; }
-
 	@Column(name="activo")
 	public Boolean getActivo() { return activo; }
 	public void setActivo(Boolean activo) { this.activo = activo; }
+
+	@OneToMany
+	@JoinColumn(name="id_grado_pretende")
+	public List<GradoPretendePrecio> getListaGradoPretendePrecio() { return listaGradoPretendePrecio; }
+	public void setListaGradoPretendePrecio( List<GradoPretendePrecio> listaGradoPretendePrecio) { this.listaGradoPretendePrecio = listaGradoPretendePrecio; }
 	
 }
  

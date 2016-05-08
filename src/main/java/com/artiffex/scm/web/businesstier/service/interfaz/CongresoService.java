@@ -1,9 +1,12 @@
 package com.artiffex.scm.web.businesstier.service.interfaz;
 
+import java.util.Date;
+
 
 public interface CongresoService {
 	
 	public int creaInformacion(
+			Date fecha,
 			String participanteApPaterno,
 			String participanteApMaterno,
 			String participanteNombre,

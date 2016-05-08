@@ -34,6 +34,10 @@ public class SpringMain {
 		int idColacionGrado = colacionGradoService.creaColacionGrado(colacionGrado);
 		System.out.println("idColacionGrado:"+idColacionGrado);
 		colacionGrado = null;
+		
+		
+		
+		
 
 		/*
 		ParticipanteService participanteService = (ParticipanteService) context.getBean("participanteService");

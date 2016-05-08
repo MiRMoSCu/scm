@@ -37,7 +37,11 @@ public class CostoCongresistaServiceImpl implements CostoCongresistaService {
 		sb.append(fecha);
 		sb.append("' <= cc.fecha_fin;");
 		
-		precio = ((BigDecimal) utilidadesDao.buscaValorPorSQLQuery(sb.toString())).floatValue();
+		try {
+			precio = ((BigDecimal) utilidadesDao.buscaValorPorSQLQuery(sb.toString())).floatValue();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 		
 		sb = null;
 		fecha = null;

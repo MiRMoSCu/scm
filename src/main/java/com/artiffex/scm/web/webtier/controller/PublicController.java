@@ -177,7 +177,7 @@ public class PublicController {
 			@RequestParam(value = "id_grado_pretende", required = false) Integer idGradoPretende
 		) {
 		log.info("/public/costoColacion");
-		Float precio = gradoPretendeService.precioPorGrado(idGradoPretende);
+		Float precio = gradoPretendeService.precioPorGradoPorFecha(idGradoPretende, new Date(Calendar.getInstance().getTimeInMillis()));
 		return precio.toString();
 	}
 	
@@ -246,6 +246,7 @@ public class PublicController {
 		//System.out.println(fechaEntrada);
 		
 		int idParticipante = congresoService.creaInformacion(
+				new Date(Calendar.getInstance().getTimeInMillis()),
 				participanteApPaterno, participanteApMaterno, participanteNombre, 
 				calle, numExterior, numInterior, colonia, delegacionMunicipio, ciudad, idEstado, codigoPostal, telefonoParticular, telefonoMovil, telefonoOficina, email,  
 				aplicaAcompaniante, aplicaColacionGrado, aplicaHospedaje, 

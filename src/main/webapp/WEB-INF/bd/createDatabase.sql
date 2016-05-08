@@ -11,7 +11,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema xxxvicon_lithomat_scm_artiffex
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `xxxvicon_lithomat_scm_artiffex` DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA IF NOT EXISTS `xxxvicon_lithomat_scm_artiffex` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
 USE `xxxvicon_lithomat_scm_artiffex` ;
 
 -- -----------------------------------------------------
@@ -292,7 +292,6 @@ CREATE TABLE IF NOT EXISTS `xxxvicon_lithomat_scm_artiffex`.`grado_pretende` (
   `id_grado_pretende` INT NOT NULL,
   `nombre` VARCHAR(45) NULL,
   `descripcion` VARCHAR(80) NULL,
-  `precio` DECIMAL(7,2) NULL,
   `activo` TINYINT(1) NULL,
   PRIMARY KEY (`id_grado_pretende`))
 ENGINE = InnoDB;
@@ -390,6 +389,26 @@ CREATE TABLE IF NOT EXISTS `xxxvicon_lithomat_scm_artiffex`.`costo_acompaniante`
   `precio` DECIMAL(7,2) NULL,
   `activo` TINYINT(1) NULL,
   PRIMARY KEY (`id_costo_acompaniante`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `xxxvicon_lithomat_scm_artiffex`.`grado_pretende_precio`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `xxxvicon_lithomat_scm_artiffex`.`grado_pretende_precio` (
+  `id_grado_pretende_precio` INT NOT NULL,
+  `id_grado_pretende` INT NOT NULL,
+  `fecha_inicio` DATE NULL,
+  `fecha_fin` DATE NULL,
+  `precio` DECIMAL(7,2) NULL,
+  `activo` TINYINT(1) NULL,
+  PRIMARY KEY (`id_grado_pretende_precio`),
+  INDEX `fk_grado_pretende_precio_grado_pretende1_idx` (`id_grado_pretende` ASC),
+  CONSTRAINT `fk_grado_pretende_precio_grado_pretende1`
+    FOREIGN KEY (`id_grado_pretende`)
+    REFERENCES `xxxvicon_lithomat_scm_artiffex`.`grado_pretende` (`id_grado_pretende`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 

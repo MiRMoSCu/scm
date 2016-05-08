@@ -88,10 +88,22 @@ INSERT INTO tipo_mesa (id_tipo_mesa, nombre, descripcion, activo) VALUES (6,'Lib
 
 
 
-INSERT INTO grado_pretende (id_grado_pretende, nombre, descripcion, precio, activo) VALUES (1,'14º',' ',1500,1);
-INSERT INTO grado_pretende (id_grado_pretende, nombre, descripcion, precio, activo) VALUES (2,'15º - 18º',' ',2000,1);
-INSERT INTO grado_pretende (id_grado_pretende, nombre, descripcion, precio, activo) VALUES (3,'19º - 30º',' ',1700,1);
-INSERT INTO grado_pretende (id_grado_pretende, nombre, descripcion, precio, activo) VALUES (4,'31º - 32º',' ',3400,1);
+INSERT INTO grado_pretende (id_grado_pretende, nombre, descripcion, activo) VALUES (1,'14º',' ',1);
+INSERT INTO grado_pretende (id_grado_pretende, nombre, descripcion, activo) VALUES (2,'15º - 18º',' ',1);
+INSERT INTO grado_pretende (id_grado_pretende, nombre, descripcion, activo) VALUES (3,'19º - 30º',' ',1);
+INSERT INTO grado_pretende (id_grado_pretende, nombre, descripcion, activo) VALUES (4,'31º - 32º',' ',1);
+
+
+
+
+INSERT INTO grado_pretende_precio (id_grado_pretende_precio, id_grado_pretende, fecha_inicio, fecha_fin, precio, activo) VALUES (1,1,'2016-01-01','2016-05-31',1500,1);
+INSERT INTO grado_pretende_precio (id_grado_pretende_precio, id_grado_pretende, fecha_inicio, fecha_fin, precio, activo) VALUES (2,2,'2016-01-01','2016-05-31',2000,1);
+INSERT INTO grado_pretende_precio (id_grado_pretende_precio, id_grado_pretende, fecha_inicio, fecha_fin, precio, activo) VALUES (3,3,'2016-01-01','2016-05-31',1700,1);
+INSERT INTO grado_pretende_precio (id_grado_pretende_precio, id_grado_pretende, fecha_inicio, fecha_fin, precio, activo) VALUES (4,4,'2016-01-01','2016-05-31',3400,1);
+INSERT INTO grado_pretende_precio (id_grado_pretende_precio, id_grado_pretende, fecha_inicio, fecha_fin, precio, activo) VALUES (5,1,'2016-06-01','2016-12-01',1600,1);
+INSERT INTO grado_pretende_precio (id_grado_pretende_precio, id_grado_pretende, fecha_inicio, fecha_fin, precio, activo) VALUES (6,2,'2016-06-01','2016-12-01',2200,1);
+INSERT INTO grado_pretende_precio (id_grado_pretende_precio, id_grado_pretende, fecha_inicio, fecha_fin, precio, activo) VALUES (7,3,'2016-06-01','2016-12-01',1800,1);
+INSERT INTO grado_pretende_precio (id_grado_pretende_precio, id_grado_pretende, fecha_inicio, fecha_fin, precio, activo) VALUES (8,4,'2016-06-01','2016-12-01',3700,1);
 
 
 
@@ -129,6 +141,37 @@ INSERT INTO costo_congresista (id_costo_congresista, fecha_inicio, fecha_fin, pr
 INSERT INTO costo_acompaniante (id_costo_acompaniante, fecha_inicio, fecha_fin, precio, activo) VALUES (1,'2016-01-01','2016-02-29',1500,1);
 INSERT INTO costo_acompaniante (id_costo_acompaniante, fecha_inicio, fecha_fin, precio, activo) VALUES (2,'2016-03-01','2016-04-30',2000,1);
 INSERT INTO costo_acompaniante (id_costo_acompaniante, fecha_inicio, fecha_fin, precio, activo) VALUES (3,'2016-05-01','2016-06-30',2500,1);
+
+
+
+
+INSERT INTO participante (id_participante, nombre, id_estado, activo) VALUES (1,'Gerardo',1,1);
+
+
+
+
+INSERT INTO acompaniante (id_acompaniante, id_participante, nombre, activo) VALUES (1,1,'Lalo',1);
+INSERT INTO acompaniante (id_acompaniante, id_participante, nombre, activo) VALUES (2,1,'Mario',1);
+
+
+
+
+INSERT INTO registro (id_registro, id_participante, id_grado, nombre_cuerpo, delegacion, id_tipo_participacion, id_tipo_ponencia, id_tipo_mesa, activo) VALUES (1,1,1,'Abejitas','Plantitas',1,3,1,1);
+
+
+
+
+INSERT INTO hospedaje (id_hospedaje, id_participante, id_paquete_hotel, fecha_entrada, fecha_salida, num_personas_habitacion, activo) VALUES (1,1,1,'2016-01-02','2016-01-03',1,1);
+
+
+
+
+INSERT INTO colacion_grado (id_colacion_grado, id_participante, id_grado_pretende, cuerpo_pretende, activo) VALUES (1,1,2,'Cocodrilitos',1);
+
+
+
+
+INSERT INTO pago (id_pago, id_participante, importe_pago, activo) VALUES (1,1,2000,1);
 
 
 

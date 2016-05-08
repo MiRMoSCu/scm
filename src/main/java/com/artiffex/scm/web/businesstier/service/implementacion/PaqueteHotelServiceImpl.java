@@ -51,7 +51,11 @@ public class PaqueteHotelServiceImpl implements PaqueteHotelService {
 		sb.append(idPaqueteHotel);
 		sb.append(";");
 		
-		precio = ((BigDecimal) utilidadesDao.buscaValorPorSQLQuery(sb.toString())).floatValue();
+		try {
+			precio = ((BigDecimal) utilidadesDao.buscaValorPorSQLQuery(sb.toString())).floatValue();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 		
 		sb = null;
 		

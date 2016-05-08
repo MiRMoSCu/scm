@@ -37,7 +37,11 @@ public class CostoAcompanianteServiceImpl implements CostoAcompanianteService {
 		sb.append(fecha);
 		sb.append("' <= ca.fecha_fin;");
 		
-		precio = ((BigDecimal) utilidadesDao.buscaValorPorSQLQuery(sb.toString())).floatValue();
+		try {
+			precio = ((BigDecimal) utilidadesDao.buscaValorPorSQLQuery(sb.toString())).floatValue();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 		
 		sb = null;
 		fecha = null;
