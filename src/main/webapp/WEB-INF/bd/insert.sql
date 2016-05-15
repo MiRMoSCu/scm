@@ -115,20 +115,18 @@ INSERT INTO hotel (id_hotel, nombre, activo) VALUES (3,'Ramada Inn (Sub-sede)',1
 
 
 
-INSERT INTO paquete_hotel (id_paquete_hotel, id_hotel, nombre, descripcion, precio, activo) VALUES (1,1,'Doble 1 día','Habitación doble por día. Incluye desayuno',3520,1);
-INSERT INTO paquete_hotel (id_paquete_hotel, id_hotel, nombre, descripcion, precio, activo) VALUES (2,1,'Doble 2 días','Habitación doble por 2 días. Incluye desayuno',7040,1);
-INSERT INTO paquete_hotel (id_paquete_hotel, id_hotel, nombre, descripcion, precio, activo) VALUES (3,1,'Doble 3 días','Habitación doble por 3 días. Incluye desayuno',10560,1);
-INSERT INTO paquete_hotel (id_paquete_hotel, id_hotel, nombre, descripcion, precio, activo) VALUES (4,2,'Doble 1 día','Habitación doble por día. Incluye desayuno',1561,1);
-INSERT INTO paquete_hotel (id_paquete_hotel, id_hotel, nombre, descripcion, precio, activo) VALUES (5,2,'Doble 2 días','Habitación doble por 2 días. Incluye desayuno',3122,1);
-INSERT INTO paquete_hotel (id_paquete_hotel, id_hotel, nombre, descripcion, precio, activo) VALUES (6,2,'Doble 3 días','Habitación doble por 3 días. Incluye desayuno',4683,1);
-INSERT INTO paquete_hotel (id_paquete_hotel, id_hotel, nombre, descripcion, precio, activo) VALUES (7,3,'Sencilla 1 día','Habitación sencilla por día. NO incluye desayuno',895,1);
-INSERT INTO paquete_hotel (id_paquete_hotel, id_hotel, nombre, descripcion, precio, activo) VALUES (8,3,'Sencilla 2 días','Habitación sencilla por 2 días. NO incluye desayuno',1790,1);
-INSERT INTO paquete_hotel (id_paquete_hotel, id_hotel, nombre, descripcion, precio, activo) VALUES (9,3,'Sencilla 3 días','Habitación sencilla por 3 días. NO incluye desayuno',2685,1);
-INSERT INTO paquete_hotel (id_paquete_hotel, id_hotel, nombre, descripcion, precio, activo) VALUES (10,3,'Doble 1 día','Habitación doble por día. NO incluye desayuno',1265,1);
-INSERT INTO paquete_hotel (id_paquete_hotel, id_hotel, nombre, descripcion, precio, activo) VALUES (11,3,'Doble 2 días','Habitación doble por 2 días. NO incluye desayuno',2530,1);
-INSERT INTO paquete_hotel (id_paquete_hotel, id_hotel, nombre, descripcion, precio, activo) VALUES (12,3,'Doble 3 días','Habitación doble por 3 días. NO incluye desayuno',3795,1);
-
-
+INSERT INTO paquete_hotel (id_paquete_hotel, id_hotel, nombre, descripcion, precio, activo) VALUES (1,1,'Doble 1 día','Habitación doble por 1 días. Incluye desayuno',3520,0);
+INSERT INTO paquete_hotel (id_paquete_hotel, id_hotel, nombre, descripcion, precio, activo) VALUES (2,1,'Doble 2 días','Habitación doble por 2 días. Incluye desayuno',7040,0);
+INSERT INTO paquete_hotel (id_paquete_hotel, id_hotel, nombre, descripcion, precio, activo) VALUES (3,1,'Doble 3 días','Habitación doble por 3 días. Incluye desayuno',6662,1);
+INSERT INTO paquete_hotel (id_paquete_hotel, id_hotel, nombre, descripcion, precio, activo) VALUES (4,2,'Doble 1 día','Habitación doble por día. Incluye desayuno',1510.61,1);
+INSERT INTO paquete_hotel (id_paquete_hotel, id_hotel, nombre, descripcion, precio, activo) VALUES (5,2,'Doble 2 días','Habitación doble por 2 días. Incluye desayuno',3021.22,1);
+INSERT INTO paquete_hotel (id_paquete_hotel, id_hotel, nombre, descripcion, precio, activo) VALUES (6,2,'Doble 3 días','Habitación doble por 3 días. Incluye desayuno',4531.83,1);
+INSERT INTO paquete_hotel (id_paquete_hotel, id_hotel, nombre, descripcion, precio, activo) VALUES (7,3,'Sencilla 1 día','Habitación sencilla por día. NO incluye desayuno',750,1);
+INSERT INTO paquete_hotel (id_paquete_hotel, id_hotel, nombre, descripcion, precio, activo) VALUES (8,3,'Sencilla 2 días','Habitación sencilla por 2 días. NO incluye desayuno',1500,1);
+INSERT INTO paquete_hotel (id_paquete_hotel, id_hotel, nombre, descripcion, precio, activo) VALUES (9,3,'Sencilla 3 días','Habitación sencilla por 3 días. NO incluye desayuno',2250,1);
+INSERT INTO paquete_hotel (id_paquete_hotel, id_hotel, nombre, descripcion, precio, activo) VALUES (10,3,'Doble 1 día','Habitación doble por día. NO incluye desayuno',1060,1);
+INSERT INTO paquete_hotel (id_paquete_hotel, id_hotel, nombre, descripcion, precio, activo) VALUES (11,3,'Doble 2 días','Habitación doble por 2 días. NO incluye desayuno',2120,1);
+INSERT INTO paquete_hotel (id_paquete_hotel, id_hotel, nombre, descripcion, precio, activo) VALUES (12,3,'Doble 3 días','Habitación doble por 3 días. NO incluye desayuno',3180,1);
 
 
 INSERT INTO costo_congresista (id_costo_congresista, fecha_inicio, fecha_fin, precio, activo) VALUES (1,'2016-01-01','2016-02-29',1800,1);

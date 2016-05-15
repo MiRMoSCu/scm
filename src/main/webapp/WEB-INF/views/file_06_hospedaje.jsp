@@ -154,12 +154,21 @@
 										con habitaciones est&aacute;ndar, superiores y suites, &aacute;rea de estacionamiento, gimnasio, 
 										lobby bar y salas para reuniones. El Supremo Consejo de M&eacute;xico, a trav&eacute;s del Comit&eacute; 
 										Organizador del Congreso, ha negociado un precio preferencial para los congresistas tanto en 
-										habitaciones como en alimentos.</p>
-										<p><b>Los derechos adquiridos mediante el pago de la cuota acordada son:</b></p>
-										<p>Tarifa Preferencial habitaci&oacute;n DOBLE incluye desayuno, impuestos (IVA e Impuesto sobre 
-										hoteler&iacute;a), propinas a camaristas y maleteros. La tarifa tambi&eacute;n aplica a dos d&iacute;as antes o 
-										despu&eacute;s del evento sujeto a disponibilidad. El pago de los d&iacute;as extras a los del congreso 
-										se realiza directamente en el hotel.</p>
+										habitaciones como en alimentos y es considerado como Hotel Sede del Congreso. El n&uacute;mero
+										total de habitaciones reservadas a nuestro grupo con esta tarifa preferencial es de 40 (cuarenta),
+										por lo que se sugiere hacer la reserva lo antes posible.</p>
+										<p><b>Los derechos adquiridos mediante el pago de la cuota de $ 6,662.00 (seis mil seiscientos sesenta
+										y dos pesos 00/100 M.N.) son:</b></p>
+										<p>Tarifa Preferencial habitaci&oacute;n DOBLE para dos personas incluye desayuno, impuestos (IVA e 
+										Impuesto sobre hoteler&iacute;a), propinas a camaristas y maleteros. La tarifa tambi&eacute;n aplica a 
+										dos d&iacute;as despu&eacute;s del evento sujeto a disponibilidad. El pago de los d&iacute;as extras 
+										a los del congreso se realiza directamente en el hotel. En caso de elegir este hotel, deber&aacute;n 
+										confirmar su requerimiento con Luis Carlos Mej&iacute;a
+										para que les indique la disponibilidad de habitaciones, y deber&aacute;n hacer el dep&oacute;sito
+										bancario o transferencia a la cuenta 1227284, BANAMEX Sucursal 221 a nombre de Cultura y Arte A.C. Una vez
+										realizado el dep&oacute;sito, enviar por correo electr&oacute;nico a la direcci&oacute;n 
+										grantesoreroadjunto@gmail.com, la copia del comprobante electr&oacute;nico y capturar este n&uacute;mero
+										de referencia en el formato de insripci&oacute; adjunto a esta p&aacute;gina</p>
 										<p>Chequeo temprano (Early Check in): Normalmente la hora de entrada es a las 15:00 h. Si su arribo al 
 										hotel es antes de esta hora, podr&aacute; ingresar a las habitaciones si hubiere disponibilidad de 
 										cuartos y sin costo adicional. De lo contrario, usted podr&aacute; resguardar su equipaje en los sitios 
@@ -230,7 +239,9 @@
 										<p>Localizado en una de las esquinas de la Plaza Patio Universidad, este hotel de 4 estrellas se encuentra 
 										inserto en la plaza comercial, cerca de otros centros comerciales, restaurantes y bares, agencias de autos 
 										y bancos. Con concepto minimalista y de negocios, ofrece al Supremo Consejo una tarifa preferencial para 
-										los congresistas que decidan por esta opci&oacute;n.</p>
+										los congresistas que decidan por esta opci&oacute;n en habitaci&oacute;n doble de $1,510.61 (un mil quinientos
+										diex pesos 61/100 M.N.) por d&iacute;a con una disponibilidad de 40 habitaciones incluidos impuestos (IVA e
+										Impuesto sobre Hoteler&iacute;a), propinas a camaristas y botones.</p>
 										<p>La tarifa incluye habitaci&oacute;n doble con desayuno bufet, internet inal&aacute;mbrico y derecho a 
 										uso de gimnasio, impuestos y propinas a botones y camaristas. La hora de chequeo de entrada (Check in) es 
 										a las 15:00h y de salida (Check out) a las 13:00. Dado que es un hotel con un alto &iacute;ndice de 
@@ -239,6 +250,10 @@
 										acudir a las sesiones de cierre del congreso, haga su chequeo de salida y deje en resguardo su equipaje.</p>
 										<p>Dado que el estacionamiento es concesionado, &eacute;ste tiene un costo de $90.00 por auto por d&iacute;a 
 										para hu&eacute;spedes y clientes. El pago se hace directo al hotel o en el estacionamiento mismo.</p>
+										<p>Para realizar la reservaci&oacute;n de habitaciones en este hotel, <b>deben con anterioridad comunicarse
+										con la Lic. Natalia Pi Gutierrez</b>, Gerente de Ventas, al tel&eacute;fono (01) 55 5623-6584 quien les 
+										dar&aacute; la disponibilidad de habitaciones y el procedimiento del pago de acuerdo a convenio con el
+										Supremo Consejo de M&eacute;xico a trav&eacute;s de Cultura y Arte A.C.</p>
 										<br/>
 										<div id="id_separador_city"></div>
 										<div id="div_fotografia">
@@ -286,12 +301,19 @@
 									<div id="div_contrato">
 										<p>Localizado en el sur de la ciudad, a dos cuadras del metro Ermita, en una de las avenidas m&acute;s 
 										transitadas de la Ciudad de M&eacute;xico, cercano a sitios de inter&eacute;s en Coyoac&aacute;n, y cerca 
-										de la terminal de autobuses del Sur. El costo de la habitaci&oacute;n incluye impuestos, pero todos los 
-										alimentos y cualquier otro servicio ser&aacute;n por cuenta del cliente. El acceso a Internet inal&aacute;mbrico 
-										gratis. La hora de chequeo de entrada (Check in) es a las 13:00h y de salida (Check out) a las 12:00. 
+										de la terminal de autobuses del Sur. El costo de la habitaci&oacute;n en cuarto sencillo de $750.00 (setecientos
+										cincuenta pesos 00/100 M.N.) por d&iacute;a con una disponibilidadde 26 habitaciones, y de $1,060.00 (mil
+										sesenta pesos 00/100 M.N.) por d&iacute;a en habitaci&oacute;n doble incluye impuestos, pero todos los 
+										alimentos y cualquier otro servicio ser&aacute;n por cuenta del cliente como propinas a camaristas y botones.
+										El acceso a Internet inal&aacute;mbrico gratis. 
+										La hora de chequeo de entrada (Check in) es a las 13:00h y de salida (Check out) a las 12:00. 
 										No se permite chequeo tard&iacute;o pero existe la opci&oacute;n de resguardo de equipaje, de lo contrario 
 										se cobrar&aacute; la tarifa completa. Se aconseja que el &uacute;ltimo d&iacute;a antes de acudir a las sesiones 
 										de cierre del congreso, haga su chequeo de salida y deje en resguardo su equipaje.</p>
+										<p>Para realizar la reservaci&oacute;n de habitaciones en este hotel, <b>deben con anterioridad comunicarse
+										con la Lic. Ver&oacute;nica Jacintos Ortiz</b>, Gerente de Ventas, al tel&eacute;fono (01) 55 5604-8944 quien les
+										dar&aacute; la disponibilidad de habitaciones y el procedimiento del pago de acuerdo a convenio con el Supremo
+										Consejo de M&eacute;xico a trav&eacute;s de Cultura y Arte A.C.</p>
 										<br/>
 										<div id="id_separador_ramada"></div>
 										<div id="div_fotografia">
