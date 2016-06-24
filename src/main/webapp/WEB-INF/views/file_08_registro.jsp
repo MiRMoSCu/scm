@@ -523,6 +523,16 @@
 																</tr>
 																<tr><td colspan="2">&nbsp;</td></tr>
 															</table>
+															<div id="div_contenedor_instrucciones">
+																<ol>
+																	<li>Verifique los conceptos que vaya a pagar y el total de la inversi&oacute;n en el sector CONCEPTOS DE PAGO.</li>
+																	<li>Realice el pago en su banco, v&iacute;a internet o en sucursal.</li>
+																	<li>Ingrese el n&uacute;mero de autorizaci&oacute;n de su Banco en el espacio correspondiente.</li>
+																	<li>Env&iacute;e su ficha de dep&oacute;sito escaneada v&iacute;a correo electr&oacute;nico a la siguiente direcci&oacute;n: mejiagc02@gmail.com</li>
+																	<li>El d&iacute;a del registro en el congreso lleve consigo su comprobante de pago.</li>
+																</ol> 
+																<br/>
+															</div>
 														</div>
 													</div>
 												</div>
@@ -546,7 +556,7 @@
 																<tr><td colspan="2"><input type="text" name="pago_ciudad"/></td></tr>
 																<tr><td width="50%">
 																		<table border="0">
-																			<tr><td class="gris">NUM. REFERENCIA</td></tr>
+																			<tr><td class="gris">NUM. AUTORIZACI&Oacute;N</td></tr>
 																			<tr><td><input type="text" name="num_referencia" onkeydown="revisaNumero(false, this.value, event, null, null)"/></td></tr>
 																		</table>
 																	<td width="50%">
@@ -605,8 +615,10 @@
 								Estimado Congresista: Le solicitamos que una vez que inicie la captura de la informaci&oacute;n, 
 								la termine en la misma sesi&oacute;n ya que la informaci&oacute;n no es guardada en partes. 
 								De no terminar, deber&aacute; volver a llenar el formulario al abrir una nueva sesi&oacute;n y la 
-								&uacute;ltima informaci&oacute;n registrada ser&aacute; tomada como la informaci&oacute;n v&aacute;lida. 
-								Este formulario es &uacute;nicamente una herramienta informativa para agilizar su registro.
+								&uacute;ltima informaci&oacute;n registrada ser&aacute; tomada como la informaci&oacute;n v&aacute;lida.
+								<b><u>El correcto llenado de este formulario es VITAL para su inscripci&oacute;n al Congreso. Lea cuidadosamente
+								los conceptos y antes de completar el registro haga su pago en el banco. Recuerde que no se aceptar&aacute;n
+								pagos en el Centro de Convenciones.</u></b>
 							</div>
 						</div>
 					</div>

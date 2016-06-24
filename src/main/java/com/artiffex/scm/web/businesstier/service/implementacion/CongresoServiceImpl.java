@@ -577,7 +577,7 @@ public class CongresoServiceImpl implements CongresoService {
 						pagoCell.setCellValue("CIUDAD");
 						break;
 					case CELDA_PAGO_NUM_REFERENCIA:
-						pagoCell.setCellValue("REFERENCIA");
+						pagoCell.setCellValue("AUTORIZACION");
 						break;
 					case CELDA_PAGO_FEC_TRANSACCION:
 						pagoCell.setCellValue("FEC TRANSACCION");

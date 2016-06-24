@@ -160,6 +160,16 @@
 	background: #fff;
 }
 
+#div_contenedor_instrucciones {
+	font-family: Verdana, Geneva, sans-serif;
+    color: #6A6A6A;
+    font-size: x-small;
+}
+
+ol {
+	padding-left:10px;
+}
+
 #div_columna_derecha_datos_pago {
 	width: 237px;
 	height: 100%;
