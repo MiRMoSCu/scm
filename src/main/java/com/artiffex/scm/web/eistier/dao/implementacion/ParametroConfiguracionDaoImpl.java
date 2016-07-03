@@ -10,6 +10,7 @@ import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.artiffex.scm.web.businesstier.entity.ParametroConfiguracion;
@@ -20,11 +21,8 @@ public class ParametroConfiguracionDaoImpl implements ParametroConfiguracionDao 
 	
 	private static final Logger log = Logger.getLogger(ParametroConfiguracionDaoImpl.class);
 	
-	private SessionFactory sessionFactory;
-	
-	public void setSessionFactory( SessionFactory sessionFactory ) {
-		this.sessionFactory = sessionFactory;
-	}
+	@Autowired
+	private SessionFactory sessionFactory; // inyeccion proviene de applicationContext-jdbc.xml
 
 	public int crea(ParametroConfiguracion parametroConfiguracion) {
 		int id = 0;

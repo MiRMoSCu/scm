@@ -10,6 +10,7 @@ import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.artiffex.scm.web.businesstier.entity.TipoParticipacion;
@@ -20,11 +21,8 @@ public class TipoParticipacionDaoImpl implements TipoParticipacionDao {
 
 	private static final Logger log = Logger.getLogger(TipoParticipacionDaoImpl.class);
 	
+	@Autowired
 	private SessionFactory sessionFactory;
-	
-	public void setSessionFactory( SessionFactory sessionFactory ) {
-		this.sessionFactory = sessionFactory;
-	}
 
 	public int crea(TipoParticipacion tipoParticipacion) {
 		int id = 0;

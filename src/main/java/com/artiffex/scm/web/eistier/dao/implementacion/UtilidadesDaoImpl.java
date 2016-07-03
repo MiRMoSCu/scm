@@ -6,6 +6,7 @@ import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.artiffex.scm.web.eistier.dao.interfaz.UtilidadesDao;
@@ -15,11 +16,8 @@ public class UtilidadesDaoImpl implements UtilidadesDao {
 	
 	private static final Logger log = Logger.getLogger(CostoCongresistaDaoImpl.class);
 	
+	@Autowired
 	private SessionFactory sessionFactory;
-	
-	public void setSessionFactory( SessionFactory sessionFactory ) {
-		this.sessionFactory = sessionFactory;
-	}
 
 	public Object buscaValorPorSQLQuery(String queryString) {
 		Object obj = null;

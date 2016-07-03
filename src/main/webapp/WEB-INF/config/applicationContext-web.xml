@@ -18,7 +18,7 @@
 	<context:component-scan base-package="com.artiffex.scm.web.businesstier.service.implementacion"/>
 	<context:component-scan base-package="com.artiffex.scm.web.eistier.dao"/>
 	
-	<annotation-driven/>
+	<annotation-driven/> <!-- permite inyecciones con anotaciones -->
 	
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/"/>

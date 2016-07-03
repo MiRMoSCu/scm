@@ -10,6 +10,7 @@ import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.artiffex.scm.web.businesstier.entity.Hospedaje;
@@ -20,12 +21,9 @@ public class HospedajeDaoImpl implements HospedajeDao {
 
 	private static final Logger log = Logger.getLogger(HospedajeDaoImpl.class);
 	
+	@Autowired
 	private SessionFactory sessionFactory;
 	
-	public void setSessionFactory( SessionFactory sessionFactory ) {
-		this.sessionFactory = sessionFactory;
-	}
-
 	public int crea(Hospedaje hospedaje) {
 		int id = 0;
 		Session session = null;

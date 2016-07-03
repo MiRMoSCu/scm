@@ -10,6 +10,7 @@ import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.artiffex.scm.web.businesstier.entity.Usuario;
@@ -20,11 +21,8 @@ public class UsuarioDaoImpl implements UsuarioDao {
 
 	private static final Logger log = Logger.getLogger(UsuarioDaoImpl.class);
 	
+	@Autowired
 	private SessionFactory sessionFactory;
-	
-	public void setSessionFactory( SessionFactory sessionFactory ) {
-		this.sessionFactory = sessionFactory;
-	}
 
 	public int crea(Usuario usuario) {
 		int id = 0;
