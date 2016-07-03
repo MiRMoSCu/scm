@@ -8,31 +8,36 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
 import com.artiffex.scm.web.businesstier.entity.Perfil;
 import com.artiffex.scm.web.eistier.dao.interfaz.PerfilDao;
-import com.artiffex.scm.web.eistier.hibernate.HibernateUtil;
 
 @Repository("perfilDao")
 public class PerfilDaoImpl implements PerfilDao {
 
 	private static final Logger log = Logger.getLogger(PerfilDaoImpl.class);
 	
-	private Session session;
+	private SessionFactory sessionFactory;
+	
+	public void setSessionFactory( SessionFactory sessionFactory ) {
+		this.sessionFactory = sessionFactory;
+	}
 
 	public int crea(Perfil perfil) {
 		int id = 0;
+		Session session = null;
 		Transaction tx = null;
 		try {
 			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
+				session = this.sessionFactory.getCurrentSession();
+			} catch ( HibernateException he ) {
+				session = this.sessionFactory.openSession();
 			}
-			tx = this.session.beginTransaction();
-			id = (Integer) this.session.save(perfil);
+			tx = session.beginTransaction();
+			id = (Integer) session.save(perfil);
 			tx.commit();
 		} catch (Exception e) {
 			if ( tx != null )
@@ -40,21 +45,23 @@ public class PerfilDaoImpl implements PerfilDao {
 			log.error(e.getMessage());
 		} finally {
 			tx = null;
+			session = null;
 		}
 		return id;
 	}
 
 	public Perfil buscaPorCriteriaQuery(String criteria) {
 		Perfil obj = null;
+		Session session = null;
 		Transaction tx = null;
 		Query query = null;
 		try {
 			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
+				session = this.sessionFactory.getCurrentSession();
+			} catch ( HibernateException he ) {
+				session = this.sessionFactory.openSession();
 			}
-			tx = this.session.beginTransaction();
+			tx = session.beginTransaction();
 			query = session.createQuery(criteria);
 			obj = (Perfil) query.uniqueResult();
 			tx.commit();
@@ -65,19 +72,21 @@ public class PerfilDaoImpl implements PerfilDao {
 		} finally {
 			query = null;
 			tx = null;
+			session = null;
 		}
 		return obj;
 	}
 
 	public void modifica(Perfil perfil) {
+		Session session = null;
 		Transaction tx = null;
 		try {
 			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
+				session = this.sessionFactory.getCurrentSession();
+			} catch ( HibernateException he ) {
+				session = this.sessionFactory.openSession();
 			}
-			tx = this.session.beginTransaction();
+			tx = session.beginTransaction();
 			session.update(perfil);
 			tx.commit();
 		} catch (Exception e) {
@@ -86,18 +95,20 @@ public class PerfilDaoImpl implements PerfilDao {
 			log.error(e.getMessage());
 		} finally {
 			tx = null;
+			session = null;
 		}
 	}
 
 	public void elimina(Perfil perfil) {
+		Session session = null;
 		Transaction tx = null;
 		try {
 			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
+				session = this.sessionFactory.getCurrentSession();
+			} catch ( HibernateException he ) {
+				session = this.sessionFactory.openSession();
 			}
-			tx = this.session.beginTransaction();
+			tx = session.beginTransaction();
 			session.delete(perfil);
 			tx.commit();
 		} catch (Exception e) {
@@ -106,21 +117,23 @@ public class PerfilDaoImpl implements PerfilDao {
 			log.error(e.getMessage());
 		} finally {
 			tx = null;
+			session = null;
 		}
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Perfil> listaPorSQLQuery(String queryString) {
 		List<Perfil> lista = new ArrayList<Perfil>();
+		Session session = null;
 		Transaction tx = null;
 		SQLQuery query = null;
 		try {
 			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
+				session = this.sessionFactory.getCurrentSession();
+			} catch ( HibernateException he ) {
+				session = this.sessionFactory.openSession();
 			}
-			tx = this.session.beginTransaction();
+			tx = session.beginTransaction();
 			query = session.createSQLQuery(queryString);
 			lista = query.list();
 			tx.commit();
@@ -131,6 +144,7 @@ public class PerfilDaoImpl implements PerfilDao {
 		} finally {
 			query = null;
 			tx = null;
+			session = null;
 		}
 		return lista;
 	}
@@ -138,15 +152,16 @@ public class PerfilDaoImpl implements PerfilDao {
 	@SuppressWarnings("unchecked")
 	public List<Perfil> listaPorCriteriaQuery(String criteria) {
 		List<Perfil> lista = new ArrayList<Perfil>();
+		Session session = null;
 		Transaction tx = null;
 		Query query = null;
 		try {
 			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
+				session = this.sessionFactory.getCurrentSession();
+			} catch ( HibernateException he ) {
+				session = this.sessionFactory.openSession();
 			}
-			tx = this.session.beginTransaction();
+			tx = session.beginTransaction();
 			query = session.createQuery(criteria);
 			lista = query.list();
 			tx.commit();
@@ -157,6 +172,7 @@ public class PerfilDaoImpl implements PerfilDao {
 		} finally {
 			query = null;
 			tx = null;
+			session = null;
 		}
 		return lista;
 	}

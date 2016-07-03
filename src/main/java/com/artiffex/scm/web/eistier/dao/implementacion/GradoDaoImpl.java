@@ -8,31 +8,36 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
 import com.artiffex.scm.web.businesstier.entity.Grado;
 import com.artiffex.scm.web.eistier.dao.interfaz.GradoDao;
-import com.artiffex.scm.web.eistier.hibernate.HibernateUtil;
 
 @Repository("gradoDao")
 public class GradoDaoImpl implements GradoDao {
 	
-private static final Logger log = Logger.getLogger(GradoDaoImpl.class);
+	private static final Logger log = Logger.getLogger(GradoDaoImpl.class);
 	
-	private Session session;
+	private SessionFactory sessionFactory;
+	
+	public void setSessionFactory( SessionFactory sessionFactory ) {
+		this.sessionFactory = sessionFactory;
+	}
 
 	public int crea(Grado grado) {
 		int id = 0;
+		Session session = null;
 		Transaction tx = null;
 		try {
 			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
+				session = this.sessionFactory.getCurrentSession();
+			} catch ( HibernateException he ) {
+				session = this.sessionFactory.openSession();
 			}
-			tx = this.session.beginTransaction();
-			id = (Integer) this.session.save(grado);
+			tx = session.beginTransaction();
+			id = (Integer) session.save(grado);
 			tx.commit();
 		} catch (Exception e) {
 			if ( tx != null )
@@ -40,21 +45,23 @@ private static final Logger log = Logger.getLogger(GradoDaoImpl.class);
 			log.error(e.getMessage());
 		} finally {
 			tx = null;
+			session = null;
 		}
 		return id;
 	}
 
 	public Grado buscaPorCriteriaQuery(String criteria) {
 		Grado obj = null;
+		Session session = null;
 		Transaction tx = null;
 		Query query = null;
 		try {
 			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
+				session = this.sessionFactory.getCurrentSession();
+			} catch ( HibernateException he ) {
+				session = this.sessionFactory.openSession();
 			}
-			tx = this.session.beginTransaction();
+			tx = session.beginTransaction();
 			query = session.createQuery(criteria);
 			obj = (Grado) query.uniqueResult();
 			tx.commit();
@@ -65,19 +72,21 @@ private static final Logger log = Logger.getLogger(GradoDaoImpl.class);
 		} finally {
 			query = null;
 			tx = null;
+			session = null;
 		}
 		return obj;
 	}
 
 	public void modifica(Grado grado) {
+		Session session = null;
 		Transaction tx = null;
 		try {
 			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
+				session = this.sessionFactory.getCurrentSession();
+			} catch ( HibernateException he ) {
+				session = this.sessionFactory.openSession();
 			}
-			tx = this.session.beginTransaction();
+			tx = session.beginTransaction();
 			session.update(grado);
 			tx.commit();
 		} catch (Exception e) {
@@ -86,18 +95,20 @@ private static final Logger log = Logger.getLogger(GradoDaoImpl.class);
 			log.error(e.getMessage());
 		} finally {
 			tx = null;
+			session = null;
 		}
 	}
 
 	public void elimina(Grado grado) {
+		Session session = null;
 		Transaction tx = null;
 		try {
 			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
+				session = this.sessionFactory.getCurrentSession();
+			} catch ( HibernateException he ) {
+				session = this.sessionFactory.openSession();
 			}
-			tx = this.session.beginTransaction();
+			tx = session.beginTransaction();
 			session.delete(grado);
 			tx.commit();
 		} catch (Exception e) {
@@ -106,21 +117,23 @@ private static final Logger log = Logger.getLogger(GradoDaoImpl.class);
 			log.error(e.getMessage());
 		} finally {
 			tx = null;
+			session = null;
 		}
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Grado> listaPorSQLQuery(String queryString) {
 		List<Grado> lista = new ArrayList<Grado>();
+		Session session = null;
 		Transaction tx = null;
 		SQLQuery query = null;
 		try {
 			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
+				session = this.sessionFactory.getCurrentSession();
+			} catch ( HibernateException he ) {
+				session = this.sessionFactory.openSession();
 			}
-			tx = this.session.beginTransaction();
+			tx = session.beginTransaction();
 			query = session.createSQLQuery(queryString);
 			lista = query.list();
 			tx.commit();
@@ -131,6 +144,7 @@ private static final Logger log = Logger.getLogger(GradoDaoImpl.class);
 		} finally {
 			query = null;
 			tx = null;
+			session = null;
 		}
 		return lista;
 	}
@@ -138,15 +152,16 @@ private static final Logger log = Logger.getLogger(GradoDaoImpl.class);
 	@SuppressWarnings("unchecked")
 	public List<Grado> listaPorCriteriaQuery(String criteria) {
 		List<Grado> lista = new ArrayList<Grado>();
+		Session session = null;
 		Transaction tx = null;
 		Query query = null;
 		try {
 			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
+				session = this.sessionFactory.getCurrentSession();
+			} catch ( HibernateException he ) {
+				session = this.sessionFactory.openSession();
 			}
-			tx = this.session.beginTransaction();
+			tx = session.beginTransaction();
 			query = session.createQuery(criteria);
 			lista = query.list();
 			tx.commit();
@@ -157,6 +172,7 @@ private static final Logger log = Logger.getLogger(GradoDaoImpl.class);
 		} finally {
 			query = null;
 			tx = null;
+			session = null;
 		}
 		return lista;
 	}

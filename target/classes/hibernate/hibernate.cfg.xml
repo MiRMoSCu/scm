@@ -8,25 +8,6 @@
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="hibernate.connection.max_allowed_packet">50M</property>
-<!-- LOCAL DEPLOY, LOCAL DATABASE -->
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/xxxvicon_lithomat_scm_artiffex</property>
-		<property name="hibernate.connection.username">root</property>
-
-		
-<!-- LOCAL DEPLOY, REMOTE DATABASE -->
-<!-- 
-		<property name="hibernate.connection.url">jdbc:mysql://31.170.106.44:3306/xxxvicon_lithomat_scm_artiffex</property>
-		<property name="hibernate.connection.username">xxxvicon_root</property>
-		<property name="hibernate.connection.password">Hno33Ovidio</property>
--->
-
-<!-- REMOTE DEPLOY, REMOTE DATABASE  -->
-<!-- 
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/xxxvicon_lithomat_scm_artiffex</property>
-		<property name="hibernate.connection.username">xxxvicon_root</property>
-		<property name="hibernate.connection.password">Hno33Ovidio</property>
--->
-
 		<property name="hibernate.autoReconnect">true</property>
 		<property name="hibernate.autoReconnectForPools">true</property>
 		<property name="hibernate.transaction.auto_close_session">true</property>
@@ -35,20 +16,12 @@
 		<property name="hibernate.show_sql">false</property>
 		<property name="current_session_context_class">thread</property>
 		<property name="hibernate.enable_lazy_load_no_trans">true</property>
-		<!-- HIBERNATE 4: tiene la clase hql.internal.classic -->
-		<!-- <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>-->
 		<!-- HIBERNATE 3: NO tiene la clase hql.classic -->
 		<property name="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</property>
 		<property name="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
-<!--************** JDBC connection pool C3PO *****************-->
-		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
-		<property name="hibernate.c3p0.min_size">10</property>
-		<property name="hibernate.c3p0.max_size">50</property>
-		<property name="hibernate.c3p0.initialPoolSize">5</property>
-		<property name="hibernate.c3p0.acquire_increment">1</property>
-		<property name="hibernate.c3p0.timeout">360000</property>
-		<property name="hibernate.c3p0.idle_test_period">180</property>
-<!-- ************ END JDBC connection pool C3PO ****************-->
+		<!-- HIBERNATE 4: tiene la clase hql.internal.classic -->
+		<!-- <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>-->
+
 <!-- La ruta es absoluta -->
 		<!-- con XML -->
 		<!-- <mapping resource="hibernate/hn_acabado.hbm.xml"/> -->

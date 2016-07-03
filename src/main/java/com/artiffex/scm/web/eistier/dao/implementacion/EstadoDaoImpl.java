@@ -8,31 +8,36 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
 import com.artiffex.scm.web.businesstier.entity.Estado;
 import com.artiffex.scm.web.eistier.dao.interfaz.EstadoDao;
-import com.artiffex.scm.web.eistier.hibernate.HibernateUtil;
 
 @Repository("estadoDao")
 public class EstadoDaoImpl implements EstadoDao {
 	
 	private static final Logger log = Logger.getLogger(EstadoDaoImpl.class);
 	
-	private Session session;
+	private SessionFactory sessionFactory;
+	
+	public void setSessionFactory( SessionFactory sessionFactory ) {
+		this.sessionFactory = sessionFactory;
+	}
 
 	public int crea(Estado estado) {
 		int id = 0;
+		Session session = null;
 		Transaction tx = null;
 		try {
 			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
+				session = this.sessionFactory.getCurrentSession();
+			} catch ( HibernateException he ) {
+				session = this.sessionFactory.openSession();
 			}
-			tx = this.session.beginTransaction();
-			id = (Integer) this.session.save(estado);
+			tx = session.beginTransaction();
+			id = (Integer) session.save(estado);
 			tx.commit();
 		} catch (Exception e) {
 			if ( tx != null )
@@ -40,21 +45,23 @@ public class EstadoDaoImpl implements EstadoDao {
 			log.error(e.getMessage());
 		} finally {
 			tx = null;
+			session = null;
 		}
 		return id;
 	}
 
 	public Estado buscaPorCriteriaQuery(String criteria) {
 		Estado obj = null;
+		Session session = null;
 		Transaction tx = null;
 		Query query = null;
 		try {
 			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
+				session = this.sessionFactory.getCurrentSession();
+			} catch ( HibernateException he ) {
+				session = this.sessionFactory.openSession();
 			}
-			tx = this.session.beginTransaction();
+			tx = session.beginTransaction();
 			query = session.createQuery(criteria);
 			obj = (Estado) query.uniqueResult();
 			tx.commit();
@@ -65,19 +72,21 @@ public class EstadoDaoImpl implements EstadoDao {
 		} finally {
 			query = null;
 			tx = null;
+			session = null;
 		}
 		return obj;
 	}
 
 	public void modifica(Estado estado) {
+		Session session = null;
 		Transaction tx = null;
 		try {
 			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
+				session = this.sessionFactory.getCurrentSession();
+			} catch ( HibernateException he ) {
+				session = this.sessionFactory.openSession();
 			}
-			tx = this.session.beginTransaction();
+			tx = session.beginTransaction();
 			session.update(estado);
 			tx.commit();
 		} catch (Exception e) {
@@ -86,18 +95,20 @@ public class EstadoDaoImpl implements EstadoDao {
 			log.error(e.getMessage());
 		} finally {
 			tx = null;
+			session = null;
 		}
 	}
 
 	public void elimina(Estado estado) {
+		Session session = null;
 		Transaction tx = null;
 		try {
 			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
+				session = this.sessionFactory.getCurrentSession();
+			} catch ( HibernateException he ) {
+				session = this.sessionFactory.openSession();
 			}
-			tx = this.session.beginTransaction();
+			tx = session.beginTransaction();
 			session.delete(estado);
 			tx.commit();
 		} catch (Exception e) {
@@ -106,21 +117,23 @@ public class EstadoDaoImpl implements EstadoDao {
 			log.error(e.getMessage());
 		} finally {
 			tx = null;
+			session = null;
 		}
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Estado> listaPorSQLQuery(String queryString) {
 		List<Estado> lista = new ArrayList<Estado>();
+		Session session = null;
 		Transaction tx = null;
 		SQLQuery query = null;
 		try {
 			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
+				session = this.sessionFactory.getCurrentSession();
+			} catch ( HibernateException he ) {
+				session = this.sessionFactory.openSession();
 			}
-			tx = this.session.beginTransaction();
+			tx = session.beginTransaction();
 			query = session.createSQLQuery(queryString);
 			lista = query.list();
 			tx.commit();
@@ -131,6 +144,7 @@ public class EstadoDaoImpl implements EstadoDao {
 		} finally {
 			query = null;
 			tx = null;
+			session = null;
 		}
 		return lista;
 	}
@@ -138,15 +152,16 @@ public class EstadoDaoImpl implements EstadoDao {
 	@SuppressWarnings("unchecked")
 	public List<Estado> listaPorCriteriaQuery(String criteria) {
 		List<Estado> lista = new ArrayList<Estado>();
+		Session session = null;
 		Transaction tx = null;
 		Query query = null;
 		try {
 			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				this.session = HibernateUtil.getInstance().openSession();
+				session = this.sessionFactory.getCurrentSession();
+			} catch ( HibernateException he ) {
+				session = this.sessionFactory.openSession();
 			}
-			tx = this.session.beginTransaction();
+			tx = session.beginTransaction();
 			query = session.createQuery(criteria);
 			lista = query.list();
 			tx.commit();
@@ -157,6 +172,7 @@ public class EstadoDaoImpl implements EstadoDao {
 		} finally {
 			query = null;
 			tx = null;
+			session = null;
 		}
 		return lista;
 	}

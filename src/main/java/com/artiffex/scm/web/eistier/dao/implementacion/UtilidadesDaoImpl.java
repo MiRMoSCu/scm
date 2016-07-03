@@ -4,30 +4,35 @@ import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
 import com.artiffex.scm.web.eistier.dao.interfaz.UtilidadesDao;
-import com.artiffex.scm.web.eistier.hibernate.HibernateUtil;
 
 @Repository("utilidadesDao")
 public class UtilidadesDaoImpl implements UtilidadesDao {
 	
 	private static final Logger log = Logger.getLogger(CostoCongresistaDaoImpl.class);
 	
-	private Session session;
+	private SessionFactory sessionFactory;
+	
+	public void setSessionFactory( SessionFactory sessionFactory ) {
+		this.sessionFactory = sessionFactory;
+	}
 
 	public Object buscaValorPorSQLQuery(String queryString) {
 		Object obj = null;
+		Session session = null;
 		Transaction tx = null;
 		SQLQuery query = null;
 		try {
 			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
+				session = this.sessionFactory.getCurrentSession();
+			} catch ( HibernateException he ) {
+				session = this.sessionFactory.openSession();
 			}
-			tx = this.session.beginTransaction();
+			tx = session.beginTransaction();
 			query = session.createSQLQuery(queryString);
 			obj = query.uniqueResult();
 			tx.commit();
@@ -38,6 +43,7 @@ public class UtilidadesDaoImpl implements UtilidadesDao {
 		} finally {
 			query = null;
 			tx = null;
+			session = null;
 		}
 		return obj;
 	}

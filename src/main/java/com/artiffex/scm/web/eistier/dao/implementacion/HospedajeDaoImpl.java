@@ -8,31 +8,36 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
 import com.artiffex.scm.web.businesstier.entity.Hospedaje;
 import com.artiffex.scm.web.eistier.dao.interfaz.HospedajeDao;
-import com.artiffex.scm.web.eistier.hibernate.HibernateUtil;
 
 @Repository("hospedajeDao")
 public class HospedajeDaoImpl implements HospedajeDao {
 
 	private static final Logger log = Logger.getLogger(HospedajeDaoImpl.class);
 	
-	private Session session;
+	private SessionFactory sessionFactory;
+	
+	public void setSessionFactory( SessionFactory sessionFactory ) {
+		this.sessionFactory = sessionFactory;
+	}
 
 	public int crea(Hospedaje hospedaje) {
 		int id = 0;
+		Session session = null;
 		Transaction tx = null;
 		try {
 			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
+				session = this.sessionFactory.getCurrentSession();
+			} catch ( HibernateException he ) {
+				session = this.sessionFactory.openSession();
 			}
-			tx = this.session.beginTransaction();
-			id = (Integer) this.session.save(hospedaje);
+			tx = session.beginTransaction();
+			id = (Integer) session.save(hospedaje);
 			tx.commit();
 		} catch (Exception e) {
 			if ( tx != null )
@@ -40,21 +45,23 @@ public class HospedajeDaoImpl implements HospedajeDao {
 			log.error(e.getMessage());
 		} finally {
 			tx = null;
+			session = null;
 		}
 		return id;
 	}
 
 	public Hospedaje buscaPorCriteriaQuery(String criteria) {
 		Hospedaje obj = null;
+		Session session = null;
 		Transaction tx = null;
 		Query query = null;
 		try {
 			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
+				session = this.sessionFactory.getCurrentSession();
+			} catch ( HibernateException he ) {
+				session = this.sessionFactory.openSession();
 			}
-			tx = this.session.beginTransaction();
+			tx = session.beginTransaction();
 			query = session.createQuery(criteria);
 			obj = (Hospedaje) query.uniqueResult();
 			tx.commit();
@@ -65,19 +72,21 @@ public class HospedajeDaoImpl implements HospedajeDao {
 		} finally {
 			query = null;
 			tx = null;
+			session = null;
 		}
 		return obj;
 	}
 
 	public void modifica(Hospedaje hospedaje) {
+		Session session = null;
 		Transaction tx = null;
 		try {
 			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
+				session = this.sessionFactory.getCurrentSession();
+			} catch ( HibernateException he ) {
+				session = this.sessionFactory.openSession();
 			}
-			tx = this.session.beginTransaction();
+			tx = session.beginTransaction();
 			session.update(hospedaje);
 			tx.commit();
 		} catch (Exception e) {
@@ -86,18 +95,20 @@ public class HospedajeDaoImpl implements HospedajeDao {
 			log.error(e.getMessage());
 		} finally {
 			tx = null;
+			session = null;
 		}
 	}
 
 	public void elimina(Hospedaje hospedaje) {
+		Session session = null;
 		Transaction tx = null;
 		try {
 			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
+				session = this.sessionFactory.getCurrentSession();
+			} catch ( HibernateException he ) {
+				session = this.sessionFactory.openSession();
 			}
-			tx = this.session.beginTransaction();
+			tx = session.beginTransaction();
 			session.delete(hospedaje);
 			tx.commit();
 		} catch (Exception e) {
@@ -106,21 +117,23 @@ public class HospedajeDaoImpl implements HospedajeDao {
 			log.error(e.getMessage());
 		} finally {
 			tx = null;
+			session = null;
 		}
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Hospedaje> listaPorSQLQuery(String queryString) {
 		List<Hospedaje> lista = new ArrayList<Hospedaje>();
+		Session session = null;
 		Transaction tx = null;
 		SQLQuery query = null;
 		try {
 			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
+				session = this.sessionFactory.getCurrentSession();
+			} catch ( HibernateException he ) {
+				session = this.sessionFactory.openSession();
 			}
-			tx = this.session.beginTransaction();
+			tx = session.beginTransaction();
 			query = session.createSQLQuery(queryString);
 			lista = query.list();
 			tx.commit();
@@ -131,6 +144,7 @@ public class HospedajeDaoImpl implements HospedajeDao {
 		} finally {
 			query = null;
 			tx = null;
+			session = null;
 		}
 		return lista;
 	}
@@ -138,15 +152,16 @@ public class HospedajeDaoImpl implements HospedajeDao {
 	@SuppressWarnings("unchecked")
 	public List<Hospedaje> listaPorCriteriaQuery(String criteria) {
 		List<Hospedaje> lista = new ArrayList<Hospedaje>();
+		Session session = null;
 		Transaction tx = null;
 		Query query = null;
 		try {
 			try {
-				this.session = HibernateUtil.getInstance().getCurrentSession();
-			} catch (HibernateException he) {
-				session = HibernateUtil.getInstance().openSession();
+				session = this.sessionFactory.getCurrentSession();
+			} catch ( HibernateException he ) {
+				session = this.sessionFactory.openSession();
 			}
-			tx = this.session.beginTransaction();
+			tx = session.beginTransaction();
 			query = session.createQuery(criteria);
 			lista = query.list();
 			tx.commit();
@@ -157,6 +172,7 @@ public class HospedajeDaoImpl implements HospedajeDao {
 		} finally {
 			query = null;
 			tx = null;
+			session = null;
 		}
 		return lista;
 	}
