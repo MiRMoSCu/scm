@@ -240,9 +240,9 @@
 										inserto en la plaza comercial, cerca de otros centros comerciales, restaurantes y bares, agencias de autos 
 										y bancos. Con concepto minimalista y de negocios, ofrece al Supremo Consejo una tarifa preferencial para 
 										los congresistas que decidan por esta opci&oacute;n en habitaci&oacute;n doble de $1,510.61 (un mil quinientos
-										diex pesos 61/100 M.N.) por d&iacute;a con una disponibilidad de 40 habitaciones incluidos impuestos (IVA e
+										diez pesos 61/100 M.N.) por d&iacute;a con una disponibilidad de 40 habitaciones incluidos impuestos (IVA e
 										Impuesto sobre Hoteler&iacute;a), propinas a camaristas y botones.</p>
-										<p>La tarifa incluye habitaci&oacute;n doble con desayuno bufet, internet inal&aacute;mbrico y derecho a 
+										<p>La tarifa incluye habitaci&oacute;n doble con desayuno buffett, internet inal&aacute;mbrico y derecho a 
 										uso de gimnasio, impuestos y propinas a botones y camaristas. La hora de chequeo de entrada (Check in) es 
 										a las 15:00h y de salida (Check out) a las 13:00. Dado que es un hotel con un alto &iacute;ndice de 
 										ocupaci&oacute;n, no se permite chequeo tard&iacute;o pero existe la opci&oacute;n de resguardo de equipaje, 
@@ -299,10 +299,10 @@
 								</div>
 								<div id="div_contenedor_contrato">
 									<div id="div_contrato">
-										<p>Localizado en el sur de la ciudad, a dos cuadras del metro Ermita, en una de las avenidas m&acute;s 
+										<p>Localizado en el sur de la ciudad, a dos cuadras del metro Ermita, en una de las avenidas m&aacute;s 
 										transitadas de la Ciudad de M&eacute;xico, cercano a sitios de inter&eacute;s en Coyoac&aacute;n, y cerca 
 										de la terminal de autobuses del Sur. El costo de la habitaci&oacute;n en cuarto sencillo de $750.00 (setecientos
-										cincuenta pesos 00/100 M.N.) por d&iacute;a con una disponibilidadde 26 habitaciones, y de $1,060.00 (mil
+										cincuenta pesos 00/100 M.N.) por d&iacute;a con una disponibilidad de 26 habitaciones, y de $1,060.00 (mil
 										sesenta pesos 00/100 M.N.) por d&iacute;a en habitaci&oacute;n doble incluye impuestos, pero todos los 
 										alimentos y cualquier otro servicio ser&aacute;n por cuenta del cliente como propinas a camaristas y botones.
 										El acceso a Internet inal&aacute;mbrico gratis. 
