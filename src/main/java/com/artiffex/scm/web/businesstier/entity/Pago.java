@@ -35,6 +35,25 @@ public class Pago implements Serializable {
 	
 	// constructor
 	public Pago() { }
+	
+	public Pago(Participante participante, Float costoCongresista, Float costoAcompaniante, Float costoColacionGrado,
+			Float costoHospedaje, Float costoTotal, Float importePago, String nombreBanco, String numSucursal,
+			String ciudad, String numReferencia, Boolean activo) {
+		super();
+		this.participante = participante;
+		this.costoCongresista = costoCongresista;
+		this.costoAcompaniante = costoAcompaniante;
+		this.costoColacionGrado = costoColacionGrado;
+		this.costoHospedaje = costoHospedaje;
+		this.costoTotal = costoTotal;
+		this.importePago = importePago;
+		this.nombreBanco = nombreBanco;
+		this.numSucursal = numSucursal;
+		this.ciudad = ciudad;
+		this.numReferencia = numReferencia;
+		this.fechaTransaccion = null;
+		this.activo = activo;
+	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

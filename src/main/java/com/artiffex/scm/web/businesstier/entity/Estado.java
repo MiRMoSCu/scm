@@ -21,6 +21,11 @@ public class Estado implements Serializable {
 	
 	public Estado() { }
 	
+	public Estado(Integer idEstado) {
+		super();
+		this.idEstado = idEstado;
+	}
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_estado", unique=true, nullable=false)

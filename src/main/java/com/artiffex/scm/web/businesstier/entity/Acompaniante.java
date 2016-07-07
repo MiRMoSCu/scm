@@ -28,6 +28,15 @@ public class Acompaniante implements Serializable {
 	// constructor
 	public Acompaniante() { }
 	
+	public Acompaniante(Participante participante, String nombre, String apPaterno, String apMaterno, Boolean activo) {
+		super();
+		this.participante = participante;
+		this.nombre = nombre;
+		this.apPaterno = apPaterno;
+		this.apMaterno = apMaterno;
+		this.activo = activo;
+	}
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_acompaniante", unique=true, nullable=false)

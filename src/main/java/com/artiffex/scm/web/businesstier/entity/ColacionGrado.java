@@ -26,6 +26,16 @@ public class ColacionGrado implements Serializable {
 	
 	// constructor
 	public ColacionGrado() { }
+	
+	public ColacionGrado(Participante participante, GradoPretende gradoPretende, String cuerpoPretende,
+			String delegacionPretende, Boolean activo) {
+		super();
+		this.participante = participante;
+		this.gradoPretende = gradoPretende;
+		this.cuerpoPretende = cuerpoPretende;
+		this.delegacionPretende = delegacionPretende;
+		this.activo = activo;
+	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

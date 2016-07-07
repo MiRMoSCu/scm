@@ -23,6 +23,11 @@ public class TipoPonencia implements Serializable {
 	// constructor
 	public TipoPonencia() { }
 	
+	public TipoPonencia(Integer idTipoPonencia) {
+		super();
+		this.idTipoPonencia = idTipoPonencia;
+	}
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_tipo_ponencia", unique=true, nullable=false)

@@ -27,6 +27,11 @@ public class PaqueteHotel implements Serializable {
 	
 	// constructor
 	public PaqueteHotel() { }
+	
+	public PaqueteHotel(Integer idPaqueteHotel) {
+		super();
+		this.idPaqueteHotel = idPaqueteHotel;
+	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

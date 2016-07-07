@@ -22,6 +22,11 @@ public class TipoParticipacion implements Serializable {
 	
 	// constructor
 	public TipoParticipacion() { }
+	
+	public TipoParticipacion(Integer idTipoParticipacion) {
+		super();
+		this.idTipoParticipacion = idTipoParticipacion;
+	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

@@ -28,6 +28,16 @@ public class Hospedaje implements Serializable {
 	
 	// constructor
 	public Hospedaje() { }
+	
+	public Hospedaje(Participante participante, PaqueteHotel paqueteHotel, Integer numPersonasHabitacion, Boolean activo) {
+		super();
+		this.participante = participante;
+		this.paqueteHotel = paqueteHotel;
+		this.fechaEntrada = null;
+		this.fechaSalida = null;
+		this.numPersonasHabitacion = numPersonasHabitacion;
+		this.activo = activo;
+	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

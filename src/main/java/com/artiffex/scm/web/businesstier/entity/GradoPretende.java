@@ -27,6 +27,11 @@ public class GradoPretende implements Serializable {
 	
 	// constructor
 	public GradoPretende() { }
+	
+	public GradoPretende(Integer idGradoPretende) {
+		super();
+		this.idGradoPretende = idGradoPretende;
+	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

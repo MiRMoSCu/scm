@@ -22,6 +22,11 @@ public class TipoMesa implements Serializable {
 	
 	// constructor
 	public TipoMesa() { }
+	
+	public TipoMesa(Integer idTipoMesa) {
+		super();
+		this.idTipoMesa = idTipoMesa;
+	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

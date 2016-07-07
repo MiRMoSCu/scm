@@ -40,6 +40,32 @@ public class Participante implements Serializable {
 
 	// constructor
 	public Participante() { }
+	
+	public Participante(String nombre, String apPaterno, String apMaterno, String calle, String numExterior,
+			String numInterior, String colonia, String delegacionMunicipio, String ciudad, Estado estado,
+			String codigoPostal, String telefonoParticular, String telefonoMovil, String telefonoOficina, String email,
+			Boolean aplicaAcompaniante, Boolean aplicaColacionGrado, Boolean aplicaHospedaje, Boolean activo) {
+		super();
+		this.nombre = nombre;
+		this.apPaterno = apPaterno;
+		this.apMaterno = apMaterno;
+		this.calle = calle;
+		this.numExterior = numExterior;
+		this.numInterior = numInterior;
+		this.colonia = colonia;
+		this.delegacionMunicipio = delegacionMunicipio;
+		this.ciudad = ciudad;
+		this.estado = estado;
+		this.codigoPostal = codigoPostal;
+		this.telefonoParticular = telefonoParticular;
+		this.telefonoMovil = telefonoMovil;
+		this.telefonoOficina = telefonoOficina;
+		this.email = email;
+		this.aplicaAcompaniante = aplicaAcompaniante;
+		this.aplicaColacionGrado = aplicaColacionGrado;
+		this.aplicaHospedaje = aplicaHospedaje;
+		this.activo = activo;
+	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

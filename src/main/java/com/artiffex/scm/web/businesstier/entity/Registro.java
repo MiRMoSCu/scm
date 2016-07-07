@@ -32,6 +32,22 @@ public class Registro implements Serializable {
 	
 	// constructor
 	public Registro() { }
+	
+	public Registro(Participante participante, Grado grado, String nombreCuerpo, String delegacion,
+			TipoParticipacion tipoParticipacion, TipoPonencia tipoPonencia, String tituloPonencia, TipoMesa tipoMesa,
+			Date fechaRegistro, Boolean activo) {
+		super();
+		this.participante = participante;
+		this.grado = grado;
+		this.nombreCuerpo = nombreCuerpo;
+		this.delegacion = delegacion;
+		this.tipoParticipacion = tipoParticipacion;
+		this.tipoPonencia = tipoPonencia;
+		this.tituloPonencia = tituloPonencia;
+		this.tipoMesa = tipoMesa;
+		this.fechaRegistro = fechaRegistro;
+		this.activo = activo;
+	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

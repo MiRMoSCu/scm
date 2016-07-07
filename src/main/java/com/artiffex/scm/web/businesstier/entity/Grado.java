@@ -23,6 +23,11 @@ public class Grado implements Serializable {
 	// constructor
 	public Grado() { }
 	
+	public Grado(Integer idGrado) {
+		super();
+		this.idGrado = idGrado;
+	}
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_grado", unique=true, nullable=false)

@@ -267,8 +267,13 @@ public class PublicController {
 			Model model
 		) {
 		Participante participante = participanteService.buscaParticipante(idParticipante);
-		model.addAttribute("nombreCongresista",participante.getNombre().toUpperCase());
-		model.addAttribute("idParticipante", idParticipante + "00");
+		if (participante != null) {
+			model.addAttribute("nombreCongresista", participante.getNombre().toUpperCase());
+			model.addAttribute("idParticipante", idParticipante + "00");
+		} else {
+			model.addAttribute("nombreCongresista", "");
+			model.addAttribute("idParticipante", "");
+		}
 		participante = null;
 		return "file_09_bienvenido";
 	}

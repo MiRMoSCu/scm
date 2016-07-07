@@ -165,150 +165,99 @@ public class CongresoServiceImpl implements CongresoService {
 			String numSucursal, String pagoCiudad, String numReferencia,
 			String fechaTransaccion, Float importePago) {
 		
-		Participante participante = new Participante();
-		participante.setApPaterno(participanteApPaterno);
-		participante.setApMaterno(participanteApMaterno);
-		participante.setNombre(participanteNombre);
-		participante.setCalle(calle);
-		participante.setNumExterior(numExterior);
-		participante.setNumInterior(numInterior);
-		participante.setColonia(colonia);
-		participante.setDelegacionMunicipio(delegacionMunicipio);
-		participante.setCiudad(ciudad);
-			Estado estado = new Estado();
-			estado.setIdEstado(idEstado);
-		participante.setEstado(estado);
-		participante.setCodigoPostal(codigoPostal);
-		participante.setTelefonoParticular(telefonoParticular);
-		participante.setTelefonoMovil(telefonoMovil);
-		participante.setTelefonoOficina(telefonoOficina);
-		participante.setEmail(email);
-		participante.setAplicaAcompaniante(aplicaAcompaniante);
-		participante.setAplicaColacionGrado(aplicaColacionGrado);
-		participante.setAplicaHospedaje(aplicaHospedaje);
-		participante.setActivo(true);
+		
+		Estado estado = new Estado(idEstado);
+		Participante participante = new Participante(participanteNombre, participanteApPaterno, participanteApPaterno, calle, numExterior, numInterior, colonia, delegacionMunicipio, ciudad, estado, codigoPostal, telefonoParticular, telefonoMovil, telefonoOficina, email, aplicaAcompaniante, aplicaColacionGrado, aplicaHospedaje, true);
 		
 		int idParticipante = participanteService.creaParticipante(participante);
-		participante = participanteService.buscaParticipante(idParticipante);
-		
-		Registro registro = new Registro();
-		registro.setParticipante(participante);
-			Grado grado = new Grado();
-			grado.setIdGrado(idGrado);
-		registro.setGrado(grado);
-		registro.setNombreCuerpo(registroNombreCuerpo);
-		registro.setDelegacion(registroDelegacion);
-			TipoParticipacion tipoParticipacion = new TipoParticipacion();
-			tipoParticipacion.setIdTipoParticipacion(idTipoParticipacion);
-		registro.setTipoParticipacion(tipoParticipacion);
-			TipoPonencia tipoPonencia = new TipoPonencia();
-			tipoPonencia.setIdTipoPonencia(idTipoPonencia);
-		registro.setTipoPonencia(tipoPonencia);
-		registro.setTituloPonencia(tituloPonencia);
-			TipoMesa tipoMesa = new TipoMesa();
-			tipoMesa.setIdTipoMesa(idTipoMesa);
-		registro.setTipoMesa(tipoMesa);
-		registro.setFechaRegistro(new Date(Calendar.getInstance().getTimeInMillis()));
-		registro.setActivo(true);
-		registroService.creaRegistro(registro);
-		
-		estado 				= null;
-		grado 				= null;
-		tipoParticipacion 	= null;
-		tipoPonencia 		= null;
-		tipoMesa 			= null;
-		
-		
-		if (aplicaAcompaniante) {
-			Acompaniante acompaniante = new Acompaniante();
-			acompaniante.setParticipante(participante);
-			acompaniante.setApPaterno(acompanianteApPaterno);
-			acompaniante.setApMaterno(acompanianteApPaterno);
-			acompaniante.setNombre(acompanianteNombre);
-			acompanianteService.creaAcompaniante(acompaniante);
-			acompaniante.setActivo(true);
+		if (idParticipante != 0) {
 			
-			acompaniante = null;
-			
-		}
-		
-		if (aplicaColacionGrado) {
-			ColacionGrado colacionGrado = new ColacionGrado();
-			colacionGrado.setParticipante(participante);
-				GradoPretende gradoPretende = new GradoPretende();
-				gradoPretende.setIdGradoPretende(idGradoPretende);
-			colacionGrado.setGradoPretende(gradoPretende);
-			colacionGrado.setCuerpoPretende(cuerpoPretende);
-			colacionGrado.setDelegacionPretende(delegacionPretende);
-			colacionGrado.setActivo(true);
-			colacionGradoService.creaColacionGrado(colacionGrado);
-			
-			gradoPretende = null;
-			colacionGrado = null;
-		}
-		
-		if (aplicaHospedaje) {
-			//System.out.println("isPaqueteHotel:" + idPaqueteHotel);
-			Hospedaje hospedaje = new Hospedaje();
-			hospedaje.setParticipante(participante);
-				PaqueteHotel paqueteHotel = new PaqueteHotel();
-				paqueteHotel.setIdPaqueteHotel(idPaqueteHotel);
-			hospedaje.setPaqueteHotel(paqueteHotel);
-			if (!"".equals(fechaEntrada)) {
-				try {
-					hospedaje.setFechaEntrada(new SimpleDateFormat("yyyy-MM-dd").parse(fechaEntrada));
-				} catch (ParseException e) {
-					System.out.println(e.getMessage());
-				}
-			}
-				 
-			if (!"".equals(fechaSalida)) {
-				try {
-					hospedaje.setFechaSalida(new SimpleDateFormat("yyyy-MM-dd").parse(fechaSalida));
-				} catch (ParseException e) {
-					System.out.println(e.getMessage());
-				}
-			}
+			participante = participanteService.buscaParticipante(idParticipante);
+			if (participante != null) {
 				
-			hospedaje.setNumPersonasHabitacion(numPersonasHabitacion);
-			hospedaje.setActivo(true);
-			hospedajeService.creaHospedaje(hospedaje);
-			
-			paqueteHotel = null;
-			hospedaje = null;
-		}
-		
-		float costoCongresista = costoCongresistaService.precioPorFecha();
-		float costoAcompaniante = aplicaAcompaniante?costoAcompanianteService.precioPorFecha():0f;
-		float costoColacionGrado = aplicaColacionGrado?gradoPretendeService.precioPorGradoPorFecha(idGradoPretende,fecha):0f;
-		float costoHospedaje = aplicaHospedaje?paqueteHotelService.precioPorPaquete(idPaqueteHotel):0f;
-		float costoTotal = costoCongresista + costoAcompaniante + costoColacionGrado + costoHospedaje;
-		
-		Pago pago = new Pago();
-		pago.setParticipante(participante);
-		
-		pago.setCostoCongresista(costoCongresista);
-		pago.setCostoAcompaniante(costoAcompaniante);
-		pago.setCostoColacionGrado(costoColacionGrado);
-		pago.setCostoHospedaje(costoHospedaje);
-		pago.setCostoTotal(costoTotal);
-		pago.setImportePago(importePago);
-		pago.setNombreBanco(nombreBanco);
-		pago.setNumSucursal(numSucursal);
-		pago.setCiudad(pagoCiudad);
-		pago.setNumReferencia(numReferencia);
-		if (!"".equals(fechaTransaccion)) {
-			try {
-				pago.setFechaTransaccion(new SimpleDateFormat("yyyy-MM-dd").parse(fechaTransaccion));
-			} catch (ParseException e) {
-				System.out.println(e.getMessage());
+				Grado grado = new Grado(idGrado);
+				TipoParticipacion tipoParticipacion = new TipoParticipacion(idTipoParticipacion);
+				TipoPonencia tipoPonencia = new TipoPonencia(idTipoPonencia);
+				TipoMesa tipoMesa = new TipoMesa(idTipoMesa);
+				
+				Registro registro = new Registro(participante, grado, registroNombreCuerpo, registroDelegacion, tipoParticipacion, tipoPonencia, tituloPonencia, tipoMesa, new Date(Calendar.getInstance().getTimeInMillis()), true);
+				registroService.creaRegistro(registro);
+				
+				grado 				= null;
+				tipoParticipacion 	= null;
+				tipoPonencia 		= null;
+				tipoMesa 			= null;
+				registro			= null;
+				
+				
+				if (aplicaAcompaniante) {
+					Acompaniante acompaniante = new Acompaniante(participante, acompanianteNombre, acompanianteApPaterno, acompanianteApMaterno, true);
+					
+					acompanianteService.creaAcompaniante(acompaniante);
+					
+					acompaniante = null;
+				}
+				
+				if (aplicaColacionGrado) {
+					GradoPretende gradoPretende = new GradoPretende(idGradoPretende);
+
+					ColacionGrado colacionGrado = new ColacionGrado(participante, gradoPretende, cuerpoPretende, delegacionPretende, true);
+					colacionGradoService.creaColacionGrado(colacionGrado);
+					
+					colacionGrado = null;
+					gradoPretende = null;
+				}
+				
+				if (aplicaHospedaje) {
+
+					PaqueteHotel paqueteHotel = new PaqueteHotel(idPaqueteHotel);
+					
+					Hospedaje hospedaje = new Hospedaje(participante, paqueteHotel, numPersonasHabitacion, true);
+					if (!"".equals(fechaEntrada)) {
+						try {
+							hospedaje.setFechaEntrada(new SimpleDateFormat("yyyy-MM-dd").parse(fechaEntrada));
+						} catch (ParseException e) {
+							System.out.println(e.getMessage());
+						}
+					}
+					if (!"".equals(fechaSalida)) {
+						try {
+							hospedaje.setFechaSalida(new SimpleDateFormat("yyyy-MM-dd").parse(fechaSalida));
+						} catch (ParseException e) {
+							System.out.println(e.getMessage());
+						}
+					}
+					
+					hospedajeService.creaHospedaje(hospedaje);
+					
+					hospedaje = null;
+					paqueteHotel = null;
+				}
+				
+				float costoCongresista = costoCongresistaService.precioPorFecha();
+				float costoAcompaniante = aplicaAcompaniante?costoAcompanianteService.precioPorFecha():0f;
+				float costoColacionGrado = aplicaColacionGrado?gradoPretendeService.precioPorGradoPorFecha(idGradoPretende,fecha):0f;
+				float costoHospedaje = aplicaHospedaje?paqueteHotelService.precioPorPaquete(idPaqueteHotel):0f;
+				float costoTotal = costoCongresista + costoAcompaniante + costoColacionGrado + costoHospedaje;
+				
+				Pago pago = new Pago(participante, costoCongresista, costoAcompaniante, costoColacionGrado, costoHospedaje, costoTotal, importePago, nombreBanco, numSucursal, pagoCiudad, numReferencia, true);
+				if (!"".equals(fechaTransaccion)) {
+					try {
+						pago.setFechaTransaccion(new SimpleDateFormat("yyyy-MM-dd").parse(fechaTransaccion));
+					} catch (ParseException e) {
+						System.out.println(e.getMessage());
+					}
+				}
+				
+				pagoService.creaPago(pago);
+				
+				pago = null;
 			}
 		}
-		pago.setActivo(true);
-		pagoService.creaPago(pago);
 		
-		pago = null;
-		
+		estado = null;
+		participante = null;
+			
 		return idParticipante;
 	}
 
