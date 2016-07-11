@@ -1,6 +1,7 @@
 package com.artiffex.scm.web.businesstier.entity;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -20,12 +21,12 @@ public class Pago implements Serializable {
 	
 	private Integer idPago;
 	private Participante participante;
-	private Float costoCongresista;
-	private Float costoAcompaniante;
-	private Float costoColacionGrado;
-	private Float costoHospedaje;
-	private Float costoTotal;
-	private Float importePago;
+	private BigDecimal costoCongresista;
+	private BigDecimal costoAcompaniante;
+	private BigDecimal costoColacionGrado;
+	private BigDecimal costoHospedaje;
+	private BigDecimal costoTotal;
+	private BigDecimal importePago;
 	private String nombreBanco;
 	private String numSucursal;
 	private String ciudad;
@@ -36,8 +37,8 @@ public class Pago implements Serializable {
 	// constructor
 	public Pago() { }
 	
-	public Pago(Participante participante, Float costoCongresista, Float costoAcompaniante, Float costoColacionGrado,
-			Float costoHospedaje, Float costoTotal, Float importePago, String nombreBanco, String numSucursal,
+	public Pago(Participante participante, BigDecimal costoCongresista, BigDecimal costoAcompaniante, BigDecimal costoColacionGrado,
+			BigDecimal costoHospedaje, BigDecimal costoTotal, BigDecimal importePago, String nombreBanco, String numSucursal,
 			String ciudad, String numReferencia, Boolean activo) {
 		super();
 		this.participante = participante;
@@ -67,28 +68,28 @@ public class Pago implements Serializable {
 	public void setParticipante(Participante participante) { this.participante = participante; }
 	
 	@Column(name="costo_congresista", precision=2)
-	public Float getCostoCongresista() { return costoCongresista; }
-	public void setCostoCongresista(Float costoCongresista) { this.costoCongresista = costoCongresista; }
+	public BigDecimal getCostoCongresista() { return costoCongresista; }
+	public void setCostoCongresista(BigDecimal costoCongresista) { this.costoCongresista = costoCongresista; }
 
 	@Column(name="costo_acompaniante", precision=2)
-	public Float getCostoAcompaniante() { return costoAcompaniante; }
-	public void setCostoAcompaniante(Float costoAcompaniante) { this.costoAcompaniante = costoAcompaniante; }
+	public BigDecimal getCostoAcompaniante() { return costoAcompaniante; }
+	public void setCostoAcompaniante(BigDecimal costoAcompaniante) { this.costoAcompaniante = costoAcompaniante; }
 
 	@Column(name="costo_colacion_grado", precision=2)
-	public Float getCostoColacionGrado() { return costoColacionGrado; }
-	public void setCostoColacionGrado(Float costoColacionGrado) { this.costoColacionGrado = costoColacionGrado; }
+	public BigDecimal getCostoColacionGrado() { return costoColacionGrado; }
+	public void setCostoColacionGrado(BigDecimal costoColacionGrado) { this.costoColacionGrado = costoColacionGrado; }
 
 	@Column(name="costo_hospedaje", precision=2)
-	public Float getCostoHospedaje() { return costoHospedaje; }
-	public void setCostoHospedaje(Float costoHospedaje) { this.costoHospedaje = costoHospedaje; 	}
+	public BigDecimal getCostoHospedaje() { return costoHospedaje; }
+	public void setCostoHospedaje(BigDecimal costoHospedaje) { this.costoHospedaje = costoHospedaje; 	}
 
 	@Column(name="costo_total", precision=2)
-	public Float getCostoTotal() { return costoTotal; }
-	public void setCostoTotal(Float costoTotal) { this.costoTotal = costoTotal; }
+	public BigDecimal getCostoTotal() { return costoTotal; }
+	public void setCostoTotal(BigDecimal costoTotal) { this.costoTotal = costoTotal; }
 	
 	@Column(name="importe_pago", precision=2)
-	public Float getImportePago() { return importePago; }
-	public void setImportePago(Float importePago) { this.importePago = importePago; }
+	public BigDecimal getImportePago() { return importePago; }
+	public void setImportePago(BigDecimal importePago) { this.importePago = importePago; }
 	
 	@Column(name="nombre_banco", length=60)
 	public String getNombreBanco() { return nombreBanco; }

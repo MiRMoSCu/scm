@@ -1,5 +1,6 @@
 package com.artiffex.scm.web.businesstier.service.interfaz;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -9,6 +10,6 @@ public interface GradoPretendeService {
 	
 	public List<ComboSelect> listaComboSelect();
 	
-	public float precioPorGradoPorFecha(int idGradoPretende, Date fecha);
+	public BigDecimal precioPorGradoPorFecha(int idGradoPretende, Date fecha);
 
 }

@@ -18,8 +18,8 @@ public class CostoCongresistaServiceImpl implements CostoCongresistaService {
 	@Resource
 	private UtilidadesDao utilidadesDao;
 
-	public float precioPorFecha() {
-		float precio = 0f;
+	public BigDecimal precioPorFecha() {
+		BigDecimal precio = new BigDecimal(0);
 		
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		String fecha = simpleDateFormat.format(new Date(Calendar.getInstance().getTimeInMillis()));
@@ -38,7 +38,7 @@ public class CostoCongresistaServiceImpl implements CostoCongresistaService {
 		sb.append("' <= cc.fecha_fin;");
 		
 		try {
-			precio = ((BigDecimal) utilidadesDao.buscaValorPorSQLQuery(sb.toString())).floatValue();
+			precio = (BigDecimal) utilidadesDao.buscaValorPorSQLQuery(sb.toString());
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

@@ -1,6 +1,8 @@
 package com.artiffex.scm.web.businesstier.service.implementacion;
 
 import java.io.ByteArrayOutputStream;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -163,7 +165,7 @@ public class CongresoServiceImpl implements CongresoService {
 			Integer idPaqueteHotel, String fechaEntrada, String fechaSalida,
 			Integer numPersonasHabitacion, String nombreBanco,
 			String numSucursal, String pagoCiudad, String numReferencia,
-			String fechaTransaccion, Float importePago) {
+			String fechaTransaccion, BigDecimal importePago) {
 		
 		
 		Estado estado = new Estado(idEstado);
@@ -234,11 +236,17 @@ public class CongresoServiceImpl implements CongresoService {
 					paqueteHotel = null;
 				}
 				
-				float costoCongresista = costoCongresistaService.precioPorFecha();
-				float costoAcompaniante = aplicaAcompaniante?costoAcompanianteService.precioPorFecha():0f;
-				float costoColacionGrado = aplicaColacionGrado?gradoPretendeService.precioPorGradoPorFecha(idGradoPretende,fecha):0f;
-				float costoHospedaje = aplicaHospedaje?paqueteHotelService.precioPorPaquete(idPaqueteHotel):0f;
-				float costoTotal = costoCongresista + costoAcompaniante + costoColacionGrado + costoHospedaje;
+				BigDecimal costoCongresista = costoCongresistaService.precioPorFecha();
+				BigDecimal costoAcompaniante =aplicaAcompaniante?costoAcompanianteService.precioPorFecha():new BigDecimal(0);
+				BigDecimal costoColacionGrado = aplicaColacionGrado?gradoPretendeService.precioPorGradoPorFecha(idGradoPretende,fecha):new BigDecimal(0);
+				BigDecimal costoHospedaje = aplicaHospedaje?paqueteHotelService.precioPorPaquete(idPaqueteHotel):new BigDecimal(0);
+				
+				BigDecimal costoTotal = new BigDecimal(0);
+				costoTotal.add(costoCongresista);
+				costoTotal.add(costoAcompaniante);
+				costoTotal.add(costoColacionGrado);
+				costoTotal.add(costoHospedaje);
+				
 				
 				Pago pago = new Pago(participante, costoCongresista, costoAcompaniante, costoColacionGrado, costoHospedaje, costoTotal, importePago, nombreBanco, numSucursal, pagoCiudad, numReferencia, true);
 				if (!"".equals(fechaTransaccion)) {
@@ -621,12 +629,12 @@ public class CongresoServiceImpl implements CongresoService {
 				pagoRow.createCell(CELDA_ID).setCellValue(participante.getIdParticipante()==null?0:participante.getIdParticipante());
 				pago = pagoDao.buscaPorCriteriaQuery("from Pago p where p.participante.idParticipante = " + participante.getIdParticipante());
 				if (pago != null) {
-					pagoRow.createCell(CELDA_PAGO_COSTO_CONGRESISTA).setCellValue(pago.getCostoCongresista()==null?0:pago.getCostoCongresista());
-					pagoRow.createCell(CELDA_PAGO_COSTO_ACOMPANIANTE).setCellValue(pago.getCostoAcompaniante()==null?0:pago.getCostoAcompaniante());
-					pagoRow.createCell(CELDA_PAGO_COSTO_COLACION).setCellValue(pago.getCostoColacionGrado()==null?0:pago.getCostoColacionGrado());
-					pagoRow.createCell(CELDA_PAGO_COSTO_HOSPEDAJE).setCellValue(pago.getCostoHospedaje()==null?0:pago.getCostoHospedaje());
-					pagoRow.createCell(CELDA_PAGO_COSTO_TOTAL).setCellValue(pago.getCostoTotal()==null?0:pago.getCostoTotal());
-					pagoRow.createCell(CELDA_PAGO_IMPORTE_PAGO).setCellValue(pago.getImportePago()==null?0:pago.getImportePago());
+					pagoRow.createCell(CELDA_PAGO_COSTO_CONGRESISTA).setCellValue(pago.getCostoCongresista()==null?0:pago.getCostoCongresista().setScale(2, RoundingMode.CEILING).doubleValue());
+					pagoRow.createCell(CELDA_PAGO_COSTO_ACOMPANIANTE).setCellValue(pago.getCostoAcompaniante()==null?0:pago.getCostoAcompaniante().setScale(2, RoundingMode.CEILING).doubleValue());
+					pagoRow.createCell(CELDA_PAGO_COSTO_COLACION).setCellValue(pago.getCostoColacionGrado()==null?0:pago.getCostoColacionGrado().setScale(2, RoundingMode.CEILING).doubleValue());
+					pagoRow.createCell(CELDA_PAGO_COSTO_HOSPEDAJE).setCellValue(pago.getCostoHospedaje()==null?0:pago.getCostoHospedaje().setScale(2, RoundingMode.CEILING).doubleValue());
+					pagoRow.createCell(CELDA_PAGO_COSTO_TOTAL).setCellValue(pago.getCostoTotal()==null?0:pago.getCostoTotal().setScale(2, RoundingMode.CEILING).doubleValue());
+					pagoRow.createCell(CELDA_PAGO_IMPORTE_PAGO).setCellValue(pago.getImportePago()==null?0:pago.getImportePago().setScale(2, RoundingMode.CEILING).doubleValue());
 					pagoRow.createCell(CELDA_PAGO_BANCO).setCellValue(pago.getNombreBanco()==null?"":pago.getNombreBanco());
 					pagoRow.createCell(CELDA_PAGO_SUCURSAL).setCellValue(pago.getNumSucursal()==null?"":pago.getNumSucursal());
 					pagoRow.createCell(CELDA_PAGO_CIUDAD).setCellValue(pago.getCiudad()==null?"":pago.getCiudad());

@@ -1,5 +1,6 @@
 package com.artiffex.scm.web.businesstier.service.interfaz;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 
@@ -47,7 +48,7 @@ public interface CongresoService {
 			String pagoCiudad,
 			String numReferencia,
 			String fechaTransaccion,
-			Float importePago
+			BigDecimal importePago
 		);
 	
 	public byte[] obtieneDocumentoListaParticipante();

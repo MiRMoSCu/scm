@@ -40,8 +40,8 @@ public class GradoPretendeServiceImpl implements GradoPretendeService {
 		return listaComboSelect;
 	}
 
-	public float precioPorGradoPorFecha(int idGradoPretende, Date fecha) {
-		float precio = 0f;
+	public BigDecimal precioPorGradoPorFecha(int idGradoPretende, Date fecha) {
+		BigDecimal precio = new BigDecimal(0);
 		
 		DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
 		
@@ -66,7 +66,7 @@ public class GradoPretendeServiceImpl implements GradoPretendeService {
 		sb.append(";");
 		
 		try {
-			precio = ((BigDecimal) utilidadesDao.buscaValorPorSQLQuery(sb.toString())).floatValue();
+			precio = (BigDecimal) utilidadesDao.buscaValorPorSQLQuery(sb.toString());
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

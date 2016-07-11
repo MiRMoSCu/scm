@@ -37,8 +37,8 @@ public class PaqueteHotelServiceImpl implements PaqueteHotelService {
 		return listaComboSelect;
 	}
 
-	public float precioPorPaquete(int idPaqueteHotel) {
-		float precio = 0f;
+	public BigDecimal precioPorPaquete(int idPaqueteHotel) {
+		BigDecimal precio = new BigDecimal(0);
 		
 		StringBuilder sb = new StringBuilder();
 		sb.append(" SELECT ");
@@ -52,7 +52,7 @@ public class PaqueteHotelServiceImpl implements PaqueteHotelService {
 		sb.append(";");
 		
 		try {
-			precio = ((BigDecimal) utilidadesDao.buscaValorPorSQLQuery(sb.toString())).floatValue();
+			precio = (BigDecimal) utilidadesDao.buscaValorPorSQLQuery(sb.toString());
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

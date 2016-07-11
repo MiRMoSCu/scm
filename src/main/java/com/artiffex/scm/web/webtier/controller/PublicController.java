@@ -1,5 +1,6 @@
 package com.artiffex.scm.web.webtier.controller;
 
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -167,8 +168,7 @@ public class PublicController {
 	@ResponseBody
 	public String busquedaCostoAcompaniante() {
 		log.info("/public/costoAcompaniante");
-		Float precio = costoAcompanianteService.precioPorFecha();
-		return precio.toString();
+		return costoAcompanianteService.precioPorFecha().toString();
 	}
 	
 	@RequestMapping(value="/costoColacion", method=RequestMethod.POST)
@@ -177,8 +177,7 @@ public class PublicController {
 			@RequestParam(value = "id_grado_pretende", required = false) Integer idGradoPretende
 		) {
 		log.info("/public/costoColacion");
-		Float precio = gradoPretendeService.precioPorGradoPorFecha(idGradoPretende, new Date(Calendar.getInstance().getTimeInMillis()));
-		return precio.toString();
+		return gradoPretendeService.precioPorGradoPorFecha(idGradoPretende, new Date(Calendar.getInstance().getTimeInMillis())).toString();
 	}
 	
 	@RequestMapping(value="/costoHospedaje", method=RequestMethod.POST)
@@ -187,8 +186,7 @@ public class PublicController {
 			@RequestParam(value = "id_paquete_hotel", required = false) Integer idPaqueteHotel
 		) {
 		log.info("/public/costoHospedaje");
-		Float precio = paqueteHotelService.precioPorPaquete(idPaqueteHotel);
-		return precio.toString();
+		return paqueteHotelService.precioPorPaquete(idPaqueteHotel).toString();
 	}
 	
 	@RequestMapping(value="/guardaRegistro", method=RequestMethod.POST)
@@ -238,7 +236,7 @@ public class PublicController {
 			@RequestParam(value = "pago_ciudad", required = false) String pagoCiudad,
 			@RequestParam(value = "num_referencia", required = false) String numReferencia,
 			@RequestParam(value = "fecha_transaccion", required = false) String fechaTransaccion,
-			@RequestParam(value = "importe_pago", required = false) Float importePago,
+			@RequestParam(value = "importe_pago", required = false) BigDecimal importePago,
 			
 			final RedirectAttributes redirectAttributes
 		) {

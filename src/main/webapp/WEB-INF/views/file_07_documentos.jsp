@@ -136,25 +136,16 @@
 						<div id="div_descripion_documentos_historicos">
 							<div id="div_padding">
 								<p class="izquierda morado"><b>Documentos</b></p>
-								<!-- 
+								<br/>
+								<p class="izquierda morado"><b>Ponencias Eje</b></p>
 								<ul>
-									<li><a download href="<c:url value="/resources/documento/1aComisionDeConstitucion1916-1917.pdf"/>">1a Comisi&oacute;n de Constituci&oacute;n 1916 - 1917</a></li>
-									<li><a download href="<c:url value="/resources/documento/2aComisionDeConstitucion1916-1917.pdf"/>">2a Comisi&oacute;n de Constituci&oacute;n 1916 - 1917</a></li>
-									<li><a download href="<c:url value="/resources/documento/ComisionDeAdministracion.pdf"/>">Comisi&oacute;n de Administraci&oacute;n</a></li>
-									<li><a download href="<c:url value="/resources/documento/ComisionDePeticionesReglamentoYEstilo.pdf"/>">Comisi&oacute;n de Peticiones Reglamento y Estilo</a></li>
-									<li><a download href="<c:url value="/resources/documento/CompilacionDocumentos.pdf"/>">Compilaci&oacute;n de Documentos</a></li>
-									<li><a download href="<c:url value="/resources/documento/ConstitucionManuscrita1917.pdf"/>">Constituci&oacute;n manuscrita 1917</a></li>
-									<li><a download href="<c:url value="/resources/documento/ConstitucionMexico.pdf"/>">Constituci&oacute;n de M&eacute;xico</a></li>
-									<li><a download href="<c:url value="/resources/documento/CredencialesConservadas.pdf"/>">Credenciales Conservadas</a></li>
-									<li><a download href="<c:url value="/resources/documento/DiarioDeLosDebatesDelConstituyenteTomo1.pdf"/>">Diario de los Debates del Constituyente Tomo 1</a></li>
-									<li><a download href="<c:url value="/resources/documento/DiarioDeLosDebatesDelConstituyenteTomo2.pdf"/>">Diario de los Debates del Constituyente Tomo 2</a></li>
-									<li><a download href="<c:url value="/resources/documento/IndiceDeDiputados.pdf"/>">&Iacute;ndice de Diputados</a></li>
-									<li><a download href="<c:url value="/resources/documento/LibroActas1916-1917.pdf"/>">Libro Actas 1916-1917</a></li>
-									<li><a download href="<c:url value="/resources/documento/LibroDeActasSecretas1916-1977.pdf"/>">Libro de Actas Secretas 1916 - 1977</a></li>
-									<li><a download href="<c:url value="/resources/documento/ListadosAsistencias.pdf"/>">Listados Asistencias</a></li>
-									<li><a download href="<c:url value="/resources/documento/RegistroDeDiputados.pdf"/>">Registro de Diputados</a></li>
+									<li><a download href="<c:url value="/resources/document/mesa_02_ponencia_eje_derechos_humanos_I.pdf"/>">Mesa 02: Derechos Humanos I</a></li>
+									<li><a download href="<c:url value="/resources/document/mesa_02_ponencia_eje_derechos_humanos_II.pdf"/>">Mesa 02: Derechos Humanos II</a></li>
+									<li><a download href="<c:url value="/resources/document/mesa_03_ponencia_eje_educación_liberal.pdf"/>">Mesa 03: Educaci&oacute;n I</a></li>
+									<li><a download href="<c:url value="/resources/document/mesa_03_ponencia_eje_educación.pdf"/>">Mesa 03: Educaci&oacute;n II</a></li>
+									<li><a download href="<c:url value="/resources/document/mesa_04_ponencia_eje_globalización.pdf"/>">Mesa 04: Globalizaci&oacute;n</a></li>
+									<li><a download href="<c:url value="/resources/document/mesa_05_ponencia_eje_libertad_creencias_y_estado_laico.pdf"/>">Mesa 05: Estado Laico</a></li>
 								</ul>
-								-->
 							</div>
 						</div>
 					</div>
